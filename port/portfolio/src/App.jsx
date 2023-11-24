@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Proyectos from './Components/Proyectos'
 import styled from 'styled-components'
 import './App.css'
 import imagen from "../src/assets/yo.png"
+import { AOS } from 'aos'
+import "aos/dist/aos.css"
 
 const Head = styled.div`
 display: flex;
@@ -45,6 +47,7 @@ height:45%;
 `
 
 function App() {
+  useEffect()
 
   return (
     <>
