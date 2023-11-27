@@ -11,7 +11,7 @@ display: flex;
 flex-direction: column;
 justify-content: left;
 align-items: left;
-background-color: #9de020;
+background-color: #0d1302;
 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 color: green;
 h1 {
@@ -20,7 +20,7 @@ h1 {
   font-size: 20px;
   line-height: 56px;
   text-align: left;
-  color: #000000;
+  color: white;
 } 
 h2 {
   font-style: normal;
@@ -34,20 +34,21 @@ h2 {
 }
 p{
 margin-top: 30px;
-  background-color: #fae7e7;
+  background-color: #ffd700;
 margin-bottom: -px;
+color: white
 
 }
 ` 
 const Img = styled.img`
 position:absolute;
-width: 25%;
+width: 35%;
 align-self: flex-end;
-height:45%;
+height:50%;
 `
 
 function App() {
-  useEffect()
+
 
   return (
     <>

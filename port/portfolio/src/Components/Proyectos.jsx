@@ -36,18 +36,16 @@ const Proyectos = () => {
     
 <h3 style={{textAlign: "right", marginRight: "50px", fontFamily: "Roboto"}}>My Proyects</h3>
 <Contenedor>
-  <Card data-aos="fade-up"
-     data-aos-anchor-placement="center-center">
+  <Card
+  >
      <h4> Dogs App </h4>
      <img style={{width: "200px"}} src={dogs} alt="imagen"/>
      </Card>
-     <Card data-aos="fade-left"
-     data-aos-anchor-placement="center-center">
+     <Card >
         <h4>  Azul Lago </h4>
         <img style={{width: "200px"}} src={azul} alt="imagen"/>
         </Card>
-    <Card data-aos="fade-right"
-     data-aos-anchor-placement="center-center">
+    <Card >
     <h4>  Nido de Palabras </h4>
     <img style={{width: "200px"}} src={nido} alt="imagen"/>
     </Card>
