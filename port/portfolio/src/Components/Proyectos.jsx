@@ -5,16 +5,17 @@ import 'aos/dist/aos.css';
 import dogs from '../assets/dogs.png'
 import azul from '../assets/azul.png'
 import nido from '../assets/nido.png'
+import colores from './colores';
 
 const Contenedor = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-background-color: #F2F2F2;
+background-color: rgb(242, 242, 242, 0.3);
 ` 
 const Card = styled.div`
 height: auto;
-background-color: #ffd700;
+background-color: ${colores.amarillo};
 border-radius: 10px;
 box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.25);
 color: #f8f2f2;
@@ -23,8 +24,8 @@ font-size: small;
 margin: 1%;
 border: 8px solid black;
 &:hover{
-  background-color: black;
-  border-color: #ffd700;
+  background-color: ${colores.verde};
+  border-color: ${colores.amarillo};
   transition: 2s;
   
 }
@@ -75,22 +76,27 @@ const Proyectos = () => {
       
      
      </Card>
-     <Card data-aos="flip-left"
+<Card data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000">
-        <h4>  Azul Lago </h4>
-        <img  src={azul} alt="imagen"/>
-        <ul>
-          <li>Diseño UX/UI planeado y consistente en todas las rutas.</li>
-          <li>Filtros y ordenamientos combinados</li>
-          <li>Formulario controlado. Submit condicional.</li>
-          <li>Maneja diferentes estados de Redux.</li>
-          <li>Paginación, deploy y testing.</li>
-          <li>Código modularizado con responsabilidades bien definidas.</li>
-          <li>Sigue buenas prácticas de API Rest.</li>
-          <li> DB normalizada, validaciones y restricciones en modelos.</li>
-        </ul>
-        </Card>
+    <h4>  Azul Lago Coop</h4>
+    <img  src={azul} alt="imagen"/>
+    <ul>
+        <li>Sitio web responsivo</li>
+        <li>HTML5 y CSS3 válidos</li>
+        <li>Framework Bootstrap v5</li>
+        <li>Código 100% amigable para desarrolladores y SEO</li>
+        <li>Compatible con todos los navegadores web modernos</li>
+        <li>Navbar desplegable y amigable para móviles</li>
+        <li>Encabezado elegante y receptivo con carrusel</li>
+        <li>Animaciones al desplazarse por la página</li>
+        <li>Contador de números animado</li>
+        <li>Formulario de contacto</li>
+        <li>Mapa de Google</li>
+        <li>Fácil de usar</li>
+    </ul>
+</Card>
+<a href=""></a>
     <Card data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="3000">

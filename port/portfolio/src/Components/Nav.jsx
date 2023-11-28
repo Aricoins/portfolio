@@ -25,22 +25,22 @@ top: 100%;
 `
 
 const Botones = styled.button`
-border: ${colores.verde} solid 4px ;
-color:  ${colores.verde};
-background:  ${colores.azul};
-font-size: 14px;
-display: flex;
-justify-content: center;
-align-items: center;  
-align-content: center;
-margin: 2px;
-  border-radius: 0% 0% 0% 10%;
-  transition-duration: 0.5s;
-  z-index: 7;
-  padding: 0px;
-    transition-duration: 1s;
-    width: 100%;
-    cursor: pointer;
+    border: ${colores.verde} solid 4px ;
+    color:  ${colores.verde};
+    background:  ${colores.azul};
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    align-content: center;
+    margin: 2px;
+      border-radius: 0% 0% 0% 10%;
+      transition-duration: 0.5s;
+      z-index: 7;
+      padding: 0px;
+        transition-duration: 1s;
+        width: 100%;
+        cursor: pointer;
    :hover{
   width: 60%;
   cursor:pointer;

@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import Proyectos from './Components/Proyectos'
 import styled from 'styled-components'
+import head from "../src/assets/head.jpg"
 import './App.css'
-import imagen from "../src/assets/yo.png"
+import imagen from "../src/assets/yo.png";
 import  AOS  from 'aos'
 import "aos/dist/aos.css"
 import CreateDog from './Components/Contacto'
 import { BrowserRouter as Router } from 'react-router-dom';
 import About from './Components/about'
+import colores from './Components/colores'
 
 const Head = styled.div`
 margin-top: 1%;
@@ -15,11 +17,13 @@ display: flex;
 flex-direction: column;
 justify-content: left;
 align-items: left;
-background-color: #080c01;
+background-color:${colores.verde};
 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 color: green;
 border-radius: 5%;
 height: 200px;
+padding: 8%;
+margin-top: 5%;
 h1 {
   font-style: normal;
   font-weight: bold;
@@ -47,10 +51,18 @@ color: white
 }
 ` 
 const Img = styled.img`
-position:absolute;
-width: 25%;
-align-self: flex-end;
-height: 200px;
+position: absolute;
+width: 40%;
+display: flex;
+top: 0;
+right: 1%;
+`
+const Img2 = styled.img`
+width: 100%;
+display: flex;
+align-tracks: left;
+height: auto;
+z-index: -1;
 `
 
 function App() {
@@ -60,15 +72,20 @@ function App() {
 
   return (
     <><Router>
+
       <Head data-aos="fade-up">
+      <Img src={imagen} alt="yo" />
         <h1>Ariel G. Rogel</h1>
-        <Img src={imagen} alt="yo" />
+     
         <h2>FULL STACK DEVELOPER</h2>
-        <p style={{marginBottom: "-60px"}}>CSS | HTML | React | Redux | Express | Sequelize | Postgress | MySQL</p>
+        <p style={{marginBottom: "-60px"}}>CSS | HTML | React | Redux | Express | Sequelize | PostgreSQL </p>
         </Head>
-      
+    <h2 style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left" >  My Projects </h2>
         <Proyectos/>
+     <h2  style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left"> Tecnologías  </h2>
+     <Img2 src="../src/assets/dev.gif" alt="" />
 <About/>
+<h2  style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left"> Contacto </h2>
 <CreateDog />
 </Router>
     </>
