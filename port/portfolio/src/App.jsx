@@ -22,7 +22,7 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
 color: green;
 border-radius: 5%;
 height: 200px;
-padding: 8%;
+padding: 5%;
 margin-top: 5%;
 h1 {
   font-style: normal;
@@ -44,7 +44,7 @@ h2 {
 }
 p{
 margin-top: 30px;
-  background-color: #ffd700;
+  background-color: ${colores.amarillo};
 
 color: white
 
@@ -52,7 +52,7 @@ color: white
 ` 
 const Img = styled.img`
 position: absolute;
-width: 40%;
+width: 34%;
 display: flex;
 top: 0;
 right: 1%;

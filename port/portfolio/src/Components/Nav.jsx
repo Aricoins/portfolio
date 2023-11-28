@@ -9,7 +9,7 @@ const Navigator= styled.div`
 top: 0%;
    width:100%;
    left: 0%;
-   height: 11%;
+   height: 9%;
 background-color: ${colores.amarillo};
 
 opacity: 1;
