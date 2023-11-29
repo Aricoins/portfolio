@@ -52,19 +52,27 @@ color: white
 ` 
 const Img = styled.img`
 position: absolute;
-width: 34%;
+width: 33%;
 display: flex;
 top: 0;
 right: 1%;
 `
 const Img2 = styled.img`
-width: 100%;
+width: 800px;
 display: flex;
 align-tracks: left;
-height: auto;
+height: 750px;
 z-index: -1;
 `
-
+const Content = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+width: 100%;
+height: 100%;
+margin-top: 5%;
+`
 function App() {
   useEffect(() => {
     AOS.init();
@@ -83,8 +91,9 @@ function App() {
     <h2 style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left" >  My Projects </h2>
         <Proyectos/>
      <h2  style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left"> Tecnologías  </h2>
-     <Img2 src="../src/assets/dev.gif" alt="" />
+   <Content>  <Img2 src="../src/assets/dev.gif" alt="" />
 <About/>
+</Content>
 <h2  style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left"> Contacto </h2>
 <CreateDog />
 </Router>

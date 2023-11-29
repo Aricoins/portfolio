@@ -8,13 +8,11 @@ import "aos/dist/aos.css"
 
 const Contenedor = styled.div`
 background-color: ${colores.verde};
-opacity: 0.9;
-width: 80%;
+width: 50%;
 padding: 2%;
-border-radius: 3%;
 text-align: center;
 display: flex;
-color: black;
+color: ${colores.azul};
 margin: auto;
 margin-top:10%;
 margin-bottom: 10%;
@@ -36,7 +34,6 @@ background-color:${colores.amarillo};
 display: flex;
 flex-direction: column ;
 justify-content: center;
-box-shadow: 0em 0em 2em 0.5em;
 border-radius: 1em;
 align-self: center;
 align-items: center;
@@ -44,7 +41,7 @@ align-content: center;
 width: 80%;
 margin: auto;
 @media only screen and (max-width : 600px) {
-border-color: ${colores.amarillo};
+border-color:  ${colores.amarillo};
 margin-top: 30%;
  border: 20%;
  display: grid;
@@ -59,16 +56,17 @@ width: 40%;
 height: 40%;
 display:flex;
 opacity: 1;
-margin: 0;
+margin: 1%;
 `
 const Estilo = styled.span`
-  background-color: ${colores.marron};
+background-color: ${colores.verde};
   opacity: 0.8;
-  width: 86%;
+  width: 50%;
   color: ${colores.black}; 
   text-align: justify;
   margin-top: 3%;
   padding: 5%;
+  align-: right;
   `
 const H2= styled.h2`
  
@@ -109,17 +107,14 @@ function About (){
     return(<>
 <Contenedor data-aos="fade-down">
 <Bloque>
-     <H2>Acerca de mi</H2>   
+     <H2>¡Hola!</H2>   
      <Imagen  alt="logo"/>
        <Estilo >   
-       Full Stack Developer con más de 10 años como data manager especializado en gestión documental  y diseño organizacional. Background en gestión de recursos humanos, creación y edición de contenidos y community manager. Con conocimientos en metodologías ágiles, GIT, estructura de datos, algoritmos, Express, Sequelize, PostgreSQL y NodeJS. 
-Pasión por el desarrollo web y la gestión de datos. Alto nivel de compromiso y persistencia en la búsqueda de soluciones.  
+       Soy Full Stack Developer con experiencia en bases de datos, gestión documental  y diseño organizacional. Con conocimientos en metodologías ágiles, GIT, estructura de datos, algoritmos, Express, Sequelize, PostgreSQL y NodeJS. 
+Disfruto el diseño, el desarrollo web y la gestión de datos. 
 <br/>
        </Estilo>
-       <p style={{justifyContent: "right", textDecoration: "none", 
-       cursor: "pointer" }}> <Link to="https://aegres.netlify.app/"> Ariel G Rogel <br/>
-       Full Stack Developer</Link></p> 
-       <Tecnologias>
+ <Tecnologias data-aos= "fade-left">
           <h3>   Con Javascript, CSS, HTML, React, Router, Redux, 
          <br/> Express, Postgress, Sequelize & MySQL</h3>
         <div style={{ backgroundColor: colores.amarillo, padding: "2%", display:"flex", justifyContent: "space-between"}}>
@@ -136,8 +131,6 @@ Pasión por el desarrollo web y la gestión de datos. Alto nivel de compromiso y
                                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXL2L5LWSonB-AZD4D_5GxZBbew3jbUoZ9yVN8fFBttOXljVlGA3SnGm5pVY2s9DK4tv0&usqp=CAU" alt="Logo de Redux" width="50px" /> </div>
     </Tecnologias>
     </Bloque>
-    
- 
     </Contenedor>
     <Nav/>
     </>
