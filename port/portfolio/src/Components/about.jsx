@@ -65,7 +65,7 @@ const Estilo = styled.span`
   background-color: ${colores.marron};
   opacity: 0.8;
   width: 86%;
-  color: ${colores.azul}; 
+  color: ${colores.black}; 
   text-align: justify;
   margin-top: 3%;
   padding: 5%;
@@ -112,9 +112,9 @@ function About (){
      <H2>Acerca de mi</H2>   
      <Imagen  alt="logo"/>
        <Estilo >   
-       Desarrollé esta <i>single page application </i> como proyecto individual en mi aprendizaje de Full Stack Developer. 
-       Acá se integran los principales lenguajes y tecnologías que me permiten programar bases de datos relacionales,
-       servidores web, sitios y aplicaciones de vanguardia. <br/>
+       Full Stack Developer con más de 10 años como data manager especializado en gestión documental  y diseño organizacional. Background en gestión de recursos humanos, creación y edición de contenidos y community manager. Con conocimientos en metodologías ágiles, GIT, estructura de datos, algoritmos, Express, Sequelize, PostgreSQL y NodeJS. 
+Pasión por el desarrollo web y la gestión de datos. Alto nivel de compromiso y persistencia en la búsqueda de soluciones.  
+<br/>
        </Estilo>
        <p style={{justifyContent: "right", textDecoration: "none", 
        cursor: "pointer" }}> <Link to="https://aegres.netlify.app/"> Ariel G Rogel <br/>
