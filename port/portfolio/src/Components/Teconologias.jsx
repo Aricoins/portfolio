@@ -10,18 +10,13 @@ import "aos/dist/aos.css"
 const Tecnologi = styled.div`
 position: relative; 
     background-color: rgb(4, 79, 72, .6);
-    width: 800px;
+    width: 100%;
     height: 10%;
   opacity: 0.9;
   text-align: center;
-  color: ${colores.black};
+  color: ${colores.white};
   padding: 2%;
-  /*font-size: 80%;
-  padding: 2%;
-  align-items: center;*/
-left: 0;
-right: 80%
-`
+  `
 const Tecnologias = () => {
 
     useEffect(() => {
@@ -29,7 +24,8 @@ const Tecnologias = () => {
       }, []);
     return( 
 
-<Tecnologi data-aos= "fade-left">
+<Tecnologi style={{color: "white"}}
+data-aos= "fade-left">
           <h3>   Con Javascript, CSS, HTML, React, Router, Redux, 
          <br/> Express, Postgress, Sequelize & MySQL</h3>
         <div style={{ backgroundColor: colores.amarillo, padding: "2%", display:"flex", justifyContent: "space-between"}}>
