@@ -7,7 +7,8 @@ import AOS from "aos";
 import "aos/dist/aos.css"
 
 const Contenedor = styled.div`
-background-color: ${colores.verde};
+background-color: ${colores.amarillo};
+opacity: 0.2;
 width: 50%;
 padding: 2%;
 text-align: center;
@@ -30,7 +31,7 @@ margin-top: 80%;
 `
 const Bloque= styled.div`
 margin-top: 2%;
-background-color:${colores.amarillo};
+background-color:${colores.black};
 display: flex;
 flex-direction: column ;
 justify-content: center;
@@ -60,7 +61,7 @@ margin: 1%;
 `
 const Estilo = styled.span`
 background-color: ${colores.verde};
-  opacity: 0.8;
+  opacity: 0.6;
   width: 50%;
   color: ${colores.black}; 
   text-align: justify;
@@ -80,22 +81,19 @@ color:  ${colores.verde}; ;
 `
 
 const Tecnologias = styled.div`
-      flex-direction: column; 
-    background-color: rgb(4, 79, 72, .8);
+position: relative; 
+    background-color: rgb(4, 79, 72, .6);
     width: 800px;
-    height: 90%;
+    height: 10%;
   opacity: 0.9;
   text-align: center;
-  color: ${colores.amarillo};
+  color: ${colores.black};
   padding: 2%;
   /*font-size: 80%;
   padding: 2%;
   align-items: center;*/
-  margin-bottom: 20%;
-    display: flex;
-  justify-content:center;
-align-content: center;
-margin-top: 5%;
+left: 0;
+right: 80%
 `
 
 function About (){
