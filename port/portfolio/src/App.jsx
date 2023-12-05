@@ -91,7 +91,7 @@ function App() {
     <h2 style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left" >  My Projects </h2>
         <Proyectos/>
      <h2  style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left"> Tecnologías  </h2>
-   <Content>  <Img2 src="../src/assets/dev.gif" alt="" />
+   <Content>  <Img2 src="https://camo.githubusercontent.com/c1dcb74cc1c1835b1d716f5051499a2814c683c806b15f04b0eba492863703e9/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f3733303730332f73637265656e73686f74732f363538313234332f6176656e746f2e676966" alt="" />
 <About/>
 </Content>
 <h2  style={{fontSize:"20px", backgroundColor: 'white'}} data-aos="fade-left"> Contacto </h2>
