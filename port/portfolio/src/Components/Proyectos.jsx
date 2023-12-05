@@ -55,10 +55,10 @@ const Proyectos = () => {
   }, []);
   
   return (<>
-    
-<h3 style={{textAlign: "right", marginRight: "50px", fontFamily: "Roboto"}}>My Proyects</h3>
 <Contenedor>
-  <Card data-aos="flip-left"
+  <a href="https://nuevamascota.vercel.app/" target='_blank' >
+  <Card 
+  data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="1500">
      <h4> Dogs App </h4>
@@ -73,9 +73,9 @@ const Proyectos = () => {
           <li>Sigue buenas prácticas de API Rest.</li>
           <li> DB normalizada, validaciones y restricciones en modelos.</li>
         </ul>
-      
-     
-     </Card>
+     </Card></a>
+     <a href="https://azullago.netlify.app/" target='_blank'
+      >
 <Card data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000">
@@ -95,8 +95,9 @@ const Proyectos = () => {
         <li>Mapa de Google</li>
         <li>Fácil de usar</li>
     </ul>
-</Card>
-<a href=""></a>
+</Card> </a>
+
+<a href="https://nidodepalabras.netlify.app/" target='_blank'>
     <Card data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="3000">
@@ -113,7 +114,7 @@ const Proyectos = () => {
           <li> DB normalizada, validaciones y restricciones en modelos.</li>
         </ul>
       
-    </Card>
+    </Card></a>
     </Contenedor>
     </>
   )
