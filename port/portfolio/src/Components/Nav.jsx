@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components';
 import colores from './colores'
+import pdf from "../assets/cv.pdf"
 
 const Navigator= styled.div`
  position: fixed;
@@ -97,13 +98,27 @@ color: ${colores.marron}; }
 
 export default function Nav (props){
 
+function scroll (e){
+  e.preventDefault()
+  window.scroll(0, 1100)
+}
+function scrollF (e){
+  e.preventDefault()
+  window.scroll(0, 4100)
+}
+function scrollO (e){
+  e.preventDefault()
+  window.scroll(0, 0)
+}
     return(
         <>
       
         <Navigator>
-       <StyledLink to="/home"> <Botones> Inicio </Botones> </StyledLink>
-       <StyledLink to="/form"> <Botones> Proyectos </Botones> </StyledLink>
-       <StyledLink to="/about"> <Botones> Redes </Botones> </StyledLink>
+
+       <StyledLink to="/home"> <Botones onClick= {scrollO}> Inicio </Botones> </StyledLink>
+       <StyledLink to="/form"> <Botones onClick= {scroll}> Proyectos </Botones> </StyledLink>
+       <StyledLink to="/about"> <Botones onClick= {scrollF} > Redes </Botones> </StyledLink>
+       <a href={pdf} download="cv.pdf"><button style={{width: "300px"}}>Mi CV</button></a>
        </Navigator>
      </>
               )

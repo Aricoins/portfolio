@@ -55,7 +55,7 @@ margin-top: 30%;
 const Estilo = styled.span`
 background-color: ${colores.verde};
   opacity: 0.6;
-  width: 50%;
+  width: 80%;
   color: ${colores.black}; 
   text-align: justify;
   margin-top: 3%;
@@ -82,13 +82,13 @@ function About (){
       }, []);
 
     return(<>
-<Contenedor data-aos="fade-down">
+<Contenedor data-aos="fade-left">
 <Bloque>
      <H2>¡Hola!</H2>   
        <Estilo >   
-       Soy Full Stack Developer con experiencia en bases de datos, gestión documental  y diseño organizacional. Con conocimientos en metodologías ágiles, GIT, estructura de datos, algoritmos, Express, Sequelize, PostgreSQL y NodeJS. 
-Disfruto el diseño, el desarrollo web y la gestión de datos. 
-<br/>
+      Mi nombre es Ariel y soy Full Stack Developer con experiencia en bases de datos, gestión documental  y diseño organizacional. <br/>
+      Tengo conocimientos en metodologías ágiles, GIT flow, estructura de datos, algoritmos y diseño de servidores con ExpressJS, Sequelize, PostgreSQL y NodeJS. 
+ Estoy permanentemente incoporando nuevas herramientas. <br/> Disfruto el diseño web con Styled-Components, Bootstrap y Tailwind CSS, el desarrollo front end con ReactJS, Vite y NextJS y la gestión y puesta en valor de datos. <br/>
        </Estilo>
     </Bloque>
     </Contenedor>
