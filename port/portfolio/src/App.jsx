@@ -15,21 +15,41 @@ import Foot from './Components/Foot'
 
 
 const Img2 = styled.img`
-width: 50%;
-display: flex;
-align-tracks: left;
-height: 50%;
-z-index: -1;
-`
+  width: 50%;
+  display: flex;
+  align-tracks: left;
+  height: 50%;
+  z-index: -1;
+
+  @media (max-width: 300px) {
+    width: 100%;
+    height: auto;
+  }
+`;
+
 const Content = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-items: center;
-width: 100%;
-height: 100%;
-margin-top: 1%;
-`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 1%;
+
+  @media (max-width: 300px) {
+    flex-direction: column;
+  }
+`;
+
+h2 {
+  font-size: 20px;
+  background-color: white;
+
+  @media (max-width: 300px) {
+    font-size: 16px;
+  }
+`;
+
 function App() {
   useEffect(() => {
     AOS.init();
