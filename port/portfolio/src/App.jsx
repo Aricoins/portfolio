@@ -62,8 +62,9 @@ function App() {
       <Contacto />
  
 
-      </Router>
       <Foot/>
+        
+      </Router>
     </>
   )
 }
