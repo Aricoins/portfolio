@@ -12,7 +12,12 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 background-color: rgb(242, 242, 242, 0.3);
-` 
+  @media (max-width: 600px) {
+    flex-direction: column;
+    width: 80%;
+  }
+`;
+ 
 const Card = styled.div`
 height: auto;
 background-color: ${colores.amarillo};
@@ -39,7 +44,6 @@ p {
   color: #000000;
 }
 ul{
-
   list-style-type: none
 }
 img{

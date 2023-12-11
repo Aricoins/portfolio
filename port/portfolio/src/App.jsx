@@ -41,14 +41,7 @@ const Content = styled.div`
   }
 `;
 
-h2 {
-  font-size: 20px;
-  background-color: white;
 
-  @media (max-width: 300px) {
-    font-size: 16px;
-  }
-`;
 
 function App() {
   useEffect(() => {
