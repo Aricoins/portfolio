@@ -6,21 +6,6 @@ import axios from 'axios'; // Importamos Axios para realizar la solicitud HTTP
 import colores from './colores';
 import Nav from './Nav';
 
-// Estilos para los mensajes de validación
-const styles = {
-  bien: {
-    fontSize: "0.8em",
-    color: "white",
-    backgroundColor: "#31c253",
-    justifyContent: "center",
-  },
-  mal: {
-    fontSize: "0.8em",
-    color: "white",
-    backgroundColor: "#fb0a7a",
-    justifyContent: "center",
-  },
-}
 
 // Estilos para el contenedor principal
 const Caja = styled.div`
@@ -36,25 +21,6 @@ const Caja = styled.div`
   flex-direction: column;
   gap: 10px;
   margin-bottom: 10%;
-
-  h1 {
-    color: ${colores.verde}; 
-  }
-
-  p {
-    background-color: #ff006a;
-    font-size: large;
-    color: white;
-  }
-
-  label {
-    font-weight: bold;
-    width: 100%;
-    height: 100%;
- h1{
-  font-size: 10px
- }
- 
     @media (max-width: 600px) {
     flex-direction: column;
      
@@ -83,10 +49,6 @@ const Boton = styled.button`
   }
 `
 
-// Función de validación del formulario
-const validation = (form, setErrors, errors) => {
-  // Validaciones...
-}
 
 // Componente principal
 const Contacto = () => {
@@ -98,7 +60,7 @@ const Contacto = () => {
   return (
     <>
       <Caja data-aos="fade-up">
-               <iframe height="400vh" src="https://docs.google.com/forms/d/e/1FAIpQLSfTbWLso0fsjkZmLKt2fplNL8y1sbIK4ndfh7R5q5XFrzRIQQ/viewform?embedded=true" frameborder="0" width="120%" marginheight="50px" marginwidth="0">Cargando…</iframe>
+               <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfTbWLso0fsjkZmLKt2fplNL8y1sbIK4ndfh7R5q5XFrzRIQQ/viewform?embedded=true" frameborder="0" >Cargando…</iframe>
         </Caja>        
         </>   )  ;
 }
