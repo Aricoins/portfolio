@@ -51,45 +51,16 @@ const Caja = styled.div`
     font-weight: bold;
     width: 100%;
     height: 100%;
+ h1{
+  font-size: 10px
+ }
+ 
     @media (max-width: 600px) {
     flex-direction: column;
+     
+  }
+
     
-  }
-  input,
-  textarea {
-    width: 100%;
-  }
-
-  button {
-    background-color: ${colores.verde};
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: ${colores.gris};
-
-    &:hover {
-      background-color: ${colores.marron};
-    }
-    
-  
-  }
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      color: #dc3545;
-      font-weight: bold;
-    }
-
-    span {
-      font-size: 12px;
-    }
-  }
 `;
 
 // Estilos para el botón
@@ -127,8 +98,7 @@ const Contacto = () => {
   return (
     <>
       <Caja data-aos="fade-up">
-        <h1>Contactame</h1>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfTbWLso0fsjkZmLKt2fplNL8y1sbIK4ndfh7R5q5XFrzRIQQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+               <iframe height="400vh" src="https://docs.google.com/forms/d/e/1FAIpQLSfTbWLso0fsjkZmLKt2fplNL8y1sbIK4ndfh7R5q5XFrzRIQQ/viewform?embedded=true" frameborder="0" width="120%" marginheight="50px" marginwidth="0">Cargando…</iframe>
         </Caja>        
         </>   )  ;
 }

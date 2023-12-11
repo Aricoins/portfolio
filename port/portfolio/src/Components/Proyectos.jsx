@@ -17,6 +17,11 @@ background-color: rgb(242, 242, 242, 0.3);
     width: 90%;
   
   }
+  @media (max-width: 400px) {
+    flex-direction: column;
+    width: 100%;
+  
+  }
 `;
  
 const Card = styled.div`
