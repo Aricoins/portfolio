@@ -16,12 +16,12 @@ import Contacto from "./Components/Contacto.jsx"
 
 
 const Img2 = styled.img`
-width: 60%;
+width: 50%;
   height: 100%;
   z-index: -1;
   flex-direction: row;
-  @media (max-width: 300px) {
-    width: 60%;
+  @media (max-width: 800px) {
+    width: 90%;
     height: auto;
     flex-direction: column;
   }
@@ -35,7 +35,7 @@ const Content = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 1%;
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     flex-direction: column;
       }
 `;
