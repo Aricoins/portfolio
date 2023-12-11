@@ -101,9 +101,7 @@ const Proyectos = () => {
         <li>Encabezado elegante y receptivo con carrusel</li>
         <li>Animaciones al desplazarse por la página</li>
         <li>Contador de números animado</li>
-        <li>Formulario de contacto</li>
         <li>Mapa de Google</li>
-        <li>Fácil de usar</li>
     </ul>
 </Card> </a>
 
@@ -114,15 +112,14 @@ const Proyectos = () => {
     <h4>  Nido de Palabras </h4>
     <img style={{width: "200px"}} src={nido} alt="imagen"/>
     <ul>
-          <li>Diseño UX/UI planeado y consistente en todas las rutas.</li>
-          <li>Filtros y ordenamientos combinados</li>
-          <li>Formulario controlado. Submit condicional.</li>
-          <li>Maneja diferentes estados de Redux.</li>
-          <li>Paginación, deploy y testing.</li>
-          <li>Código modularizado con responsabilidades bien definidas.</li>
-          <li>Sigue buenas prácticas de API Rest.</li>
-          <li> DB normalizada, validaciones y restricciones en modelos.</li>
-        </ul>
+          <li>Migración de Wordpress a ReactJS </li>
+          <li>Creación de contenidos</li>
+          <li>Animacion web con Styled-Components y Javascript </li>
+          <li> Randerizado condicional y loading </li>
+          <li> Navbar dinámica </li>
+          <li>Sitio en construcción</li>
+
+           </ul>
       
     </Card></a>
     </Contenedor>

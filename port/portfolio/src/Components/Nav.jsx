@@ -97,7 +97,7 @@ export default function Nav (props){
 
 function scroll (e){
   e.preventDefault()
-  window.scroll(0, 1100)
+  window.scroll(0, 900)
 }
 function scrollF (e){
   e.preventDefault()
