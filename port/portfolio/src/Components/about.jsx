@@ -9,17 +9,17 @@ import "aos/dist/aos.css"
 const Contenedor = styled.div`
 background-color: ${colores.amarillo};
 opacity: 0.2;
-width: 80%;
+width: 60%;
 padding: 2%;
 text-align: center;
 display: flex;
 color: ${colores.azul};
 margin: auto;
-margin-top:10%;
 margin-bottom: 10%;
 font-family: 'Roboto', sans-serif;
- @media only screen and (max-width : 400px) {
-  width: 80%;
+ @media only screen and (max-width : 600px) {
+ flex-direction: column;
+ width: 90%
  } 
 `
 const Bloque= styled.div`
@@ -36,7 +36,8 @@ width: 80%;
 margin: auto;
 @media only screen and (max-width : 600px) {
   width: 80%;
- }`;
+ flex-direction: column;
+ } `;
 
 const Estilo = styled.span`
 background-color: ${colores.verde};
@@ -47,6 +48,10 @@ text-align: justify;
 margin-top: 3%;
 padding: 5%;
 align-: right;
+@media only screen and (max-width : 600px) {
+  width: 80%;
+  flex-direction: column;
+ } 
 `
 const H2= styled.h2`
 color:  ${colores.marron}; 

@@ -24,11 +24,11 @@ const styles = {
 
 // Estilos para el contenedor principal
 const Caja = styled.div`
-  margin-top: 5%;
+  margin-top: 2%;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  padding: 5%;
+  padding: 2%;
   background-color: ${colores.amarillo};
   border-radius: 8px;
   box-shadow: 0 0 10px ${colores.verde};
@@ -50,8 +50,11 @@ const Caja = styled.div`
   label {
     font-weight: bold;
     width: 100%;
+    height: 100%;
+    @media (max-width: 600px) {
+    flex-direction: column;
+    
   }
-
   input,
   textarea {
     width: 100%;
@@ -69,6 +72,9 @@ const Caja = styled.div`
     &:hover {
       background-color: ${colores.marron};
     }
+    
+  
+  }
   }
 
   ul {
@@ -97,6 +103,7 @@ const Boton = styled.button`
   color: ${colores.gris};
   width: 100%;
   font-size: large;
+  
 
   &:hover {
     background-color: ${colores.marron};
@@ -111,71 +118,10 @@ const validation = (form, setErrors, errors) => {
 }
 
 // Componente principal
-const Comentario = () => {
+const Contacto = () => {
   useEffect(() => {
     AOS.init()
   }, []);
-
-  const [form, setForm] = useState({
-    nombre: "",
-    comentario: "",
-  });
-
-  const [errors, setErrors] = useState({
-    nombre: "",
-    comentario: "",
-  });
-
-  // Manejar cambios en los campos del formulario
-  const handleChange = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
-
-    setForm((prevForm) => {
-      const updatedForm = { ...prevForm, [property]: value };
-      validation(updatedForm, (newErrors) => setErrors(newErrors), errors);
-      return updatedForm;
-    });
-  };
-
-  // Manejar envío del formulario
- // Función para manejar el envío del formulario
- const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  validation(form, (newErrors) => setErrors(newErrors), errors);
-
-  const hasErrors = Object.values(errors).some((error) => error !== "");
-
-  if (!hasErrors) {
-    try {
-      const { nombre, comentario } = form;
-
-      // Enviar el formulario al servidor Express
-      const response = await axios.post('http://localhost:3001/enviar-correo', {
-        nombre,
-        comentario,
-        correoDestino: 'arielgarcia79@gmail.com', // Reemplaza con tu dirección de correo destino
-      });
-
-      // Limpiar el formulario después de enviar
-      const resetForm = () =>
-        setForm({
-          nombre: "",
-          comentario: "",
-        });
-      resetForm();
-
-      // Mostrar mensaje de éxito
-      alert(response.data.message);
-    } catch (error) {
-      console.error("Error al enviar el comentario:", error);
-      alert("Hubo un error al enviar el comentario.", error);
-    }
-  } else {
-    alert("Por favor, corrige los errores antes de enviar el formulario.");
-  }
-};
   
 
   return (
@@ -186,4 +132,4 @@ const Comentario = () => {
         </Caja>        
         </>   )  ;
 }
-export default Comentario;
+export default Contacto;

@@ -10,7 +10,7 @@ import "aos/dist/aos.css"
 const Tecnologi = styled.div`
 position: relative; 
     background-color: rgb(4, 79, 72, .6);
-    width: 100%;
+    width: 90%;
     height: 10%;
   opacity: 0.9;
   text-align: center;
