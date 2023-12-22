@@ -16,6 +16,10 @@ position: relative;
   text-align: center;
   color: ${colores.white};
   padding: 2%;
+  background-color: ${colores.amarillo };
+  padding: "2%";
+   display:"flex";
+   justify-content: "space-between"
   `
 const Tecnologias = () => {
 
@@ -28,7 +32,7 @@ const Tecnologias = () => {
 data-aos= "fade-left">
           <h3>   Con Javascript, CSS, HTML, React, Router, Redux, 
          <br/> Express, Postgress, Sequelize & MySQL</h3>
-        <div style={{ backgroundColor: colores.amarillo, padding: "2%", display:"flex", justifyContent: "space-between"}}>
+        <div>
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Logo de JavaScript" width="50px" />
       <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="Logo de CSS" width="50px" />
       <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="Logo de HTML5" width="50px" />

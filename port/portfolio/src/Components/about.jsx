@@ -8,9 +8,9 @@ import "aos/dist/aos.css"
 
 const Contenedor = styled.div`
 background-color: ${colores.amarillo};
-opacity: 0.2;
-width: 30%;
-height: 40%,
+opacity: 0.9;
+width: 50%;
+height: 40%;
 padding: 2%;
 text-align: center;
 display: flex;
@@ -46,7 +46,7 @@ color: ${colores.black};
 text-align: justify;
 margin-top: 3%;
 padding: 5%;
-align-: right;
+
 @media only screen and (max-width : 600px) {
   width: 80%;
   flex-direction: column;
