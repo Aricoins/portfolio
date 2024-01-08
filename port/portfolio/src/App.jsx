@@ -12,6 +12,7 @@ import colores from './Components/colores'
 import Tecnologias from './Components/Teconologias'
 import Foot from './Components/Foot'
 import Contacto from "./Components/Contacto.jsx"
+import gif from "../../portfolio/public/source.gif"
 
 
 
@@ -50,7 +51,7 @@ function App() {
       <Router>
       <img  data-aos="fade-up" style={{width: "100%", marginTop: "3%"}} src={head} alt="head" />
       <Content> 
-      <Img2 data-aos="fade-right" src="https://giphy.com/gifs/dommespace-domme-space-programador-qgQUggAC3Pfv687qPC" alt="devimg" />
+      <Img2 data-aos="fade-right"  src={gif} alt="devimg" /> 
       <About />
 
       </Content>
