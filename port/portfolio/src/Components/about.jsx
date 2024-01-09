@@ -17,6 +17,7 @@ display: flex;
 color: ${colores.azul};
 margin: auto;
 margin-bottom: 1%;
+margin-top: 2%;
 font-family: 'Roboto', sans-serif;
  @media only screen and (max-width : 600px) {
  flex-direction: column;

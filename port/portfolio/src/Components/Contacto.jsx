@@ -35,11 +35,11 @@ const Contenedor = styled.div`
      align-self: center;
     `
     const Button = styled.button`
-    width: 10%;
+    width: 40%;
     height: 8vh;
     margin-left: 2%;
     margin-bottom: 2%;
-    background-color: #003140;
+    background-color: rgb(4, 79, 72);
     color: white;
     border: 1px solid white;
     align-self: center;
@@ -56,6 +56,18 @@ const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
+  const [error, setError] = useState('');
+
+const validation = () => {
+  if (name === ""){
+    setError("Por favor ingrese su nombre")
+  }
+  if(email === "/^[\w-]+(\.[\w-]+)*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/"){
+    setError("Por favor ingrese un email valido")
+  }
+  
+}
+
 
 
 useEffect(() => {
@@ -63,7 +75,7 @@ useEffect(() => {
 }
 , []);
 
-
+  
   // Define a function to handle form submission
   const handleFormSubmit = () => {
     // Create a mailto link with the form data
@@ -85,6 +97,7 @@ useEffect(() => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+   
 
       {/* Input field for Email */}
       < Label htmlFor="email">Email:</ Label>
@@ -102,7 +115,7 @@ useEffect(() => {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-
+    {error && <p style={{ color: 'red' }}>{error}</p>}
       {/* Submit button with an onClick handler */}
       <Button onClick={handleFormSubmit}>Enviar</Button>
     </Contenedor>
