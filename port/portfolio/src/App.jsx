@@ -14,8 +14,6 @@ import Foot from './Components/Foot'
 import Contacto from "./Components/Contacto.jsx"
 import gif from "../../portfolio/public/source.gif"
 
-
-
 const Img2 = styled.img`
 width: 50%;
   height: 100%;
