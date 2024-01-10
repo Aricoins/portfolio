@@ -17,7 +17,7 @@ const Contenedor = styled.footer`
     `
 
 const Img = styled.img`
-width: 150px;
+width: 100px;
 
 @media (max-width: 600px) {
     width: 50px;
@@ -48,24 +48,44 @@ export default function Foot (props){
     return(
         <>
         <Contenedor>
+      
         <figure> 
         <img src={favicon} alt="icono" style={{width:"50%", borderRadius: "50%"}} /> 
-        <figcaption style={{color: "white", margin: "2%"}}>Ariel G Rogel </figcaption>
+        <figcaption style={{color: "white", 
+                    margin: "1%"}}>
+                      Ariel G Rogel 
+                      </figcaption>
         </figure>
-        <span style={{color: "white", margin: "2%", flexDirection: "column"}}>© 2024 - All right reserved </span>
-              
+               
         <Ancla href="https://www.linkedin.com/in/aegr/" >
+       <figure>
         <Img 
         src={linkedin} 
         alt="devimg"
          /> 
+         <figcaption > Linkedin</figcaption>
+         </figure>
         </Ancla>
 
    
          <Ancla href="https://github.com/Aricoins">
+            <figure>
             <Img 
         src={github}  alt="devimg"
-         /></Ancla>
+         />
+         <figcaption>GitHub</figcaption>
+         </figure>
+         
+         </Ancla>
+   <span style={{
+    color: "white", 
+    alignSelf: "start", 
+    transform: "rotate(90deg)",
+    marginTop: "7%",
+    marginRight: "-5%", 
+    fontSize: "small",
+    flexDirection: "column"}}>© 2024 - All right reserved </span>
+      
        </Contenedor>
    
      </>
