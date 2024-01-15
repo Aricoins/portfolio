@@ -25,7 +25,7 @@ background-color: rgb(242, 242, 242, 0.3);
 `;
  
 const Card = styled.div`
-height: auto;
+
 background-color: ${colores.amarillo};
 border-radius: 10px;
 box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.25);
@@ -105,21 +105,25 @@ const Proyectos = () => {
     </ul>
 </Card> </a>
 
-<a href="https://nidodepalabras.netlify.app/" target='_blank'>
+<a href="https://ecommerce-pf-henry-grupo7.vercel.app/" target='_blank'>
     <Card data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="3000">
-    <h4>  Nido de Palabras </h4>
+    <h4>  Codewave Central </h4>
     <img style={{width: "200px"}} src={nido} alt="imagen"/>
     <ul>
-          <li>Migración de Wordpress a ReactJS </li>
-          <li>Creación de contenidos</li>
-          <li>Animacion web con Styled-Components y Javascript </li>
-          <li> Randerizado condicional y loading </li>
-          <li> Navbar dinámica </li>
-          <li>Sitio en construcción</li>
+  <li>Carpetas organizadas y claras.</li>
+  <li>TypeScript para seguridad y legibilidad.</li>
+  <li>Next.js para sitios estáticos y SSR.</li>
+  <li>Optimización de imágenes con <code> next-cloudinary & next/image</code>.</li>
+  <li>Manejo de estado predictible con Redux.</li>
+  <li>Estilos eficientes con Tailwind CSS.</li>
+  <li>Detección de problemas y estilo consistente con ESLint.</li>
+  <li>Compatibilidad y eficiencia mejoradas con PostCSS.</li>
+  <li>Scripts personalizados para automatización.</li>
+</ul>
 
-           </ul>
+
       
     </Card></a>
     </Contenedor>

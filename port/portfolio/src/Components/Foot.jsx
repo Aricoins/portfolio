@@ -14,15 +14,31 @@ const Contenedor = styled.footer`
     display: flex;
     flex-direction: row;
     align-items: center;
+    @media (max-width: 600px) {
+        flex-direction: column;
+        justify-content: center;
+       }
     `
+  const Span = styled.span`
+  color: white;
+  align-self: start;
+  transform: rotate(90deg);
+  margin-top: 7%;
+  margin-right: -5%;
+  font-size: small;
+  @media (max-width: 600px) {
+    transform: rotate(0deg);
+    font-size: x-small;
+    align-self: center;
+  }
+`;
+
 
 const Img = styled.img`
 width: 100px;
-
 @media (max-width: 600px) {
-    width: 50px;
-    height: auto;
-    flex-direction: column;
+    width: 80px;
+    align-self: center;
   }
   ` 
 
@@ -41,7 +57,12 @@ const Ancla = styled.a`
        padding: 0% ;
        transition: 1s;
        cursor:pointer;
+       
       }
+      @media (max-width: 600px) {
+    width: 80px;
+    align-self: self-start;
+  }
 `
 export default function Foot (props){
 
@@ -77,14 +98,7 @@ export default function Foot (props){
          </figure>
          
          </Ancla>
-   <span style={{
-    color: "white", 
-    alignSelf: "start", 
-    transform: "rotate(90deg)",
-    marginTop: "7%",
-    marginRight: "-5%", 
-    fontSize: "small",
-    flexDirection: "column"}}>© 2024 - All right reserved </span>
+   <Span>© 2024 - All right reserved </Span>
       
        </Contenedor>
    
