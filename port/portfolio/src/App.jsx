@@ -13,8 +13,7 @@ import Tecnologias from './Components/Teconologias'
 import Foot from './Components/Foot'
 import Contacto from "./Components/Contacto.jsx"
 import gif from "../../portfolio/public/source.gif"
-
-
+import yo from "../../portfolio/public/yo.jpg"
 
 const Img2 = styled.img`
 width: 50%;
@@ -49,7 +48,8 @@ function App() {
   return (
     <>
       <Router>
-      <img  data-aos="fade-up" style={{width: "100%", marginTop: "3%"}} src={head} alt="head" />
+       
+      <img  data-aos="fade-up" style={{width: "100%", marginTop: "3%"}} src={yo} alt="head" />
       <Content> 
       <Img2 data-aos="fade-right"  src={gif} alt="devimg" /> 
       <About />
