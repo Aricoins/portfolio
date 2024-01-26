@@ -84,7 +84,7 @@ const Proyectos = () => {
           <li> DB normalizada, validaciones y restricciones en modelos.</li>
         </ul>
      </Card></a>
-     <a href="https://azullago.netlify.app/" target='_blank'
+     <a href="https://azul-lago.vercel.app/" target='_blank'
       >
 <Card data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
