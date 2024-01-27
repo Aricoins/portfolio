@@ -12,8 +12,8 @@ import colores from './Components/colores'
 import Tecnologias from './Components/Teconologias'
 import Foot from './Components/Foot'
 import Contacto from "./Components/Contacto.jsx"
-import gif from "../../portfolio/public/source.gif"
-import yo from "../../portfolio/public/yo.jpg"
+import gif from "../../portfolio/src/assets/source.gif"
+import yo from "../../portfolio/src/assets/yo.jpg"
 
 const Img2 = styled.img`
 width: 50%;
