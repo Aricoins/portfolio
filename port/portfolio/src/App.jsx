@@ -47,11 +47,11 @@ const Content = styled.div`
 
   const Bola = styled.img`
     
-    width: 14%;
+    width: 20%;
     position: absolute;
     z-index: 1000;
-    top: 5%;
-    left: 45%;
+    top: 8%;
+    left: 44%;
 
   `;
 
@@ -75,14 +75,14 @@ function App() {
 anime({
             targets: '.anim ',
            easing: '',
-          loop:false,
            direction: 'linear',
                duration: 10000,
                easing: 'easeInElastic',
-
-    //            scale: [
-    //             { value: .1, duration: 500, delay: 0 },
-    //           ]
+loop: false,
+                scale: [
+                 { value: .1, duration: 1000, delay: 0 },
+                 { value: 1, duration: 1000, delay: 0 },
+               ]
     // , 
     //            translateX: [ 
     //          { value: -900, duration: 1000, delay: 0 },
