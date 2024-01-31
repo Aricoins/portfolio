@@ -46,19 +46,13 @@ const Content = styled.div`
 `;
 
   const Bola = styled.img`
- 
-    justify-content: left;
-    flex-direction: row;
-    z-index: 0;
+    
+    width: 14%;
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 20%;
-    @media (max-width: 800px) {
-      width: 90%;
-      height: auto;
-      flex-direction: column;
-    }
+    z-index: 1000;
+    top: 5%;
+    left: 45%;
+
   `;
 
 
@@ -84,18 +78,19 @@ anime({
           loop:false,
            direction: 'linear',
                duration: 10000,
-               easing: 'easeInOutExpo',
-               scale: [
-                { value: .5, duration: 500, delay: 0 },
-              ]
-    , 
-               translateX: [ 
-       { value: 100, duration: 1000, delay: 0 },
-             { value: -700, duration: 1000, delay: 0 },
+               easing: 'easeInElastic',
+
+    //            scale: [
+    //             { value: .1, duration: 500, delay: 0 },
+    //           ]
+    // , 
+    //            translateX: [ 
+    //          { value: -900, duration: 1000, delay: 0 },
+    //          { value: -9000, duration: 10000, delay: 0 },
+    
+             //         { value: -700, duration: 2000, delay: 0 },
     //         { value: -700, duration: 2000, delay: 0 },
-    //         { value: -700, duration: 2000, delay: 0 },
-    //         { value: -700, duration: 2000, delay: 0 },
-    //         { value: 500, duration: 2000, delay: 0 },
+             //  { value: 500, duration: 2000, delay: 0 },
     //         { value: 700, duration: 2000, delay: 0 },
     //         { value: 750, duration: 2000, delay: 0 },
     //         { value: 750, duration: 2000, delay: 0 },
@@ -103,29 +98,29 @@ anime({
     //         { value: 750, duration: 20000, delay: 0 },
     //         { value: -500, duration: 15000, delay: 0 },
      //   { value: -500, duration: 2000, delay: 0 },
-     ],
-    //      translateY: [ 
-    //       { value: 0, duration: 3000, delay: 0 },
-    //       { value: 0, duration: 2000, delay: 0 },
-    //       { value: 0, duration: 2000, delay: 0 },
-    //       { value: 500, duration: 2000, delay: 0 },
-    //       { value: 500, duration: 2000, delay: 0 },
-    //       { value: 500, duration: 500, delay: 0 },
-    //       { value: 500, duration: 500, delay: 0 },
-    //       { value: 500, duration: 500, delay: 0 },
-    //       { value: 500, duration: 5000, delay: 0 },
-    //       { value: 600, duration: 2000, delay: 0 },
-    //       { value: 700, duration: 3000, delay: 0 },
-    //       { value: 900, duration: 5000, delay: 0 },
-    //       { value: 1200, duration: 5000, delay: 0 },
-    //       { value: 1500, duration: 13000, delay: 0 },
-    //       { value: 2600, duration: 2000, delay: 0 },
-    //       { value: 2600, duration: 5000, delay: 0 },
+    //  ],
+    //       translateY: [ 
+    //        { value: 1000, duration: 3000, delay: 0 },
+    // //       { value: 0, duration: 2000, delay: 0 },
+    // //       { value: 0, duration: 2000, delay: 0 },
+    // //       { value: 500, duration: 2000, delay: 0 },
+    // //       { value: 500, duration: 2000, delay: 0 },
+    // //       { value: 500, duration: 500, delay: 0 },
+    // //       { value: 500, duration: 500, delay: 0 },
+    // //       { value: 500, duration: 500, delay: 0 },
+    // //       { value: 500, duration: 5000, delay: 0 },
+    // //       { value: 600, duration: 2000, delay: 0 },
+    // //       { value: 700, duration: 3000, delay: 0 },
+    // //       { value: 900, duration: 5000, delay: 0 },
+    // //       { value: 1200, duration: 5000, delay: 0 },
+    // //       { value: 1500, duration: 13000, delay: 0 },
+    // //       { value: 2600, duration: 2000, delay: 0 },
+    // //       { value: 2600, duration: 5000, delay: 0 },
     
 
-    //     ],
+    //      ],
 
-       // { value: 4, duration: 600, delay: 0 },
+    //    // { value: 4, duration: 600, delay: 0 },
     // //   { value: 8, duration: 6000, delay: 0 },
     // // { value: 18, duration: 20000, delay: 0 },
     // //   { value: 5, duration: 12000, delay: 0 }
@@ -227,7 +222,7 @@ anime({
 
       <Router>
         <Bola className="anim" src="../src/assets/bolaspeed.gif" alt="gif"  />
-        <img  ata-aos="fade-up" style={{width: "100%", marginTop: "3%"}} src={yo} alt="head" />
+        <img  data-aos="fade-up" style={{width: "100%", marginTop: "3%", zIndex: "1000"}} src={yo} alt="head" />
       <Content> 
      
       <Img2 data-aos="fade-right"  src={gif} alt="devimg" /> 
