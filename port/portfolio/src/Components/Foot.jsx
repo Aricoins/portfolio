@@ -12,8 +12,6 @@ const Contenedor = styled.footer`
     background-color: #003140; 
     margin-top: 2%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     @media (max-width: 600px) {
         flex-direction: row;
         justify-content: strech;
@@ -23,7 +21,7 @@ const Contenedor = styled.footer`
   const Span = styled.span`
   color: white;
   align-self: start;
-  transform: rotate(90deg);
+width: 100%;
   margin-top: 7%;
   margin-right: -5%;
   font-size: small;
@@ -36,10 +34,12 @@ const Contenedor = styled.footer`
 
 
 const Img = styled.img`
-width: auto;
-height: 100%;
+
+width: 500%; 
+height: 100%; 
+border-radius: 50%;
 @media (max-width: 600px) {
-    width: 40px;
+    width: 100%;
     height: auto;
     display: flex;
     align-self: center;
@@ -76,8 +76,8 @@ export default function Foot (props){
         
         <>
         <Contenedor>
-        <ul  style={{display: "grid", gridTemplateColumns: "33% 33% 33%", gridTemplateRows: "80% 20%" }}>
-        <li style={{gridColumnStart: "1"}}>
+        <ul  style={{display: "grid", gridTemplateColumns: "33% 33% 33%", gridTemplateRows: "60% 40%" }}>
+        <li style={{gridColumnStart: "1", gridRowStart: "1", gridRowEnd: "1"}}>
            <Img src={favicon} alt="icono" style={{width:"30%", borderRadius: "50%"}} />              
            <p style={{color: "white"}}> Ariel G Rogel </p> 
 </li>
@@ -85,7 +85,6 @@ export default function Foot (props){
         <Ancla href="https://www.linkedin.com/in/aegr/" >
           
        <Img 
-       style={{ width: "100%", height: "100%", borderRadius: "50%"}} 
         src={linkedin} 
         alt="devimg"
          /> 
@@ -94,13 +93,13 @@ export default function Foot (props){
 <li style={{gridColumnStart: "3"}}> 
          <Ancla href="https://github.com/Aricoins">
             <Img 
-           style={{ width: "100%", height: "100%", borderRadius: "50%"}} 
-           src={github}  alt="devimg"
+            src={github} 
+            alt="devimg"
             />
                    </Ancla> </li>
 <li style={{gridColumnStart:"2", }}>
    
-  <Ancla style={{gridColumStart: "2" }} href= "https://web.archive.org/web/20230202010104/https://creativecommons.org/licenses/by/4.0/">
+  <Ancla style={{gridColumStart: "1", gridColumnEnd: "3" }} href= "https://web.archive.org/web/20230202010104/https://creativecommons.org/licenses/by/4.0/">
    <Span> © 2024 - Licencia Opensource </Span>
 
    </Ancla>
