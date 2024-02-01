@@ -12,6 +12,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 background-color: rgb(242, 242, 242, 0.3);
+width: 100%;
   @media (max-width: 600px) {
     flex-direction: column;
     width: 90%;

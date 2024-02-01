@@ -21,6 +21,10 @@ width: 50%;
   height: 100%;
   z-index: -1;
   flex-direction: row;
+  .main{
+    width: 120%;
+    height: 100%;
+  }
   &:hover {
   color: red 
   };
@@ -72,7 +76,7 @@ const H1 = styled.h1`
 
 
 function App() {
- let animation 
+ 
 
   useEffect(() => {
     AOS.init();
