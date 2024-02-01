@@ -74,7 +74,8 @@ function About (){
 <H2>Greetings!</H2>
        <Estilo >   
 
-      Ariel, Full Stack Developer skilled in databases, document management, and organizational design. Proficient in JavaScript, ReactJS, ExpressJS, and more. Specializing in crafting concise, visually appealing web solutions with a keen interest in dynamic animations. Let's elevate your projects together.<br/><br/>  <br/><br/>
+       Ariel, Full Stack Developer skilled in databases, document management, and organizational design. Proficient in JavaScript, ReactJS, ExpressJS, and more. Specializing in crafting concise, visually appealing web solutions with a keen interest in dynamic animations.
+       Currently exploring the realms of web animation and machine learning in programming.<br/><br/>  <br/><br/>
 
     </Estilo>
     </Bloque>

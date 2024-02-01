@@ -21,10 +21,7 @@ width: 50%;
   height: 100%;
   z-index: -1;
   flex-direction: row;
-  .main{
-    width: 120%;
-    height: 100%;
-  }
+ 
   &:hover {
   color: red 
   };
@@ -109,11 +106,11 @@ anime({
     //         { value: 750, duration: 2000, delay: 0 },
     //         { value: 750, duration: 10000, delay: 0 },
     //         { value: 750, duration: 20000, delay: 0 },
-    //         { value: -500, duration: 15000, delay: 0 },
+             { value: -500, duration: 5000, delay: 0 },
      //   { value: -500, duration: 2000, delay: 0 },
     ],
-    //       translateY: [ 
-    //        { value: 1000, duration: 3000, delay: 0 },
+           translateY: [ 
+            { value: 1000, duration: 3000, delay: 0 },
     // //       { value: 0, duration: 2000, delay: 0 },
     // //       { value: 0, duration: 2000, delay: 0 },
     // //       { value: 500, duration: 2000, delay: 0 },
@@ -124,14 +121,14 @@ anime({
     // //       { value: 500, duration: 5000, delay: 0 },
     // //       { value: 600, duration: 2000, delay: 0 },
     // //       { value: 700, duration: 3000, delay: 0 },
-    // //       { value: 900, duration: 5000, delay: 0 },
+           { value: 900, duration: 5000, delay: 0 },
     // //       { value: 1200, duration: 5000, delay: 0 },
     // //       { value: 1500, duration: 13000, delay: 0 },
     // //       { value: 2600, duration: 2000, delay: 0 },
-    // //       { value: 2600, duration: 5000, delay: 0 },
+           { value: 2600, duration: 5000, delay: 0 },
     
 
-    //      ],
+          ],
 
     //    // { value: 4, duration: 600, delay: 0 },
     // //   { value: 8, duration: 6000, delay: 0 },
