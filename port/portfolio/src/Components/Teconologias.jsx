@@ -31,7 +31,7 @@ const Galeria = styled.div`
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  width: 100%;
+  width: 90%;
   height: 100%;
   color: white;
   font-size: 1000%;
@@ -63,7 +63,7 @@ margin: auto;
 const Tecnologi = styled.div`
     position: relative; 
     background-color: rgb(4, 79, 72, .6);
-    width: 96%;
+    width: 80%;
     height: 10%;
     opacity: 0.9;
     text-align: center;
@@ -85,7 +85,7 @@ const Tecnologias = () => {
 
     return( 
 
-        <Tecnologi style={{color: "white", width: "100%", height: "100%", padding: "2%", margin: "auto"}}
+        <Tecnologi style={{color: "white", width: "80%", height: "100%", padding: "2%", margin: "auto"}}
         data-aos= "fade-left">
         <h3> Javascript, Typescipt, CSS, Tailwind, HTML, React, Router, Redux.
         <br/> Express, Postgress, Sequelize & MySQL. </h3>
