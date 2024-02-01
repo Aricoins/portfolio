@@ -21,6 +21,10 @@ width: 50%;
   height: 100%;
   z-index: -1;
   flex-direction: row;
+  &:hover {
+  color: red 
+  };
+
   @media (max-width: 800px) {
     width: 90%;
     height: auto;
@@ -51,7 +55,7 @@ const Content = styled.div`
     position: absolute;
     z-index: 1000;
     top: 8%;
-    left: 44%;
+    left: 50%;
 
   `;
 
@@ -74,18 +78,23 @@ function App() {
     AOS.init();
 anime({
             targets: '.anim ',
-           easing: '',
-           direction: 'linear',
+            easing: '',
+                direction: 'linear',
                duration: 10000,
-               easing: 'easeInElastic',
-loop: false,
+               easing: 'linear',
+                loop: false,
                 scale: [
-                 { value: .1, duration: 1000, delay: 0 },
-                 { value: 1, duration: 1000, delay: 0 },
-               ]
-    // , 
-    //            translateX: [ 
-    //          { value: -900, duration: 1000, delay: 0 },
+                  { value: 1, duration: 4000, delay: 0 },
+                  { value: 1, duration: 4000, delay: 0 },
+          
+                  { value: .1, duration: 4000, delay: 0 },
+                ]
+   , 
+              translateX: [ 
+                { value: -10, duration: 4000, delay: 0 },
+                { value: -10, duration: 4000, delay: 0 },
+          
+                { value: 500, duration: 4000, delay: 0 },
     //          { value: -9000, duration: 10000, delay: 0 },
     
              //         { value: -700, duration: 2000, delay: 0 },
@@ -98,7 +107,7 @@ loop: false,
     //         { value: 750, duration: 20000, delay: 0 },
     //         { value: -500, duration: 15000, delay: 0 },
      //   { value: -500, duration: 2000, delay: 0 },
-    //  ],
+    ],
     //       translateY: [ 
     //        { value: 1000, duration: 3000, delay: 0 },
     // //       { value: 0, duration: 2000, delay: 0 },
@@ -212,7 +221,15 @@ loop: false,
 
 // delay: anime.stagger(200, {grid: [14, 5], from: 'center'
 
-
+anime({
+  targets: ['.svg-attributes-demo polygon', 'feTurbulence', 'feDisplacementMap'],
+  points: '64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96',
+  baseFrequency: 0,
+  scale: 1,
+  loop: true,
+  direction: 'alternate',
+  easing: 'easeInOutExpo'
+});
 
 
 
@@ -225,7 +242,7 @@ loop: false,
         <img  data-aos="fade-up" style={{width: "100%", marginTop: "3%", zIndex: "1000"}} src={yo} alt="head" />
       <Content> 
      
-      <Img2 data-aos="fade-right"  src={gif} alt="devimg" /> 
+      <Img2 className= "anime" data-aos="fade-right"  src={gif} alt="devimg" /> 
       <About />
       
       </Content>

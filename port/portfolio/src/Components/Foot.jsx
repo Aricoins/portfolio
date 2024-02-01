@@ -12,11 +12,12 @@ const Contenedor = styled.footer`
     background-color: #003140; 
     margin-top: 2%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     @media (max-width: 600px) {
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: strech;
+        align-items: left;
        }
     `
   const Span = styled.span`
@@ -35,10 +36,14 @@ const Contenedor = styled.footer`
 
 
 const Img = styled.img`
-width: 100px;
+width: auto;
+height: 100%;
 @media (max-width: 600px) {
-    width: 80px;
+    width: 40px;
+    height: auto;
+    display: flex;
     align-self: center;
+
   }
   ` 
 
@@ -64,43 +69,45 @@ const Ancla = styled.a`
     align-self: self-start;
   }
 `
+
 export default function Foot (props){
 
     return(
+        
         <>
         <Contenedor>
-      
-        <figure> 
-        <img src={favicon} alt="icono" style={{width:"50%", borderRadius: "50%"}} /> 
-        <figcaption style={{color: "white", 
-                    margin: "1%"}}>
-                      Ariel G Rogel 
-                      </figcaption>
-        </figure>
-               
+        <ul  style={{display: "grid", gridTemplateColumns: "33% 33% 33%", gridTemplateRows: "80% 20%" }}>
+        <li style={{gridColumnStart: "1"}}>
+           <Img src={favicon} alt="icono" style={{width:"30%", borderRadius: "50%"}} />              
+           <p style={{color: "white"}}> Ariel G Rogel </p> 
+</li>
+<li style={{gridColumnStart: "2", }}>
         <Ancla href="https://www.linkedin.com/in/aegr/" >
-       <figure>
-        <Img 
+          
+       <Img 
+       style={{ width: "100%", height: "100%", borderRadius: "50%"}} 
         src={linkedin} 
         alt="devimg"
          /> 
-         <figcaption > Linkedin</figcaption>
-         </figure>
-        </Ancla>
-
-   
-         <Ancla href="https://github.com/Aricoins">
-            <figure>
-            <Img 
-        src={github}  alt="devimg"
-         />
-         <figcaption>GitHub</figcaption>
-         </figure>
-         
          </Ancla>
-   <Span>© 2024 - All right reserved </Span>
-      
-       </Contenedor>
+</li>
+<li style={{gridColumnStart: "3"}}> 
+         <Ancla href="https://github.com/Aricoins">
+            <Img 
+           style={{ width: "100%", height: "100%", borderRadius: "50%"}} 
+           src={github}  alt="devimg"
+            />
+                   </Ancla> </li>
+<li style={{gridColumnStart:"2", }}>
+   
+  <Ancla style={{gridColumStart: "2" }} href= "https://web.archive.org/web/20230202010104/https://creativecommons.org/licenses/by/4.0/">
+   <Span> © 2024 - Licencia Opensource </Span>
+
+   </Ancla>
+     </li>
+     </ul> 
+
+</Contenedor>
    
      </>
               )

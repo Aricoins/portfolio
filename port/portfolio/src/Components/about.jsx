@@ -71,16 +71,16 @@ function About (){
     return(<>
 <Contenedor data-aos="fade-left">
 <Bloque>
-     <H2>¡Hola!</H2>   
+<H2>Greetings!</H2>
        <Estilo >   
- Mi nombre es Ariel y soy Full Stack Developer con experiencia en bases de datos, gestión documental  y diseño organizacional. <br/><br/>
-   
- Tengo conocimientos en metodologías ágiles, GIT flow, estructura de datos, algoritmos y diseño de servidores con ExpressJS, Sequelize, PostgreSQL y NodeJS. 
- Estoy permanentemente incoporando nuevas herramientas. <br/><br/>
+              I am Ariel, a seasoned Full Stack Developer distinguished by my proficiency in databases, document management, and strategic organizational design. My professional journey is fortified by a keen understanding of agile methodologies, GIT flow, advanced data structures, algorithms, and robust server design utilizing ExpressJS, Sequelize, PostgreSQL, and NodeJS. I exhibit an unwavering commitment to remaining at the forefront of technological advancements, continually integrating cutting-edge tools into my repertoire.
 
+In addition to my technical acumen, I derive immense satisfaction from the artistic nuances of web design. I am adept at crafting visually arresting interfaces through the adept use of technologies such as Styled-Components, Bootstrap, and Tailwind CSS. My prowess in front-end development extends to ReactJS, Vite, and NextJS, where I seamlessly amalgamate functionality with aesthetic appeal.
 
-Disfruto el diseño web con Styled-Components, Bootstrap y Tailwind CSS, el desarrollo front end con ReactJS, Vite y NextJS y la gestión y puesta en valor de datos. 
-  <br/><br/>
+A burgeoning facet of my specialization lies in the dynamic realm of animations. Actively engaged in exploring and implementing avant-garde animation libraries and techniques, I introduce an extra dimension of interactivity and engagement to the digital landscapes I shape.
+
+I invite collaboration to transform conceptualizations into visually stunning and interactively enriched web solutions. Let's embark on a journey of digital innovation and elevate your projects to unparalleled heights.
+<br/><br/>  <br/><br/>
 
     </Estilo>
     </Bloque>
