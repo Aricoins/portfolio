@@ -21,11 +21,12 @@ grid-template-rows: repeat(1, 1fr);
 @media (max-width: 600px) {
     flex-direction: column;
     width: 90%;
-  
+    grid-template-columns: 1fr;
   }
   @media (max-width: 400px) {
     flex-direction: column;
     width: 100%;
+    grid-template-columns: 1fr;
   
   }
 `;

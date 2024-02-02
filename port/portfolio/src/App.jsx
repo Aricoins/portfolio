@@ -11,7 +11,6 @@ import Tecnologias from './Components/Teconologias';
 import Foot from './Components/Foot';
 import Contacto from "./Components/Contacto.jsx";
 import yo from "../../portfolio/src/assets/yo.jpg";
-import { Image } from 'cloudinary-react';
 import dev from "../src/assets/source.gif"
 
 
@@ -103,8 +102,7 @@ const H1 = styled.h1`
 
 
 function App() {
-  const cloudName = 'dx0htqhaq';
-  const publicId = '7135d414785984bdd3b3e7fc8753733a';
+
 
   useEffect(() => {
     AOS.init();
