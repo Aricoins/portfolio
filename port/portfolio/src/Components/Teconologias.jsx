@@ -190,7 +190,7 @@ const Tecnologias = () => {
       anime({
         targets: '.anim3',
         loop: true,
-        easing: 'linear',
+
           easing: 'easeInOutQuad',
         duration: 10000,
         direction: 'alternate',
