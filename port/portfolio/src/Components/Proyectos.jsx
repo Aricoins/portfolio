@@ -13,7 +13,12 @@ flex-direction: row;
 justify-content: space-between;
 background-color: rgb(242, 242, 242, 0.3);
 width: 100%;
-  @media (max-width: 600px) {
+z-index: -1000;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(1, 1fr);
+
+@media (max-width: 600px) {
     flex-direction: column;
     width: 90%;
   
@@ -26,15 +31,21 @@ width: 100%;
 `;
  
 const Card = styled.div`
-
 background-color: ${colores.amarillo};
 border-radius: 10px;
 box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.25);
 color: #f8f2f2;
-padding: 2%;
-font-size: small;
-margin: 1%;
+font-size: 1.5em;
+margin: 5%;
+width: 90%;
 border: 8px solid black;
+z-index: 5000;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+text-align: cenmter;
+
 &:hover{
   background-color: ${colores.verde};
   border-color: ${colores.amarillo};
@@ -54,8 +65,9 @@ ul{
   list-style-type: none
 }
 img{
-  width: 200px;
+  width: 100%;
 }
+
 `
 
 
@@ -65,71 +77,79 @@ const Proyectos = () => {
     AOS.init();
   }, []);
   
-  return (<>
-<Contenedor>
-  <a href="https://nuevamascota.vercel.app/" target='_blank' >
-  <Card 
-  data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="1500">
-     <h4> Dogs App </h4>
-     <img style={{width: "200px"}} src={dogs} alt="imagen"/>
-     <ul>
-          <li>Diseño UX/UI planeado y consistente en todas las rutas.</li>
-          <li>Filtros y ordenamientos combinados</li>
-          <li>Formulario controlado. Submit condicional.</li>
-          <li>Maneja diferentes estados de Redux.</li>
-          <li>Paginación, deploy y testing.</li>
-          <li>Código modularizado con responsabilidades bien definidas.</li>
-          <li>Sigue buenas prácticas de API Rest.</li>
-          <li> DB normalizada, validaciones y restricciones en modelos.</li>
-        </ul>
-     </Card></a>
-     <a href="https://azul-lago.vercel.app/" target='_blank'
-      >
-<Card data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000">
-    <h4>  Azul Lago Coop</h4>
-    <img  src={azul} alt="imagen"/>
-    <ul>
-        <li>Sitio web responsivo</li>
-        <li>HTML5 y CSS3 válidos</li>
-        <li>Framework Bootstrap v5</li>
-        <li>Código 100% amigable para desarrolladores y SEO</li>
-        <li>Compatible con todos los navegadores web modernos</li>
-        <li>Navbar desplegable y amigable para móviles</li>
-        <li>Encabezado elegante y receptivo con carrusel</li>
-        <li>Animaciones al desplazarse por la página</li>
-        <li>Contador de números animado</li>
-        <li>Mapa de Google</li>
-    </ul>
-</Card> </a>
-
-<a href="https://ecommerce-pf-henry-grupo7.vercel.app/" target='_blank'>
-    <Card data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="3000">
-    <h4>  Codewave Central </h4>
-    <img style={{width: "200px"}} src={nido} alt="imagen"/>
-    <ul>
-  <li>Carpetas organizadas y claras.</li>
-  <li>TypeScript para seguridad y legibilidad.</li>
-  <li>Next.js para sitios estáticos y SSR.</li>
-  <li>Optimización de imágenes con <code> next-cloudinary & next/image</code>.</li>
-  <li>Manejo de estado predictible con Redux.</li>
-  <li>Estilos eficientes con Tailwind CSS.</li>
-  <li>Detección de problemas y estilo consistente con ESLint.</li>
-  <li>Compatibilidad y eficiencia mejoradas con PostCSS.</li>
-  <li>Scripts personalizados para automatización.</li>
-</ul>
-
-
-      
-    </Card></a>
-    </Contenedor>
+  return (
+    <>
+      <Contenedor>
+        <a href="https://nuevamascota.vercel.app/" target="_blank">
+          <Card style={{ gridColumnStart:" 1" }}
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1500"
+          >
+            <h4 style={{color: `${colores.verde}`}}> Dogs App </h4>
+            <img  src={dogs} alt="imagen" />
+            <ul>
+              <li>Planned and consistent UX/UI design across all routes.</li>
+              <li>Combined filters and sorts</li>
+              <li>Controlled form. Conditional submit.</li>
+              <li>Handles different Redux states.</li>
+              <li>Paging, deploy and testing.</li>
+              <li>Modularized code with well-defined responsibilities.</li>
+              <li>Follow good API Rest practices.</li>
+              <li>Normalized DB, validations and restrictions in models.</li>
+            </ul>
+          </Card>
+        </a>
+        <a href="https://azul-lago.vercel.app/" target="_blank">
+          <Card
+          style={{ gridColumnStart:" 2" }}
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+          >
+            <h4 style={{color: `${colores.verde}`}}> Azul Lago Coop </h4>
+            <img src={azul} alt="imagen" />
+            <ul>
+              <li>Responsive website</li>
+              <li>Valid HTML5 and CSS3</li>
+              <li>Bootstrap v5 Framework</li>
+              <li>100% developer-friendly and SEO-friendly code</li>
+              <li>Compatible with all modern web browsers</li>
+              <li>Mobile-friendly and user-friendly navbar</li>
+              <li>Elegant and responsive header with carousel</li>
+              <li>Page scroll animations</li>
+              <li>Animated number counter</li>
+              <li>Google Map</li>
+            </ul>
+          </Card>{" "}
+        </a>
+  
+        <a href="https://ecommerce-pf-henry-grupo7.vercel.app/" target="_blank">
+          <Card
+          style={{ gridColumnStart:" 3"  }}
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="3000"
+          >
+            <h4 style={{color: `${colores.verde}`}}> Codewave Central </h4>
+            <img src={nido} alt="imagen" />
+            <ul>
+              <li>Organized and clear folders.</li>
+              <li>TypeScript for security and readability.</li>
+              <li>Next.js for static sites and SSR.</li>
+              <li>Image optimization with `next-cloudinary & next/image`.</li>
+              <li>Predictable state management with Redux.</li>
+              <li>Efficient styling with Tailwind CSS.</li>
+              <li>Problem detection and consistent styling with ESLint.</li>
+              <li>Enhanced compatibility and efficiency with PostCSS.</li>
+              <li>Custom scripts for automation.</li>
+            </ul>
+          </Card>
+        </a>
+      </Contenedor>
     </>
-  )
+  );
+  
 }
 
 export default Proyectos

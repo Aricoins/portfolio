@@ -1,30 +1,72 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
 import styled from 'styled-components';
-import colores from './colores'
-import linkedin from "../assets/likedin.webp"
-import github from "../assets/GITHUB.png"
-import favicon from "../assets/descarga.png"
+import colores from './colores';import { SiGithub, SiLinkedin } from "react-icons/si";
+import favicon from '../assets/descarga.png'
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 
 const Contenedor = styled.footer`
-    width:100%;
-    background-color: #003140; 
-    margin-top: 2%;
-    display: flex;
-    @media (max-width: 600px) {
-        flex-direction: row;
-        justify-content: strech;
-        align-items: left;
-       }
-    `
-  const Span = styled.span`
+  width: 100%;
+  border-radius: 5%;
+  background-color: #003140;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .icono {	
+    opacity: 0.8;
+    padding: 0%;
+    transition: 1s;
+    font-size: 6em;
+    padding: 10%;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+  @media (max-width: 600px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+const Img = styled.img`
+  border-radius: 50%;
+  padding: 0%;
+  margin: 0%;
+  width: 80%;
+  @media (max-width: 600px) {
+    width: 80px;
+    align-self: center;
+  }
+`;
+
+const Ancla = styled.a`
+  text-decoration: none;
+  color: ${colores.marron};
+  display: flex;
+  border-radius: 8%;
+  transition-duration: 2s;
+
+  :hover {
+    opacity: 0.8;
+    
+    transition: 1s;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    width: 80px;
+    align-self: center;
+  }
+`;
+
+const Span = styled.span`
   color: white;
-  align-self: start;
-width: 100%;
   margin-top: 7%;
   margin-right: -5%;
   font-size: small;
+
   @media (max-width: 600px) {
     transform: rotate(0deg);
     font-size: x-small;
@@ -32,82 +74,34 @@ width: 100%;
   }
 `;
 
+export default function Foot(props) {
 
-const Img = styled.img`
-
-width: 500%; 
-height: 100%; 
-border-radius: 50%;
-@media (max-width: 600px) {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-self: center;
-
+  const scrollO = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
-  ` 
-
-const Ancla = styled.a`
-    text-decoration: none;
-    color: ${colores.marron};
-    display: flex;
-    border-radius: 8%;
-    transition-duration: 2s;
-    margin: auto;
-    width:10%;
-    padding: 1% 2% 1% 1% ;
-    :hover{
-       opacity: 0.8;
-       width: 100%;
-       padding: 0% ;
-       transition: 1s;
-       cursor:pointer;
-       
-      }
-      @media (max-width: 600px) {
-    width: 80px;
-    align-self: self-start;
-  }
-`
-
-export default function Foot (props){
-
-    return(
-        
-        <>
-        <Contenedor>
-        <ul  style={{display: "grid", gridTemplateColumns: "33% 33% 33%", gridTemplateRows: "60% 40%" }}>
-        <li style={{gridColumnStart: "1", gridRowStart: "1", gridRowEnd: "1"}}>
-           <Img src={favicon} alt="icono" style={{width:"30%", borderRadius: "50%"}} />              
-           <p style={{color: "white"}}> Ariel G Rogel </p> 
-</li>
-<li style={{gridColumnStart: "2", }}>
-        <Ancla href="https://www.linkedin.com/in/aegr/" >
+  return (
+    <>
+      <Contenedor>
+     
+        <div style={{ display: 'flex',  justifyContent: "center", alignItems: "center"  }}>
+          <Ancla href="https://www.linkedin.com/in/aegr/">
+          <SiLinkedin className='icono'/>
+          </Ancla>
           
-       <Img 
-        src={linkedin} 
-        alt="devimg"
-         /> 
+        <Img className='icono' data-aos="flip-up" src={favicon} onClick= {scrollO} alt="icono" />
+        <Ancla href="https://web.archive.org/web/20230202010104/https://creativecommons.org/licenses/by/4.0/">
          </Ancla>
-</li>
-<li style={{gridColumnStart: "3"}}> 
-         <Ancla href="https://github.com/Aricoins">
-            <Img 
-            src={github} 
-            alt="devimg"
-            />
-                   </Ancla> </li>
-<li style={{gridColumnStart:"2", }}>
+          <Ancla href="https://github.com/Aricoins">
+         <SiGithub className='icono'/> 
+          </Ancla>
+        </div>
    
-  <Ancla style={{gridColumStart: "1", gridColumnEnd: "3" }} href= "https://web.archive.org/web/20230202010104/https://creativecommons.org/licenses/by/4.0/">
-   <Span> © 2024 - Licencia Opensource </Span>
-
-   </Ancla>
-     </li>
-     </ul> 
-
-</Contenedor>
+      </Contenedor>
+      <Span > © 2024 - Ariel G Rogel </Span>
    
-     </>
-              )
+    </>
+  );
 }
