@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 import "aos/dist/aos.css";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import anime from 'animejs/lib/anime.es.js';
 import Proyectos from './Components/Proyectos';
 import About from './Components/about';
@@ -10,8 +10,13 @@ import colores from './Components/colores';
 import Tecnologias from './Components/Teconologias';
 import Foot from './Components/Foot';
 import Contacto from "./Components/Contacto.jsx";
-import gif from "../../portfolio/src/assets/source.gif";
 import yo from "../../portfolio/src/assets/yo.jpg";
+import { Image } from 'cloudinary-react';
+import dev from "../src/assets/source.gif"
+
+
+
+
 
 const Img2 = styled.img`
   width: 60%;
@@ -95,10 +100,14 @@ const H1 = styled.h1`
   }
 `;
 
+
+
 function App() {
+  const cloudName = 'dx0htqhaq';
+  const publicId = '7135d414785984bdd3b3e7fc8753733a';
+
   useEffect(() => {
     AOS.init();
-
     anime({
       targets: '.anim',
       loop: true,
@@ -124,23 +133,26 @@ function App() {
 
   }, []);
 
+const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3ftutjzkicn7isg.gif"
   return (
     <>
       <Router>
-        <Bola className="anim" src="../src/assets/bolaspeed.gif" alt="gif" />
+        <Bola className="anim" src={gif} alt="gif" />
            <img data-aos="fade-up" style={{ width: "100%", marginTop: "3%", zIndex: "1000" }} src={yo} alt="head" />
         <Content>
-          <Img2 className="anime" data-aos="fade-right" src={gif} alt="devimg" />
+          <Img2 className="anime" data-aos="fade-right" src={dev} alt="devimg" />
           <About />
-        </Content>
+         </Content>
+
         <h2 style={{ fontSize: "20px", backgroundColor: 'white' }}> Proyectos </h2>
         <Proyectos />
         <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white' }} data-aos="fade-left"> Habilidades </h2>
         <Tecnologias style={{ zIndex: 2 }} />
-       <Bola5 className="anim5" src="../src/assets/bolaspeed.gif" alt="gif" />
+       <Bola5 className="anim5" src={gif}  alt="gif" />
         <h2 style={{ fontSize: "20px", zIndex: 2, backgroundColor: 'white' }} data-aos="fade-left"> Contacto </h2>
         <Contacto />
         <Foot />
+     
       </Router>
     </>
   );
