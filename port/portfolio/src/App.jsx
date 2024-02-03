@@ -17,9 +17,25 @@ import dev from "../src/assets/source.gif"
 
 
 
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin-top: 10%;
+  @media (max-width: 800px) {
+    flex-direction: column;
+ 
+  
+  }
+  @media (max-width: 600px) {
+    width: 110%;}
+`;
+
 
 const Img2 = styled.img`
-  width: 60%;
+  width: 100%;
   height: 100%;
   z-index: -1;
 
@@ -32,21 +48,6 @@ const Img2 = styled.img`
     height: auto;
   }
 `;
-const Content = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  margin-top: 1%;
-
-  @media (max-width: 800px) {
-    flex-direction: column;
-      }
-      
-`;
-
 
 const Bola = styled.img`
   width: 20%;
@@ -67,7 +68,7 @@ const Bola4 = styled.img`
 const Bola5 = styled.img`
   width: 14%;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   top: 2%;
   left: 50%;
 `;
@@ -115,7 +116,7 @@ function App() {
       duration: 10000,
       direction: 'alternate',
       translateX: [{ value: -400, duration: 20000, delay: 0 }],
-      translateY: [{ value: 1000, duration: 10000, delay: 0 },
+      translateY: [{ value: 400, duration: 10000, delay: 0 },
         { value: 2000, duration: 10000, delay: 0 }],
       scale: [{ value: 0.2, easing: 'easeOutSine', duration: 20000 }, { value: 1, duration: 10000 }],
     });
@@ -127,7 +128,7 @@ function App() {
       duration: 10000,
       direction: 'alternate',
       translateX: [{ value: -400, duration: 10000, delay: 0 }],
-      translateY: [{ value: 2000, duration: 10000, delay: 0 }],
+      translateY: [{ value: 400, duration: 10000, delay: 0 }],
       scale: [{ value: 0.2, easing: 'easeOutSine', duration: 500 }, { value: 0.5, easing: 'easeInOutQuad', duration: 1200 }],
     });
 
@@ -137,12 +138,16 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
   return (
     <>
       <Router>
-        <Bola className="anim" src={gif} alt="gif" />
-           <img data-aos="fade-up" style={{ width: "100%", marginTop: "3%", zIndex: "1000" }} src={yo} alt="head" />
+       
         <Content>
+        <img data-aos="fade-up" style={{ width: "100%", marginTop: "3%", zIndex: "1000" }} src={yo} alt="head" />
+
+       
           <Img2 className="anime" data-aos="fade-right" src={dev} alt="devimg" />
           <About />
-         </Content>
+
+          <Bola className="anim" src={gif} alt="gif" />
+         
 
         <h2 style={{ fontSize: "20px", backgroundColor: 'white' }}> Proyectos </h2>
         <Proyectos />
@@ -152,7 +157,7 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
         <h2 style={{ fontSize: "20px", zIndex: 2, backgroundColor: 'white' }} data-aos="fade-left"> Contacto </h2>
         <Contacto />
         <Foot />
-     
+        </Content>
       </Router>
     </>
   );

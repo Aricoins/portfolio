@@ -6,16 +6,14 @@ import pdf from "../assets/cv.pdf"
 
 const Navigator= styled.div`
  position: fixed;
-       z-index: 1000;
+z-index: 1000;
 top: 0%;
-   width:100%;
-   left: 0%;
-   height: 9%;
+width:100%;
+height: 9%;
 background-color: ${colores.amarillo};
-
 opacity: 1;
 display: flex;
-justify-content: center;
+justify-content: stretch;
 align-items: center;
 align-content: center;
 

@@ -11,6 +11,7 @@ const Contenedor = styled.footer`
   border-radius: 5%;
   background-color: #003140;
   margin-top: 2%;
+  margin-bottom: 10%;
   display: flex;
   flex-direction: row;
   justify-content: center;

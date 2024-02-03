@@ -1,11 +1,12 @@
 #root {
 
-  padding: 50px ;
+
   text-align: center;
   background-color: hsl(0, 0%, 10%, 0.3);
 }
 @media (width: 800px) {
   #root {
-    padding: 100px ;
+    width: 90%;
+
   }
 }

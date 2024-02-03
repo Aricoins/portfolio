@@ -13,15 +13,21 @@ flex-direction: row;
 justify-content: space-between;
 background-color: rgb(242, 242, 242, 0.3);
 width: 100%;
-z-index: -1000;
+z-index: 1;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(1, 1fr);
 
+@media (max-width: 800px) {
+  display: flex;
+    flex-direction: column;
+    width: 100%;    
+  }
+
 @media (max-width: 600px) {
     flex-direction: column;
     width: 90%;
-  
+    
   }
   @media (max-width: 400px) {
     flex-direction: column;
@@ -39,11 +45,7 @@ font-size: 1.5em;
 margin: 5%;
 width: 90%;
 border: 8px solid black;
-z-index: 5000;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-content: center;
+z-index: 50000;
 text-align: cenmter;
 
 &:hover{
@@ -65,7 +67,8 @@ ul{
   list-style-type: none
 }
 img{
-  width: 100%;
+  width: 95%;
+  margin-left: 2.5%;
 }
 
 `
