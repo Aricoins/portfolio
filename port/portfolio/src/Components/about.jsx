@@ -17,9 +17,13 @@ display: flex;
 color: ${colores.azul};
 margin: auto;
 margin-bottom: 1%;
-
+flex-direction: row;
 font-family:'Roboto', sans-serif;
 z-index: -100;
+@media only screen and (max-width : 800px) {
+ flex-direction: column;
+ width: 90%
+ } 
  @media only screen and (max-width : 600px) {
  flex-direction: column;
  width: 90%
@@ -31,11 +35,13 @@ display: flex;
 flex-direction: column ;
 justify-content: center;
 border-radius: 1em;
+height: 100%;
 align-self: center;
 align-items: center;
 align-content: center;
 margin: auto;
 z-index: -10;
+padding: 10%;
 @media only screen and (max-width : 600px) {
   width: 80%;
  flex-direction: column;

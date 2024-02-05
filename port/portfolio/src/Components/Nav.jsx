@@ -6,9 +6,10 @@ import pdf from "../assets/cv.pdf"
 
 const Navigator= styled.div`
  position: fixed;
-z-index: 1000;
+z-index: 10000000;
 top: 0%;
 width:100%;
+margin: auto;
 height: 9%;
 background-color: ${colores.amarillo};
 opacity: 1;
@@ -20,6 +21,7 @@ align-content: center;
  @media screen and (max-width : 700px) {
 top: 100%;
   width: 90%;
+  margin: auto;
 }
 `
 const Botones = styled.button`
@@ -34,7 +36,7 @@ const Botones = styled.button`
     margin: 2px;
       border-radius: 0% 0% 0% 10%;
       transition-duration: 0.5s;
-      z-index: 7;
+      z-index: 70000000;
       padding: 0px;
         transition-duration: 1s;
         width: 100%;

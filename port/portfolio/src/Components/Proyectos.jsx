@@ -13,7 +13,7 @@ flex-direction: row;
 justify-content: space-between;
 background-color: rgb(242, 242, 242, 0.3);
 width: 100%;
-z-index: 1;
+z-index: -10000;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(1, 1fr);
@@ -45,7 +45,7 @@ font-size: 1.5em;
 margin: 5%;
 width: 90%;
 border: 8px solid black;
-z-index: 50000;
+z-index: 5000;
 text-align: cenmter;
 
 &:hover{

@@ -29,27 +29,25 @@ const Tecnologi = styled.div`
     position: relative; 
     background-color: rgb(0, 128, 0, 0.3);
   
-    width: 80%;
+    width: 100%;
     height: 100%;
     opacity: 0.9;
     text-align: center;
-    font-size: 4em;
+    font-size: 2em;
     color: ${colores.white};
-    padding: 20%;   
+    padding: 1%;   
     z-index: 0;
    justify-content: space-around;
-
+@media (max-width: 800px) {
+  font-size: 1em;}
     `
 
 const Galeria = styled.div`
+ margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  justify-items: center;
-  align-items: center;
   width: 100%;
-  padding: 7%;
   background-color: ${colores.amarillo} ;
-
   &:hover{
     transition: 3s;
     color: #f7a605;
@@ -68,13 +66,10 @@ z-index: 2000;
  display: grid;
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       grid-template-rows: max-content 1fr;
-      justify-content:center;
-      text-align: start;
+     
 font-size: 1.5em;
-padding: 5%;
-gap: 25%;
-width: 25%;
-
+padding: 2%;
+gap: 5%;
 &:hover{
   transition: 3s;
  color: #f7a605;
@@ -82,11 +77,23 @@ width: 25%;
 }
 
 @media (max-width: 1200px) {
-  display: flex;
-  flex-direction: column;
-font-size: 1.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  font-size: 1em;
+  gap: 3%;
 
-}`;
+
+}
+
+@media (max-width: 800px) {
+  grid-template-columns: 15% 15% 15% 15% 15% 15% 15% ;
+  grid-template-rows: 50% 50% ;
+  font-size: xx-large;
+  gap: 1%;
+
+}
+
+`;
 
 
 
@@ -228,7 +235,7 @@ const Tecnologias = () => {
     
     return( 
         <Tecnologi 
-        data-aos= "fade-left">
+        data-aos= "fade-up">
  <Bola8 className="anim8" src={bola} alt="gif"  />
  <Bola9 className="anim3" src={bola} alt="gif"  />
              

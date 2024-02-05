@@ -87,7 +87,7 @@ useEffect(() => {
 
   // Return the JSX structure of the component
   return (
-    <Contenedor data-aos="fade-left"
+    <Contenedor data-aos="fade-up"
     >
       {/* Input field for Name */}
       < Label htmlFor="name">Nombre:</ Label>
