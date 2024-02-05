@@ -105,7 +105,7 @@ const H1 = styled.h1`
 
 const StyledDiv = styled.div`
   width: 90%;
-  z-index: -10;
+  z-index: 0;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -116,7 +116,7 @@ const StyledDiv = styled.div`
 `;
 const StyledDiv2 = styled.div`
   width: 90%;
-  z-index: -10;
+  z-index: 0;
   margin: auto;
   display: flex;
   flex-direction: row;

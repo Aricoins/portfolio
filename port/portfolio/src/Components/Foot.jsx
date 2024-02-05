@@ -36,6 +36,7 @@ const Img = styled.img`
   padding: 0%;
   margin: 0%;
   width: 80%;
+  z-index: 100;
   @media (max-width: 600px) {
     width: 80px;
     align-self: center;
@@ -92,7 +93,7 @@ export default function Foot(props) {
           <SiLinkedin className='icono'/>
           </Ancla>
           
-        <Img className='icono' data-aos="flip-up" src={favicon} onClick= {scrollO} alt="icono" />
+        <Img className='icono '  data-aos="flip-up" src={favicon} onClick= {scrollO} alt="icono" />
         <Ancla href="https://web.archive.org/web/20230202010104/https://creativecommons.org/licenses/by/4.0/">
          </Ancla>
           <Ancla href="https://github.com/Aricoins">
