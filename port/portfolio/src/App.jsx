@@ -108,6 +108,17 @@ const StyledDiv = styled.div`
   z-index: -10;
   margin: auto;
   display: flex;
+  flex-direction: column;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+`;
+const StyledDiv2 = styled.div`
+  width: 90%;
+  z-index: -10;
+  margin: auto;
+  display: flex;
   flex-direction: row;
 
   @media (max-width: 900px) {
@@ -155,40 +166,48 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
       <Content>
   
     <img data-aos="fade-up" style={{ width: "90%", margin: "3% 0 0 0", zIndex: "1000" }} src={yo} alt="head" />
-    <StyledDiv >
+    <StyledDiv2 >
 
     <Img2 className="anime" data-aos="fade-right" src={dev} alt="devimg" />
 
 
     <About />
-  </StyledDiv>
+  </StyledDiv2>
 
   <div style={{ width: '90%',  zIndex: 0  }}>
     <Bola className="anim" src={gif} alt="gif" />
   </div>
 
-  <div style={{ width: '90%', margin: "auto", zIndex: 0 }}>
+  <StyledDiv >
+
     <h2 style={{ fontSize: "20px", backgroundColor: 'white' }}> Proyectos </h2>
     <Proyectos />
-  </div>
+    </StyledDiv >
 
-  <div style={{width: '90%', margin: "auto", zIndez: 0 }}>
+
+<StyledDiv >
+
     <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white' }} data-aos="fade-up"> Habilidades </h2>
     <Tecnologias style={{ zIndex: 2 }} />
-  </div>
+    </StyledDiv >
+
 
   <div style={{ width: '100%', zIndez: 0 }}>
     <Bola5 className="anim5" src={gif}  alt="gif" />
   </div>
 
-  <div style={{ width: '90%', margin: "auto", zIndez: 0}}>
+  <StyledDiv >
+
     <h2 style={{ fontSize: "20px", zIndex: 2, backgroundColor: 'white' }} data-aos="fade-up"> Contacto </h2>
     <Contacto />
-  </div>
+    </StyledDiv >
 
-  <div style={{ width: '90%' , margin:"auto",  zIndez: 0}}>
+
+    <StyledDiv >
+
     <Foot />
-  </div>
+    </StyledDiv >
+
 </Content>
       </Router>
     </>

@@ -35,7 +35,7 @@ display: flex;
 flex-direction: column ;
 justify-content: center;
 border-radius: 1em;
-height: 100%;
+height: 90%;
 align-self: center;
 align-items: center;
 align-content: center;
