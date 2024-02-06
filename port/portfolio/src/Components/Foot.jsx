@@ -4,7 +4,7 @@ import colores from './colores';import { SiGithub, SiLinkedin } from "react-icon
 import favicon from '../assets/descarga.png'
 import AOS from 'aos';
 import "aos/dist/aos.css";
-
+import talent from "../assets/image.png"
 
 const Contenedor = styled.footer`
   width: 100%;
@@ -98,6 +98,10 @@ export default function Foot(props) {
          </Ancla>
           <Ancla href="https://github.com/Aricoins">
          <SiGithub className='icono'/> 
+
+          </Ancla>
+<Ancla>
+<a href="https://www.talent.soyhenry.com/candidate/17489">          <img style={{width: "300%", padding:"100%"}} src={talent}   alt="icono" /></a>
           </Ancla>
         </div>
    
