@@ -106,7 +106,7 @@ const H1 = styled.h1`
 const StyledDiv = styled.div`
   display: flex;
   width: 100%;
-  z-index: 0;
+  z-index: -1;
   flex-direction: column;
   justify-content: center;
   align-content: center;

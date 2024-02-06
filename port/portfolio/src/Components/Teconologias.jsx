@@ -24,6 +24,14 @@ import { SiReactrouter } from "react-icons/si";
 import { SiTypescript } from "react-icons/si";	
 import { SiTailwindcss } from "react-icons/si";
 
+const Bola8 = styled.img`
+  width: 40%;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 30%;
+z-index: 0;
+`;
 
 const Tecnologi = styled.div`
     position: relative; 
@@ -35,7 +43,7 @@ const Tecnologi = styled.div`
     font-size: 2em;
     color: ${colores.white};
     padding: 1%;   
-    z-index: 0;
+    z-index: -1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,7 +60,7 @@ const Galeria = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   width: 80%;
   background-color: ${colores.amarillo} ;
-  z-index: 0;
+  z-index: -10;
   &:hover{
     transition: 3s;
     color: #f7a605;
@@ -67,7 +75,7 @@ const Galeria = styled.div`
 const Icono = styled.div`
 grid-auto-flow: column;
 position: relative;
-z-index: 0;
+z-index: 22222;
  display: grid;
 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 grid-template-rows: max-content 1fr;
@@ -104,14 +112,7 @@ margin: auto;
 
 
 
-const Bola8 = styled.img`
-  width: 40%;
-  position: absolute;
-  z-index: 1;
-  bottom: 50%;
-  left: 30%;
-z-index: 0;
-`;
+
 const Bola9 = styled.img`
   width: 2%;
   position: absolute;
@@ -238,7 +239,7 @@ const Tecnologias = () => {
     const bola = "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3ftutjzkicn7isg.gif"
     
     return( <>
-      <Bola8 className="anim8" src={bola} alt="gif"  />
+      {/* <Bola8 className="anim8" src={bola} alt="gif"  /> */}
         <Tecnologi 
         data-aos= "fade-up">
 
