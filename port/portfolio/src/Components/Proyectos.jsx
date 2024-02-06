@@ -14,7 +14,7 @@ justify-content: space-between;
 background-color: rgb(242, 242, 242, 0.3);
 width: 90%;
 justify-content: center;
-z-index: -10000;
+z-index: 1;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(1, 1fr);
@@ -48,7 +48,7 @@ font-size: 1.5em;
 margin: 5%;
 width: 90%;
 border: 8px solid black;
-z-index: 5000;
+z-index: 5;
 text-align: cenmter;
 
 &:hover{
@@ -87,13 +87,13 @@ const Proyectos = () => {
     <>
       <Contenedor>
         <a href="https://nuevamascota.vercel.app/" target="_blank">
-          <Card style={{ gridColumnStart:" 1" }}
+          <Card style={{ gridColumnStart:" 1" , zIndex: "1000"}}
             data-aos="flip-left"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="1500"
           >
             <h4 style={{color: `${colores.verde}`}}> Dogs App </h4>
-            <img  src={dogs} alt="imagen" />
+            <img style={{zIndex: 5}} src={dogs} alt="imagen" />
             <ul>
               <li>Planned and consistent UX/UI design across all routes.</li>
               <li>Combined filters and sorts</li>

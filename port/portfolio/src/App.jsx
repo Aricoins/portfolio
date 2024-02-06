@@ -23,6 +23,8 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  
 
   @media (max-width: 800px) {
     flex-direction: column;
@@ -106,7 +108,7 @@ const H1 = styled.h1`
 const StyledDiv = styled.div`
   display: flex;
   width: 100%;
-  z-index: -1;
+  z-index: 0;
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -136,7 +138,7 @@ function App() {
   const publicId = '7135d414785984bdd3b3e7fc8753733a';
 
   useEffect(() => {
-   // AOS.init();
+ AOS.init();
     anime({
       targets: '.anim',
       loop: true,
@@ -174,7 +176,7 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
     <StyledDiv2 >
     <img data-aos="fade-up" style={{
   height: "100%",
-  zIndex: 0,
+  zIndex: -1,
   margin: "2%"}} src={yo} alt="head" />
     <Img2 className="anime" data-aos="fade-up" src={dev} alt="devimg" />
     <About />
@@ -189,7 +191,7 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
     <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white', width: "100%",
   height: "100%",
   zIndex: 2,
-  margin: "10%",
+  margin: "0%",
   textAlign: "center" }}> Proyectos </h2>
     <Proyectos  />
     </StyledDiv >
@@ -200,9 +202,9 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
     <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white', width: "100%",
   height: "100%",
   zIndex: 2,
-  margin: "10%",
+  margin: "0%",
   textAlign: "center" }} data-aos="fade-up"> Habilidades </h2>
-    <Tecnologias />
+    <Tecnologias style= {{zIndex: 5}} />
     </StyledDiv >
 {/* 
 
@@ -215,7 +217,7 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
     <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white', width: "100%",
   height: "100%",
   zIndex: 2,
-  margin: "10%",
+  margin: "0",
   textAlign: "center" }} data-aos="fade-up"> Contacto </h2>
     <Contacto />
     </StyledDiv >

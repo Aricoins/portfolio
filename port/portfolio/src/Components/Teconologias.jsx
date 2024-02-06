@@ -27,7 +27,7 @@ import { SiTailwindcss } from "react-icons/si";
 const Bola8 = styled.img`
   width: 40%;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   bottom: 50%;
   left: 30%;
 z-index: 0;
@@ -43,15 +43,16 @@ const Tecnologi = styled.div`
     font-size: 2em;
     color: ${colores.white};
     padding: 1%;   
-    z-index: -1;
+    z-index: 5;
     display: flex;
     flex-direction: column;
     justify-content: center;
    margin: auto;
 
+
 @media (max-width: 800px) {
   margin: 0;
-  font-size: 1em;}
+  font-size: .8em;}
     `
 
 const Galeria = styled.div`
@@ -59,8 +60,8 @@ const Galeria = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   width: 80%;
-  background-color: ${colores.amarillo} ;
-  z-index: -10;
+  background-color:  rgb(0, 128, 0, 0.3);
+  z-index: 1;
   &:hover{
     transition: 3s;
     color: #f7a605;
@@ -75,7 +76,7 @@ const Galeria = styled.div`
 const Icono = styled.div`
 grid-auto-flow: column;
 position: relative;
-z-index: 22222;
+z-index: 3;
  display: grid;
 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 grid-template-rows: max-content 1fr;
@@ -84,9 +85,11 @@ padding: 10%;
 gap: 5%;
 justify-content: center;
 margin: auto;
+transition: 2s;
 &:hover{
-  transition: 3s;
+  transition: 2s;
  color: #f7a605;
+
 
 }
 
@@ -116,7 +119,7 @@ margin: auto;
 const Bola9 = styled.img`
   width: 2%;
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   top: 1%;
   left: 50%;
 
@@ -239,18 +242,18 @@ const Tecnologias = () => {
     const bola = "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3ftutjzkicn7isg.gif"
     
     return( <>
-      {/* <Bola8 className="anim8" src={bola} alt="gif"  /> */}
+      <Bola8 className="anim8" src={bola} alt="gif"  />
         <Tecnologi 
         data-aos= "fade-up">
 
- {/* <Bola9 className="anim3" src={bola} alt="gif"  /> */}
+ <Bola9 className="anim9" src={bola} alt="gif"  />
          
-        <h3> Javascript, Typescipt, CSS, Tailwind, HTML, React, Router, Redux.
-        <br/> Express, Postgress, Sequelize & MySQL. </h3>
-         <h3> Git, GitHub, Trello, Slack. </h3>
+        <h3> Javascript Typescipt Tailwind HTML React Router Redux NextJS
+       Express Postgress Sequelize SQL 
+   Git  </h3>
          <Galeria className="tech">
         
-         <Icono>
+      
          <Icono><SiCss3 
          style= {{gridColumnStart: "1", zIndex: 5, gridRowStart: "1"}} 
          className="tech"/> </Icono>
@@ -267,7 +270,7 @@ const Tecnologias = () => {
        <Icono><SiRedux className="tech"/></Icono>
        <Icono> <SiTypescript  className="tech"/></Icono>
        <Icono> <SiTailwindcss className="tech"/></Icono>
-       </Icono> </Galeria>
+    </Galeria>
    </Tecnologi>
    </>
 
