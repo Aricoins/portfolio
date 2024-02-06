@@ -46,7 +46,7 @@ const Img2 = styled.img`
   }
 
   @media (max-width: 800px) {
-    width: 90%;
+    width: 100%;
     height: auto;
   }
 `;
