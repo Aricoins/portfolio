@@ -28,7 +28,6 @@ import { SiTailwindcss } from "react-icons/si";
 const Tecnologi = styled.div`
     position: relative; 
     background-color: rgb(0, 128, 0, 0.3);
-  
     width: 100%;
     height: 100%;
     opacity: 0.9;
@@ -37,8 +36,13 @@ const Tecnologi = styled.div`
     color: ${colores.white};
     padding: 1%;   
     z-index: 0;
-   justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   margin: auto;
+
 @media (max-width: 800px) {
+  margin: 0;
   font-size: 1em;}
     `
 
@@ -46,8 +50,9 @@ const Galeria = styled.div`
  margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  width: 100%;
+  width: 80%;
   background-color: ${colores.amarillo} ;
+  z-index: 0;
   &:hover{
     transition: 3s;
     color: #f7a605;
@@ -62,14 +67,15 @@ const Galeria = styled.div`
 const Icono = styled.div`
 grid-auto-flow: column;
 position: relative;
-z-index: 2000;
+z-index: 0;
  display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      grid-template-rows: max-content 1fr;
-     
+grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+grid-template-rows: max-content 1fr;
 font-size: 1.5em;
-padding: 2%;
+padding: 10%;
 gap: 5%;
+justify-content: center;
+margin: auto;
 &:hover{
   transition: 3s;
  color: #f7a605;
@@ -99,12 +105,12 @@ gap: 5%;
 
 
 const Bola8 = styled.img`
-  width: 5%;
+  width: 40%;
   position: absolute;
-  z-index: 0;
-  top: 1%;
-  left: 50%;
-
+  z-index: 1;
+  bottom: 50%;
+  left: 30%;
+z-index: 0;
 `;
 const Bola9 = styled.img`
   width: 2%;
@@ -124,24 +130,22 @@ const Tecnologias = () => {
       anime({ targets: '.anim8 ',
         loop: true,
         easing: 'easeInOutQuad',
-        duration: 10000,
+        duration: 100000,
         direction: 'alternate',
         translateX: [
-          { value: 400, duration: 5700, delay: 0 },
-          { value: -300, duration: 2500, delay: 0 },
-          { value: -200, duration: 2500, delay: 0 },
+          { value: 200, duration: 10000, delay: 0 },
+          { value: -200, duration: 30000, delay: 0 },
+       
+               ],
+        translateY: [
+          { value: 200, duration: 10000, delay: 0 },
+          { value: 6000, duration: 30000, delay: 0 },
        
         ],
-        translateY: [
-          { value: 2200, duration: 5700, delay: 0 },
-          { value: 800, duration: 2500, delay: 0 },
-          { value: 1800, duration: 2500, delay: 0 },
-        ],
         scale: [
-          { value: 0.1, duration: 4700, delay: 0 },
-          { value: 3, duration: 2500, delay: 0 },
-          { value: 0, duration: 2500, delay: 0 },
-          { value: 0, duration: 5000, delay: 0 },
+          { value: .1, duration: 10000, delay: 0 },
+          { value: .6, duration: 20000, delay: 0 },
+          { value: .1, duration: 10000, delay: 0 },
           
         ],
   
@@ -233,12 +237,13 @@ const Tecnologias = () => {
       
     const bola = "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3ftutjzkicn7isg.gif"
     
-    return( 
+    return( <>
+      <Bola8 className="anim8" src={bola} alt="gif"  />
         <Tecnologi 
         data-aos= "fade-up">
- <Bola8 className="anim8" src={bola} alt="gif"  />
- <Bola9 className="anim3" src={bola} alt="gif"  />
-             
+
+ {/* <Bola9 className="anim3" src={bola} alt="gif"  /> */}
+         
         <h3> Javascript, Typescipt, CSS, Tailwind, HTML, React, Router, Redux.
         <br/> Express, Postgress, Sequelize & MySQL. </h3>
          <h3> Git, GitHub, Trello, Slack. </h3>
@@ -263,6 +268,7 @@ const Tecnologias = () => {
        <Icono> <SiTailwindcss className="tech"/></Icono>
        </Icono> </Galeria>
    </Tecnologi>
+   </>
 
    ) 
 }

@@ -12,26 +12,29 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 background-color: rgb(242, 242, 242, 0.3);
-width: 100%;
+width: 90%;
+justify-content: center;
 z-index: -10000;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(1, 1fr);
+margin: 0%;
+
 
 @media (max-width: 800px) {
   display: flex;
     flex-direction: column;
-    width: 100%;    
+  
   }
 
 @media (max-width: 600px) {
     flex-direction: column;
-    width: 90%;
+  
     
   }
   @media (max-width: 400px) {
     flex-direction: column;
-    width: 100%;
+    
   
   }
 `;

@@ -23,8 +23,6 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: auto;
-  margin:   10%  0 0 0;
 
   @media (max-width: 800px) {
     flex-direction: column;
@@ -32,22 +30,24 @@ const Content = styled.div`
   
   }
   @media (max-width: 600px) {
-    width: 110%;}
+    width: auto;
+    margin: auto;
+    }
 `;
 
 
 const Img2 = styled.img`
-  width: 100%;
+
   height: 100%;
   z-index: 0;
+  margin: 2% ;
 
   &:hover {
     color: red;
   }
 
   @media (max-width: 800px) {
-    width: 100%;
-    height: auto;
+  
   }
 `;
 
@@ -104,22 +104,27 @@ const H1 = styled.h1`
 `;
 
 const StyledDiv = styled.div`
-  width: 90%;
-  z-index: 0;
-  margin: auto;
   display: flex;
+  width: 100%;
+  z-index: 0;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: auto;
 
   @media (max-width: 900px) {
     flex-direction: column;
   }
 `;
 const StyledDiv2 = styled.div`
-  width: 90%;
+  width: 100%;
   z-index: 0;
   margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  border-radius: 25%;
+  justify-content: center;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -165,40 +170,53 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
       <Nav style={{ width: '90%', margin: "auto"  }}/>   
       <Content>
   
-    <img data-aos="fade-up" style={{ width: "90%", margin: "3% 0 0 0", zIndex: "1000" }} src={yo} alt="head" />
+    
     <StyledDiv2 >
-
-    <Img2 className="anime" data-aos="fade-right" src={dev} alt="devimg" />
-
-
+    <img data-aos="fade-up" style={{
+  height: "100%",
+  zIndex: 0,
+  margin: "2%"}} src={yo} alt="head" />
+    <Img2 className="anime" data-aos="fade-up" src={dev} alt="devimg" />
     <About />
   </StyledDiv2>
 
-  <div style={{ width: '90%',  zIndex: 0  }}>
+  {/* <div style={{ width: '90%',  zIndex: 0  }}>
     <Bola className="anim" src={gif} alt="gif" />
-  </div>
+  </div> */}
 
   <StyledDiv >
 
-    <h2 style={{ fontSize: "20px", backgroundColor: 'white' }}> Proyectos </h2>
-    <Proyectos />
+    <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white', width: "100%",
+  height: "100%",
+  zIndex: 2,
+  margin: "10%",
+  textAlign: "center" }}> Proyectos </h2>
+    <Proyectos  />
     </StyledDiv >
 
 
 <StyledDiv >
 
-    <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white' }} data-aos="fade-up"> Habilidades </h2>
-    <Tecnologias style={{ zIndex: 2 }} />
+    <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white', width: "100%",
+  height: "100%",
+  zIndex: 2,
+  margin: "10%",
+  textAlign: "center" }} data-aos="fade-up"> Habilidades </h2>
+    <Tecnologias />
     </StyledDiv >
-
+{/* 
 
   <div style={{ width: '100%', zIndez: 0 }}>
     <Bola5 className="anim5" src={gif}  alt="gif" />
-  </div>
+  </div> */}
 
   <StyledDiv >
 
-    <h2 style={{ fontSize: "20px", zIndex: 2, backgroundColor: 'white' }} data-aos="fade-up"> Contacto </h2>
+    <h2 style={{ fontSize: "20px", zIndex: -1, backgroundColor: 'white', width: "100%",
+  height: "100%",
+  zIndex: 2,
+  margin: "10%",
+  textAlign: "center" }} data-aos="fade-up"> Contacto </h2>
     <Contacto />
     </StyledDiv >
 
