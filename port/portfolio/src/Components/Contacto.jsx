@@ -21,14 +21,14 @@ const Contenedor = styled.div`
     `
 
     const Input = styled.input`
-    width: 50%;
+    width: 90%;
     height: 5vh;
     margin-left: 2%;
     margin-bottom: 2%;
     align-self: center;
     `
     const Textarea = styled.textarea`
-    width: 50%;
+    width: 90%;
     height: 10vh;
     margin-left: 2%;
     margin-bottom: 2%;
