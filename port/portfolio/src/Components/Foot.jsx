@@ -102,7 +102,7 @@ export default function Foot(props) {
           </Ancla>
 <Ancla>
 <a href="https://www.talent.soyhenry.com/candidate/17489"> 
-         <img style={{width: "100%", padding:"100%"}} 
+         <img style={{width: "50%", padding:"100%"}} 
               src={talent}   
               alt="icono" />
               </a>
