@@ -43,13 +43,15 @@ const Img2 = styled.img`
   height: 100%;
   z-index: 0;
   margin: 2% ;
+  width: 50vh;
 
   &:hover {
     color: red;
   }
 
-  @media (max-width: 800px) {
-  
+  @media (max-width: 900px) {
+width: 95%;
+margin: auto;
   }
 `;
 
@@ -132,6 +134,14 @@ const StyledDiv2 = styled.div`
     flex-direction: column;
   }
 `;
+const Div = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+  
+  `
 
 function App() {
   const cloudName = 'dx0htqhaq';
@@ -177,9 +187,13 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
     <img data-aos="fade-up" style={{
   height: "100%",
   zIndex: -1,
-  margin: "2%"}} src={yo} alt="head" />
-    <Img2 className="anime" data-aos="fade-up" src={dev} alt="devimg" />
+  margin: "2%",
+  marginTop: "5%",
+  }} src={yo} alt="head" />
+  <Div>
+    <Img2 data-aos="fade-up" src={dev} alt="devimg" />
     <About />
+    </Div>
   </StyledDiv2>
 
   {/* <div style={{ width: '90%',  zIndex: 0  }}>

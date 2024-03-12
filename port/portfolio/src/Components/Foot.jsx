@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import colores from './colores';import { SiGithub, SiLinkedin } from "react-icons/si";
-import favicon from '../assets/descarga.png'
+import { SiGithub, SiLinkedin } from 'react-icons/si';
 import AOS from 'aos';
-import "aos/dist/aos.css";
-import talent from "../assets/image.png"
+import 'aos/dist/aos.css';
+
+import colores from './colores';
+import favicon from '../assets/descarga.png';
+import talent from '../assets/image.png';
 
 const Contenedor = styled.footer`
   width: 100%;
@@ -15,31 +17,43 @@ const Contenedor = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  .icono {	
+
+  .icono {
     opacity: 0.8;
-    padding: 0%;
-    transition: 1s;
-    font-size: 6em;
-    padding: 10%;
-    justify-content: flex-start;
+    font-size: 5vh;
+    padding: 5%;
+    justify-content: center;
     cursor: pointer;
-}
-  @media (max-width: 600px) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    transition: 1s;
+
+    @media (max-width: 700px) {
+      font-size: 3em;
+      justify-content: start;
+    }
   }
 `;
 
 const Img = styled.img`
   border-radius: 50%;
-  padding: 0%;
-  margin: 0%;
-  width: 80%;
-  z-index: 100;
+  margin: auto;
+
   @media (max-width: 600px) {
     width: 80px;
-    align-self: center;
+  }
+`;
+
+const Img2 = styled.img`
+  width: 160px;
+  margin: 30%;
+
+  @media (max-width: 900px) {
+    width: 80px;
+    margin-right: 0;
+  }
+
+  @media (max-width: 600px) {
+    width: 60px;
+    margin-left: 10px;
   }
 `;
 
@@ -48,18 +62,16 @@ const Ancla = styled.a`
   color: ${colores.marron};
   display: flex;
   border-radius: 8%;
-  transition-duration: 2s;
+  transition-duration: 0.3s;
 
   :hover {
     opacity: 0.8;
-    
-    transition: 1s;
+    transition: 0.3s;
     cursor: pointer;
   }
 
   @media (max-width: 600px) {
     width: 80px;
-    align-self: center;
   }
 `;
 
@@ -72,8 +84,14 @@ const Span = styled.span`
   @media (max-width: 600px) {
     transform: rotate(0deg);
     font-size: x-small;
-    align-self: center;
   }
+`;
+
+const Piso = styled.div`
+  background-color: rgba(255, 0, 0, 0);
+  width: 50%;
+  display: flex;
+  align-items: center;
 `;
 
 export default function Foot(props) {
@@ -88,7 +106,7 @@ export default function Foot(props) {
     <>
       <Contenedor>
      
-        <div style={{ display: 'flex',  justifyContent: "center", alignItems: "center"  }}>
+       <Piso>
           <Ancla href="https://www.linkedin.com/in/aegr/">
           <SiLinkedin className='icono'/>
           </Ancla>
@@ -102,12 +120,12 @@ export default function Foot(props) {
           </Ancla>
 <Ancla>
 <a href="https://www.talent.soyhenry.com/candidate/17489"> 
-         <img style={{width: "50%", padding:"100%"}} 
-              src={talent}   
+         <Img2
+          src={talent}   
               alt="icono" />
               </a>
           </Ancla>
-        </div>
+        </Piso>
         </Contenedor>
    
       <Span > © 2024 - Ariel G Rogel </Span>
