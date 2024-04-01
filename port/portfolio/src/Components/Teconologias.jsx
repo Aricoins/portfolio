@@ -58,7 +58,7 @@ const Tecnologi = styled.div`
 const Galeria = styled.div`
  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   width: 80%;
   background-color:  rgb(0, 128, 0, 0.3);
   z-index: 1;
