@@ -65,7 +65,7 @@ const Galeria = styled.div`
   &:hover{
     transition: 3s;
     color: #f7a605;
-    width: 90%;
+ 
 
   }
   @media (max-width: 800px) {
