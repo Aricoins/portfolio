@@ -137,6 +137,7 @@ const StyledDiv2 = styled.div`
 const Div = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   @media (max-width: 900px) {
     flex-direction: column;
   }
@@ -191,7 +192,7 @@ const gif= "https://res.cloudinary.com/dx0htqhaq/image/upload/v1706896494/ymipt3
   marginTop: "5%",
   }} src={yo} alt="head" />
   <Div>
-    <Img2 data-aos="fade-up" src={dev} alt="devimg" />
+    <Img2 data-aos="fade-up" src={dev} style={{width: "50%"}}alt="devimg" />
     <About />
     </Div>
   </StyledDiv2>
