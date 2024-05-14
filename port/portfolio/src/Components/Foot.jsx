@@ -4,14 +4,15 @@ import { SiGithub, SiLinkedin } from 'react-icons/si';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import colores from './colores';
+import {colores} from './colores';
 import favicon from '../assets/descarga.png';
 import talent from '../assets/image.png';
 
 const Contenedor = styled.footer`
   width: 100%;
   border-radius: 5%;
-  background-color: #003140;
+  background-color: ${props => props.currentColor.primero};
+
   margin-top: 2%;
   margin-bottom: 10%;
   display: flex;
@@ -20,12 +21,11 @@ const Contenedor = styled.footer`
 
   .icono {
     opacity: 0.8;
-    font-size: 5vh;
+    font-size: 6rem;
     padding: 5%;
     justify-content: center;
     cursor: pointer;
     transition: 1s;
-
     @media (max-width: 700px) {
       font-size: 3em;
       justify-content: start;
@@ -43,7 +43,7 @@ const Img = styled.img`
 `;
 
 const Img2 = styled.img`
-  width: 160px;
+  width: 180px;
   margin: 30%;
 
   @media (max-width: 900px) {
@@ -92,9 +92,10 @@ const Piso = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
+  height: 50%;
 `;
 
-export default function Foot(props) {
+export default function Foot(currentColor) {
 
   const scrollO = () => {
     window.scrollTo({
@@ -104,7 +105,7 @@ export default function Foot(props) {
   }
   return (
     <>
-      <Contenedor>
+      <Contenedor currentColor ={currentColor}>
      
        <Piso>
           <Ancla href="https://www.linkedin.com/in/aegr/">

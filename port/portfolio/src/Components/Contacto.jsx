@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 
 const Contenedor = styled.div`
     width:100%;
-    background-color: #003140;
+    background-color: ${props => props.currentColor.primero};
     display: flex;
     flex-direction: column;
 
@@ -39,19 +39,21 @@ const Contenedor = styled.div`
     height: 8vh;
     margin-left: 2%;
     margin-bottom: 2%;
-    background-color: rgb(4, 79, 72);
-    color: white;
+    background-color: ${props => props.currentColor.primero};
+    color: ${currentColor => currentColor.cuarto};
+
     border: 1px solid white;
     align-self: center;
     &:hover{
-        background-color: white;
-        color: #003140;
+      background-color: ${props => props.currentColor.segundo};
+      color: ${props => props.currentColor.tercero};
+
     }
     `
 
 
 // Create a functional component named ContactForm
-const ContactForm = () => {
+const ContactForm = (currentColor) => {
   // Use the useState hook to manage the state of form fields
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -87,7 +89,7 @@ useEffect(() => {
 
   // Return the JSX structure of the component
   return (
-    <Contenedor data-aos="fade-up"
+    <Contenedor data-aos="fade-up" currentColor={currentColor}
     >
       {/* Input field for Name */}
       < Label htmlFor="name">Nombre:</ Label>
@@ -117,7 +119,7 @@ useEffect(() => {
       />
     {error && <p style={{ color: 'red' }}>{error}</p>}
       {/* Submit button with an onClick handler */}
-      <Button onClick={handleFormSubmit}>Enviar</Button>
+      <Button onClick={handleFormSubmit} currentColor={currentColor}  >Enviar</Button>
     </Contenedor>
   );
 };
