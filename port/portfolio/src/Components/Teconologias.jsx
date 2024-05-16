@@ -1,6 +1,6 @@
+import React, { useEffect } from "react";
+import styled from "styled-components";
 import anime from 'animejs/lib/anime.es.js';
-import { useEffect } from 'react';
-import styled from 'styled-components';
 import { SiCss3, SiHtml5, SiJavascript, SiMysql, SiPostgresql, SiSequelize, SiGit, SiGithub, SiTrello, SiSlack, SiReactrouter, SiRedux, SiTypescript, SiTailwindcss } from 'react-icons/si';
 import AOS from 'aos';
 
@@ -21,7 +21,7 @@ const Tecnologi = styled.div`
   height: 100%;
   opacity: 0.9;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 3em;
   color: ${({ currentColor }) => currentColor.quinto};
   text-decoration: solid 1px ${({ currentColor }) => currentColor.cuarto};
   padding: 1%;   
