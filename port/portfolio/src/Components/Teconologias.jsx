@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import anime from 'animejs/lib/anime.es.js';
-import { useEffect } from 'react';
-import styled from 'styled-components';
 import { SiCss3, SiHtml5, SiJavascript, SiMysql, SiPostgresql, SiSequelize, SiGit, SiGithub, SiTrello, SiSlack, SiReactrouter, SiRedux, SiTypescript, SiTailwindcss } from 'react-icons/si';
 import AOS from 'aos';
 
