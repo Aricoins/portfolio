@@ -9,9 +9,10 @@ import Nav from './Components/Nav';
 import Proyectos from './Components/Proyectos';
 import About from './Components/about';
 import Tecnologias from './Components/Teconologias';
-import Foot from './Components/Foot';
-import Contacto from './Components/Contacto';
-import Yo from './Components/Yo';
+import Foot from './Components/Foot.jsx';
+import Contacto from "./Components/Contacto.jsx";
+import yo from "../../portfolio/src/assets/yo.jpg";
+import dev from "../src/assets/source.gif"
 
 import yo from '../../portfolio/src/assets/yo.jpg';
 import dev from '../src/assets/source.gif';

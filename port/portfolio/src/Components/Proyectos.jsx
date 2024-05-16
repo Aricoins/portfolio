@@ -10,21 +10,26 @@ import biblio from '../assets/biblio.png';
 const Contenedor = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
- 
-  margin: 0%;
+   margin: 0%;
   justify-content: center;
   z-index: 1;
   background-color: ${props => props.currentColor.primero};
   color : ${props => props.currentColor.cuarto};
   @media (max-width: 800px) {
     flex-direction: column;
-    grid-template-columns: repeat(1, 1fr);
+    width: 90%;
+    grid-template-columns: 1fr;
   }
-  
+  @media (max-width: 400px) {
+    flex-direction: column;
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
   @media (max-width: 600px) {
     flex-direction: column;
   }
-`;
+
+  `
 
 const Card = styled.div`
   background-color: ${props => props.currentColor.primero};
