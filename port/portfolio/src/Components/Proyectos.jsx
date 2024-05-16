@@ -5,11 +5,12 @@ import 'aos/dist/aos.css';
 import dogs from '../assets/dogs.png';
 import azul from '../assets/azul.png';
 import nido from '../assets/nido.png';
+import biblio from '../assets/biblio.png';
 
 const Contenedor = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+ 
   margin: 0%;
   justify-content: center;
   z-index: 1;
@@ -17,6 +18,7 @@ const Contenedor = styled.div`
   color : ${props => props.currentColor.cuarto};
   @media (max-width: 800px) {
     flex-direction: column;
+    grid-template-columns: repeat(1, 1fr);
   }
   
   @media (max-width: 600px) {
@@ -28,7 +30,7 @@ const Card = styled.div`
   background-color: ${props => props.currentColor.primero};
   border-radius: 10px;
   box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.25);
-  font-size: 0.9em;
+  font-size: 0.5em;
   margin: 5%;
   width: 80%;
   border: 3px solid ${props => props.currentColor.cuarto};
@@ -114,6 +116,30 @@ const Proyectos = ({ currentColor }) => {
           </ul>
         </Card>
       </a>
+      <a>
+      <Card
+          currentColor={currentColor}
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
+          <h4 style={{ color: currentColor.cuarto }}> Biblioteca y Archivo Di Biase </h4>
+          <img src={biblio} alt="imagen" />
+          <ul>
+          <li>NextJS: Framework React para la creación de aplicaciones web.</li>
+    <li>Clerk: Integración de autenticación y gestión de usuarios.</li>
+  <li> Compatibilidad de Tailwind CSS con PostCSS 7.</li>
+  <li>Gestión y optimización de imágenes y vídeos.</li>
+  <li>Librería oficial para acceder a las APIs de Google.</li>
+  <li>pg-promise: Interfaz de Promesas para la base de datos PostgreSQL.</li>
+  <li>styled-components: Librería para estilos CSS en JS.</li>
+  <li>sweetalert2: Alertas modales bonitas.</li>
+  <li>xlsx: Lectura y escritura de archivos Excel.</li>
+</ul>
+
+        </Card>
+      </a>
+
       <a href="https://ecommerce-pf-henry-grupo7.vercel.app/" target="_blank">
         <Card
           currentColor={currentColor}
@@ -136,6 +162,7 @@ const Proyectos = ({ currentColor }) => {
           </ul>
         </Card>
       </a>
+
     </Contenedor>
   );
 };
