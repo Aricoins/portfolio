@@ -21,7 +21,7 @@ const Tecnologi = styled.div`
   height: 100%;
   opacity: 0.9;
   text-align: center;
-  font-size: 2em;
+  font-size: 1em;
   color: ${({ currentColor }) => currentColor.quinto};
   text-decoration: solid 1px ${({ currentColor }) => currentColor.cuarto};
   padding: 1%;   
@@ -30,6 +30,7 @@ const Tecnologi = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: auto;
+  background-color: "black"; 
 
   @media (max-width: 800px) {
     margin: 0;
@@ -155,7 +156,6 @@ const Tecnologias = ({ currentColor }) => {
     return (
         <>
             <Tecnologi currentColor={currentColor} data-aos="fade-up">
-                <h3>Javascript, Typescript, Tailwind, HTML, React Router, Redux, Next.js, Express, Postgres, Sequelize, SQL, Git</h3>
                 <Galeria currentColor={currentColor} className="tech">
                     <Icono currentColor={currentColor}><SiCss3 className="tech" /></Icono>
                     <Icono currentColor={currentColor}><SiHtml5 className="tech" /></Icono>
@@ -172,6 +172,8 @@ const Tecnologias = ({ currentColor }) => {
                     <Icono currentColor={currentColor}><SiTypescript className="tech" /></Icono>
                     <Icono currentColor={currentColor}><SiTailwindcss className="tech" /></Icono>
                 </Galeria>
+                  <h3>Javascript | Typescript | Tailwind | HTML | React| Redux | Next.js | Express | PostgreSQL | Git | Scrum</h3>
+            
             </Tecnologi>
         </>
     );
