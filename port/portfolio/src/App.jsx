@@ -131,7 +131,7 @@ function App() {
   }, []);
 
   return (
-    <>   <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginTop: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
+    <>   <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
       <Router>
         <Nav currentColor={currentColor} toggleTheme={toggleTheme} style={{ width: '90%', margin: 'auto' }} />
         <Content style={{ backgroundColor: currentColor.primero }}>

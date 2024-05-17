@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import perfil from "../assets/perfil.jpeg";
+import yo from "../assets/yo.jpg";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -88,26 +89,24 @@ const Image = styled.img`
   }
 `;
 
-const Yo = ({ currentColor }) => {
+const Yo = ({ currentColor, theme }) => {
   useEffect(() => {
     AOS.init({
       duration: 2000,
     });
   }, []);
-  
+
   return (
- <Desktop currentColor ={currentColor}>
-
-<Container data-aos="fade-left" currentColor={currentColor}>
-      <Title  currentColor={currentColor}>Ariel G. Rogel</Title>
-      <Subtitle currentColor={currentColor}>Full Stack Web Developer</Subtitle>
-      <Description currentColor={currentColor}>
-        Javascript | React | NextJS | TailwindCSS | NodeJS | SQL
-      </Description>
+    <Desktop currentColor={{ currentColor, theme }}>
+      <Container data-aos="fade-left" currentColor={currentColor}>
+        <Title currentColor={currentColor}>Ariel G. Rogel</Title>
+        <Subtitle currentColor={currentColor}>Full Stack Web Developer</Subtitle>
+        <Description currentColor={currentColor}>
+          Javascript | React | NextJS | TailwindCSS | NodeJS | SQL
+        </Description>
       </Container>
-
-      <Image data-aos="fade-rigth" src={perfil} alt="yo" />
-      </Desktop>
+      <Image data-aos="fade-right" src={theme === "light" ? yo : perfil} alt="yo" />
+    </Desktop>
   );
 };
 
