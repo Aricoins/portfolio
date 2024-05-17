@@ -169,7 +169,9 @@ function App() {
           <StyledDiv>
             <Foot currentColor={currentColor} />
           </StyledDiv>
+           <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
         </Content>
+        
       </Router>
     </>
   );
