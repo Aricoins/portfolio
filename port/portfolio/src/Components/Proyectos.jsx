@@ -42,7 +42,8 @@ const Card = styled.div`
   &:hover {
     background-color: ${props => props.currentColor.cuarto};
     border-color: ${props => props.currentColor.primero};
-    transition: 2s;
+  color: ${props => props.currentColor.quinto};
+   transition: 2s;
   }
 
   p {
@@ -116,7 +117,7 @@ const Proyectos = ({ currentColor }) => {
           </ul>
         </Card>
       </a>
-       <a href="https://nuevamascota.vercel.app/" target="_blank">
+       <a href="https://dibiase.vercel.app/" target="_blank">
       <Card
           currentColor={currentColor}
           data-aos="flip-left"
