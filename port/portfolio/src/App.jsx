@@ -27,6 +27,7 @@ const Content = styled.div`
   
   @media (max-width: 800px) {
     flex-direction: column;
+    margin-bottom: "10%";
   }
   
   @media (max-width: 600px) {
