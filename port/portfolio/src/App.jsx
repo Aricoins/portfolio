@@ -87,7 +87,6 @@ const Div = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-background-color: ${colores.azul};
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -137,7 +136,8 @@ function App() {
         <Nav currentColor={currentColor} toggleTheme={toggleTheme} style={{ width: '90%', margin: 'auto' }} />
         <Content style={{ backgroundColor: currentColor.primero }}>
           <StyledDiv2 style={{ backgroundColor: currentColor.azul }}>
-            <Yo currentColor={currentColor} />
+          <Yo currentColor={currentColor} theme={theme} />
+
             <Div>
               <Img2 data-aos="fade-up" src={dev} style={{ width: '50%' }} alt='devimg' />
               <About currentColor={currentColor} />

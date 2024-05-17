@@ -9,6 +9,7 @@ const Contenedor = styled.div`
     background-color: ${props => props.currentColor.primero};
     display: flex;
     flex-direction: column;
+    margin: 2%;
 
     `
     const Label = styled.label`

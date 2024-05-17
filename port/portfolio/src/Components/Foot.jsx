@@ -12,20 +12,26 @@ const Contenedor = styled.footer`
   width: 100%;
   border-radius: 5%;
   background-color: ${props => props.currentColor.primero};
+ 
+  border: 2px ;
+  margin: 2%;
+  margin-top: 8%;
 
-  margin-top: 2%;
-  margin-bottom: 10%;
   display: flex;
   flex-direction: row;
   justify-content: center;
 
   .icono {
-    opacity: 0.8;
+
     font-size: 6rem;
-    padding: 5%;
+    padding-right: 3%;
+    padding-left: 3% ;
     justify-content: center;
     cursor: pointer;
     transition: 1s;
+    margin-left: 10%;
+
+   
     @media (max-width: 700px) {
       font-size: 3em;
       justify-content: start;
@@ -36,6 +42,8 @@ const Contenedor = styled.footer`
 const Img = styled.img`
   border-radius: 50%;
   margin: auto;
+  width: 20%;
+  
 
   @media (max-width: 600px) {
     width: 80px;
@@ -44,7 +52,7 @@ const Img = styled.img`
 
 const Img2 = styled.img`
   width: 180px;
-  margin: 30%;
+  margin-left: 30%;
 
   @media (max-width: 900px) {
     width: 80px;
@@ -77,8 +85,6 @@ const Ancla = styled.a`
 
 const Span = styled.span`
   color: white;
-  margin-top: 7%;
-  margin-right: -5%;
   font-size: small;
 
   @media (max-width: 600px) {
@@ -92,7 +98,7 @@ const Piso = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
-  height: 50%;
+  height: auto;
 `;
 
 export default function Foot(currentColor) {
