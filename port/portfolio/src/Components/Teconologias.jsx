@@ -21,7 +21,7 @@ const Tecnologi = styled.div`
   height: 100%;
   opacity: 0.9;
   text-align: center;
-  font-size: 3em;
+  font-size: 2em;
   color: ${({ currentColor }) => currentColor.quinto};
   text-decoration: solid 1px ${({ currentColor }) => currentColor.cuarto};
   padding: 1%;   
@@ -44,7 +44,7 @@ const Galeria = styled.div`
   width: 80%;
   background-color: ${({ currentColor }) => currentColor.green};
   z-index: 1;
-  font-size: 1.5em  ;
+  font-size: 1em  ;
 
   &:hover {
     transition: 3s;
