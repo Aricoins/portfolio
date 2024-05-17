@@ -116,7 +116,7 @@ const Proyectos = ({ currentColor }) => {
           </ul>
         </Card>
       </a>
-      <a>
+       <a href="https://nuevamascota.vercel.app/" target="_blank">
       <Card
           currentColor={currentColor}
           data-aos="flip-left"
