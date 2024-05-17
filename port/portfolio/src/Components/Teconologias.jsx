@@ -74,6 +74,7 @@ const Icono = styled.div`
   &:hover {
     transition: 1s;
 scale: 1.5;
+z-index: 300;
 
     color: ${({ currentColor }) => currentColor.quinto};
   }
