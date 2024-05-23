@@ -40,11 +40,11 @@ const Tecnologi = styled.div`
 const Galeria = styled.div`
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   width: 80%;
   background-color: ${({ currentColor }) => currentColor.green};
   z-index: 1;
-  font-size: 1.5em  ;
+  font-size: 2.5em  ;
 
   &:hover {
     transition: 3s;
@@ -154,7 +154,6 @@ const Tecnologias = ({ currentColor }) => {
     return (
         <>
             <Tecnologi currentColor={currentColor} data-aos="fade-up">
-                <h3>Javascript, Typescript, Tailwind, HTML, React Router, Redux, Next.js, Express, Postgres, Sequelize, SQL, Git</h3>
                 <Galeria currentColor={currentColor} className="tech">
                     <Icono currentColor={currentColor}><SiCss3 className="tech" /></Icono>
                     <Icono currentColor={currentColor}><SiHtml5 className="tech" /></Icono>
@@ -171,7 +170,10 @@ const Tecnologias = ({ currentColor }) => {
                     <Icono currentColor={currentColor}><SiTypescript className="tech" /></Icono>
                     <Icono currentColor={currentColor}><SiTailwindcss className="tech" /></Icono>
                 </Galeria>
+                <h3 style={{background: "black", fontSize: "small"}} >Javascript | Typescript | HTML | CSS | React | Redux | Express | Postgres | SQL | Git Flow | Scrum | NextJS  </h3>
+             
             </Tecnologi>
+            
         </>
     );
 };

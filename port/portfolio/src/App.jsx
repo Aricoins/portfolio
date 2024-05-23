@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import anime from 'animejs/lib/anime.es.js';
-import { FaSun, FaMoon } from 'react-icons/fa'; 
+import { FaSun, FaMoon, FaWhatsapp } from 'react-icons/fa'; 
 import Nav from './Components/Nav';
 import Proyectos from './Components/Proyectos';
 import About from './Components/about';
@@ -41,7 +41,6 @@ const Img2 = styled.img`
   margin: 2%;
   width: 50vh;
 
-
   &:hover {
     color: red;
   }
@@ -51,8 +50,6 @@ const Img2 = styled.img`
     margin: auto;
   }
 `;
-
-
 
 const StyledDiv = styled.div`
   display: flex;
@@ -93,16 +90,35 @@ const Div = styled.div`
   }
 `;
 
+const WhatsappButton = styled.a`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #128C7E;
+  }
+`;
+
 function App() {
-  // Define el estado del tema (claro por defecto)
   const [theme, setTheme] = useState('light');
 
-  // Función para cambiar el tema
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-  // Selecciona los colores según el estado del tema
   const currentColor = theme === 'light' ? colores : coloresBlack;
 
   useEffect(() => {
@@ -131,44 +147,45 @@ function App() {
   }, []);
 
   return (
-    <>   <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginTop: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
+    <>
+      <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", marginTop: "30%", marginLeft: "90%"}}>
+        {currentColor === colores ? <FaSun /> : <FaMoon />}  
+      </button>
       <Router>
         <Nav currentColor={currentColor} toggleTheme={toggleTheme} style={{ width: '90%', margin: 'auto' }} />
         <Content style={{ backgroundColor: currentColor.primero }}>
           <StyledDiv2 style={{ backgroundColor: currentColor.azul }}>
-          <Yo currentColor={currentColor} theme={theme} />
-
+            <Yo currentColor={currentColor} theme={theme} />
             <Div>
               <Img2 data-aos="fade-up" src={dev} style={{ width: '50%' }} alt='devimg' />
               <About currentColor={currentColor} />
             </Div>
           </StyledDiv2>
-
           <StyledDiv>
             <h2 style={{ fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Proyectos
             </h2>
             <Proyectos currentColor={currentColor} />
           </StyledDiv>
-
           <StyledDiv>
             <h2 style={{ fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Habilidades
             </h2>
             <Tecnologias currentColor={currentColor} />
           </StyledDiv>
-
           <StyledDiv>
             <h2 style={{ fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Contacto
             </h2>
             <Contacto currentColor={currentColor} />
           </StyledDiv>
-
           <StyledDiv>
             <Foot currentColor={currentColor} />
           </StyledDiv>
         </Content>
+        <WhatsappButton href="https://wa.me/+5492945907975" target="_blank" rel="noopener noreferrer">
+          <FaWhatsapp />
+        </WhatsappButton>
       </Router>
     </>
   );
