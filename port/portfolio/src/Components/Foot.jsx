@@ -51,9 +51,13 @@ const Img = styled.img`
 `;
 
 const Img2 = styled.img`
+ background-color: rgb(0, 0, 0, 0.6);
+ padding: 2%;
+ border-radius: 5px;
   width: 180px;
   margin-left: 30%;
-
+  text-shadow: 5px 2px 10px 5px rgba(0, 0, 0, 0.8);
+box-shadow: 1px 2px 3px 5px  rgba(0, 0, 0, 0);
   @media (max-width: 900px) {
     width: 80px;
     margin-right: 0;

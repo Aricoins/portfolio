@@ -117,7 +117,7 @@ function App() {
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
 
   const currentColor = theme === 'light' ? colores : coloresBlack;
@@ -150,7 +150,7 @@ function App() {
   return (
     <>
       <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", bottom: "18%", right: "2%", border: "black 1px solid"}}>
-        {currentColor === colores ? <FaSun /> : <FaMoon />}  
+        {currentColor === colores ?  <FaMoon /> : <FaSun />}  
       </button>
       <Router>
         <Nav currentColor={currentColor} toggleTheme={toggleTheme} style={{ width: '90%', margin: 'auto' }} />
