@@ -93,8 +93,8 @@ const Div = styled.div`
 
 const WhatsappButton = styled.a`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 2%;
+  right: 2%;
   background-color: #25D366;
   color: white;
   border-radius: 50%;
@@ -103,7 +103,7 @@ const WhatsappButton = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 5rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   text-decoration: none;
@@ -149,7 +149,7 @@ function App() {
 
   return (
     <>
-      <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", marginTop: "30%", marginLeft: "90%"}}>
+      <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", bottom: "18%", right: "2%", border: "black 1px solid"}}>
         {currentColor === colores ? <FaSun /> : <FaMoon />}  
       </button>
       <Router>

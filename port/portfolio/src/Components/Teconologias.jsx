@@ -172,7 +172,7 @@ const Tecnologias = ({ currentColor }) => {
                     <Icono currentColor={currentColor}><SiTypescript className="tech" /></Icono>
                     <Icono currentColor={currentColor}><SiTailwindcss className="tech" /></Icono>
                 </Galeria>
-                <h3 style={{background: "black", fontSize: "small"}} >Javascript | Typescript | HTML | CSS | React | Redux | Express | Postgres | SQL | Git Flow | Scrum | NextJS  </h3>
+                <h3 style={{background: "black", fontSize: "small"}} > Javascript | Typescript | NextJS | ReactJS | Redux & Persist | TailwindCSS | ExpressJS | SQL | Git Flow | Ágile </h3>
              
             </Tecnologi>
             

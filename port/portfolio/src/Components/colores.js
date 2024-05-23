@@ -1,6 +1,6 @@
 
 const colores = {
-    primero:  "#B9E9FC",// celeste 
+    primero:  "white",// celeste 
     segundo: "#DAF5FF",// celesteclaro
     tercero: "B9E9FC",// blanco
     cuarto: "black",// negro 
