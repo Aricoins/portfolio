@@ -81,10 +81,10 @@ z-index: 0;
 <H2 >Hola!</H2>
        <Estilo currentColor={currentColor} >   
 
-       Soy desarrollador web con background como data manager.
-Me especializo en Javascript , lenguaje con el que me gradué como full stack developer.  
-       <br/>  <br/>Mis últimos proyectos usan Typescript, TailwindCSS y NextJS.<br/><br/>
-        Me gusta trabajar en equipo y aprender de los que más saben.
+       Soy full stack developer y programar es lo que más me gusta.  <br/> <br/>
+Me especializo en Javascript, lenguaje con el que me gradué en el bootcamp de Henry como desarrollador web. <br/> <br/>  
+       <br/>  Vivo en Bariloche, Argentina, donde puedo conjugar mi pasión con el trekking en la montaña, mi principal hobby. <br/> <br/>        
+       `<br/>Mis últimos trabajos usan Typescript, TailwindCSS y NextJS aunque naturalmente incorporo tecnologías nuevas<br/><br/>
     </Estilo>
     </Bloque>
     </Contenedor>
