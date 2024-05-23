@@ -27,6 +27,7 @@ const Content = styled.div`
   
   @media (max-width: 800px) {
     flex-direction: column;
+    margin-bottom: "10%";
   }
   
   @media (max-width: 600px) {
@@ -182,6 +183,7 @@ function App() {
           <StyledDiv>
             <Foot currentColor={currentColor} />
           </StyledDiv>
+           <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
         </Content>
         <WhatsappButton href="https://wa.me/+5492945907975" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />

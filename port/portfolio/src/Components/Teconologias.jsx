@@ -21,7 +21,7 @@ const Tecnologi = styled.div`
   height: 100%;
   opacity: 0.9;
   text-align: center;
-  font-size: 3em;
+  font-size: 1em;
   color: ${({ currentColor }) => currentColor.quinto};
   text-decoration: solid 1px ${({ currentColor }) => currentColor.cuarto};
   padding: 1%;   
@@ -30,6 +30,7 @@ const Tecnologi = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: auto;
+  background-color: "black"; 
 
   @media (max-width: 800px) {
     margin: 0;
@@ -44,7 +45,7 @@ const Galeria = styled.div`
   width: 80%;
   background-color: ${({ currentColor }) => currentColor.green};
   z-index: 1;
-  font-size: 2.5em  ;
+  font-size: 2em  ;
 
   &:hover {
     transition: 3s;
@@ -74,6 +75,7 @@ const Icono = styled.div`
   &:hover {
     transition: 1s;
 scale: 1.5;
+z-index: 300;
 
     color: ${({ currentColor }) => currentColor.quinto};
   }
