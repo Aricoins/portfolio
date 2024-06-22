@@ -4,6 +4,7 @@ import perfil from "../assets/descarga2.png";
 import yo from "../assets/descarga.png";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import banner from "../assets/banner.webp";	
 
 const Desktop = styled.div`
   display: flex;
@@ -96,8 +97,11 @@ const Yo = ({ currentColor, theme }) => {
     });
   }, []);
 
-  return (
+  return ( <>
+
+    <img  src={banner} alt="banner" style={{width: "90%", margin: "auto", marginTop: "10%"}}  />
     <Desktop currentColor={{ currentColor, theme }}>
+     
       <Container data-aos="fade-left" currentColor={currentColor}>
         <Title currentColor={currentColor}>Ariel Rogel</Title>
         <Subtitle currentColor={currentColor}>.TECH</Subtitle>
@@ -107,6 +111,8 @@ const Yo = ({ currentColor, theme }) => {
       </Container>
       <Image data-aos="fade-right" src={theme === "light" ? yo : perfil} alt="yo" />
     </Desktop>
+  </>
+  
   );
 };
 
