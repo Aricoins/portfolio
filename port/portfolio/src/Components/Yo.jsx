@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import perfil from "../assets/perfil.jpeg";
-import yo from "../assets/yo.jpg";
+import perfil from "../assets/descarga.png";
+import yo from "../assets/descarga.png";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -99,10 +99,10 @@ const Yo = ({ currentColor, theme }) => {
   return (
     <Desktop currentColor={{ currentColor, theme }}>
       <Container data-aos="fade-left" currentColor={currentColor}>
-        <Title currentColor={currentColor}>Ariel G. Rogel</Title>
-        <Subtitle currentColor={currentColor}>Full Stack Web Developer</Subtitle>
+        <Title currentColor={currentColor}>Ariel Rogel</Title>
+        <Subtitle currentColor={currentColor}>.TECH</Subtitle>
         <Description currentColor={currentColor}>
-          Javascript | React | NextJS | TailwindCSS | NodeJS | SQL
+          Desarrollo Web & Mobile | E-Commerce
         </Description>
       </Container>
       <Image data-aos="fade-right" src={theme === "light" ? yo : perfil} alt="yo" />
