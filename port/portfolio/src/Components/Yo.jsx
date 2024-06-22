@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import perfil from "../assets/descarga.png";
+import perfil from "../assets/descarga2.png";
 import yo from "../assets/descarga.png";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
