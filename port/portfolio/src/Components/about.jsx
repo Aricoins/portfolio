@@ -5,6 +5,7 @@ import {colores} from "./colores";
 import Nav from "./Nav";
 import AOS from "aos";
 import "aos/dist/aos.css"
+import '../App.css'
 
 const Contenedor = styled.div`
 width: auto;
@@ -14,9 +15,11 @@ text-align: center;
 display: flex;
 margin: auto;
 margin-bottom: 1%;
+margin-top: 10%;
 flex-direction: row;
-font-family:'Roboto', sans-serif;
+font-family: audiowave-regular;
 z-index: -100;
+color: black;
 @media only screen and (max-width : 800px) {
  flex-direction: column;
  width: 90%
@@ -60,14 +63,17 @@ function About ({currentColor}){
       }, []);
       
 const Estilo = styled.span`
-  color: ${props => props.currentColor.cuarto};
-  
+color:  ${props => props.currentColor.segundo};
+z-index: 1000;
+background-color:  ${props => props.currentColor.cuarto};; 
+font-family: audiowide;
 opacity: 1;
-width: 80%;
+width: 95%;
 text-align: justify;
 margin-top: 3%;
 padding: 5%;
 z-index: 0;
+font-size: x-large;
 
 @media only screen and (max-width : 600px) {
   width: 80%;
@@ -76,18 +82,9 @@ z-index: 0;
 `
 
     return(<>
-<Contenedor data-aos="fade-left">
-<Bloque>
-<H2 >Hola!</H2>
-       <Estilo currentColor={currentColor} >   
-
-       Soy full stack developer y programar es lo que más me gusta.  <br/> <br/>
-Me especializo en Javascript, lenguaje con el que me gradué en el bootcamp de Henry como desarrollador web. <br/> <br/>  
-       <br/>  Vivo en Bariloche, Argentina, donde puedo conjugar mi pasión con el trekking en la montaña, mi principal hobby. <br/> <br/>        
-       `<br/>Mis últimos trabajos usan Typescript, TailwindCSS y NextJS aunque naturalmente incorporo tecnologías nuevas<br/><br/>
+<Estilo currentColor={ currentColor} data-aos="fade-left">
+ Latitud42.tech evoca la idea de estar en un punto estratégico (latitud) para desarrollar soluciones tecnológicas avanzadas (tech), aprovechando la ubicación geográfica única en la Comarca Andina del Paralelo 42.  
     </Estilo>
-    </Bloque>
-    </Contenedor>
 
     </>
     )

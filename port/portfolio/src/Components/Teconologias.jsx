@@ -5,6 +5,8 @@ import { SiCss3, SiHtml5, SiJavascript, SiMysql, SiPostgresql, SiSequelize, SiGi
 import AOS from 'aos';
 
 
+
+
 // const Bola8 = styled.img`
 //   width: 40%;
 //   position: absolute;
@@ -16,13 +18,13 @@ import AOS from 'aos';
 
 const Tecnologi = styled.div`
   position: relative;
-  background-color: ${({ currentColor }) => currentColor.green};
-  width: 100%;
+  background-color: ${({ currentColor }) => currentColor.cuarto};
+  width: 90%;
   height: 100%;
   opacity: 0.9;
   text-align: center;
   font-size: 1em;
-  color: ${({ currentColor }) => currentColor.quinto};
+  color: ${({ currentColor }) => currentColor.primero};
   text-decoration: solid 1px ${({ currentColor }) => currentColor.cuarto};
   padding: 1%;   
   z-index: 5;
@@ -31,53 +33,58 @@ const Tecnologi = styled.div`
   justify-content: center;
   margin: auto;
   background-color: "black"; 
+  justify-content: "center";
 
   @media (max-width: 800px) {
-    margin: 0;
+    margin: auto;
     font-size: 0.8em;
   }
 `;
 
 const Galeria = styled.div`
-  margin: auto;
+  justify-content: center;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  width: 80%;
-  background-color: ${({ currentColor }) => currentColor.green};
+  width: 78%;
+padding: 10%;
+  background-color: ${({ currentColor }) => currentColor.primero};
   z-index: 1;
-  font-size: 2em  ;
-
+  margin: auto;
+  font-size: xx-large  ;
+  color: ${({currentColor}) => currentColor.cuarto }
   &:hover {
     transition: 3s;
-    color: ${({ currentColor }) => currentColor.highlight};
+      font-size: 8rem  ;
+    color: ${({ currentColor }) => currentColor.segundo};
   }
 
   @media (max-width: 800px) {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    font-size: 1em;
+    font-size: 2em;
   }
 `;
 
 const Icono = styled.div`
+width: 90%;
   grid-auto-flow: column;
   position: relative;
   z-index: 3;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: max-content 1fr;
-  font-size: 1.5em;
-  padding: 10%;
-  gap: 5%;
+  font-size: 4em;
+  padding: 25%;
+  gap: 2%;
   margin: auto;
   transition: 2s;
   color: ${({ currentColor }) => currentColor.cuarto};
 
   &:hover {
-    transition: 1s;
-scale: 1.5;
+    transition: 0.3s;
+scale: 2;
 z-index: 300;
-
-    color: ${({ currentColor }) => currentColor.quinto};
+gap: auto;
+    color: ${({ currentColor }) => currentColor.segundo};
   }
 
   @media (max-width: 1200px) {
@@ -156,6 +163,9 @@ const Tecnologias = ({ currentColor }) => {
     return (
         <>
             <Tecnologi currentColor={currentColor} data-aos="fade-up">
+              <div style={{fontFamily: "audiowide", padding: "5%", fontSize: "large", width: "90%", margin: "auto"}}>
+Nos especializamos en la creación de soluciones digitales innovadoras utilizando las últimas tecnologías del mercado. Nuestra experiencia y conocimiento abarcan una amplia gama de herramientas y frameworks, lo que nos permite ofrecer productos de alta calidad y rendimiento. 
+En Latitud42.tech, utilizamos tecnologías de vanguardia como React, Next.js, y Tailwind CSS para el frontend; Node.js y Express para el backend; y PostgreSQL y MySQL para la gestión de bases de datos. Nos apoyamos en herramientas como Git y GitHub para el control de versiones y seguimos metodologías ágiles como Scrum para asegurar proyectos eficientes y colaborativos. Esta combinación nos permite desarrollar soluciones digitales innovadoras y de alta calidad que superan las expectativas de nuestros clientes.</div>
                 <Galeria currentColor={currentColor} className="tech">
                     <Icono currentColor={currentColor}><SiCss3 className="tech" /></Icono>
                     <Icono currentColor={currentColor}><SiHtml5 className="tech" /></Icono>
@@ -172,7 +182,7 @@ const Tecnologias = ({ currentColor }) => {
                     <Icono currentColor={currentColor}><SiTypescript className="tech" /></Icono>
                     <Icono currentColor={currentColor}><SiTailwindcss className="tech" /></Icono>
                 </Galeria>
-                <h3 style={{background: "black", fontSize: "small"}} > Javascript | Typescript | NextJS | ReactJS | Redux & Persist | TailwindCSS | ExpressJS | SQL | Git Flow | Ágile </h3>
+                <h3 style={{background: "black", fontSize: "small", fontFamily: "audiowide", color: "white"}} > Javascript | Typescript | NextJS | ReactJS | Redux & Persist | TailwindCSS | ExpressJS | SQL | Git Flow | Ágile </h3>
              
             </Tecnologi>
             

@@ -7,13 +7,15 @@ import 'aos/dist/aos.css';
 const Contenedor = styled.div`
     width:100%;
     background-color: ${props => props.currentColor.primero};
+    color: ${props => props.currentColor.segundo};
     display: flex;
     flex-direction: column;
     margin: 2%;
+    font-family: audiowide;
 
     `
     const Label = styled.label`
-    color: white; 
+
     font-size: 20px;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -40,14 +42,14 @@ const Contenedor = styled.div`
     height: 8vh;
     margin-left: 2%;
     margin-bottom: 2%;
-    background-color: ${props => props.currentColor.primero};
-    color: ${currentColor => currentColor.cuarto};
+    background-color: ${props => props.currentColor.cuarto};
+    color: ${currentColor => currentColor.primero};
 
     border: 1px solid white;
     align-self: center;
     &:hover{
-      background-color: ${props => props.currentColor.segundo};
-      color: ${props => props.currentColor.tercero};
+      background-color: ${props => props.currentColor.primero};
+      color: ${props => props.currentColor.cuarto};
 
     }
     `

@@ -12,9 +12,12 @@ import Tecnologias from './Components/Teconologias';
 import Foot from './Components/Foot';
 import Contacto from './Components/Contacto';
 import Yo from './Components/Yo';
-
 import yo from '../../portfolio/src/assets/yo.jpg';
 import dev from '../src/assets/source.gif';
+import BannerAnimado from './Components/banner';
+import lat from '../src/assets/lat.png';
+import latw from '../src/assets/latw.png'
+import  './App.css'
 
 import { colores, coloresBlack } from './Components/colores';
 
@@ -24,6 +27,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  font-family: audiowide-regular;
   
   @media (max-width: 800px) {
     flex-direction: column;
@@ -152,30 +156,50 @@ function App() {
       <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", bottom: "18%", right: "2%", border: "black 1px solid"}}>
         {currentColor === colores ?  <FaMoon /> : <FaSun />}  
       </button>
+     
       <Router>
-        <Nav currentColor={currentColor} toggleTheme={toggleTheme} style={{ width: '90%', margin: 'auto' }} />
+      <div>
+      <Nav currentColor={currentColor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
+      </div>
+
+      <div style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
+ 
+    
+        <Img2 data-aos="fade-up"  
+        src={theme === "light" ? latw : lat} 
+
+        style={{ width: '30%', margin: "auto"}} alt='devimg' />
+             <About currentColor={currentColor} />
+       </div>
+     
         <Content style={{ backgroundColor: currentColor.primero }}>
-          <StyledDiv2 style={{ backgroundColor: currentColor.azul }}>
-            <Yo currentColor={currentColor} theme={theme} />
+       
             <Div>
-              <Img2 data-aos="fade-up" src={dev} style={{ width: '50%' }} alt='devimg' />
-              <About currentColor={currentColor} />
+              <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+         
             </Div>
-          </StyledDiv2>
-          <StyledDiv>
-            <h2 style={{ fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
+              <StyledDiv>
+            <h2 style={{ fontSize: '20px', fontFamily: " audiowide", zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Proyectos
             </h2>
             <Proyectos currentColor={currentColor} />
           </StyledDiv>
+          <Div>
+              <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+         
+            </Div>
           <StyledDiv>
-            <h2 style={{ fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
-              Habilidades
+            <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
+              Tecnologías
             </h2>
             <Tecnologias currentColor={currentColor} />
           </StyledDiv>
+          <Div>
+              <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+         
+            </Div>
           <StyledDiv>
-            <h2 style={{ fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
+            <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Contacto
             </h2>
             <Contacto currentColor={currentColor} />

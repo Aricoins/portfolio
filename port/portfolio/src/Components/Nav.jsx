@@ -121,9 +121,9 @@ export default function Nav({ currentColor }) {
             Redes
         </Botones>
     </StyledLink>
-    <a href={pdf} download="cv.pdf">
+    {/* <a href={pdf} download="cv.pdf">
         <button style={{ width: '300px', backgroundColor: `${(props) => props.$currentColor.marron}` }}>Mi CV</button>
-    </a>
+    </a> */}
 </Navigator>
 
     </>
