@@ -74,7 +74,7 @@ margin-top: 3%;
 padding: 5%;
 z-index: 0;
 font-size: x-large;
-color: black;
+color: ${props => props.currentColor.cuarto};
 
 @media only screen and (max-width : 600px) {
   width: 80%;
