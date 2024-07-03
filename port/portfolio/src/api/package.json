@@ -10,8 +10,11 @@
   "author": "ariel rogel",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "nodemon": "^3.1.0",
-    "openai": "^4.0.0"
+    "openai": "^4.0.0",
+    "pg": "^8.12.0"
   }
 }
