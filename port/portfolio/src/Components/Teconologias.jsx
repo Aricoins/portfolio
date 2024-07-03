@@ -51,7 +51,7 @@ padding: 10%;
   z-index: 1;
   margin: auto;
   font-size: xx-large  ;
-  color: ${({currentColor}) => currentColor.cuarto }
+  color: ${({currentColor}) => currentColor.cuarto };
   &:hover {
     transition: 3s;
       font-size: 8rem  ;

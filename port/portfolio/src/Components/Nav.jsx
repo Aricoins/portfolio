@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import pdf from '../assets/cv.pdf';
+import { FaHome } from "react-icons/fa";
+
 
 const Navigator = styled.div`
   position: fixed;
@@ -108,7 +110,7 @@ export default function Nav({ currentColor }) {
      <Navigator $currentColor={currentColor}>
     <StyledLink to="/home" $currentColor={currentColor}>
         <Botones onClick={scrollO} $currentColor={currentColor}>
-            Inicio
+            <FaHome style= {{fontSize: "xx-large"}} />
         </Botones>
     </StyledLink>
     <StyledLink to="/form" $currentColor={currentColor}>

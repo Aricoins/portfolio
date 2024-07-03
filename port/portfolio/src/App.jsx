@@ -169,7 +169,7 @@ function App() {
         src={theme === "light" ? latw : lat} 
 
         style={{ width: '30%', margin: "auto"}} alt='devimg' />
-             <About currentColor={currentColor} />
+             <About currentColor={currentColor} theme={theme} />
        </div>
      
         <Content style={{ backgroundColor: currentColor.primero }}>
