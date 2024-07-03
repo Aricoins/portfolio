@@ -52,11 +52,7 @@ padding: 10%;
   margin: auto;
   font-size: xx-large  ;
   color: ${({currentColor}) => currentColor.cuarto };
-  &:hover {
-    transition: 3s;
-      font-size: 8rem  ;
-    color: ${({ currentColor }) => currentColor.segundo};
-  }
+  
 
   @media (max-width: 800px) {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -80,8 +76,8 @@ width: 90%;
   color: ${({ currentColor }) => currentColor.cuarto};
 
   &:hover {
-    transition: 0.3s;
-scale: 2;
+    transition: 0.6s;
+scale: 1.3;
 z-index: 300;
 gap: auto;
     color: ${({ currentColor }) => currentColor.segundo};
@@ -90,15 +86,16 @@ gap: auto;
   @media (max-width: 1200px) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    font-size: 1em;
-    gap: 3%;
+  font-size: 3em;
+    gap: 5%;
   }
 
   @media (max-width: 800px) {
     grid-template-columns: 15% 15% 15% 15% 15% 15% 15%;
     grid-template-rows: 50% 50%;
-    font-size: xx-large;
     gap: 1%;
+    font-size: 2em;
+    margin: "5%"
   }
 `;
 

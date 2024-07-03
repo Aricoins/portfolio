@@ -1,111 +1,122 @@
-// Import React and useState from the 'react' library
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
+// Styled components
 const Contenedor = styled.div`
-    width:100%;
+  width: 100%;
+  background-color: ${props => props.currentColor.primero};
+  color: ${props => props.currentColor.segundo};
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  font-family: 'Audiowide', sans-serif;
+`;
+
+const Label = styled.label`
+  font-size: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  justify-content: center;
+`;
+
+const Input = styled.input`
+  width: 90%;
+  height: 5vh;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  align-self: center;
+`;
+
+const Textarea = styled.textarea`
+  width: 90%;
+  height: 10vh;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  align-self: center;
+`;
+
+const Button = styled.button`
+  width: 40%;
+  height: 8vh;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  background-color: ${props => props.currentColor.cuarto};
+  color: ${props => props.currentColor.primero};
+  border: 1px solid white;
+  align-self: center;
+  cursor: pointer;
+
+  &:hover {
     background-color: ${props => props.currentColor.primero};
-    color: ${props => props.currentColor.segundo};
-    display: flex;
-    flex-direction: column;
-    margin: 2%;
-    font-family: audiowide;
+    color: ${props => props.currentColor.cuarto};
+  }
+`;
 
-    `
-    const Label = styled.label`
-
-    font-size: 20px;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    margin-left: 2%;
-    justify-content: center;
-    `
-
-    const Input = styled.input`
-    width: 90%;
-    height: 5vh;
-    margin-left: 2%;
-    margin-bottom: 2%;
-    align-self: center;
-    `
-    const Textarea = styled.textarea`
-    width: 90%;
-    height: 10vh;
-    margin-left: 2%;
-    margin-bottom: 2%;
-     align-self: center;
-    `
-    const Button = styled.button`
-    width: 40%;
-    height: 8vh;
-    margin-left: 2%;
-    margin-bottom: 2%;
-    background-color: ${props => props.currentColor.cuarto};
-    color: ${currentColor => currentColor.primero};
-
-    border: 1px solid white;
-    align-self: center;
-    &:hover{
-      background-color: ${props => props.currentColor.primero};
-      color: ${props => props.currentColor.cuarto};
-
-    }
-    `
-
-
-// Create a functional component named ContactForm
-const ContactForm = (currentColor) => {
-  // Use the useState hook to manage the state of form fields
+// Functional component
+const ContactForm = ({ currentColor }) => {
+  // State hooks
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
   const [error, setError] = useState('');
 
-const validation = () => {
-  if (name === ""){
-    setError("Por favor ingrese su nombre")
-  }
-  if(email === "/^[\w-]+(\.[\w-]+)*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/"){
-    setError("Por favor ingrese un email valido")
-  }
-  
-}
-
-
-
-useEffect(() => {
-  Aos.init({duration: 2000});
-}
-, []);
-
-  
-  // Define a function to handle form submission
-  const handleFormSubmit = () => {
-    // Create a mailto link with the form data
-    const mailtoLink = `mailto:arielgarcia79@gmail.com?subject=New Submission&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AComment: ${comment}`;
-
-    // Open the user's default email client with the pre-populated email
-    window.location.href = mailtoLink;
+  // Validation function
+  const validation = () => {
+    if (name === '') {
+      setError('Por favor ingrese su nombre');
+      return false;
+    }
+    if (!/^[\w-]+(\.[\w-]+)*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/.test(email)) {
+      setError('Por favor ingrese un email válido');
+      return false;
+    }
+    setError('');
+    return true;
   };
 
-  // Return the JSX structure of the component
+  // useEffect for initializing AOS
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+  const handleFormSubmit = async () => {
+    if (!validation()) return;
+  
+    try {
+      const response = await fetch('https://portfolio-8pgn.onrender.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, comment }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Form submission successful:', data);
+      } else {
+        console.error('Form submission failed:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  
+  };
+  
+  // Return JSX
   return (
-    <Contenedor data-aos="fade-up" currentColor={currentColor}
-    >
-      {/* Input field for Name */}
-      < Label htmlFor="name">Nombre:</ Label>
+    <Contenedor data-aos="fade-up" currentColor={currentColor}>
+      <Label htmlFor="name">Nombre:</Label>
       <Input
         type="text"
         id="name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-   
 
-      {/* Input field for Email */}
-      < Label htmlFor="email">Email:</ Label>
+      <Label htmlFor="email">Email:</Label>
       <Input
         type="email"
         id="email"
@@ -113,19 +124,18 @@ useEffect(() => {
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      {/* Textarea for Comment */}
-      < Label htmlFor="comment">Mensaje</ Label>
+      <Label htmlFor="comment">Mensaje:</Label>
       <Textarea
         id="comment"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-    {error && <p style={{ color: 'red' }}>{error}</p>}
-      {/* Submit button with an onClick handler */}
-      <Button onClick={handleFormSubmit} currentColor={currentColor}  >Enviar</Button>
+
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      <Button onClick={handleFormSubmit} currentColor={currentColor}>Enviar</Button>
     </Contenedor>
   );
 };
 
-// Export the ContactForm component as the default export
 export default ContactForm;

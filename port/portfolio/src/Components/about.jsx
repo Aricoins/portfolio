@@ -126,7 +126,7 @@ function About({ currentColor, theme }) {
 
         style={{ width: '30%', margin: "auto"}} alt='devimg' /> */}
       <span className="highlight-tech"> Latitud42 </span> evoca la idea de estar en un punto estratégico para desarrollar soluciones tecnológicas avanzadas. <br/>
-      Ofrecemos software y aplicaciones web para empresas, comercios, servicios y profesionales en la Comarca Andina.     </Estilo>
+      Ofrecemos software y aplicaciones web para emprendimientos y emprendedores de la Comarca Andina.     </Estilo>
     </>
   );
 }

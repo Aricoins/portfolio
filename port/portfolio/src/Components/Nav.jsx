@@ -93,11 +93,12 @@ const StyledLink = styled(NavLink)`
 
 function scroll(e) {
   e.preventDefault();
-  window.scroll(0, 900);
+  window.scroll(0, 400);
 }
 function scrollF(e) {
   e.preventDefault();
-  window.scroll(0, 4100);
+  window.scroll(0, 3200);
+  console.log (e, "scrol");
 }
 function scrollO(e) {
   e.preventDefault();
@@ -120,7 +121,7 @@ export default function Nav({ currentColor }) {
     </StyledLink>
     <StyledLink to="/about" $currentColor={currentColor}>
         <Botones onClick={scrollF} $currentColor={currentColor}>
-            Redes
+            Contacto
         </Botones>
     </StyledLink>
     {/* <a href={pdf} download="cv.pdf">

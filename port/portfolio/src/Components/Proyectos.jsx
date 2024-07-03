@@ -5,8 +5,9 @@ import 'aos/dist/aos.css';
 import dogs from '../assets/dogs.png';
 import azul from '../assets/azul.png';
 import nido from '../assets/nido.png';
-import biblio from '../assets/biblio.png';
+import biblio from '../assets/fondo.webp';
 import '../App.css';
+import { colores } from './colores';
 
 const Contenedor = styled.div`
   display: grid;
@@ -39,11 +40,11 @@ const Card = styled.div`
   text-align: center;
   padding: 2%;
   color: ${props => props.currentColor.cuarto};
-  font-family: audiowide-regular;
+  font-family: "audiowide";
 
   &:hover {
     background-color: ${props => props.currentColor.cuarto};
-    border-color: ${props => props.currentColor.primero};
+    border-color: ${props => props.currentColor.quinto};
     color: ${props => props.currentColor.quinto};
     transition: 2s;
   }
@@ -79,33 +80,37 @@ const Proyectos = ({ currentColor }) => {
           currentColor={currentColor}
           data-aos="flip-left"
           data-aos-easing="ease-out-cubic"
-          data-aos-duration="2000"
+          data-aos-duration="2000" 
+        
         >
-          <h4 style={{ color: currentColor.cuarto }}> DiBiase.net </h4>
-          <img src={biblio} alt="imagen" />
+          <h4 style={{ color: currentColor.cuarto, fontSize: "large",  fontFamily: "audiowide", margin:"5%", }}> DiBiase.net </h4>
+          <b style={{ fontFamily: "audiowide", fontSize: "small", widht:"100%",  color: `${currentColor.quinto}`, padding: "10%", marginBottom: "30px"}}>  Apliación web de Gestión Documental</b>
+           <img src={biblio} alt="imagen" style={{borderRadius: "2%", marginTop: "10%"}} />
           <ul>
-            <li>NextJS: Framework React para la creación de aplicaciones web.</li>
+              <li>NextJS: Framework React para la creación de aplicaciones web.</li>
             <li>Clerk: Integración de autenticación y gestión de usuarios.</li>
             <li>Compatibilidad de Tailwind CSS con PostCSS 7.</li>
             <li>Gestión y optimización de imágenes y vídeos.</li>
             <li>Librería oficial para acceder a las APIs de Google.</li>
             <li>pg-promise: Interfaz de Promesas para la base de datos PostgreSQL.</li>
             <li>styled-components: Librería para estilos CSS en JS.</li>
-            <li>sweetalert2: Alertas modales bonitas.</li>
+            <li>sweetalert2: Alertas modales.</li>
             <li>xlsx: Lectura y escritura de archivos Excel.</li>
           </ul>
         </Card>
       </a>
 
-      <a href="https://tienda-azul-lago.vercel.app/" target="_blank">
+      <a href="https://www.azullago.com/" target="_blank">
         <Card
           currentColor={currentColor}
           data-aos="flip-left"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
         >
-          <h4 style={{ color: currentColor.cuarto }}> Tienda Azul Lago </h4>
-          <img src={azul} alt="imagen" />
+          <h4 style={{ color: currentColor.cuarto }}> Azul Lago Cooperativa </h4>
+          <b style={{ fontFamily: "audiowide", fontSize: "small", widht:"100%",  color: `${currentColor.quinto}`, padding: "10%", marginBottom: "30px"}}> 
+            Página web de difusión y desarrollo de marcas </b>
+          <img src={azul} alt="imagen"  style={{borderRadius: "2%", marginTop: "10%"}} />
           <ul>
             <li>Sitio web responsivo</li>
             <li>HTML5 y CSS3 válidos</li>
@@ -121,14 +126,16 @@ const Proyectos = ({ currentColor }) => {
         </Card>
       </a>
 
-      <a href="https://woo-code.vercel.app/" target="_blank">
+      <a href="https://ecommerce-pf-henry-grupo7.vercel.app/" target="_blank">
         <Card
           currentColor={currentColor}
           data-aos="flip-left"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
         >
-          <h4 style={{ color: currentColor.cuarto }}> WooCode </h4>
+          <h4 style={{ color: currentColor.cuarto }}> Codewave Central </h4>
+          <b style={{ fontFamily: "audiowide", fontSize: "small", widht:"100%",  color: `${currentColor.quinto}`, padding: "10%", marginBottom: "30px"}}>  Tienda de comercio electrónico</b>
+         
           <img src={nido} alt="imagen" />
           <ul>
             <li>Carpetas organizadas y claras.</li>
@@ -152,6 +159,8 @@ const Proyectos = ({ currentColor }) => {
           data-aos-duration="1500"
         >
           <h4 style={{ color: currentColor.cuarto }}> Dogs App </h4>
+          <b style={{ fontFamily: "audiowide", fontSize: "small", widht:"100%",  color: `${currentColor.quinto}`, padding: "10%", marginBottom: "30px"}}> Aplicación web estándar </b>
+         
           <img src={dogs} alt="imagen" />
           <ul>
             <li>Diseño UX/UI planificado y consistente en todas las rutas.</li>
