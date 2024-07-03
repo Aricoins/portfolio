@@ -95,7 +95,7 @@ const ContactForm = ({ currentColor }) => {
   
       if (response.ok) {
         const data = await response.json();
-        console.log('Form submission successful:', data);
+        alert('Hemos recibido este comentario:', data, "Gracias, responderemos a la brevedad");
       } else {
         console.error('Form submission failed:', response.statusText);
       }
