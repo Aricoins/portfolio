@@ -96,7 +96,7 @@ const ContactForm = ({ currentColor }) => {
   
       if (response.ok) {
         const data = await response.json();
-        alert('Hemos recibido el comentario. Gracias, responderemos a la brevedad');
+        alert('Hemos recibido el mensaje. Nos contactaremos a la brevedad. ¡Muchas gracias!');
         setName('');
         setEmail('');
         setComment('');
