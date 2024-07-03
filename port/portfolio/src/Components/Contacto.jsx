@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { set } from 'animejs';
 
 // Styled components
 const Contenedor = styled.div`
@@ -95,7 +96,10 @@ const ContactForm = ({ currentColor }) => {
   
       if (response.ok) {
         const data = await response.json();
-        alert('Hemos recibido este comentario:', data, "Gracias, responderemos a la brevedad");
+        alert('Hemos recibido el comentario. Gracias, responderemos a la brevedad');
+        setName('');
+        setEmail('');
+        setComment('');
       } else {
         console.error('Form submission failed:', response.statusText);
       }
