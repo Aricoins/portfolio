@@ -108,7 +108,7 @@ const Banner = () => {
     { text: 'ACELERÁ', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.7 },
     { text: 'TU', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.6 },
     { text: 'NEGOCIO', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
-    { text: 'PRODUCTO', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
+    { text: 'PRODUCTO', bgText: coloresBlack.cuarto, textColor: coloresBlack.quinto, bgColor: coloresBlack.primero, duration: 0.3 },
     { text: 'OBRA', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
     { text: 'IDEA', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
     { text: 'EMPRESA', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
