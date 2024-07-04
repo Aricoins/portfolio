@@ -219,12 +219,14 @@ function App() {
             <Foot currentColor={currentColor} />
           </StyledDiv>
            <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
+   <div style= {{margin: "10%"}}>  <Calendly />
+    </div>
         </Content>
+  
         <WhatsappButton href="https://wa.me/+5492945907975" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
         </WhatsappButton>
-  <div style= {{margin: "10%"}}>  <Calendly />
-    </div>
+ 
 
 </Router>      
     </>
