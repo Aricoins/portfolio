@@ -219,7 +219,7 @@ function App() {
             <Foot currentColor={currentColor} />
           </StyledDiv>
            <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
-   <div style= {{margin: "10%"}}>  <Calendly />
+   <div style= {{ position: "fixed", marginButtom: "20%"}}>  <Calendly />
     </div>
         </Content>
   
