@@ -214,7 +214,7 @@ function App() {
             </div>
             <Contacto currentColor={currentColor} />
           </StyledDiv>
-  <Calendly /> <b> Adendar una charla de 30 minutos</b>
+  
           <StyledDiv>
             <Foot currentColor={currentColor} />
           </StyledDiv>
@@ -223,7 +223,7 @@ function App() {
         <WhatsappButton href="https://wa.me/+5492945907975" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
         </WhatsappButton>
-  
+  <Calendly /> 
 </Router>      
     </>
   );
