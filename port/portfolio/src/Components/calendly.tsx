@@ -1,7 +1,7 @@
 // src/components/CalendlyBadge.jsx
 import React, { useEffect } from 'react';
 
-const Calendly = () => {
+const CalendlyBadge = () => {
   useEffect(() => {
     const link = document.createElement('link');
     link.href = 'https://assets.calendly.com/assets/external/widget.css';
@@ -11,15 +11,19 @@ const Calendly = () => {
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
+
     script.onload = () => {
-      Calendly.initBadgeWidget({
-        url: 'https://calendly.com/arielgarcia79/latitud42',
-        text: 'Schedule time with me',
-        color: '#1000ff',
-        textColor: '#140808',
-        branding: undefined,
-      });
+      if (window.Calendly) {
+        window.Calendly.initBadgeWidget({
+          url: 'https://calendly.com/arielgarcia79/latitud42',
+          text: 'Schedule time with me',
+          color: '#1000ff',
+          textColor: '#140808',
+          branding: undefined,
+        });
+      }
     };
+
     document.body.appendChild(script);
 
     return () => {
@@ -31,4 +35,4 @@ const Calendly = () => {
   return null;
 };
 
-export default Calendly;
+export default CalendlyBadge;
