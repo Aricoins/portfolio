@@ -58,7 +58,7 @@ const Estilo = styled.span`
   color: ${props => props.currentColor.segundo};
   z-index: 1000;
   background-color: ${props => props.currentColor.cuarto};
-  font-family: 'Audiowide';
+  font-family: 'Roboto', sans-serif;
   opacity: 1;
   width: 95%;
   text-align: justify;
