@@ -223,7 +223,9 @@ function App() {
         <WhatsappButton href="https://wa.me/+5492945907975" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
         </WhatsappButton>
-  <Calendly /> 
+  <div style= {{margin: "10%"}}>  <Calendly />
+    </div>
+
 </Router>      
     </>
   );
