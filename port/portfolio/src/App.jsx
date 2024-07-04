@@ -20,7 +20,7 @@ import latw from '../src/assets/latw.png'
 import  './App.css'
 import Banner from './Components/banner';
 import { colores, coloresBlack } from './Components/colores';
-
+import Calendly from './Components/calendly.tsx';
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -219,11 +219,15 @@ function App() {
             <Foot currentColor={currentColor} />
           </StyledDiv>
            <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
+   <div style= {{ position: "fixed", marginButtom: "20%"}}>  <Calendly />
+    </div>
         </Content>
+  
         <WhatsappButton href="https://wa.me/+5492945907975" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
         </WhatsappButton>
-  
+ 
+
 </Router>      
     </>
   );
