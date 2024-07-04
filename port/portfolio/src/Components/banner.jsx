@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import lat from '../assets/lat.png';
+import { useInView } from '@researchgate/react-intersection-observer';
 
 // Define the animations using keyframes
 const fadeIn = keyframes`
@@ -110,40 +111,60 @@ const Banner = () => {
     { text: 'producto', bgText: coloresBlack.cuarto, textColor: "yellow", bgColor: coloresBlack.primero, duration: 0.3 },
     { text: 'idea', bgText: coloresBlack.cuarto, textColor: "yellow", bgColor: coloresBlack.primero, duration: 0.3 },
     { text: 'empresa', bgText: coloresBlack.cuarto, textColor: "yellow", bgColor: coloresBlack.primero, duration: 0.3 },
-    { text: 'con', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.6 },
-    { text: 'tecnologia', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.4 },
+    { text: 'con', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.4 },
+    { text: 'tecnologia', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
     { text: 'avanzada', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
     { text: '', bgColor: '#ffffff', duration: 2 }, // Escena final con pantalla en blanco
     { text: 'ingesá acá', textColor: coloresBlack.cuarto, bgColor: coloresBlack.sextp, duration: 1.5 }, // Escena final con pantalla en blanco
   ];
 
   const [currentScene, setCurrentScene] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleChange = (inView) => {
+    if (inView) {
+      setIsAnimating(true);
+    } else {
+      setIsAnimating(false);
+    }
+  };
+
+  const options = {
+    onChange: handleChange,
+    triggerOnce: false,
+  };
+
+  const { ref } = useInView(options);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentScene((prev) => (prev + 1) % scenes.length);
-    }, scenes[currentScene].duration * 1000);
+    if (isAnimating) {
+      const interval = setInterval(() => {
+        setCurrentScene((prev) => (prev + 1) % scenes.length);
+      }, scenes[currentScene].duration * 1000);
 
-    return () => clearInterval(interval);
-  }, [currentScene]);
+      return () => clearInterval(interval);
+    }
+  }, [currentScene, isAnimating]);
 
   return (
-    <BannerWrapper>
+    <BannerWrapper ref={ref}>
       {scenes.map((scene, index) => (
         <SceneWrapper
           key={index}
           bgColor={scene.bgColor}
           duration={scene.duration}
-          active={index === currentScene}
+          active={index === currentScene && isAnimating}
         >
-          <Text bgText={scene.bgText} textColor={scene.textColor} lastScene={index === scenes.length - 1}>{scene.text}</Text>
+          <Text bgText={scene.bgText} textColor={scene.textColor} lastScene={index === scenes.length - 1}>
+            {scene.text}
+          </Text>
         </SceneWrapper>
       ))}
       {currentScene === scenes.length - 2 && (
         <Logo
           src={lat}
           alt="Latitud42 Logo"
-          active={true}
+          active={isAnimating}
         />
       )}
     </BannerWrapper>

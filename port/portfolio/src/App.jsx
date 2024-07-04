@@ -210,9 +210,9 @@ function App() {
               Contacto
             </h2>
             <div style={{margin: "5%"}}>
-            <Banner currentColor={currentColor} />
+            <Banner currentColor={currentColor}  data-aos="fade-up"/>
             </div>
-            <Contacto currentColor={currentColor} />
+            <Contacto currentColor={currentColor}  />
           </StyledDiv>
   
           <StyledDiv>
