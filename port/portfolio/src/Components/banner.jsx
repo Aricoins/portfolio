@@ -73,9 +73,10 @@ const Text = styled.span`
 const Logo = styled.img`
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  justify-content: center;
   z-index: 1; /* Ajuste para que el logo no esté detrás del texto crecido */
   object-fit: contain; /* Ajusta el tamaño del logo manteniendo la proporción */
   animation: ${(props) =>
@@ -111,7 +112,7 @@ const Banner = () => {
     { text: 'TECNOLOGÍA', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
     { text: 'AVANZADA', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
     { text: '', bgColor: '#ffffff', duration: 2 }, // Escena final con pantalla en blanco
-    { text: 'click', textColor: "yellow", bgColor: coloresBlack.segundo, duration: 1.5 }, // Escena final con pantalla en blanco
+    { text: 'ingesá acá', textColor: coloresBlack.cuarto, bgColor: coloresBlack.sextp, duration: 1.5 }, // Escena final con pantalla en blanco
   ];
 
   const [currentScene, setCurrentScene] = useState(0);

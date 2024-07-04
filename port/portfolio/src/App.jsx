@@ -204,14 +204,18 @@ function App() {
 
 
           <StyledDiv>
+   
+         
             <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Contacto
             </h2>
+            <div style={{margin: "5%"}}>
+            <Banner currentColor={currentColor} />
+            </div>
             <Contacto currentColor={currentColor} />
           </StyledDiv>
   
           <StyledDiv>
-          <Banner currentColor={currentColor} />
             <Foot currentColor={currentColor} />
           </StyledDiv>
            <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>

@@ -45,7 +45,7 @@ const Card = styled.div`
   &:hover {
     background-color: ${props => props.currentColor.cuarto};
     border-color: ${props => props.currentColor.quinto};
-    color: ${props => props.currentColor.quinto};
+    color: ${props => props.currentColor.primero};
     transition: 2s;
   }
 
@@ -83,7 +83,7 @@ const Proyectos = ({ currentColor }) => {
           data-aos-duration="2000" 
         
         >
-          <h4 style={{ color: currentColor.cuarto, fontSize: "large",  fontFamily: "audiowide", margin:"5%", }}> DiBiase.net </h4>
+          <h4 > DiBiase.net </h4>
           <b style={{ fontFamily: "audiowide", fontSize: "small", widht:"100%",  color: `${currentColor.quinto}`, padding: "10%", marginBottom: "30px"}}>  Apliación web de Gestión Documental</b>
            <img src={biblio} alt="imagen" style={{borderRadius: "2%", marginTop: "10%"}} />
           <ul>
@@ -107,7 +107,7 @@ const Proyectos = ({ currentColor }) => {
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
         >
-          <h4 style={{ color: currentColor.cuarto }}> Azul Lago Cooperativa </h4>
+          <h4 > Azul Lago Cooperativa </h4>
           <b style={{ fontFamily: "audiowide", fontSize: "small", widht:"100%",  color: `${currentColor.quinto}`, padding: "10%", marginBottom: "30px"}}> 
             Página web de difusión y desarrollo de marcas </b>
           <img src={azul} alt="imagen"  style={{borderRadius: "2%", marginTop: "10%"}} />
@@ -133,7 +133,7 @@ const Proyectos = ({ currentColor }) => {
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
         >
-          <h4 style={{ color: currentColor.cuarto }}> Codewave Central </h4>
+          <h4> Codewave Central </h4>
           <b style={{ fontFamily: "audiowide", fontSize: "small", widht:"100%",  color: `${currentColor.quinto}`, padding: "10%", marginBottom: "30px"}}>  Tienda de comercio electrónico</b>
          
           <img src={nido} alt="imagen" />
@@ -158,7 +158,7 @@ const Proyectos = ({ currentColor }) => {
           data-aos-easing="ease-out-cubic"
           data-aos-duration="1500"
         >
-          <h4 style={{ color: currentColor.cuarto }}> Dogs App </h4>
+          <h4 > Dogs App </h4>
           <b style={{ fontFamily: "audiowide", fontSize: "small", widht:"100%",  color: `${currentColor.quinto}`, padding: "10%", marginBottom: "30px"}}> Aplicación web estándar </b>
          
           <img src={dogs} alt="imagen" />
