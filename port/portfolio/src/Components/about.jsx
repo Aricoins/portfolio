@@ -71,6 +71,7 @@ const Estilo = styled.span`
   @media only screen and (max-width: 600px) {
     width: 80%;
     flex-direction: column;
+    font-size: large;
   }
 
   .highlight-latitud {
@@ -89,7 +90,7 @@ const Estilo = styled.span`
     -webkit-text-fill-color: transparent;
     animation:shine 1s ease-in-out infinite alternate;
   }
-
+  
   @keyframes shine {
     from {
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
