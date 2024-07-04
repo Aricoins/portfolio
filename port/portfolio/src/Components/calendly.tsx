@@ -16,7 +16,7 @@ const CalendlyBadge = () => {
       if (window.Calendly) {
         window.Calendly.initBadgeWidget({
           url: 'https://calendly.com/arielgarcia79/latitud42',
-          text: 'Schedule time with me',
+          text: 'Agendá una charla de 30' ',
           color: '#1000ff',
           textColor: '#140808',
           branding: undefined,
