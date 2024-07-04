@@ -97,7 +97,7 @@ const Div = styled.div`
 
 const WhatsappButton = styled.a`
   position: fixed;
-  bottom: 2%;
+  bottom: 9%;
   right: 2%;
   background-color: #25D366;
   color: white;
