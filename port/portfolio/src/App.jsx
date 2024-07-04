@@ -20,7 +20,7 @@ import latw from '../src/assets/latw.png'
 import  './App.css'
 import Banner from './Components/banner';
 import { colores, coloresBlack } from './Components/colores';
-import Calendly from './Components/calandy.tsx';
+import Calendly from './Components/calendly.tsx';
 const Content = styled.div`
   display: flex;
   flex-direction: column;
