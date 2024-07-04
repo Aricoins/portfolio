@@ -18,7 +18,7 @@ import BannerAnimado from './Components/banner';
 import lat from '../src/assets/lat.png';
 import latw from '../src/assets/latw.png'
 import  './App.css'
-
+import Banner from './Components/banner';
 import { colores, coloresBlack } from './Components/colores';
 
 const Content = styled.div`
@@ -153,18 +153,20 @@ function App() {
 
   return (
     <>
+
+<Router> 
+
+
       <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", bottom: "18%", right: "2%", border: "black 1px solid"}}>
         {currentColor === colores ?  <FaMoon /> : <FaSun />}  
       </button>
      
-      <Router>
       <div>
       <Nav currentColor={currentColor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
       </div>
 
       <div style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
  
-    
         <Img2 data-aos="fade-up"  
         src={theme === "light" ? latw : lat} 
 
@@ -198,13 +200,18 @@ function App() {
               <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
          
             </Div>
+      
+
+
           <StyledDiv>
             <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Contacto
             </h2>
             <Contacto currentColor={currentColor} />
           </StyledDiv>
+  
           <StyledDiv>
+          <Banner currentColor={currentColor} />
             <Foot currentColor={currentColor} />
           </StyledDiv>
            <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
@@ -212,7 +219,8 @@ function App() {
         <WhatsappButton href="https://wa.me/+5492945907975" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
         </WhatsappButton>
-      </Router>
+  
+</Router>      
     </>
   );
 }

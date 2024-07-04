@@ -4,8 +4,7 @@ import { colores } from "./colores";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import '../App.css';
-import lat from '../assets/lat.png';
-import latw from '../assets/latw.png'
+
 const Contenedor = styled.div`
   width: auto;
   height: auto;
@@ -121,10 +120,6 @@ function About({ currentColor, theme }) {
     <>
       <Estilo currentColor={currentColor} data-aos="fade-left">
       
-      {/* <Img2 data-aos="fade-down"  
-        src={theme === "light" ? lat : latw} 
-
-        style={{ width: '30%', margin: "auto"}} alt='devimg' /> */}
       <span className="highlight-tech"> Latitud42 </span> evoca la idea de estar en un punto estratégico para desarrollar soluciones tecnológicas avanzadas. <br/>
       Ofrecemos software y aplicaciones web para emprendimientos y emprendedores de la Comarca Andina.     </Estilo>
     </>

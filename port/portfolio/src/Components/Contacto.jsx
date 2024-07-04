@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import { set } from 'animejs';
 
 // Styled components
 const Contenedor = styled.div`
@@ -80,7 +79,7 @@ const ContactForm = ({ currentColor }) => {
 
   // useEffect for initializing AOS
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init()
   }, []);
   const handleFormSubmit = async () => {
     if (!validation()) return;
