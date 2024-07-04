@@ -214,7 +214,7 @@ function App() {
             </div>
             <Contacto currentColor={currentColor} />
           </StyledDiv>
-  <Calendly />
+  <Calendly /> <b> Adendar una charla de 30 minutos</b>
           <StyledDiv>
             <Foot currentColor={currentColor} />
           </StyledDiv>
