@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import lat from '../assets/lat.png';
-import { useInView } from '@researchgate/react-intersection-observer';
+//import { useInView } from '@researchgate/react-intersection-observer';
 
 // Define the animations using keyframes
 const fadeIn = keyframes`
@@ -134,7 +134,7 @@ const Banner = () => {
     triggerOnce: false,
   };
 
-  const { ref } = useInView(options);
+
 
   useEffect(() => {
     if (isAnimating) {
@@ -147,7 +147,7 @@ const Banner = () => {
   }, [currentScene, isAnimating]);
 
   return (
-    <BannerWrapper ref={ref}>
+    <BannerWrapper >
       {scenes.map((scene, index) => (
         <SceneWrapper
           key={index}
