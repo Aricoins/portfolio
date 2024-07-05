@@ -153,7 +153,7 @@ const Banner = () => {
     { text: '', 
         bgColor: colors.white, 
         duration: 2 }, // Final scene with white background
-    { text: 'ingesá acá', 
+    { text: 'saber más', 
         textColor: colors.white, 
         bgColor: colors.quinary, 
         duration: 1.5 }, // Final scene with text

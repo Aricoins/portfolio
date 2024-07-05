@@ -208,7 +208,9 @@ function App() {
             <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Contacto
             </h2>
+            <div style={{marginTop: "10%"}}>
             <Banner/>
+            </div>
             <Contacto currentColor={currentColor}  />
           </StyledDiv>
   
