@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import lat from '../assets/lat.png';
-//import { useInView } from '@researchgate/react-intersection-observer';
 
 // Define the animations using keyframes
 const fadeIn = keyframes`
@@ -22,24 +21,32 @@ const slideIn = keyframes`
   }
 `;
 
-// Animación para hacer crecer el texto
 const grow = keyframes`
   0% {
     font-size: 2rem;
   }
   100% {
     font-size: 10rem;
-    opacity: 0; /* Ajuste para desvanecer el texto al crecer */
   }
 `;
+
+// Color palette
+const colors = {
+  primary: "#1a1625",
+  secondary: "#575757",
+  tertiary: "#908d96",
+  quaternary: "#7a5af5",
+  quinary: "#ba9ffb",
+  white: "#ffffff",
+};
 
 // Styled-components outside the functional component
 const BannerWrapper = styled.div`
   position: relative;
-  width: 300px; /* Ancho fijo del banner */
-  height: 250px; /* Alto fijo del banner */
-  overflow: hidden; /* Para ocultar el texto que se sale del marco */
-  cursor: pointer; /* Cambiar cursor a mano */
+  width: 300px; /* Fixed banner width */
+  height: 250px; /* Fixed banner height */
+  overflow: hidden; /* Hide text overflowing the frame */
+  cursor: pointer; /* Change cursor to pointer */
 `;
 
 const SceneWrapper = styled.div`
@@ -60,12 +67,11 @@ const Text = styled.span`
   background-color: ${(props) => props.bgText};
   padding: 1rem;
   border-radius: 10%;
-  white-space: nowrap; /* Evita que el texto se ajuste automáticamente */
+  white-space: nowrap; /* Prevent text from wrapping */
   animation: ${(props) =>
     props.active
       ? css`
-          ${fadeIn} 0.5s ease-out,
-          ${slideIn} 1s ease-out,
+     
           ${props.lastScene ? grow : 'none'} 1s ease-out forwards
         `
       : 'none'};
@@ -74,12 +80,11 @@ const Text = styled.span`
 const Logo = styled.img`
   position: absolute;
   top: 0;
-  left: 5%;
-  width: 90%;
-  height: 90%;
-  justify-content: center;
-  z-index: 1; /* Ajuste para que el logo no esté detrás del texto crecido */
-  object-fit: contain; /* Ajusta el tamaño del logo manteniendo la proporción */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensure the logo is not behind the enlarged text */
+  object-fit: contain; /* Adjust the size of the logo while maintaining aspect ratio */
   animation: ${(props) =>
     props.active
       ? css`
@@ -90,81 +95,50 @@ const Logo = styled.img`
 `;
 
 const Banner = () => {
-  const coloresBlack = {
-    primero: "#1a1625",
-    segundo: "#575757",
-    tercero: "#908d96",
-    cuarto: "#7a5af5",
-    quinto: "#ba9ffb",
-    sexto: "#ffffff", // Agregamos el sexto color para el texto
-  };
-
   const scenes = [
-    { text: 'click!', textColor: coloresBlack.segundo, bgColor: coloresBlack.segundo, duration: 1.5 }, 
-    { text: 'DESARROLLO', textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.8 },
-    { text: 'DISEÑO', textColor: coloresBlack.primero,  bgColor: coloresBlack.sexto, duration: 0.8 },
-    { text: 'WEB', textColor: coloresBlack.sexto,  bgColor: coloresBlack.primero, duration: 0.8 },
-    { text: 'APP', textColor: coloresBlack.primero, bgColor: coloresBlack.sexto, duration: 0.8 },
-    { text: 'AI', textColor: coloresBlack.sexto, bgColor: coloresBlack.cuarto, duration: 0.8 },
-    { text: 'Acelerá', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.7 },
-    { text: 'tu', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.6 },
-    { text: 'producto', bgText: coloresBlack.cuarto, textColor: "yellow", bgColor: coloresBlack.primero, duration: 0.3 },
-    { text: 'idea', bgText: coloresBlack.cuarto, textColor: "yellow", bgColor: coloresBlack.primero, duration: 0.3 },
-    { text: 'empresa', bgText: coloresBlack.cuarto, textColor: "yellow", bgColor: coloresBlack.primero, duration: 0.3 },
-    { text: 'con', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.4 },
-    { text: 'tecnologia', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
-    { text: 'avanzada', bgText: coloresBlack.cuarto, textColor: coloresBlack.sexto, bgColor: coloresBlack.primero, duration: 0.3 },
-    { text: '', bgColor: '#ffffff', duration: 2 }, // Escena final con pantalla en blanco
-    { text: 'ingesá acá', textColor: coloresBlack.cuarto, bgColor: coloresBlack.sextp, duration: 1.5 }, // Escena final con pantalla en blanco
+    { text: 'click!', textColor: colors.secondary, bgColor: colors.secondary, duration: 1.5 },
+    { text: 'DESARROLLO', textColor: colors.white, bgColor: colors.primary, duration: 0.8 },
+    { text: 'DISEÑO', textColor: colors.primary, bgColor: colors.white, duration: 0.8 },
+    { text: 'WEB', textColor: colors.white, bgColor: colors.primary, duration: 0.8 },
+    { text: 'APP', textColor: colors.primary, bgColor: colors.white, duration: 0.8 },
+    { text: 'AI', textColor: colors.white, bgColor: colors.quaternary, duration: 0.8 },
+    { text: 'ACELERÁ', bgText: colors.quaternary, textColor: colors.white, bgColor: colors.primary, duration: 0.7 },
+    { text: 'TU', bgText: colors.quaternary, textColor: colors.white, bgColor: colors.primary, duration: 0.6 },
+    { text: 'EMPRESA', bgText: colors.secondary, textColor: colors.white, bgColor: colors.primary, duration: 0.3 },
+    { text: 'C0N', bgText: colors.quaternary, textColor: colors.white, bgColor: colors.primary, duration: 0.3 },
+    { text: 'TECNOLOGÍA', bgText: colors.quaternary, textColor: colors.white, bgColor: colors.primary, duration: 0.3 },
+    { text: 'AVANZADA', bgText: colors.quaternary, textColor: colors.white, bgColor: colors.primary, duration: 0.3 },
+    { text: '', bgColor: colors.white, duration: 2 }, // Final scene with white background
+    { text: 'ingesá acá', textColor: colors.white, bgColor: colors.quinary, duration: 1.5 }, // Final scene with text
   ];
 
   const [currentScene, setCurrentScene] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const handleChange = (inView) => {
-    if (inView) {
-      setIsAnimating(true);
-    } else {
-      setIsAnimating(false);
-    }
-  };
-
-  const options = {
-    onChange: handleChange,
-    triggerOnce: false,
-  };
-
-
 
   useEffect(() => {
-    if (isAnimating) {
-      const interval = setInterval(() => {
-        setCurrentScene((prev) => (prev + 1) % scenes.length);
-      }, scenes[currentScene].duration * 1000);
+    const interval = setInterval(() => {
+      setCurrentScene((prev) => (prev + 1) % scenes.length);
+    }, scenes[currentScene].duration * 1000);
 
-      return () => clearInterval(interval);
-    }
-  }, [currentScene, isAnimating]);
+    return () => clearInterval(interval);
+  }, [currentScene]);
 
   return (
-    <BannerWrapper >
+    <BannerWrapper>
       {scenes.map((scene, index) => (
         <SceneWrapper
           key={index}
           bgColor={scene.bgColor}
           duration={scene.duration}
-          active={index === currentScene && isAnimating}
+          active={index === currentScene}
         >
-          <Text bgText={scene.bgText} textColor={scene.textColor} lastScene={index === scenes.length - 1}>
-            {scene.text}
-          </Text>
+          <Text bgText={scene.bgText} textColor={scene.textColor} lastScene={index === scenes.length - 1}>{scene.text}</Text>
         </SceneWrapper>
       ))}
       {currentScene === scenes.length - 2 && (
         <Logo
           src={lat}
           alt="Latitud42 Logo"
-          active={isAnimating}
+          active={true}
         />
       )}
     </BannerWrapper>

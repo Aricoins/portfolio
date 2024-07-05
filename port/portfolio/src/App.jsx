@@ -17,10 +17,11 @@ import dev from '../src/assets/source.gif';
 import BannerAnimado from './Components/banner';
 import lat from '../src/assets/lat.png';
 import latw from '../src/assets/latw.png'
-import  './App.css'
+
 import Banner from './Components/banner';
 import { colores, coloresBlack } from './Components/colores';
 import Calendly from './Components/calendly.tsx';
+
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,8 +29,7 @@ const Content = styled.div`
   align-items: center;
   overflow: hidden;
   font-family: audiowide-regular;
-  
-  @media (max-width: 800px) {
+    @media (max-width: 800px) {
     flex-direction: column;
     margin-bottom: "10%";
   }
@@ -65,8 +65,7 @@ const StyledDiv = styled.div`
   align-content: center;
   align-items: center;
   margin: auto;
-  
-  @media (max-width: 900px) {
+    @media (max-width: 900px) {
     flex-direction: column;
   }
 `;
@@ -209,9 +208,7 @@ function App() {
             <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Contacto
             </h2>
-            <div style={{margin: "5%"}}>
-            <Banner currentColor={currentColor}  data-aos="fade-up"/>
-            </div>
+            <Banner/>
             <Contacto currentColor={currentColor}  />
           </StyledDiv>
   
