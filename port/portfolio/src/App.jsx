@@ -20,7 +20,7 @@ import latw from '../src/assets/latw.png'
 
 import Banner from './Components/banner';
 import { colores, coloresBlack } from './Components/colores';
-import Calendly from './Components/calendly.tsx';
+import Calendly from './Components/calendly.jsx';
 
 const Content = styled.div`
   display: flex;
@@ -213,7 +213,7 @@ function App() {
           </StyledDiv>
   
           <StyledDiv>
-            <Foot currentColor={currentColor} />
+            {/* <Foot currentColor={currentColor} /> */}
           </StyledDiv>
            <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "10%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
    <div style= {{ position: "fixed", marginButtom: "20%"}}>  <Calendly />

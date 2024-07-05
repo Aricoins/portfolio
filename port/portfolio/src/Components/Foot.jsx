@@ -12,14 +12,15 @@ const Contenedor = styled.footer`
   width: 100%;
   border-radius: 5%;
   background-color: ${props => props.currentColor.primero};
-   border: 2px ;
+ 
+  border: 2px ;
   margin: 2%;
   margin-top: 8%;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
-display: grid;
-  grid-template-columns: repeat(12, 6fr);
+
   .icono {
 
     font-size: 6rem;
@@ -38,106 +39,108 @@ display: grid;
   }
 `;
 
-// const Img = styled.img`
-//   border-radius: 50%;
-//   margin: auto;
-//   width: 20%;
+const Img = styled.img`
+  border-radius: 50%;
+  margin: auto;
+  width: 20%;
   
 
-//   @media (max-width: 600px) {
-//     width: 80px;
-//   }
-// `;
+  @media (max-width: 600px) {
+    width: 80px;
+  }
+`;
 
-// const Img2 = styled.img`
-//  background-color: rgb(0, 0, 0, 0.6);
-//  padding: 2%;
-//  border-radius: 5px;
-//   width: 180px;
-//   margin-left: 30%;
-//   text-shadow: 5px 2px 10px 5px rgba(0, 0, 0, 0.8);
-// box-shadow: 1px 2px 3px 5px  rgba(0, 0, 0, 0);
-//   @media (max-width: 900px) {
-//     width: 80px;
-//     margin-right: 0;
-//   }
+const Img2 = styled.img`
+ background-color: rgb(0, 0, 0, 0.6);
+ padding: 2%;
+ border-radius: 5px;
+  width: 180px;
+  margin-left: 30%;
+  text-shadow: 5px 2px 10px 5px rgba(0, 0, 0, 0.8);
+box-shadow: 1px 2px 3px 5px  rgba(0, 0, 0, 0);
+  @media (max-width: 900px) {
+    width: 80px;
+    margin-right: 0;
+  }
 
-//   @media (max-width: 600px) {
-//     width: 60px;
-//     margin-left: 10px;
-//   }
-// `;
+  @media (max-width: 600px) {
+    width: 60px;
+    margin-left: 10px;
+  }
+`;
 
-// const Ancla = styled.a`
-//   text-decoration: none;
-//   color: ${colores.marron};
-//   display: flex;
-//   border-radius: 8%;
-//   transition-duration: 0.3s;
+const Ancla = styled.a`
+  text-decoration: none;
+  color: ${colores.marron};
+  display: flex;
+  border-radius: 8%;
+  transition-duration: 0.3s;
 
-//   :hover {
-//     opacity: 0.8;
-//     transition: 0.3s;
-//     cursor: pointer;
-//   }
+  :hover {
+    opacity: 0.8;
+    transition: 0.3s;
+    cursor: pointer;
+  }
 
-//   @media (max-width: 600px) {
-//     width: 80px;
-//   }
-// `;
+  @media (max-width: 600px) {
+    width: 80px;
+  }
+`;
 
-// const Span = styled.span`
-//   color: white;
-//   font-size: small;
+const Span = styled.span`
+  color: white;
+  font-size: small;
 
-//   @media (max-width: 600px) {
-//     transform: rotate(0deg);
-//     font-size: x-small;
-//   }
-// `;
+  @media (max-width: 600px) {
+    transform: rotate(0deg);
+    font-size: x-small;
+  }
+`;
 
-// const Piso = styled.div`
-//   background-color: rgba(255, 0, 0, 0);
-//   width: 50%;
-//   display: flex;
-//   align-items: center;
-//   height: auto;
-// `;
- export default function Foot(currentColor) {
+const Piso = styled.div`
+  background-color: rgba(255, 0, 0, 0);
+  width: 50%;
+  display: flex;
+  align-items: center;
+  height: auto;
+`;
 
-//   const scrollO = () => {
-//     window.scrollTo({
-//       top: 0,
-//       behavior: 'smooth'
-//     });
-//   }
+export default function Foot(currentColor) {
+
+  const scrollO = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   return (
     <>
-    <Contenedor>
-      
-    
-    <div>
-            <Span > © 2024 - Ariel G Rogel </Span>
-      </div>
-      <div>
-            <Span > © 2024 - Ariel G Rogel </Span>
-      </div>
-      <div>
-            <Span > © 2024 - Ariel G Rogel </Span>
-      </div><div>
-    
+      <Contenedor currentColor ={currentColor}>
+     
+       <Piso>
+          <Ancla href="https://www.linkedin.com/in/aegr/">
+          <SiLinkedin className='icono'/>
+          </Ancla>
+          
+        <Img className='icono '  data-aos="flip-up" src={favicon} onClick= {scrollO} alt="icono" />
+        <Ancla href="https://web.archive.org/web/20230202010104/https://creativecommons.org/licenses/by/4.0/">
+         </Ancla>
+          <Ancla href="https://github.com/Aricoins">
+         <SiGithub className='icono'/> 
+
+          </Ancla>
+<Ancla>
+<a href="https://www.talent.soyhenry.com/candidate/17489"> 
+         <Img2
+          src={talent}   
+              alt="icono" />
+              </a>
+          </Ancla>
+        </Piso>
+        </Contenedor>
+   
       <Span > © 2024 - Ariel G Rogel </Span>
-      </div><div>
-      
-      <Span > © 2024 - Ariel G Rogel </Span>
-      </div>
-      <div>
-            <Span > © 2024 - Ariel G Rogel </Span>
-      </div>
-      
-      
-       </Contenedor>
-            </>
+   
+    </>
   );
 }
-

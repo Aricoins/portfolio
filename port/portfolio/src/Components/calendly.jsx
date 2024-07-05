@@ -17,8 +17,8 @@ const CalendlyBadge = () => {
         window.Calendly.initBadgeWidget({
           url: 'https://calendly.com/arielgarcia79/latitud42',
           text: 'Agendá una charla!',
-          color: '#1000ff',
-          textColor: '#140808',
+          color: '#ffffff',
+          textColor: '#7a5af5',
           branding: undefined,
         });
       }
