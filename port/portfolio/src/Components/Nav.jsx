@@ -20,8 +20,8 @@ const Navigator = styled.div`
   align-content: center;
 
   @media screen and (max-width: 700px) {
-    top: 100%;
-    width: 90%;
+    top: 0%;
+    width: 100%;
     margin: auto;
   }
 `;
@@ -97,7 +97,7 @@ function scroll(e) {
 }
 function scrollF(e) {
   e.preventDefault();
-  window.scroll(0, 3200);
+  window.scroll(0, 60000);
   console.log (e, "scrol");
 }
 function scrollO(e) {
@@ -111,7 +111,7 @@ export default function Nav({ currentColor }) {
      <Navigator $currentColor={currentColor}>
     <StyledLink to="/home" $currentColor={currentColor}>
         <Botones onClick={scrollO} $currentColor={currentColor}>
-            <FaHome style= {{fontSize: "xx-large"}} />
+            <FaHome style= {{fontSize: "x-large"}} />
         </Botones>
     </StyledLink>
     <StyledLink to="/form" $currentColor={currentColor}>
