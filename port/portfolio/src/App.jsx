@@ -110,10 +110,10 @@ const shine = keyframes`
     font-size: 1rem;
   }
   30% {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   45% {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   60% {
     font-size: 1 rem;
@@ -278,14 +278,16 @@ padding: "20px"
         flexDirection: "row", 
         justifyContent: "space-around",
         alignItems: "center", 
-        marginTop: "2%",
-        padding: "2%",
+
        fontSize: "x-large",
         backgroundColor: currentColor.primero,  
         color: currentColor.cuarto, 
-        marginBottom: "1%", 
-        width: "100%",
-        height: "100px"   }}> 
+        margin: "auto", 
+        marginTop: "2%",
+        width: "80%",
+        height: "100px", 
+        borderRadius: "20px 20px 20px 20px",
+        border: `${currentColor.quinto} 2px solid`   }}> 
 
        <div>
         <p width="100px" style={{fontSize: "small"}}> Todos los derechos reservados | 2024 <br /> 
