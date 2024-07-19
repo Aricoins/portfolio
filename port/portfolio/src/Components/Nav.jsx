@@ -97,8 +97,9 @@ function scroll(e) {
 }
 function scrollF(e) {
   e.preventDefault();
-  window.scroll(0, 60000);
-  console.log (e, "scrol");
+  const scrollPosition = window.innerWidth <= 700 ? 7000 : 4000; // Ajusta según sea necesario
+  window.scroll(0, scrollPosition);
+  console.log(e, "scrol");
 }
 function scrollO(e) {
   e.preventDefault();

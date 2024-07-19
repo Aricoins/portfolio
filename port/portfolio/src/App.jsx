@@ -199,7 +199,8 @@ function App() {
 
       <div style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
  
-        <Img2 data-aos="fade-up"  
+        <Img2 data-aos="fade-right"  data-aos-duration="30"
+          data-aos-offset="50"  
         src={theme === "light" ? latw : lat} 
 
         style={{ width: '30%', margin: "auto"}} alt='devimg' />
@@ -281,7 +282,7 @@ padding: "20px"
         color: currentColor.cuarto, 
         marginBottom: "10%"   }}> 
        
-        <p width="200px"> <a href="https://github.com/Aricoins/portfolio"> © Licencia Open Source </a> </p>
+        <p width="200px"> Todos los derechos reservados | 2024 <br /> <a href="https://github.com/Aricoins/portfolio" style={{fontSize: "small"}}> Repositorio Open Source </a> </p>
          <Corazon onClick={scrollY} > ❤️ </Corazon> 
          <img src={theme === "light" ? lat : latw} width="200px"/> </div>
    

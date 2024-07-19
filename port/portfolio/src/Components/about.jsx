@@ -54,7 +54,7 @@ const H2 = styled.h2`
 `;
 
 const Estilo = styled.span`
-  color: ${props => props.currentColor.segundo};
+color: ${props => props.currentColor.segundo};
   z-index: 1000;
   height: 150px;
   background-color: ${props => props.currentColor.cuarto};
@@ -76,17 +76,14 @@ text-align: center;
     font-size: small;
   }
 
-  .highlight-latitud {
-    color: "red";
-    animation: shine 5s ease-in-out infinite alternate;
-  }
 
   .highlight-tech {
-    color: ${props => props.currentColor.segundo};
+    color: ${props => props.currentColor.primero};
     background: linear-gradient(45deg, "white", "black");
     -webkit-background-clip: text;
     -webkit-text-fill-color: $current;
-    animation:shine 1.3s ease-in-out infinite alternate;
+    animation:shine 7s linear infinite ;
+    font-family: 'Audiowide'
   }
   
   @keyframes shine {
@@ -94,19 +91,22 @@ text-align: center;
       font-size: 1rem;
     }
     15% {
-      font-size: 1rem;
+      font-size: 6rem;
     }
     30% {
-      font-size: 1rem;
+      font-size: 6rem;
     }
     45% {
       font-size: 1rem;
     }
     60% {
-      font-size: 1.3rem;
+      font-size: 1rem;
+      color: ${props => props.currentColor.quinto};
     }
     100% {
       font-size: 1rem;
+      color: ${props => props.currentColor.quinto};
+
     }
   `;
 
@@ -131,10 +131,12 @@ function About({ currentColor, theme }) {
     <>
       <Estilo currentColor={currentColor} data-aos="fade-left">
       
-      <span className="highlight-tech"> Latitud42 </span> <br />
+      <span className="highlight-tech" > Latitud42 </span> <br />
+<div >
+  
       evoca la idea de estar en un punto estratégico para desarrollar soluciones tecnológicas avanzadas. <br/>
-      Ofrecemos software y aplicaciones web para emprendimientos y emprendedores de la Comarca Andina.     </Estilo>
-    </>
+      Ofrecemos software y aplicaciones web para emprendimientos y emprendedores de la Comarca Andina. </div>    </Estilo>
+      </>
   );
 }
 
