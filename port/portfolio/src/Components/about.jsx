@@ -49,7 +49,6 @@ const Bloque = styled.div`
 const H2 = styled.h2`
   font-size: 40px;
   margin: 0;
-  border-color: red;
   &:hover {
   }
 `;
@@ -65,39 +64,43 @@ const Estilo = styled.span`
   margin-top: 3%;
   padding: 5%;
   z-index: 0;
-  font-size: x-large;
+  font-size: large;
+padding: 10px; 
+text-align: center;
   color: ${props => props.currentColor.primero};
 
   @media only screen and (max-width: 600px) {
     width: 80%;
     flex-direction: column;
-    font-size: large;
+    font-size: small;
   }
 
   .highlight-latitud {
-    color: ${colores.tercero};
-    font-weight: bold;
-    background: linear-gradient(45deg, ${colores.primero}, ${colores.segundo});
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: "red";
     animation: shine 5s ease-in-out infinite alternate;
   }
 
   .highlight-tech {
-    color: ${colores.primero};
-    background: linear-gradient(45deg, ${colores.primero}, ${colores.quinto});
+    color: ${props => props.currentColor.segundo};
+    background: linear-gradient(45deg, "white", "black");
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation:shine 1s ease-in-out infinite alternate;
+    -webkit-text-fill-color: $current;
+    animation:shine 1.3s ease-in-out infinite alternate;
   }
   
   @keyframes shine {
-    from {
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    0% {
+      font-size: xx-large;    } 
     }
-    to {
-      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.8), 1px 1px 10px rgba(0, 0, 0, 0.5);
-    }
+    10% {
+      font-size: xx-large;    }
+    80% {
+      font-size: x-large;
+      }
+
+    100% {
+      font-size: x-large;
+      }
   }
 `;
 
