@@ -107,7 +107,7 @@ const shine = keyframes`
     font-size: 1rem;
   }
   15% {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   30% {
     font-size: 2rem;
@@ -122,8 +122,11 @@ const shine = keyframes`
     font-size: 1rem;
   }`
 const Corazon = styled.p`
-animation: ${shine} 1s linear infinite;
-cursor: pointer
+animation: ${shine} 2s infinite;
+cursor: pointer;
+text-align: center;
+justify-content: center;
+align-self: center
 
 ` 
 
@@ -276,17 +279,28 @@ padding: "20px"
         justifyContent: "space-around",
         alignItems: "center", 
         marginTop: "2%",
-        padding: "1%",
+        padding: "2%",
        fontSize: "x-large",
         backgroundColor: currentColor.primero,  
         color: currentColor.cuarto, 
-        marginBottom: "10%"   }}> 
-       
-        <p width="200px"> Todos los derechos reservados | 2024 <br /> <a href="https://github.com/Aricoins/portfolio" style={{fontSize: "small"}}> Repositorio Open Source </a> </p>
-         <Corazon onClick={scrollY} > ❤️ </Corazon> 
-         <img src={theme === "light" ? lat : latw} width="200px"/> </div>
-   
+        marginBottom: "1%", 
+        width: "100%",
+        height: "100px"   }}> 
 
+       <div>
+        <p width="100px" style={{fontSize: "small"}}> Todos los derechos reservados | 2024 <br /> 
+        <a href="https://github.com/Aricoins/portfolio" 
+        style={{fontSize: "x-small"}}> Repositorio Open Source </a> </p>
+      </div>
+      <div>       
+         <Corazon onClick={scrollY} > ❤️ </Corazon> 
+        </div> 
+<div>
+         <img src={theme === "light" ? lat : latw} style={{width: "80px"}}/> </div>
+   
+<br /></div>
+<p style={{postition: "fixed", fontSize: "small", maxHeight: "20px", display: "flex", color: "white", justifyContent: "center", alignSelf: "center", margin: "auto", color: currentColor.quinto }}>
+  desarollo con latidos </p>
 </Router>      
     </>
   );

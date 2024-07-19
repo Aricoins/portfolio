@@ -91,10 +91,10 @@ text-align: center;
       font-size: 1rem;
     }
     15% {
-      font-size: 6rem;
+      font-size: 1.8rem;
     }
     30% {
-      font-size: 6rem;
+      font-size: 1.8rem;
     }
     45% {
       font-size: 1rem;
