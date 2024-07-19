@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -22,6 +22,13 @@ import Banner from './Components/banner';
 import { colores, coloresBlack } from './Components/colores';
 import Calendly from './Components/calendly.jsx';
 
+
+
+function scrollY(e) {
+  e.preventDefault();
+  window.scroll(0, 0);
+}
+
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,7 +38,7 @@ const Content = styled.div`
   font-family: audiowide-regular;
     @media (max-width: 800px) {
     flex-direction: column;
-    margin-bottom: "10%";
+
   }
   
   @media (max-width: 600px) {
@@ -43,7 +50,7 @@ const Content = styled.div`
 const Img2 = styled.img`
   height: 100%;
   z-index: 0;
-  margin: 2%;
+  
   width: 50vh;
 
   &:hover {
@@ -64,7 +71,7 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin: auto;
+
     @media (max-width: 900px) {
     flex-direction: column;
   }
@@ -93,6 +100,32 @@ const Div = styled.div`
     flex-direction: column;
   }
 `;
+
+
+const shine = keyframes`
+  0% {
+    font-size: 1rem;
+  }
+  15% {
+    font-size: 1.5rem;
+  }
+  30% {
+    font-size: 2rem;
+  }
+  45% {
+    font-size: 2rem;
+  }
+  60% {
+    font-size: 1 rem;
+  }
+  100% {
+    font-size: 1rem;
+  }`
+const Corazon = styled.p`
+animation: ${shine} 1s linear infinite;
+cursor: pointer
+
+` 
 
 const WhatsappButton = styled.a`
   position: fixed;
@@ -190,7 +223,15 @@ function App() {
          
             </Div>
           <StyledDiv>
-            <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
+            <h2 style={{ fontFamily: "audiowide",
+             fontSize: '20px',
+              zIndex: -1,
+               backgroundColor: 'white',
+                width: '100%', 
+                height: '100%',
+                 zIndex: 2,
+                  margin: '0%',
+                 textAlign: 'center' }}>
               Tecnologías
             </h2>
             <Tecnologias currentColor={currentColor} />
@@ -201,31 +242,49 @@ function App() {
             </Div>
       
 
-
           <StyledDiv>
    
          
-            <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
+            <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', zIndex: 2, margin: '0%', 
+            textAlign: 'center' }}>
               Contacto
             </h2>
             <div style={{marginTop: "10%"}}>
             <Banner/>
-            </div>
-            <Contacto currentColor={currentColor}  />
+                   </div>
+                   <Contacto currentColor={currentColor} />
+      
           </StyledDiv>
-  
-          <StyledDiv>
-            {/* <Foot currentColor={currentColor} /> */}
-          </StyledDiv>
-           <button onClick={()=> toggleTheme()} style={{position: "fixed", zIndex: "10000", marginBottom: "40%"}}> {currentColor === colores ? <FaSun /> : <FaMoon />}  </button>
-   <div style= {{ position: "fixed", marginButtom: "10%"}}>  <Calendly />
+     <div style= {{ position: "stickly", 
+     backgroundColor: "black"
+   }}>
+     <Calendly />
     </div>
         </Content>
-  
+  <div style={{position: "fixed", 
+  top: "10%",
+padding: "20px"
+}}>
         <WhatsappButton href="https://wa.me/+5492945907975" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
         </WhatsappButton>
- 
+        </div>
+   
+        <div style={{ display: "flex", 
+        flexDirection: "row", 
+        justifyContent: "space-around",
+        alignItems: "center", 
+        marginTop: "2%",
+        padding: "1%",
+       fontSize: "x-large",
+        backgroundColor: currentColor.primero,  
+        color: currentColor.cuarto, 
+        marginBottom: "10%"   }}> 
+       
+        <p width="200px"> <a href="https://github.com/Aricoins/portfolio"> © Licencia Open Source </a> </p>
+         <Corazon onClick={scrollY} > ❤️ </Corazon> 
+         <img src={theme === "light" ? lat : latw} width="200px"/> </div>
+   
 
 </Router>      
     </>

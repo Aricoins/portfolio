@@ -11,6 +11,7 @@ const Contenedor = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2%;
+  width: "100%";
   font-family: 'Audiowide', sans-serif;
 `;
 
@@ -20,6 +21,7 @@ const Label = styled.label`
   margin-bottom: 2%;
   margin-left: 2%;
   justify-content: center;
+  width: "100%"
 `;
 
 const Input = styled.input`

@@ -56,6 +56,7 @@ const H2 = styled.h2`
 const Estilo = styled.span`
   color: ${props => props.currentColor.segundo};
   z-index: 1000;
+  height: 150px;
   background-color: ${props => props.currentColor.cuarto};
   font-family: 'Roboto', sans-serif;
   opacity: 1;
@@ -90,19 +91,25 @@ text-align: center;
   
   @keyframes shine {
     0% {
-      font-size: xx-large;    } 
+      font-size: 1rem;
     }
-    10% {
-      font-size: xx-large;    }
-    80% {
-      font-size: x-large;
-      }
-
+    15% {
+      font-size: 1rem;
+    }
+    30% {
+      font-size: 1rem;
+    }
+    45% {
+      font-size: 1rem;
+    }
+    60% {
+      font-size: 1.3rem;
+    }
     100% {
-      font-size: x-large;
-      }
-  }
-`;
+      font-size: 1rem;
+    }
+  `;
+
 
 function About({ currentColor, theme }) {
   useEffect(() => {
@@ -124,7 +131,8 @@ function About({ currentColor, theme }) {
     <>
       <Estilo currentColor={currentColor} data-aos="fade-left">
       
-      <span className="highlight-tech"> Latitud42 </span> evoca la idea de estar en un punto estratégico para desarrollar soluciones tecnológicas avanzadas. <br/>
+      <span className="highlight-tech"> Latitud42 </span> <br />
+      evoca la idea de estar en un punto estratégico para desarrollar soluciones tecnológicas avanzadas. <br/>
       Ofrecemos software y aplicaciones web para emprendimientos y emprendedores de la Comarca Andina.     </Estilo>
     </>
   );
