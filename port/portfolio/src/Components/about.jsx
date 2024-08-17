@@ -53,7 +53,7 @@ const Text = styled.p`
 
   return (
     <Container data-aos="fade-up">
-      <Title>Bienvenido a Latitud42</Title>
+      <Title> ¡Bienvenid@s! </Title>
       <Text>
        Ofrecemos soluciones tecnológicas avanzadas que ayudan a transformar ideas en realidades digitales. 
        Con enfoque en la innovación y el diseño centrado en el usuario, creamos software y aplicaciones web que facilitan los logros de nuestros clientes. Descubrí cómo podemos ayudarte a mejorar y llevar tu proyecto al siguiente nivel.
