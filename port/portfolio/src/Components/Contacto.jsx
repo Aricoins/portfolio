@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 const Contenedor = styled.div`
   width: 100%;
   background-color: ${props => props.currentColor.primero};
-  color: ${props => props.currentColor.segundo};
+  color: ${props => props.currentColor.quinto};
   display: flex;
   flex-direction: column;
   margin: 2%;

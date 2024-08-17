@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { Link } from "react-router-dom";
+import  CalendlyBadge from "./calendly"
 function About({ currentColor }) {
 
 
@@ -45,7 +46,10 @@ const Text = styled.p`
 `;
 
 
+const rollContacto = () => {
 
+window.scrollTo( 0, 5000)
+}
 
   useEffect(() => {
     AOS.init();
@@ -56,8 +60,14 @@ const Text = styled.p`
       <Title> ¡Bienvenid@s! </Title>
       <Text>
        Ofrecemos soluciones tecnológicas avanzadas que ayudan a transformar ideas en realidades digitales. 
-       Con enfoque en la innovación y el diseño centrado en el usuario, creamos software y aplicaciones web que facilitan los logros de nuestros clientes. Descubrí cómo podemos ayudarte a mejorar y llevar tu proyecto al siguiente nivel.
-      </Text>
+       Con enfoque en la innovación y el diseño centrado en el usuario, creamos software y aplicaciones web que aceleran el éxito de nuestros clientes. 
+     
+         </Text>
+         <div style= {{ position: "absolute", 
+     backgroundColor: "black"
+   }}>
+     <CalendlyBadge />
+    </div>
     </Container>
   );
 }

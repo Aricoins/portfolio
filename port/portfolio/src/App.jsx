@@ -20,7 +20,7 @@ import latw from '../src/assets/latw.png'
 
 import Banner from './Components/banner';
 import { colores, coloresBlack } from './Components/colores';
-import Calendly from './Components/calendly.jsx';
+import CalendlyBadge from './Components/calendly.jsx';
 
 
 
@@ -262,7 +262,7 @@ function App() {
      <div style= {{ position: "stickly", 
      backgroundColor: "black"
    }}>
-     <Calendly />
+     <CalendlyBadge />
     </div>
         </Content>
   <div style={{position: "fixed", 
@@ -274,45 +274,9 @@ padding: "20px"
           <FaWhatsapp />
         </WhatsappButton>
         </div>
-   
-        <div style={{ display: "flex", 
-        flexDirection: "row", 
-        justifyContent: "space-around",
-        alignItems: "center", 
-
-       fontSize: "x-large",
-        backgroundColor: currentColor.primero,  
-        color: currentColor.cuarto, 
-        margin: "auto", 
-        marginTop: "2%",
-        width: "80%",
-        height: "100px", 
-        borderRadius: "20px 20px 20px 20px",
-        border: `${currentColor.quinto} 2px solid`   }}> 
-
-       <div>
-        <p width="100px" style={{fontSize: "small", margin: "10%"}}> Todos los derechos reservados | 2024 <br /> 
-        <a href="https://github.com/Aricoins/portfolio" 
-        style={{fontSize: "x-small"}}> Repositorio Open Source </a> </p>
-      </div>
-      <div>       
-         <Corazon onClick={scrollY} > ❤️ </Corazon> 
-        </div> 
-<div>
-         <img src={theme === "light" ? lat : latw} style={{width: "80px"}}/> </div>
-   
-<br /></div>
-<p style={{postition: "fixed", 
-fontSize: "xx-small", 
-maxHeight: "20px", 
-display: "flex", 
-color: "white", 
-justifyContent: "center", 
-alignSelf: "center", margin: "auto", 
-color: currentColor.quinto,
-marginBottom: "20%"
- }}>
-  desarollo con latidos </p>
+        <Foot currentColor={currentColor} >
+       
+</Foot>
 </Router>      
     </>
   );
