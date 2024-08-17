@@ -55,11 +55,8 @@ const Text = styled.p`
     <Container data-aos="fade-up">
       <Title>Bienvenido a Latitud42</Title>
       <Text>
-        En Latitud42, nos especializamos en ofrecer soluciones tecnológicas avanzadas
-        que ayudan a transformar ideas en realidades digitales. Con un enfoque en la innovación
-        y el diseño centrado en el usuario, creamos software y aplicaciones web que impulsan
-        el éxito de nuestros clientes. Descubre cómo podemos ayudarte a alcanzar tus objetivos
-        y llevar tu proyecto al siguiente nivel.
+       Ofrecemos soluciones tecnológicas avanzadas que ayudan a transformar ideas en realidades digitales. 
+       Con enfoque en la innovación y el diseño centrado en el usuario, creamos software y aplicaciones web que facilitan los logros de nuestros clientes. Descubrí cómo podemos ayudarte a mejorar y llevar tu proyecto al siguiente nivel.
       </Text>
     </Container>
   );
