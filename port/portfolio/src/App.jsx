@@ -127,7 +127,7 @@ function App() {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
 
-  const currentColor = theme === 'light' ? colores : coloresBlack;
+  const currentcolor = theme === 'light' ? colores : coloresBlack;
 
   useEffect(() => {
     AOS.init();
@@ -161,24 +161,24 @@ function App() {
 
 
       <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", bottom: "18%", right: "2%", border: "black 1px solid"}}>
-        {currentColor === colores ?  <FaMoon /> : <FaSun />}  
+        {currentcolor === colores ?  <FaMoon /> : <FaSun />}  
       </button>
      
       <div>
-      <Nav currentColor={currentColor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
+      <Nav currentcolor={currentcolor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
       </div>
 
-      <div style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
+      <div style={{display: "flex", flexDirection: "row", backgroundColor: currentcolor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
  
         <Img2 data-aos="fade-right"  data-aos-duration="30"
           data-aos-offset="50"  
         src={theme === "light" ? latw : lat} 
 
         style={{ width: '30%', margin: "auto"}} alt='devimg' />
-             <About currentColor={currentColor} theme={theme} />
+             <About currentColor={currentcolor} theme={theme} />
        </div>
      
-        <Content style={{ backgroundColor: currentColor.primero }}>
+        <Content style={{ backgroundColor: currentcolor.primero }}>
        
             <Div>
               <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
@@ -188,7 +188,7 @@ function App() {
             <h2 style={{ fontSize: '20px', fontFamily: " audiowide", zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
               Proyectos
             </h2>
-            <Proyectos currentColor={currentColor} />
+            <Proyectos currentColor={currentcolor} />
           </StyledDiv>
           <Div>
               <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
@@ -206,7 +206,7 @@ function App() {
                  textAlign: 'center' }}>
               Tecnologías
             </h2>
-            <Tecnologias currentColor={currentColor} />
+            <Tecnologias currentColor={currentcolor} />
           </StyledDiv>
           <Div>
               <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
@@ -224,7 +224,7 @@ function App() {
             <div style={{marginTop: "10%"}}>
             <Banner/>
                    </div>
-                   <Contacto currentColor={currentColor} />
+                   <Contacto currentColor={currentcolor} />
       
           </StyledDiv>
      <div style= {{ position: "stickly", 
@@ -242,7 +242,7 @@ padding: "20px"
           <FaWhatsapp />
         </WhatsappButton>
         </div>
-        <Foot currentColor={currentColor} >
+        <Foot currentColor={currentcolor} theme={theme} >
        
 </Foot>
 </Router>      

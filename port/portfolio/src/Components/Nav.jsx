@@ -1,10 +1,6 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import pdf from '../assets/cv.pdf';
-import { FaHome } from "react-icons/fa";
-
-
+import { FaHome } from 'react-icons/fa';
 const Navigator = styled.div`
   position: fixed;
   z-index: 10000000;
@@ -12,7 +8,7 @@ const Navigator = styled.div`
   width: 100%;
   margin: auto;
   height: 9%;
-  background-color: ${(props) => props.$currentColor.primero};
+  background-color: ${(props) => props.$currentcolor.primero};
   opacity: 1;
   display: flex;
   justify-content: stretch;
@@ -27,9 +23,9 @@ const Navigator = styled.div`
 `;
 
 const Botones = styled.button`
-  border: ${(props) => props.$currentColor.primero} solid 4px;
-  color: ${(props) => props.$currentColor.cuarto};
-  background: ${(props) => props.$currentColor.cuarto};
+  border: ${(props) => props.$currentcolor.primero} solid 4px;
+  color: ${(props) => props.$currentcolor.cuarto};
+  background: ${(props) => props.$currentcolor.cuarto};
   font-size: 14px;
   display: flex;
   justify-content: center;
@@ -50,8 +46,8 @@ const Botones = styled.button`
 
 const StyledLink = styled(NavLink)`
   text-decoration: none;
-  color: ${(props) => props.$currentColor.cuarto};
-  background-color: ${(props) => props.$currentColor.cuarto};
+  color: ${(props) => props.$currentcolor.cuarto};
+  background-color: ${(props) => props.$currentcolor.cuarto};
   width: 35%;
   display: inline-block;
   border-radius: 8%;
@@ -59,9 +55,9 @@ const StyledLink = styled(NavLink)`
   z-index: 7;
 
   &.active {
-    background-color: ${(props) => props.$currentColor.verde};
+    background-color: ${(props) => props.$currentcolor.verde};
     font-weight: bold;
-    color: ${(props) => props.$currentColor.marron};
+    color: ${(props) => props.$currentcolor.marron};
   }
 
   &:hover {
@@ -71,23 +67,23 @@ const StyledLink = styled(NavLink)`
   }
 
   button {
-    background-color: ${(props) => props.$currentColor.primero};
+    background-color: ${(props) => props.$currentcolor.primero};
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-    color: ${(props) => props.$currentColor.cuarto}; 
+    color: ${(props) => props.$currentcolor.cuarto}; 
       &:hover {
-      background-color: ${(props) => props.$currentColor.marron};
-      color: ${(props) => props.$currentColor.amarillo};
+      background-color: ${(props) => props.$currentcolor.marron};
+      color: ${(props) => props.$currentcolor.amarillo};
       font-size: 110%;
     }
   }
 
   &:active {
-    background-color: ${(props) => props.$currentColor.primero};
-    color: ${(props) => props.$currentColor.marron};
+    background-color: ${(props) => props.$currentcolor.primero};
+    color: ${(props) => props.$currentcolor.marron};
   }
 `;
 
@@ -106,27 +102,27 @@ function scrollO(e) {
   window.scroll(0, 0);
 }
 
-export default function Nav({ currentColor }) {
+export default function Nav({ currentcolor }) {
   return (
     <>
-     <Navigator $currentColor={currentColor}>
-    <StyledLink to="/home" $currentColor={currentColor}>
-        <Botones onClick={scrollO} $currentColor={currentColor}>
+     <Navigator $currentcolor={currentcolor}>
+    <StyledLink to="/home" $currentcolor={currentcolor}>
+        <Botones onClick={scrollO} $currentcolor={currentcolor}>
             <FaHome style= {{fontSize: "x-large"}} />
         </Botones>
     </StyledLink>
-    <StyledLink to="/form" $currentColor={currentColor}>
-        <Botones onClick={scroll} $currentColor={currentColor}>
+    <StyledLink to="/form" $currentcolor={currentcolor}>
+        <Botones onClick={scroll} $currentcolor={currentcolor}>
             Proyectos
         </Botones>
     </StyledLink>
-    <StyledLink to="/about" $currentColor={currentColor}>
-        <Botones onClick={scrollF} $currentColor={currentColor}>
+    <StyledLink to="/about" $currentcolor={currentcolor}>
+        <Botones onClick={scrollF} $currentcolor={currentcolor}>
             Contacto
         </Botones>
     </StyledLink>
     {/* <a href={pdf} download="cv.pdf">
-        <button style={{ width: '300px', backgroundColor: `${(props) => props.$currentColor.marron}` }}>Mi CV</button>
+        <button style={{ width: '300px', backgroundColor: `${(props) => props.$currentcolor.marron}` }}>Mi CV</button>
     </a> */}
 </Navigator>
 

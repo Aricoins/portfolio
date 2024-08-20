@@ -1,6 +1,5 @@
 // src/Components/Foot.js
 
-import React from 'react';
 import styled, {keyframes} from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import lat from '../../src/assets/lat.png';
@@ -15,10 +14,10 @@ const shine = keyframes`
     font-size: 1rem;
   }
   30% {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   45% {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   60% {
     font-size: 1 rem;
@@ -27,50 +26,65 @@ const shine = keyframes`
     font-size: 1rem;
   }`
 
-const Corazon = styled.p`
-animation: ${shine} 1s infinite;
-cursor: pointer;
-text-align: center;
-justify-content: center;
-align-self: center
-
-` 
-
-
-const Footer = styled.footer`
-  background-color: ${({ currentColor }) => currentColor.primero};
-  color: ${({ currentColor }) => currentColor.cuarto};
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-  width: 90%;
-  margin: auto;
-  border-top: ${({ currentColor }) => `2px solid ${currentColor.quinto}`};
-  `;
-
-const SocialLinks = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 30%;
-`;
-
-
 function scrollY(e) {
   e.preventDefault();
   window.scroll(0, 0);
 }
 
-const Foot = ({ currentColor }) => {
+const Foot = ({ currentColor, theme }) => {
+
+
+
+  const Corazon = styled.p`
+  animation: ${shine} 1s infinite;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  align-self: center
+  
+  ` 
+  
+  
+  const Footer = styled.footer`
+    background-color: ${({ currentColor }) => currentColor.primero};
+    color: ${({ currentColor }) => currentColor.cuarto};
+  
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    width: 90%;
+    margin: auto;
+    border-top: ${({ currentColor }) => `2px solid ${currentColor.quinto}`};
+    `;
+  
+  const SocialLinks = styled.div`
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+  `;
+  
+  
+
+
   return (
     <Footer currentColor={currentColor}>
-      <p>© 2024 Todos los derechos reservados</p>
-      <div>
-<p width="100px" style={{fontSize: "small", margin: "10%"}}> Todos los derechos reservados | 2024 <br /> 
+      <div  style={{
+  fontSize: "small", 
+  margin: "10%",   
+  display: "grid",
+  gridGap: "10px",
+  gridTemplateColumns: "repeat(4, [col] 100px )" ,
+  gridTemplateRows: "repeat(3, [row] auto  )",
+  backgroundColor: "#fff",
+  color: "#444"}}>
+<p width="100px" style= {{ gridColumn: "col / span 2",
+  gridRow: "row", display: "flex", justifyContent: "center"}}> Todos los derechos reservados | 2024 <br /> 
 <a href="https://github.com/Aricoins/portfolio" 
 style={{fontSize: "x-small"}}> Repositorio Open Source </a> </p>
 </div>
-      <SocialLinks>
+<div  >
+   <SocialLinks style={{ gridColumn: "col  / span 2",
+    gridRow: "row 2"}}  >
         <a href="https://github.com/Aricoins" target="_blank" rel="noopener noreferrer">
           <FaGithub size={30} />
         </a>
@@ -81,10 +95,17 @@ style={{fontSize: "x-small"}}> Repositorio Open Source </a> </p>
           <FaTwitter size={30} />
         </a>
       </SocialLinks>
-      <Corazon onClick={scrollY} > ❤️ </Corazon> 
+      </div>
+     <div style={{gridColumn: "col  / span 4",
+      gridRow: "row 3"}}>
+ 
       <img src={theme === "light" ? lat : latw} style={{width: "80px"}}/>
        <p> desarollo con latidos </p>
-    </Footer>
+       </div>
+       <div style={{widht: "80px", height: "80px", position: "absolute", marginLeft: "43%" }}>
+       <Corazon onClick={scrollY} > ❤️ </Corazon> 
+       </div>
+       </Footer>
   );
 };
 
