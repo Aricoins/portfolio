@@ -1,7 +1,7 @@
 // src/Components/Foot.js
 
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import lat from '../../src/assets/lat.png';
 import latw from '../../src/assets/latw.png'

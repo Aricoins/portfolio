@@ -60,7 +60,7 @@ window.scrollTo( 0, 5000)
       <Title> ¡Bienvenid@s! </Title>
       <Text>
        Ofrecemos soluciones tecnológicas avanzadas que ayudan a transformar ideas en realidades digitales. 
-       Con enfoque en la innovación y el diseño centrado en el usuario, creamos software y aplicacion es web que aceleran el éxito de nuestros clientes. 
+       Con enfoque en la innovación y el diseño centrado en el usuario, creamos software y aplicaciones web que aceleran el éxito de nuestros clientes. 
      
          </Text>
          <div style= {{ position: "absolute", 
