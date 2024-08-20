@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Banner</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes grow {
+            0% {
+                font-size: 2rem;
+            }
+            100% {
+                font-size: 10rem;
+            }
+        }
+
+        .banner-wrapper {
+            position: relative;
+            width: 300px;
+            height: 250px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .scene-wrapper {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .scene-wrapper.active {
+            opacity: 1;
+        }
+
+        .text {
+            font-size: 2rem;
+            font-family: 'Audiowide', cursive;
+            padding: 1rem;
+            border-radius: 10%;
+            white-space: nowrap;
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            object-fit: contain;
+            opacity: 0;
+            animation: fadeIn 1s ease-out, slideIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-wrapper">
+        <div class="scene-wrapper active" style="background-color: #575757;">
+            <span class="text" style="color: #575757; background-color: #575757;">click!</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #1a1625;">
+            <span class="text" style="color: #ffffff; background-color: #1a1625;">DESARROLLO</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #ffffff;">
+            <span class="text" style="color: #1a1625; background-color: #ffffff;">DISEÑO</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #1a1625;">
+            <span class="text" style="color: #ffffff; background-color: #1a1625;">WEB</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #ffffff;">
+            <span class="text" style="color: #1a1625; background-color: #ffffff;">APP</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #7a5af5;">
+            <span class="text" style="color: #ffffff; background-color: #7a5af5;">AI</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #1a1625;">
+            <span class="text" style="color: #ffffff; background-color: #7a5af5;">ACELERÁ</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #1a1625;">
+            <span class="text" style="color: #ffffff; background-color: #7a5af5;">TU</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #1a1625;">
+            <span class="text" style="color: #ffffff; background-color: #575757;">EMPRESA</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #1a1625;">
+            <span class="text" style="color: #ffffff; background-color: #7a5af5;">C0N</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #1a1625;">
+            <span class="text" style="color: #ffffff; background-color: #7a5af5;">TECNOLOGÍA</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #1a1625;">
+            <span class="text" style="color: #ffffff; background-color: #7a5af5;">AVANZADA</span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #ffffff;">
+            <span class="text"></span>
+        </div>
+        <div class="scene-wrapper" style="background-color: #ba9ffb;">
+            <span class="text" style="color: #ffffff; background-color: #ba9ffb;">saber más</span>
+        </div>
+        <img class="logo" src="path-to-your-image.png" alt="Latitud42 Logo">
+    </div>
+
+    <script>
+        const scenes = document.querySelectorAll('.scene-wrapper');
+        const logo = document.querySelector('.logo');
+        let currentScene = 0;
+
+        function showNextScene() {
+            scenes[currentScene].classList.remove('active');
+            currentScene = (currentScene + 1) % scenes.length;
+            scenes[currentScene].classList.add('active');
+
+            if (currentScene === scenes.length - 2) {
+                logo.style.opacity = '1';
+            } else {
+                logo.style.opacity = '0';
+            }
+        }
+
+        setInterval(showNextScene, 1500); // Adjust interval as per your needs
+    </script>
+</body>
+</html>

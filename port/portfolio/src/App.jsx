@@ -24,11 +24,6 @@ import CalendlyBadge from './Components/calendly.jsx';
 
 
 
-function scrollY(e) {
-  e.preventDefault();
-  window.scroll(0, 0);
-}
-
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -102,33 +97,6 @@ const Div = styled.div`
 `;
 
 
-const shine = keyframes`
-  0% {
-    font-size: 1rem;
-  }
-  15% {
-    font-size: 1rem;
-  }
-  30% {
-    font-size: 1.3rem;
-  }
-  45% {
-    font-size: 1.3rem;
-  }
-  60% {
-    font-size: 1 rem;
-  }
-  100% {
-    font-size: 1rem;
-  }`
-const Corazon = styled.p`
-animation: ${shine} 1s infinite;
-cursor: pointer;
-text-align: center;
-justify-content: center;
-align-self: center
-
-` 
 
 const WhatsappButton = styled.a`
   position: fixed;
