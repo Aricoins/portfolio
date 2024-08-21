@@ -235,7 +235,7 @@ function App() {
         </Content>
   <div style={{position: "fixed", 
   top: "10%",
-padding: "20px"
+padding: "20px", zIndex: 2
 }}>
         <WhatsappButton href="https://wa.me/+5492945907975" 
         target="_blank" rel="noopener noreferrer">

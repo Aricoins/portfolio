@@ -37,6 +37,7 @@ const Foot = ({ currentColor, theme }) => {
     margin: auto;
     border-top: ${({ currentColor }) => `2px solid ${currentColor.quinto}`};
     position: relative;
+    z-index: 0;
   `;
 
   const SocialLinks = styled.div`
