@@ -126,7 +126,14 @@ function App() {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
+  const isDesktop = () => {
+    return !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  };
 
+    const href = isDesktop()
+      ? 'https://web.whatsapp.com/send?phone=5492945907975'
+      : 'https://wa.me/+5492945907975';
+  
   const currentcolor = theme === 'light' ? colores : coloresBlack;
 
   useEffect(() => {
@@ -237,7 +244,7 @@ function App() {
   top: "10%",
 padding: "20px", zIndex: 2
 }}>
-        <WhatsappButton href="https://wa.me/+5492945907975" 
+        <WhatsappButton href={href} 
         target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
         </WhatsappButton>
