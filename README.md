@@ -1,5 +1,3 @@
-Hello
-
 I am Ariel Rogel, developer and data manager from Bariloche, Argentina.
 <br>
 I enjoy giving quick answers to problems that seem difficult to solve. I am dedicated to web development of projects that allow me to apply the latest technologies that I master. <br> <br>
