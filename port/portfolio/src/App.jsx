@@ -7,7 +7,7 @@ import anime from 'animejs/lib/anime.es.js';
 import { FaSun, FaMoon, FaWhatsapp } from 'react-icons/fa'; 
 import Nav from './Components/Nav';
 import Proyectos from './Components/Proyectos';
-import About from './Components/About.jsx';
+import About from './Components/about.jsx';
 import Tecnologias from './Components/Teconologias';
 import Foot from './Components/Foot';
 import Contacto from './Components/Contacto';
