@@ -186,9 +186,7 @@ const Proyectos = ({ currentColor }) => {
       <a href="https://nuevamascota.vercel.app/" target="_blank" rel="noreferrer">
         <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
           <h4>Dogs App</h4>
-          <b>
-            Aplicación web interactiva de adopción de mascotas. Permite a los usuarios explorar una amplia variedad de razas de perros, buscar por nombre, filtrar por características, ordenar alfabéticamente o por       peso, y crear nuevas razas de perros en la base de datos.
-          </b>
+          <p>Aplicación web interactiva de adopción de mascotas. Permite a los usuarios explorar, filtrar y ordenar una amplia variedad de razas de perros y crear un nuevo can en la base de datos.</p>
           <img src={dogs} alt="imagen" />
           <ul>
             <li>Diseño UX/UI planificado.</li>
@@ -203,7 +201,7 @@ const Proyectos = ({ currentColor }) => {
       <a href="https://github.com/Aricoins/APIRest" target="_blank" rel="noreferrer">
         <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
           <h4>WeCode API</h4>
-          <b>API REST para la red social WeCode orientada al mundo IT</b>
+          <p>API REST para la red social WeCode orientada al mundo IT</p>
           <img src='./apirest.jpg' alt="imagen" />
           <ul>
             <li>Endpoints seguros con JWT y token de acceso.</li>

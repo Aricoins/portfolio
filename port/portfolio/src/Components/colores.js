@@ -10,7 +10,7 @@ const coloresBlack = {
     primero: "#1A1625", // Negro (fondo)
     segundo: "#4B4B4B", // Gris oscuro (más oscuro para mejor contraste)
     tercero: "#8C8C8C", // Gris (más claro para más contraste)
-    cuarto: "#ff00b7",// Violeta (color acento)
+    cuarto: "#995a98", // Violeta (color acento)
     quinto: "#D7B3FF", // Violeta claro (mejor contrastado con el fondo oscuro)
 };
 
