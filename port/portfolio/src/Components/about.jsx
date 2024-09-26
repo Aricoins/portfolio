@@ -21,10 +21,10 @@ function About({ currentColor }) {
   `;
 
   const Text = styled.p`
-    font-size: 1.3rem;
-    color: ${currentColor.primero};
+    font-size: 1.5rem;
+    color: ${currentColor.quinto};
     line-height: 1.6;
-    margin-top: 1rem;
+    margin-top: 0.5;
     font-family: Verdana;
 
     @media (max-width: 600px) {

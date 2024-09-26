@@ -1,19 +1,17 @@
-
 const colores = {
-    primero:  "white",// celeste 
-    segundo: "#DAF5FF",// celesteclaro
-    tercero: "B9E9FC",// blanco
-    cuarto: "black",// negro 
-   quinto: "#FEFF86", // amarillo  //
-  
-}
+    primero: "#FFFFFF", // Blanco (mejor contraste sobre fondo oscuro)
+    segundo: "#A8E0E4", // Celeste claro (más suave y moderno)
+    tercero: "#B9E9FC", // Blanco (puedes mantenerlo)
+    cuarto: "#000000", // Negro (mantener para alto contraste)
+    quinto: "#ff00b7", // Amarillo brillante (más brillante para destacar)
+};
 
 const coloresBlack = {
-    primero: "#1a1625",// negro fondo  
-    segundo: "#575757", // gris oscuro
-    tercero: "#908d96", // gris
-    cuarto :  "#7a5af5",
-    quinto: "#ba9ffb", // violeta claro
-}
+    primero: "#1A1625", // Negro (fondo)
+    segundo: "#4B4B4B", // Gris oscuro (más oscuro para mejor contraste)
+    tercero: "#8C8C8C", // Gris (más claro para más contraste)
+    cuarto: "#ff00b7",// Violeta (color acento)
+    quinto: "#D7B3FF", // Violeta claro (mejor contrastado con el fondo oscuro)
+};
 
 export { colores, coloresBlack };

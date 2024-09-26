@@ -23,8 +23,8 @@ const Tecnologi = styled.div`
   height: 100%;
   opacity: 0.9;
   text-align: center;
-  font-size: 1em;
-  color: ${({ currentColor }) => currentColor.primero};
+  font-size: 2em;
+  color: ${({ currentColor }) => currentColor.quinto};
   text-decoration: solid 1px ${({ currentColor }) => currentColor.cuarto};
   padding: 1%;   
   z-index: 5;
@@ -46,11 +46,11 @@ const Galeria = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   width: 78%;
-padding: 10%;
+padding: 1%;
   background-color: ${({ currentColor }) => currentColor.primero};
   z-index: 1;
   margin: auto;
-  font-size: xx-large  ;
+  font-size: x-large  ;
   color: ${({currentColor}) => currentColor.cuarto };
   
 
@@ -161,8 +161,8 @@ const Tecnologias = ({ currentColor }) => {
         <>
             <Tecnologi currentColor={currentColor} data-aos="fade-up">
               <div style={{fontFamily: "audiowide", padding: "5%", fontSize: "large", width: "90%", margin: "auto"}}>
-Nos especializamos en la creación de soluciones digitales innovadoras utilizando las últimas tecnologías del mercado. Nuestra experiencia y conocimiento abarcan una amplia gama de herramientas y frameworks, lo que nos permite ofrecer productos de alta calidad y rendimiento. 
-En Latitud42.tech, utilizamos tecnologías de vanguardia como React, Next.js, y Tailwind CSS para el frontend; Node.js y Express para el backend; y PostgreSQL y MySQL para la gestión de bases de datos. Nos apoyamos en herramientas como Git y GitHub para el control de versiones y seguimos metodologías ágiles como Scrum para asegurar proyectos eficientes y colaborativos. Esta combinación nos permite desarrollar soluciones digitales innovadoras y de alta calidad que superan las expectativas de nuestros clientes.</div>
+Ofrecermos soluciones digitales innovadoras utilizando las últimas tecnologías del mercado. Nuestra experiencia y conocimiento abarcan una amplia gama de herramientas y frameworks, lo que nos permite ofrecer productos de alta calidad y rendimiento. 
+Esta combinación nos permite desarrollar soluciones digitales innovadoras y de alta calidad que superan las expectativas de nuestros clientes.</div>
                 <Galeria currentColor={currentColor} className="tech">
                     <Icono currentColor={currentColor}><SiCss3 className="tech" /></Icono>
                     <Icono currentColor={currentColor}><SiHtml5 className="tech" /></Icono>

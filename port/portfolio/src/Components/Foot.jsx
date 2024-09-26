@@ -33,7 +33,7 @@ const Foot = ({ currentColor, theme }) => {
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    width: 90%;
+    width: 100%;
     margin: auto;
     border-top: ${({ currentColor }) => `2px solid ${currentColor.quinto}`};
     position: relative;
