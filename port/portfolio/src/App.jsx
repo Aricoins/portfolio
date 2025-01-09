@@ -202,7 +202,7 @@ function App() {
          
             </Div>
 <iframe
-  src="https://drive.google.com/file/d/1NZj7aDDFIQLiwHsLHsxpfQJq1U1EzxcH/preview"
+   src="https://drive.google.com/file/d/1NZj7aDDFIQLiwHsLHsxpfQJq1U1EzxcH/preview?autoplay=1&loop=1&controls=0"
   width="100%"
   height="500"
   allow="autoplay"
