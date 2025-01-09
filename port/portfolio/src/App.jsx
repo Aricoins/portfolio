@@ -201,13 +201,15 @@ function App() {
               <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
          
             </Div>
-<iframe
-   src="https://drive.google.com/file/d/1NZj7aDDFIQLiwHsLHsxpfQJq1U1EzxcH/preview?autoplay=1&loop=1&controls=0"
-  width="100%"
-  height="500"
-  allow="autoplay"
-  style={{ border: 'none' }}
+<video
+  src="https://drive.google.com/uc?export=download&id=1NZj7aDDFIQLiwHsLHsxpfQJq1U1EzxcH"
+  autoPlay
+  loop
+  muted
+  playsInline
+  style={{ width: '100%', maxWidth: '640px', height: 'auto' }}
 />
+
 
           <StyledDiv>
             <h2 style={{ fontFamily: "audiowide",
