@@ -202,7 +202,7 @@ function App() {
          
             </Div>
 <video
-  src="https://drive.google.com/uc?export=download&id=1NZj7aDDFIQLiwHsLHsxpfQJq1U1EzxcH"
+  src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1742692289/gmvxffwy94p0mljpvvmp.mp4"
   autoPlay
   loop
   muted
