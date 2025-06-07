@@ -118,7 +118,7 @@ const Proyectos = ({ currentColor }) => {
       Plataforma integral para abogados: gestión de casos, plazos y documentos legales. Eficiencia en la administración de casos, organización de documentos, gestión de clientes y programación de eventos.
     </p>
     <video src="/lawvideo.mp4" autoPlay loop muted />
-    <a href="https://s17-09-n-node-react-2.onrender.com/" rel="noreferrer" target="_blank">
+    <a href="https://law-case-client-dev.onrender.com/" rel="noreferrer" target="_blank">
       <button style={{ backgroundColor: currentColor.segundo }}>Ir a la web</button>
     </a>
     <ul>
