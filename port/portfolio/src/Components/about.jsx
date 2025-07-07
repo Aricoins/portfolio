@@ -21,12 +21,10 @@ function About({ currentColor }) {
 
   const Text = styled.p`
     font-size: 1.5rem;
-    color: ${currentColor.quinto === "#D7B3FF" ? "#FFFFFF" : currentColor.quinto};
+    color: ${currentColor.quinto};
     line-height: 1.6;
     margin-top: 0.5;
     font-family: Verdana;
-    font-weight: 600;
-    text-shadow: ${currentColor.quinto === "#D7B3FF" ? "2px 2px 4px rgba(0,0,0,0.7)" : "none"};
 
     @media (max-width: 600px) {
       font-size: 0.9rem;
