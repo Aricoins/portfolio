@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import styled, {keyframes} from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import anime from 'animejs/lib/anime.es.js';
-import { FaSun, FaMoon, FaWhatsapp } from 'react-icons/fa'; 
+import { FaSun, FaMoon, FaWhatsapp, FaCode, FaSearch, FaShieldAlt } from 'react-icons/fa';
 import Nav from './Components/Nav';
 import Proyectos from './Components/Proyectos';
 import About from './Components/about.jsx';
 import Tecnologias from './Components/Teconologias';
 import Foot from './Components/Foot';
 import Contacto from './Components/Contacto';
-import Yo from './Components/Yo';
-import yo from '../../portfolio/src/assets/yo.jpg';
-import dev from '../src/assets/source.gif';
-import BannerAnimado from './Components/banner';
 import lat from '../src/assets/lat.png';
-import latw from '../src/assets/latw.png'
-
+import latw from '../src/assets/latw.png';
 import Banner from './Components/banner';
 import { colores, coloresBlack } from './Components/colores';
 import CalendlyBadge from './Components/calendly.jsx';
+import SeoPage from './pages/SEO.jsx';
+import CiberseguridadPage from './pages/Ciberseguridad.jsx';
 
 
 
@@ -72,20 +70,6 @@ const StyledDiv = styled.div`
   }
 `;
 
-const StyledDiv2 = styled.div`
-  width: 100%;
-  z-index: 0;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  border-radius: 25%;
-  justify-content: center;
-
-  @media (max-width: 900px) {
-    flex-direction: column;
-  }
-`;
-
 const Div = styled.div`
   display: flex;
   flex-direction: row;
@@ -95,7 +79,6 @@ const Div = styled.div`
     flex-direction: column;
   }
 `;
-
 
 
 const WhatsappButton = styled.a`
@@ -119,6 +102,268 @@ const WhatsappButton = styled.a`
     background-color: #128C7E;
   }
 `;
+
+// Styled components para la sección de servicios
+const ServicesSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 4% 2%;
+  margin: 2rem 0;
+  
+  @media (max-width: 900px) {
+    padding: 2rem 1rem;
+  }
+`;
+
+const ServicesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+  
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+`;
+
+const ServiceButton = styled.button`
+  background: ${props => props.currentColor.tercero};
+  border: 2px solid ${props => props.currentColor.segundo};
+  border-radius: 15px;
+  padding: 2.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: audiowide;
+  color: ${props => props.currentColor.segundo};
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+  &:hover {
+    transform: translateY(-10px);
+    background: ${props => props.currentColor.segundo};
+    color: ${props => props.currentColor.primero};
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+  &:active {
+    transform: translateY(-5px);
+  }
+  
+  @media (max-width: 900px) {
+    padding: 2rem;
+    font-size: 1rem;
+    min-height: 150px;
+  }
+`;
+
+const ServiceIcon = styled.div`
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  
+  @media (max-width: 900px) {
+    font-size: 2rem;
+  }
+`;
+
+const ServiceTitle = styled.h3`
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  
+  @media (max-width: 900px) {
+    font-size: 1rem;
+  }
+`;
+
+const ServiceDescription = styled.p`
+  margin: 0;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.9;
+  line-height: 1.5;
+  
+  @media (max-width: 900px) {
+    font-size: 0.85rem;
+  }
+`;
+
+function HomePage({ currentColor, theme }) {
+  const navigate = useNavigate();
+
+  const handleServiceClick = (service) => {
+    if (service === 'seo') {
+      navigate('/seo');
+    } else if (service === 'ciberseguridad') {
+      navigate('/ciberseguridad');
+    } else if (service === 'desarrollo') {
+      // Por ahora solo scroll a proyectos
+      document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <>
+      {/* Sección About */}
+      <div id="about" style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
+        <Img2 data-aos="fade-right" data-aos-duration="30" data-aos-offset="50"  
+          src={theme === "light" ? latw : lat} 
+          style={{ width: '30%', margin: "auto"}} alt='devimg' />
+        <About currentColor={currentColor} theme={theme} />
+      </div>
+
+      {/* Sección de Servicios */}
+      <ServicesSection id="servicios" style={{ backgroundColor: currentColor.primero }}>
+        <h2 style={{ 
+          fontFamily: "audiowide", 
+          fontSize: '20px', 
+          backgroundColor: 'white', 
+          width: '100%', 
+          textAlign: 'center',
+          margin: '0% 0% 2% 0%',
+          padding: '1rem',
+          borderRadius: '10px',
+          color: '#000000',
+          fontWeight: '700',
+          textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+        }}>
+          Nuestros Servicios
+        </h2>
+        
+        <ServicesGrid>
+          <ServiceButton 
+            currentColor={currentColor}
+            onClick={() => handleServiceClick('desarrollo')}
+            data-aos="fade-up" 
+            data-aos-duration="300"
+          >
+            <ServiceIcon>
+              <FaCode />
+            </ServiceIcon>
+            <ServiceTitle>Desarrollo Apps & Webs</ServiceTitle>
+            <ServiceDescription>
+              Desarrollo completo de aplicaciones web y móviles con tecnologías modernas
+            </ServiceDescription>
+          </ServiceButton>
+
+          <ServiceButton 
+            currentColor={currentColor}
+            onClick={() => handleServiceClick('seo')}
+            data-aos="fade-up" 
+            data-aos-duration="400"
+          >
+            <ServiceIcon>
+              <FaSearch />
+            </ServiceIcon>
+            <ServiceTitle>Optimización SEO</ServiceTitle>
+            <ServiceDescription>
+              Mejora tu visibilidad online y aumenta el tráfico orgánico de tu sitio web
+            </ServiceDescription>
+          </ServiceButton>
+
+          <ServiceButton 
+            currentColor={currentColor}
+            onClick={() => handleServiceClick('ciberseguridad')}
+            data-aos="fade-up" 
+            data-aos-duration="500"
+          >
+            <ServiceIcon>
+              <FaShieldAlt />
+            </ServiceIcon>
+            <ServiceTitle>Ciberseguridad</ServiceTitle>
+            <ServiceDescription>
+              Protege tu negocio con auditorías y soluciones de seguridad avanzadas
+            </ServiceDescription>
+          </ServiceButton>
+        </ServicesGrid>
+      </ServicesSection>
+
+      <Content style={{ backgroundColor: currentColor.primero }}>
+        <Div>
+          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+        </Div>
+        
+        <StyledDiv id="proyectos">
+          <h2 style={{ 
+            fontSize: '20px', 
+            fontFamily: "audiowide", 
+            backgroundColor: 'white', 
+            width: '100%', 
+            height: '100%', 
+            margin: '0%', 
+            textAlign: 'center' 
+          }}>
+            Proyectos
+          </h2>
+          <Proyectos currentColor={currentColor} />
+        </StyledDiv>
+        
+        <Div>
+          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+        </Div>
+        
+        <video
+          src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1742692289/gmvxffwy94p0mljpvvmp.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ width: '100%', maxWidth: '640px', height: 'auto' }}
+        />
+
+        <StyledDiv id="tecnologias">
+          <h2 style={{ 
+            fontFamily: "audiowide",
+            fontSize: '20px',
+            backgroundColor: 'white',
+            width: '100%', 
+            height: '100%',
+            margin: '0%',
+            textAlign: 'center' 
+          }}>
+            Tecnologías
+          </h2>
+          <Tecnologias currentColor={currentColor} />
+        </StyledDiv>
+        
+        <Div>
+          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+        </Div>
+
+        <StyledDiv id="contacto">
+          <h2 style={{ 
+            fontFamily: "audiowide", 
+            fontSize: '20px', 
+            backgroundColor: 'white', 
+            width: '100%', 
+            margin: '0%', 
+            textAlign: 'center' 
+          }}>
+            Contacto
+          </h2>
+          <div style={{marginTop: "10%"}}>
+            <Banner/>
+          </div>
+          <Contacto currentColor={currentColor} />
+        </StyledDiv>
+        
+        <CalendlyBadge />
+      </Content>
+    </>
+  );
+}
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -163,108 +408,37 @@ function App() {
 
   return (
     <>
-
-<Router> 
-
-
-      <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", bottom: "18%", right: "2%", border: "black 1px solid"}}>
-        {currentcolor === colores ?  <FaMoon /> : <FaSun />}  
-      </button>
-     
-      <div>
-      <Nav currentcolor={currentcolor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
-      </div>
-
-      <div style={{display: "flex", flexDirection: "row", backgroundColor: currentcolor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
- 
-        <Img2 data-aos="fade-right"  data-aos-duration="30"
-          data-aos-offset="50"  
-        src={theme === "light" ? latw : lat} 
-
-        style={{ width: '30%', margin: "auto"}} alt='devimg' />
-             <About currentColor={currentcolor} theme={theme} />
-       </div>
-     
-        <Content style={{ backgroundColor: currentcolor.primero }}>
+      <Router> 
+        <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", bottom: "18%", right: "2%", border: "black 1px solid"}}>
+          {currentcolor === colores ? <FaMoon /> : <FaSun />}  
+        </button>
        
-            <Div>
-              <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
-         
-            </Div>
-              <StyledDiv>
-            <h2 style={{ fontSize: '20px', fontFamily: " audiowide", zIndex: -1, backgroundColor: 'white', width: '100%', height: '100%', zIndex: 2, margin: '0%', textAlign: 'center' }}>
-              Proyectos
-            </h2>
-            <Proyectos currentColor={currentcolor} />
-          </StyledDiv>
-          <Div>
-              <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
-         
-            </Div>
-<video
-  src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1742692289/gmvxffwy94p0mljpvvmp.mp4"
-  autoPlay
-  loop
-  muted
-  playsInline
-  style={{ width: '100%', maxWidth: '640px', height: 'auto' }}
-/>
-
-
-          <StyledDiv>
-            <h2 style={{ fontFamily: "audiowide",
-             fontSize: '20px',
-              zIndex: -1,
-               backgroundColor: 'white',
-                width: '100%', 
-                height: '100%',
-                 zIndex: 2,
-                  margin: '0%',
-                 textAlign: 'center' }}>
-              Tecnologías
-            </h2>
-            <Tecnologias currentColor={currentcolor} />
-          </StyledDiv>
-          <Div>
-              <Img2 data-aos="fade-up"  src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
-         
-            </Div>
-      
-
-          <StyledDiv>
-   
-         
-            <h2 style={{ fontFamily: "audiowide", fontSize: '20px', zIndex: -1, backgroundColor: 'white', width: '100%', zIndex: 2, margin: '0%', 
-            textAlign: 'center' }}>
-              Contacto
-            </h2>
-            <div style={{marginTop: "10%"}}>
-            <Banner/>
-                   </div>
-                   <Contacto currentColor={currentcolor} />
-      
-          </StyledDiv>
-     <div style= {{ position: "stickly", 
-     backgroundColor: "black"
-   }}>
-     <CalendlyBadge />
-    </div>
-        </Content>
-  <div style={{position: "fixed", 
-  top: "10%",
-padding: "20px", zIndex: 2
-}}>
-        <WhatsappButton href={href} 
-        target="_blank" rel="noopener noreferrer">
-          <FaWhatsapp />
-        </WhatsappButton>
+        <div>
+          <Nav currentcolor={currentcolor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
         </div>
-        <Foot currentColor={currentcolor} theme={theme} >
-       
-</Foot>
-</Router>      
+
+        <Routes>
+          <Route path="/" element={<HomePage currentColor={currentcolor} theme={theme} />} />
+          <Route path="/seo" element={<SeoPage currentColor={currentcolor} theme={theme} />} />
+          <Route path="/ciberseguridad" element={<CiberseguridadPage currentColor={currentcolor} theme={theme} />} />
+        </Routes>
+
+        <div style={{position: "fixed", top: "10%", padding: "20px", zIndex: 2}}>
+          <WhatsappButton href={href} target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp />
+          </WhatsappButton>
+        </div>
+        
+        <Foot currentColor={currentcolor} theme={theme} />
+      </Router>      
     </>
   );
 }
+
+    
+HomePage.propTypes = {
+  currentColor: PropTypes.object.isRequired,
+  theme: PropTypes.string.isRequired,
+};
 
 export default App;

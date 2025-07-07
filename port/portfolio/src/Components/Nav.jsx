@@ -1,6 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaHome } from 'react-icons/fa';
+import { FaHome, FaProjectDiagram, FaEnvelope, FaSearch, FaShieldAlt } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 const Navigator = styled.div`
   position: fixed;
   z-index: 10000000;
@@ -87,45 +88,145 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-function scroll(e) {
-  e.preventDefault();
-  window.scroll(0, 400);
-}
-function scrollF(e) {
-  e.preventDefault();
-  const scrollPosition = window.innerWidth <= 700 ? 7000 : 4000; // Ajusta según sea necesario
-  window.scroll(0, scrollPosition);
-  console.log(e, "scrol");
-}
-function scrollO(e) {
-  e.preventDefault();
-  window.scroll(0, 0);
-}
+// Funciones de navegación mejoradas con React Router
+const scrollToSection = (sectionId, offset = -100) => {
+  // Usar requestAnimationFrame para asegurar que el DOM esté listo
+  requestAnimationFrame(() => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition + offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+};
+
+// Hook personalizado para manejar navegación y scroll
+const useNavigationHelpers = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const navigateToHomeSection = (sectionId, offset = -100) => {
+    if (location.pathname === '/') {
+      // Si ya estamos en home, hacer scroll directo
+      scrollToSection(sectionId, offset);
+    } else {
+      // Si estamos en otra ruta, navegar a home primero
+      navigate('/');
+      // Usar un pequeño delay para asegurar que la página cargue
+      setTimeout(() => {
+        scrollToSection(sectionId, offset);
+      }, 100);
+    }
+  };
+
+  const handleHomeClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
+
+  const handleProjectsClick = () => {
+    navigateToHomeSection('proyectos');
+  };
+
+  const handleContactClick = () => {
+    navigateToHomeSection('contacto');
+  };
+
+  return {
+    handleHomeClick,
+    handleProjectsClick,
+    handleContactClick
+  };
+};
 
 export default function Nav({ currentcolor }) {
+  const location = useLocation();
+  const { handleHomeClick, handleProjectsClick, handleContactClick } = useNavigationHelpers();
+
   return (
     <>
      <Navigator $currentcolor={currentcolor}>
-    <StyledLink to="/home" $currentcolor={currentcolor}>
-        <Botones onClick={scrollO} $currentcolor={currentcolor}>
-            <FaHome style= {{fontSize: "x-large"}} />
-        </Botones>
-    </StyledLink>
-    <StyledLink to="/form" $currentcolor={currentcolor}>
-        <Botones onClick={scroll} $currentcolor={currentcolor}>
-            Proyectos
-        </Botones>
-    </StyledLink>
-    <StyledLink to="/about" $currentcolor={currentcolor}>
-        <Botones onClick={scrollF} $currentcolor={currentcolor}>
-            Contacto
-        </Botones>
-    </StyledLink>
-    {/* <a href={pdf} download="cv.pdf">
-        <button style={{ width: '300px', backgroundColor: `${(props) => props.$currentcolor.marron}` }}>Mi CV</button>
-    </a> */}
-</Navigator>
+        {/* Home */}
+        <StyledLink 
+          to="/" 
+          $currentcolor={currentcolor}
+          className={location.pathname === '/' ? 'active' : ''}
+          onClick={(e) => {
+            e.preventDefault();
+            handleHomeClick();
+          }}
+        >
+          <Botones $currentcolor={currentcolor}>
+            <FaHome style={{fontSize: "x-large"}} />
+          </Botones>
+        </StyledLink>
 
+        {/* Proyectos */}
+        <StyledLink 
+          to="/" 
+          $currentcolor={currentcolor}
+          onClick={(e) => {
+            e.preventDefault();
+            handleProjectsClick();
+          }}
+        >
+          <Botones $currentcolor={currentcolor}>
+            <FaProjectDiagram style={{fontSize: "large"}} />
+            <span style={{marginLeft: '5px', fontSize: '12px'}}>Proyectos</span>
+          </Botones>
+        </StyledLink>
+
+        {/* SEO */}
+        <StyledLink 
+          to="/seo" 
+          $currentcolor={currentcolor}
+          className={location.pathname === '/seo' ? 'active' : ''}
+        >
+          <Botones $currentcolor={currentcolor}>
+            <FaSearch style={{fontSize: "large"}} />
+            <span style={{marginLeft: '5px', fontSize: '12px'}}>SEO</span>
+          </Botones>
+        </StyledLink>
+
+        {/* Ciberseguridad */}
+        <StyledLink 
+          to="/ciberseguridad" 
+          $currentcolor={currentcolor}
+          className={location.pathname === '/ciberseguridad' ? 'active' : ''}
+        >
+          <Botones $currentcolor={currentcolor}>
+            <FaShieldAlt style={{fontSize: "large"}} />
+            <span style={{marginLeft: '5px', fontSize: '12px'}}>Cyber</span>
+          </Botones>
+        </StyledLink>
+
+        {/* Contacto */}
+        <StyledLink 
+          to="/" 
+          $currentcolor={currentcolor}
+          onClick={(e) => {
+            e.preventDefault();
+            handleContactClick();
+          }}
+        >
+          <Botones $currentcolor={currentcolor}>
+            <FaEnvelope style={{fontSize: "large"}} />
+            <span style={{marginLeft: '5px', fontSize: '12px'}}>Contacto</span>
+          </Botones>
+        </StyledLink>
+      </Navigator>
     </>
   );
 }
+
+// PropTypes validation
+Nav.propTypes = {
+  currentcolor: PropTypes.object.isRequired
+};
