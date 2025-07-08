@@ -6,6 +6,7 @@ import nido from "../assets/nido.png";
 import biblio from "../assets/fondo.webp";
 import "../App.css";
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 
 const Contenedor = styled.div`
   display: grid;
@@ -214,6 +215,14 @@ const Proyectos = ({ currentColor }) => {
       </a>
     </Contenedor>
   );
+};
+Proyectos.propTypes = {
+  currentColor: PropTypes.shape({
+    primero: PropTypes.string.isRequired,
+    segundo: PropTypes.string.isRequired,
+    cuarto: PropTypes.string.isRequired,
+    quinto: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Proyectos;

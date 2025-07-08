@@ -1,6 +1,7 @@
 "use client"
 import styled, { keyframes } from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import lat from '../../src/assets/lat.png';
 import latw from '../../src/assets/latw.png';
 
@@ -50,7 +51,7 @@ const Foot = ({ currentColor, theme }) => {
     <Footer currentColor={currentColor}>
       <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
         <p style={{ margin: 0 }}>
-          Todos los derechos reservados | 2024 <br />
+          Todos los derechos reservados | 2025<br />
           <a href="https://github.com/Aricoins/portfolio" style={{ fontSize: 'small' }}>
             Repositorio Open Source
           </a>
@@ -72,13 +73,21 @@ const Foot = ({ currentColor, theme }) => {
             <div style={{ textAlign: 'center', fontSize: "xx-small", margin: "0.5rem" }}>
         <p style={{ margin: 0 }}>Desarrollo con latidos</p>
       </div>
-      <div style={{ position: 'absolute', bottom: '0.1rem', left: '50%', transform: 'translateX(-50%)' }}>
+      <div style={{ position: 'absolute', bottom: '0.1rem', left: '50%', transform: 'translateX(-50%)', scale: 2 }}>
         <Corazon onClick={scrollY}>❤️</Corazon>
       </div>
 
      
     </Footer>
   );
+};
+Foot.propTypes = {
+  currentColor: PropTypes.shape({
+    primero: PropTypes.string.isRequired,
+    cuarto: PropTypes.string.isRequired,
+    quinto: PropTypes.string.isRequired,
+  }).isRequired,
+  theme: PropTypes.string.isRequired,
 };
 
 export default Foot;

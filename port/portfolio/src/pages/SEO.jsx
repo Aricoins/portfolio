@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FaChartLine, FaSearch, FaMobileAlt, FaLightbulb, FaThumbsUp } from 'react-icons/fa';
+import { FaChartLine, FaSearch, FaMobileAlt, FaLightbulb, FaThumbsUp, FaTrophy } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Banner from '../Components/banner';
+import CalendlyBadge from '../Components/calendly.jsx';
 import lat from '../assets/lat.png';
 import latw from '../assets/latw.png';
 
@@ -13,20 +14,26 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
   font-family: audiowide-regular;
+  
   @media (max-width: 800px) {
     flex-direction: column;
   }
   
   @media (max-width: 600px) {
-    width: auto;
-    margin: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 `;
 
 const SeoContainer = styled.div`
   width: 100%;
+  max-width: 100vw;
   z-index: 0;
   margin: auto;
   display: flex;
@@ -34,24 +41,29 @@ const SeoContainer = styled.div`
   justify-content: center;
   font-family: audiowide-regular;
   padding: 4%;
+  box-sizing: border-box;
   
   @media (max-width: 900px) {
     flex-direction: column;
-    padding: 2rem;
+    padding: 2rem 1rem;
   }
 `;
 
 const StyledDiv = styled.div`
   display: flex;
   width: 100%;
+  max-width: 100vw;
   z-index: 0;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding: 0 1rem;
 
   @media (max-width: 900px) {
     flex-direction: column;
+    padding: 0 0.5rem;
   }
 `;
 
@@ -82,23 +94,64 @@ const Img2 = styled.img`
 
 const ServiceCard = styled.div`
   background: ${props => props.currentColor.tercero};
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 3rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  border: 2px solid ${props => props.currentColor.segundo};
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    border-color: ${props => props.currentColor.quinto};
   }
   
   @media (max-width: 900px) {
     padding: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     max-width: 100%;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+`;
+
+const ServiceContent = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: 900px) {
+    order: 2;
+  }
+`;
+
+const ServiceImage = styled.img`
+  width: 280px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  order: 2;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 900px) {
+    width: 100%;
+    max-width: 350px;
+    height: 220px;
+    order: 1;
   }
 `;
 
@@ -173,14 +226,23 @@ const ResultsTitle = styled.h2`
 
 const ResultsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 900px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
+  justify-items: center;
   
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+  
+  @media (min-width: 901px) and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (min-width: 1201px) {
+    grid-template-columns: repeat(5, 1fr);
   }
 `;
 
@@ -266,16 +328,19 @@ const SeoPage = ({ currentColor, theme }) => {
           </Div>
 
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
-            <ServiceTitle currentColor={currentColor}>
-              <FaSearch /> Auditoría SEO Completa
-            </ServiceTitle>
-            <ServiceList>
-              <ServiceItem currentColor={currentColor}>Análisis técnico (rendimiento, indexabilidad, estructura)</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Revisión de contenido y estrategia de palabras clave</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Optimización de metaetiquetas y schema markup</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Diagnóstico de Core Web Vitals (LCP, FID, CLS)</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Reporte detallado con acciones prioritarias</ServiceItem>
-            </ServiceList>
+            <ServiceImage src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="SEO Analytics" />
+            <ServiceContent>
+              <ServiceTitle currentColor={currentColor}>
+                <FaSearch /> Auditoría SEO Completa
+              </ServiceTitle>
+              <ServiceList>
+                <ServiceItem currentColor={currentColor}>Análisis técnico (rendimiento, indexabilidad, estructura)</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Revisión de contenido y estrategia de palabras clave</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Optimización de metaetiquetas y schema markup</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Diagnóstico de Core Web Vitals (LCP, FID, CLS)</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Reporte detallado con acciones prioritarias</ServiceItem>
+              </ServiceList>
+            </ServiceContent>
           </ServiceCard>
 
           <Div>
@@ -283,16 +348,19 @@ const SeoPage = ({ currentColor, theme }) => {
           </Div>
 
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
-            <ServiceTitle currentColor={currentColor}>
-              <FaMobileAlt /> Optimización Móvil
-            </ServiceTitle>
-            <ServiceList>
-              <ServiceItem currentColor={currentColor}>Mejora de Largest Contentful Paint (LCP) para móviles</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Diseño responsive y experiencia de usuario</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Reducción de Cumulative Layout Shift (CLS)</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Optimización de First Input Delay (FID)</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Pruebas en dispositivos reales</ServiceItem>
-            </ServiceList>
+            <ServiceImage src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Mobile Optimization" />
+            <ServiceContent>
+              <ServiceTitle currentColor={currentColor}>
+                <FaMobileAlt /> Optimización Móvil
+              </ServiceTitle>
+              <ServiceList>
+                <ServiceItem currentColor={currentColor}>Mejora de Largest Contentful Paint (LCP) para móviles</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Diseño responsive y experiencia de usuario</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Reducción de Cumulative Layout Shift (CLS)</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Optimización de First Input Delay (FID)</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Pruebas en dispositivos reales</ServiceItem>
+              </ServiceList>
+            </ServiceContent>
           </ServiceCard>
 
           <Div>
@@ -300,16 +368,19 @@ const SeoPage = ({ currentColor, theme }) => {
           </Div>
 
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
-            <ServiceTitle currentColor={currentColor}>
-              <FaChartLine /> Estrategia de Conversión
-            </ServiceTitle>
-            <ServiceList>
-              <ServiceItem currentColor={currentColor}>Diseño y optimización de CTAs efectivos</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Pruebas A/B para maximizar conversiones</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Análisis de funnel y puntos de fricción</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Segmentación de audiencia</ServiceItem>
-              <ServiceItem currentColor={currentColor}>Integración con herramientas de analítica</ServiceItem>
-            </ServiceList>
+            <ServiceImage src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Conversion Strategy" />
+            <ServiceContent>
+              <ServiceTitle currentColor={currentColor}>
+                <FaChartLine /> Estrategia de Conversión
+              </ServiceTitle>
+              <ServiceList>
+                <ServiceItem currentColor={currentColor}>Diseño y optimización de CTAs efectivos</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Pruebas A/B para maximizar conversiones</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Análisis de funnel y puntos de fricción</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Segmentación de audiencia</ServiceItem>
+                <ServiceItem currentColor={currentColor}>Integración con herramientas de analítica</ServiceItem>
+              </ServiceList>
+            </ServiceContent>
           </ServiceCard>
 
           <ResultsSection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
@@ -337,6 +408,20 @@ const SeoPage = ({ currentColor, theme }) => {
                 <ResultValue currentColor={currentColor}>90+</ResultValue>
                 <p>Puntuación Lighthouse</p>
               </ResultCard>
+
+              <ResultCard currentColor={currentColor}>
+                <FaTrophy size={24} />
+                <h3>Ranking</h3>
+                <ResultValue currentColor={currentColor}>Top 3</ResultValue>
+                <p>Posiciones en Google</p>
+              </ResultCard>
+
+              <ResultCard currentColor={currentColor}>
+                <FaChartLine size={24} />
+                <h3>ROI</h3>
+                <ResultValue currentColor={currentColor}>300%</ResultValue>
+                <p>Retorno de inversión</p>
+              </ResultCard>
             </ResultsGrid>
           </ResultsSection>
 
@@ -344,6 +429,8 @@ const SeoPage = ({ currentColor, theme }) => {
             <Banner />
           </div>
         </StyledDiv>
+        
+        <CalendlyBadge />
       </Content>
     </>
   );

@@ -26,6 +26,17 @@ const CalendlyBadge = () => {
             textColor: '#ffffff',
             branding: undefined,
           });
+          
+          // Asegurar que el botón tenga el z-index correcto
+          setTimeout(() => {
+            const calendlyBadge = document.querySelector('.calendly-badge-widget');
+            if (calendlyBadge) {
+              calendlyBadge.style.zIndex = '9999';
+              calendlyBadge.style.position = 'fixed';
+              calendlyBadge.style.bottom = '20px';
+              calendlyBadge.style.right = '20px';
+            }
+          }, 100);
         }
       };
 

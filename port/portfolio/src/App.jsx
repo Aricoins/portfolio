@@ -27,16 +27,20 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
   font-family: audiowide-regular;
-    @media (max-width: 800px) {
+  
+  @media (max-width: 800px) {
     flex-direction: column;
-
   }
   
   @media (max-width: 600px) {
-    width: auto;
-    margin: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 `;
 
@@ -59,14 +63,18 @@ const Img2 = styled.img`
 const StyledDiv = styled.div`
   display: flex;
   width: 100%;
+  max-width: 100vw;
   z-index: 0;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding: 0 1rem;
 
-    @media (max-width: 900px) {
+  @media (max-width: 900px) {
     flex-direction: column;
+    padding: 0 0.5rem;
   }
 `;
 
@@ -74,6 +82,9 @@ const Div = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -119,15 +130,15 @@ const ServicesSection = styled.div`
 
 const ServicesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
   margin-top: 2rem;
   
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     max-width: 100%;
   }
 `;
@@ -135,68 +146,84 @@ const ServicesGrid = styled.div`
 const ServiceButton = styled.button`
   background: ${props => props.currentColor.tercero};
   border: 2px solid ${props => props.currentColor.segundo};
-  border-radius: 15px;
-  padding: 2.5rem;
+  border-radius: 12px;
+  padding: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: audiowide;
   color: ${props => props.currentColor.segundo};
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 1rem;
-  min-height: 180px;
+  min-height: 80px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     background: ${props => props.currentColor.segundo};
     color: ${props => props.currentColor.primero};
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   }
 
   &:active {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
   }
   
   @media (max-width: 900px) {
-    padding: 2rem;
-    font-size: 1rem;
-    min-height: 150px;
+    flex-direction: column;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    min-height: 120px;
+    gap: 0.5rem;
   }
 `;
 
 const ServiceIcon = styled.div`
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  flex-shrink: 0;
   
   @media (max-width: 900px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+`;
+
+const ServiceContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  
+  @media (max-width: 900px) {
+    align-items: center;
+    text-align: center;
   }
 `;
 
 const ServiceTitle = styled.h3`
   margin: 0;
-  text-align: center;
   font-weight: bold;
+  font-size: 1rem;
   
   @media (max-width: 900px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
   }
 `;
 
 const ServiceDescription = styled.p`
   margin: 0;
-  text-align: center;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 500;
   opacity: 0.9;
-  line-height: 1.5;
+  line-height: 1.4;
   
   @media (max-width: 900px) {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    text-align: center;
   }
 `;
 
@@ -300,10 +327,16 @@ function HomePage({ currentColor, theme }) {
             fontSize: '20px', 
             fontFamily: "audiowide", 
             backgroundColor: 'white', 
+            color: '#000000',
             width: '100%', 
             height: '100%', 
             margin: '0%', 
-            textAlign: 'center' 
+            textAlign: 'center',
+            padding: '1rem',
+            borderRadius: '10px',
+            fontWeight: '700',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
           }}>
             Proyectos
           </h2>
@@ -340,10 +373,12 @@ function HomePage({ currentColor, theme }) {
             <ServiceIcon>
               <FaCode />
             </ServiceIcon>
-            <ServiceTitle>Desarrollo Apps & Webs</ServiceTitle>
-            <ServiceDescription>
-              Desarrollo completo de aplicaciones web y móviles con tecnologías modernas
-            </ServiceDescription>
+            <ServiceContent>
+              <ServiceTitle>Desarrollo Apps & Webs</ServiceTitle>
+              <ServiceDescription>
+                Desarrollo completo de aplicaciones web y móviles con tecnologías modernas
+              </ServiceDescription>
+            </ServiceContent>
           </ServiceButton>
 
           <ServiceButton 
@@ -355,10 +390,12 @@ function HomePage({ currentColor, theme }) {
             <ServiceIcon>
               <FaSearch />
             </ServiceIcon>
-            <ServiceTitle>Optimización SEO</ServiceTitle>
-            <ServiceDescription>
-              Mejora tu visibilidad online y aumenta el tráfico orgánico de tu sitio web
-            </ServiceDescription>
+            <ServiceContent>
+              <ServiceTitle>Optimización SEO</ServiceTitle>
+              <ServiceDescription>
+                Mejora tu visibilidad online y aumenta el tráfico orgánico de tu sitio web
+              </ServiceDescription>
+            </ServiceContent>
           </ServiceButton>
 
           <ServiceButton 
@@ -370,10 +407,12 @@ function HomePage({ currentColor, theme }) {
             <ServiceIcon>
               <FaShieldAlt />
             </ServiceIcon>
-            <ServiceTitle>Ciberseguridad</ServiceTitle>
-            <ServiceDescription>
-              Protege tu negocio con auditorías y soluciones de seguridad avanzadas
-            </ServiceDescription>
+            <ServiceContent>
+              <ServiceTitle>Ciberseguridad</ServiceTitle>
+              <ServiceDescription>
+                Protege tu negocio con auditorías y soluciones de seguridad avanzadas
+              </ServiceDescription>
+            </ServiceContent>
           </ServiceButton>
         </ServicesGrid>
       </ServicesSection>
@@ -384,10 +423,16 @@ function HomePage({ currentColor, theme }) {
             fontFamily: "audiowide",
             fontSize: '20px',
             backgroundColor: 'white',
+            color: '#000000',
             width: '100%', 
             height: '100%',
             margin: '0%',
-            textAlign: 'center' 
+            textAlign: 'center',
+            padding: '1rem',
+            borderRadius: '10px',
+            fontWeight: '700',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
           }}>
             Tecnologías
           </h2>
@@ -403,9 +448,15 @@ function HomePage({ currentColor, theme }) {
             fontFamily: "audiowide", 
             fontSize: '20px', 
             backgroundColor: 'white', 
+            color: '#000000',
             width: '100%', 
             margin: '0%', 
-            textAlign: 'center' 
+            textAlign: 'center',
+            padding: '1rem',
+            borderRadius: '10px',
+            fontWeight: '700',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
           }}>
             Contacto
           </h2>

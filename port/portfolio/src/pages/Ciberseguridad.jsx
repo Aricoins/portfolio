@@ -14,13 +14,14 @@ import {
   FaDesktop,
   FaServer,
   FaCode,
-  FaChartLine,
   FaExclamationTriangle,
-  FaCheckCircle
+  FaCheckCircle,
+  FaChartLine
 } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Banner from '../Components/banner';
+import CalendlyBadge from '../Components/calendly.jsx';
 import lat from '../assets/lat.png';
 import latw from '../assets/latw.png';
 
@@ -29,20 +30,26 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
   font-family: audiowide-regular;
+  
   @media (max-width: 800px) {
     flex-direction: column;
   }
   
   @media (max-width: 600px) {
-    width: auto;
-    margin: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 `;
 
 const CyberContainer = styled.div`
   width: 100%;
+  max-width: 100vw;
   z-index: 0;
   margin: auto;
   display: flex;
@@ -50,24 +57,29 @@ const CyberContainer = styled.div`
   justify-content: center;
   font-family: audiowide-regular;
   padding: 4%;
+  box-sizing: border-box;
   
   @media (max-width: 900px) {
     flex-direction: column;
-    padding: 2rem;
+    padding: 2rem 1rem;
   }
 `;
 
 const StyledDiv = styled.div`
   display: flex;
   width: 100%;
+  max-width: 100vw;
   z-index: 0;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding: 0 1rem;
 
   @media (max-width: 900px) {
     flex-direction: column;
+    padding: 0 0.5rem;
   }
 `;
 
@@ -107,6 +119,9 @@ const ServiceCard = styled.div`
   width: 100%;
   max-width: 800px;
   margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &:hover {
     transform: translateY(-8px);
@@ -121,8 +136,28 @@ const ServiceCard = styled.div`
   }
 `;
 
+const ServiceImage = styled.img`
+  width: 100%;
+  max-width: 450px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 900px) {
+    height: 200px;
+    max-width: 100%;
+  }
+`;
+
 const ServiceTitle = styled.h3`
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
   display: flex;
@@ -130,7 +165,7 @@ const ServiceTitle = styled.h3`
   gap: 1rem;
   font-family: audiowide;
   font-weight: 700;
-  text-shadow: ${props => props.currentColor.segundo === "#4B4B4B" ? "2px 2px 4px rgba(0,0,0,0.7)" : "1px 1px 2px rgba(0,0,0,0.1)"};
+  text-shadow: ${props => props.currentColor.segundo === "#4B4B4B" ? "2px 2px 4px rgba(0,0,0,0.7)" : "none"};
   
   @media (max-width: 900px) {
     font-size: 1.3rem;
@@ -147,7 +182,7 @@ const TechItem = styled.div`
   align-items: center;
   gap: 0.8rem;
   transition: all 0.2s ease;
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
   font-weight: 600;
 
   &:hover {
@@ -158,7 +193,7 @@ const TechItem = styled.div`
 
 const TechIcon = styled.div`
   font-size: 1.2rem;
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
 `;
 
 const ServiceList = styled.div`
@@ -171,7 +206,7 @@ const ServiceFeature = styled.div`
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
   font-size: 1rem;
   font-weight: 600;
   padding: 0.8rem 0;
@@ -185,9 +220,30 @@ const ServiceFeature = styled.div`
     font-size: 1.2rem;
   }
   
+  .pricing-card & {
+    font-size: 0.8rem;
+    padding: 0.4rem 0;
+    
+    &:before {
+      font-size: 1rem;
+    }
+  }
+  
   @media (max-width: 900px) {
     font-size: 0.9rem;
     padding: 0.6rem 0;
+    
+    .pricing-card & {
+      font-size: 0.75rem;
+      padding: 0.3rem 0;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .pricing-card & {
+      font-size: 0.8rem;
+      padding: 0.4rem 0;
+    }
   }
 `;
 
@@ -242,9 +298,13 @@ const StatsSection = styled.div`
 
 const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 1.5rem;
+  
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -258,17 +318,34 @@ const StatCard = styled.div`
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
   font-weight: 600;
 `;
 
 const StatValue = styled.div`
   font-size: 2.5rem;
   font-weight: bold;
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
   margin: 0.5rem 0;
   font-family: audiowide;
   text-shadow: ${props => props.currentColor.segundo === "#4B4B4B" ? "2px 2px 4px rgba(0,0,0,0.7)" : "none"};
+`;
+
+const PriceValue = styled.div`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  margin: 0.5rem 0;
+  font-family: audiowide;
+  text-shadow: ${props => props.currentColor.segundo === "#4B4B4B" ? "2px 2px 4px rgba(0,0,0,0.7)" : "none"};
+  
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 600px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const MethodologySection = styled.div`
@@ -285,9 +362,13 @@ const MethodologySection = styled.div`
 
 const MethodologyGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 1.5rem;
+  
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -300,7 +381,7 @@ const MethodologyCard = styled.div`
   padding: 1.5rem;
   border-radius: 10px;
   border-top: 4px solid ${props => props.currentColor.segundo};
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
   font-weight: 600;
 `;
 
@@ -318,42 +399,66 @@ const PricingSection = styled.div`
 
 const PricingGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
   margin-top: 1.5rem;
   
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 `;
 
 const PricingCard = styled.div`
   background: ${props => props.currentColor.primero};
-  padding: 2rem;
-  border-radius: 15px;
+  padding: 0.8rem;
+  border-radius: 12px;
   text-align: center;
   position: relative;
   border: 2px solid ${props => props.featured ? props.currentColor.segundo : 'transparent'};
-  transform: ${props => props.featured ? 'scale(1.05)' : 'scale(1)'};
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  transform: ${props => props.featured ? 'scale(1.02)' : 'scale(1)'};
+  color: ${props => props.currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
   font-weight: 600;
+  font-size: 0.75rem;
+  
+  h3 {
+    font-size: 0.9rem;
+    margin: 0.4rem 0;
+  }
+  
+  p {
+    font-size: 0.7rem;
+    margin: 0.4rem 0;
+  }
   
   ${props => props.featured && `
     &:before {
       content: "MÁS POPULAR";
       position: absolute;
-      top: -10px;
+      top: -8px;
       left: 50%;
       transform: translateX(-50%);
       background: ${props.currentColor.segundo};
       color: ${props.currentColor.primero};
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 15px;
+      font-size: 0.65rem;
       font-weight: bold;
     }
   `}
+  
+  @media (max-width: 600px) {
+    padding: 1.2rem;
+    font-size: 0.85rem;
+    
+    h3 {
+      font-size: 1rem;
+    }
+    
+    p {
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 const CiberseguridadPage = ({ currentColor, theme }) => {
@@ -424,7 +529,7 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
            
           <CyberContainer>
             <h1 style={{ 
-              color: currentColor.segundo, 
+              color: currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : currentColor.segundo, 
               textAlign: 'center',
               fontSize: '20px',
               fontFamily: "audiowide",
@@ -433,7 +538,8 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
               width: '100%',
               height: '100%',
               zIndex: 2,
-              margin: '0%'
+              margin: '0%',
+              fontWeight: '700'
             }}>
               Servicios Avanzados de Ciberseguridad
             </h1>
@@ -442,7 +548,8 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
               textAlign: 'center',
               fontSize: '1.2rem',
               marginBottom: '3rem',
-              color: currentColor.segundo
+              color: currentColor.segundo === "#A8E0E4" ? "#2A2A2A" : currentColor.segundo,
+              fontWeight: '600'
             }}>
               Protección integral contra amenazas cibernéticas con tecnologías de vanguardia
             </p>
@@ -491,6 +598,10 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
 
           {/* Servicios de Auditoría */}
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
+            <ServiceImage 
+              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Auditoría de Seguridad"
+            />
             <ServiceTitle currentColor={currentColor}>
               <FaShieldAlt /> Auditoría de Seguridad Integral
             </ServiceTitle>
@@ -519,6 +630,10 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
 
           {/* Pentesting */}
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
+            <ServiceImage 
+              src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Pentesting y Red Team"
+            />
             <ServiceTitle currentColor={currentColor}>
               <FaBug /> Pentesting y Red Team
             </ServiceTitle>
@@ -547,6 +662,10 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
 
           {/* Seguridad Cloud */}
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
+            <ServiceImage 
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Seguridad en la Nube"
+            />
             <ServiceTitle currentColor={currentColor}>
               <FaCloud /> Seguridad en la Nube
             </ServiceTitle>
@@ -572,18 +691,23 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
           {/* Tecnologías Utilizadas */}
           <MethodologySection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <h2 style={{ 
-              color: currentColor.segundo, 
+              color: currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : currentColor.segundo, 
               textAlign: 'center', 
               marginBottom: '1.5rem',
               fontFamily: "audiowide",
-              fontSize: '20px'
+              fontSize: '20px',
+              fontWeight: '700'
             }}>
               <FaCode /> Stack Tecnológico Enterprise
             </h2>
             <MethodologyGrid>
               {technologies.map((category, index) => (
                 <MethodologyCard key={index} currentColor={currentColor}>
-                  <h4 style={{ marginBottom: '1rem', color: currentColor.segundo }}>
+                  <h4 style={{ 
+                    marginBottom: '1rem', 
+                    color: currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : currentColor.segundo,
+                    fontWeight: '700'
+                  }}>
                     {category.category}
                   </h4>
                   {category.tools.map((tool, toolIndex) => (
@@ -600,11 +724,12 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
           {/* Estadísticas */}
           <StatsSection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <h2 style={{ 
-              color: currentColor.segundo, 
+              color: currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : currentColor.segundo, 
               textAlign: 'center', 
               marginBottom: '1.5rem',
               fontFamily: "audiowide",
-              fontSize: '20px'
+              fontSize: '20px',
+              fontWeight: '700'
             }}>
               Impacto de Nuestros Servicios
             </h2>
@@ -642,18 +767,19 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
           {/* Precios */}
           <PricingSection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <h2 style={{ 
-              color: currentColor.segundo, 
+              color: currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : currentColor.segundo, 
               textAlign: 'center', 
               marginBottom: '1.5rem',
               fontFamily: "audiowide",
-              fontSize: '20px'
+              fontSize: '20px',
+              fontWeight: '700'
             }}>
               Planes de Ciberseguridad
             </h2>
             <PricingGrid>
               <PricingCard currentColor={currentColor}>
                 <h3>Auditoría Básica</h3>
-                <StatValue currentColor={currentColor}>$2,500</StatValue>
+                <PriceValue currentColor={currentColor}>$2,500</PriceValue>
                 <p style={{ marginBottom: '1rem' }}>Evaluación inicial</p>
                 <ServiceList>
                   <ServiceFeature currentColor={currentColor}>Scan de vulnerabilidades</ServiceFeature>
@@ -664,7 +790,7 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
 
               <PricingCard currentColor={currentColor} featured>
                 <h3>Pentesting Completo</h3>
-                <StatValue currentColor={currentColor}>$8,500</StatValue>
+                <PriceValue currentColor={currentColor}>$8,500</PriceValue>
                 <p style={{ marginBottom: '1rem' }}>Evaluación integral</p>
                 <ServiceList>
                   <ServiceFeature currentColor={currentColor}>Pentesting web y red</ServiceFeature>
@@ -677,7 +803,7 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
 
               <PricingCard currentColor={currentColor}>
                 <h3>Programa Anual</h3>
-                <StatValue currentColor={currentColor}>$25,000</StatValue>
+                <PriceValue currentColor={currentColor}>$25,000</PriceValue>
                 <p style={{ marginBottom: '1rem' }}>Protección continua</p>
                 <ServiceList>
                   <ServiceFeature currentColor={currentColor}>Monitoreo 24/7</ServiceFeature>
@@ -694,6 +820,8 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
             <Banner />
           </div>
         </StyledDiv>
+        
+        <CalendlyBadge />
       </Content>
     </>
   );
