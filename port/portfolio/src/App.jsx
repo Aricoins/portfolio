@@ -225,7 +225,95 @@ function HomePage({ currentColor, theme }) {
       </div>
 
       {/* Sección de Servicios */}
-      <ServicesSection id="servicios" style={{ backgroundColor: currentColor.primero }}>
+      {/* <ServicesSection id="servicios" style={{ backgroundColor: currentColor.primero }}>
+        <h2 style={{ 
+          fontFamily: "audiowide", 
+          fontSize: '20px', 
+          backgroundColor: 'white', 
+          width: '100%', 
+          textAlign: 'center',
+          margin: '0% 0% 2% 0%',
+          padding: '1rem',
+          borderRadius: '10px',
+          color: '#000000',
+          fontWeight: '700',
+          textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+        }}>
+          Nuestros Servicios
+        </h2>
+        
+        <ServicesGrid>
+          <ServiceButton 
+            currentColor={currentColor}
+            onClick={() => handleServiceClick('desarrollo')}
+            data-aos="fade-up" 
+            data-aos-duration="300"
+          >
+            <ServiceIcon>
+              <FaCode />
+            </ServiceIcon>
+            <ServiceTitle>Desarrollo Apps & Webs</ServiceTitle>
+            <ServiceDescription>
+              Desarrollo completo de aplicaciones web y móviles con tecnologías modernas
+            </ServiceDescription>
+          </ServiceButton>
+
+          <ServiceButton 
+            currentColor={currentColor}
+            onClick={() => handleServiceClick('seo')}
+            data-aos="fade-up" 
+            data-aos-duration="400"
+          >
+            <ServiceIcon>
+              <FaSearch />
+            </ServiceIcon>
+            <ServiceTitle>Optimización SEO</ServiceTitle>
+            <ServiceDescription>
+              Mejora tu visibilidad online y aumenta el tráfico orgánico de tu sitio web
+            </ServiceDescription>
+          </ServiceButton>
+
+          <ServiceButton 
+            currentColor={currentColor}
+            onClick={() => handleServiceClick('ciberseguridad')}
+            data-aos="fade-up" 
+            data-aos-duration="500"
+          >
+            <ServiceIcon>
+              <FaShieldAlt />
+            </ServiceIcon>
+            <ServiceTitle>Ciberseguridad</ServiceTitle>
+            <ServiceDescription>
+              Protege tu negocio con auditorías y soluciones de seguridad avanzadas
+            </ServiceDescription>
+          </ServiceButton>
+        </ServicesGrid>
+      </ServicesSection> */}
+
+      <Content style={{ backgroundColor: currentColor.primero }}>
+        <Div>
+          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+        </Div>
+        
+        <StyledDiv id="proyectos">
+          <h2 style={{ 
+            fontSize: '20px', 
+            fontFamily: "audiowide", 
+            backgroundColor: 'white', 
+            width: '100%', 
+            height: '100%', 
+            margin: '0%', 
+            textAlign: 'center' 
+          }}>
+            Proyectos
+          </h2>
+          <Proyectos currentColor={currentColor} />
+        </StyledDiv>
+        
+        <Div>
+          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+        </Div>
+              <ServicesSection id="servicios" style={{ backgroundColor: currentColor.primero }}>
         <h2 style={{ 
           fontFamily: "audiowide", 
           fontSize: '20px', 
@@ -289,39 +377,7 @@ function HomePage({ currentColor, theme }) {
           </ServiceButton>
         </ServicesGrid>
       </ServicesSection>
-
-      <Content style={{ backgroundColor: currentColor.primero }}>
-        <Div>
-          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
-        </Div>
-        
-        <StyledDiv id="proyectos">
-          <h2 style={{ 
-            fontSize: '20px', 
-            fontFamily: "audiowide", 
-            backgroundColor: 'white', 
-            width: '100%', 
-            height: '100%', 
-            margin: '0%', 
-            textAlign: 'center' 
-          }}>
-            Proyectos
-          </h2>
-          <Proyectos currentColor={currentColor} />
-        </StyledDiv>
-        
-        <Div>
-          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
-        </Div>
-        
-        <video
-          src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1742692289/gmvxffwy94p0mljpvvmp.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ width: '100%', maxWidth: '640px', height: 'auto' }}
-        />
+    
 
         <StyledDiv id="tecnologias">
           <h2 style={{ 

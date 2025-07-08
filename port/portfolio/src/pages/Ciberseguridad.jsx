@@ -421,6 +421,7 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
             style={{ width: '30%', margin: "auto"}} 
             alt='cyber-img' 
           />
+           
           <CyberContainer>
             <h1 style={{ 
               color: currentColor.segundo, 
@@ -447,7 +448,14 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
             </p>
           </CyberContainer>
         </div>
-
+   <video
+          src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1742692289/gmvxffwy94p0mljpvvmp.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ width: '100%', maxWidth: '640px', height: 'auto' }}
+        />
         <StyledDiv>
           {/* Sección de Amenazas Actuales */}
           <ThreatSection data-aos="fade-up" data-aos-duration="300">

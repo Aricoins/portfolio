@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import lat from '../assets/lat.png';
 
