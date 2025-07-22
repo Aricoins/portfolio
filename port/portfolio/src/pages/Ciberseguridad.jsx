@@ -551,8 +551,7 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
               color: currentColor.segundo === "#A8E0E4" ? "#2A2A2A" : currentColor.segundo,
               fontWeight: '600'
             }}>
-              Protección integral contra amenazas cibernéticas con tecnologías de vanguardia
-            </p>
+Experiencia comprobada en implementación de sistemas de autenticación seguros, gestión de APIs y arquitecturas resilientes para sectores críticos como salud y gobierno. Nuestra perspectiva única desde el desarrollo de aplicaciones nos permite identificar vulnerabilidades desde el diseño hasta la implementación, ofreciendo soluciones integrales de seguridad. Comprometidos con la protección proactiva de activos digitales organizacionales, aplicamos expertise técnico en Python, análisis de sistemas y automatización para fortalecer defensas de seguridad, realizar evaluaciones de vulnerabilidades y desarrollar estrategias de threat intelligence e incident response que respaldan los objetivos de seguridad empresarial.</p>
           </CyberContainer>
         </div>
    <video
