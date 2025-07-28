@@ -2,7 +2,8 @@ import anime from 'animejs/lib/anime.es.js';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { SiCss3, SiHtml5, SiJavascript, SiMysql, SiPostgresql, SiSequelize, SiGit, SiGithub, SiTrello, SiSlack, SiReactrouter, SiRedux, SiTypescript, SiTailwindcss, SiReact, SiAngular, SiNextdotjs, SiNodedotjs, SiExpress, SiNestjs, SiGraphql, SiFirebase, SiMui, SiAntdesign, SiBootstrap, SiGooglecloud, SiVercel, SiSwagger, SiJest } from 'react-icons/si';
+import { SiCss3, SiHtml5, SiJavascript, SiMysql, SiPostgresql, SiSequelize, SiGit, SiGithub, SiTrello, SiSlack, SiReactrouter, SiRedux, SiTypescript, SiTailwindcss, SiReact, SiAngular, SiNextdotjs, SiNodedotjs, SiExpress, SiNestjs, SiGraphql, SiFirebase, SiMui, SiAntdesign, SiBootstrap, SiGooglecloud, SiVercel, SiSwagger, SiJest, SiMongodb, SiReactquery } from 'react-icons/si';
+import { BiStore } from 'react-icons/bi';
 import { FaCode } from 'react-icons/fa';
 import AOS from 'aos';
 
@@ -115,27 +116,29 @@ const GameContainer = styled.div`
   width: 100%;
   max-width: 100%;
   position: relative;
-  overflow: hidden;
-  max-height: 85vh;
+  overflow: visible;
+  min-height: 400px;
   box-sizing: border-box;
   
   @media (max-width: 1200px) {
     padding: 12px;
-    max-height: 80vh;
+    min-height: 380px;
   }
   
   @media (max-width: 768px) {
     padding: 8px;
     margin: 5px auto;
-    max-height: 75vh;
+    min-height: 350px;
     border-radius: 10px;
+    overflow: visible;
   }
   
   @media (max-width: 480px) {
     padding: 6px;
     margin: 3px auto;
-    max-height: 70vh;
+    min-height: 320px;
     border-radius: 8px;
+    overflow: visible;
   }
 `;
 
@@ -162,28 +165,28 @@ const IconsGrid = styled.div`
   border-radius: 10px;
   backdrop-filter: blur(10px);
   margin-bottom: 15px;
-  max-height: 220px;
+  max-height: 120px;
   overflow-y: auto;
   
   @media (max-width: 1200px) {
     grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
     gap: 6px;
     padding: 10px;
-    max-height: 200px;
+    max-height: 110px;
   }
   
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
     gap: 4px;
     padding: 8px;
-    max-height: 160px;
+    max-height: 100px;
   }
   
   @media (max-width: 480px) {
     grid-template-columns: repeat(6, 1fr);
     gap: 3px;
     padding: 6px;
-    max-height: 140px;
+    max-height: 90px;
   }
 `;
 
@@ -244,28 +247,29 @@ const NamesGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 8px;
   padding: 12px;
-  max-height: 320px;
+  max-height: 180px;
   overflow-y: auto;
   
   @media (max-width: 1200px) {
     grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: 6px;
     padding: 10px;
-    max-height: 300px;
+    max-height: 160px;
   }
   
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     gap: 4px;
     padding: 8px;
-    max-height: 250px;
+    max-height: 140px;
   }
   
   @media (max-width: 480px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 3px;
     padding: 6px;
-    max-height: 200px;
+    max-height: 120px;
+    overflow-y: auto;
   }
 `;
 
@@ -358,7 +362,7 @@ const Tecnologias = ({ currentColor }) => {
     const [touchStart, setTouchStart] = useState(null);
     const [touchDrag, setTouchDrag] = useState(null);
 
-    const technologies = [
+    const allTechnologies = [
         { id: 'react', name: 'React', icon: SiReact },
         { id: 'angular', name: 'Angular', icon: SiAngular },
         { id: 'nextjs', name: 'Next.js', icon: SiNextdotjs },
@@ -372,6 +376,7 @@ const Tecnologias = ({ currentColor }) => {
         { id: 'nestjs', name: 'Nest.js', icon: SiNestjs },
         { id: 'graphql', name: 'GraphQL', icon: SiGraphql },
         { id: 'postgresql', name: 'PostgreSQL', icon: SiPostgresql },
+        { id: 'mongodb', name: 'MongoDB', icon: SiMongodb },
         { id: 'firebase', name: 'Firebase', icon: SiFirebase },
         { id: 'tailwind', name: 'Tailwind CSS', icon: SiTailwindcss },
         { id: 'mui', name: 'Material UI', icon: SiMui },
@@ -379,20 +384,49 @@ const Tecnologias = ({ currentColor }) => {
         { id: 'git', name: 'Git', icon: SiGit },
         { id: 'vercel', name: 'Vercel', icon: SiVercel },
         { id: 'swagger', name: 'Swagger', icon: SiSwagger },
-        { id: 'jest', name: 'Jest', icon: SiJest }
+        { id: 'jest', name: 'Jest', icon: SiJest },
+        { id: 'tanstack', name: 'Tanstack Query', icon: SiReactquery },
+        { id: 'zustand', name: 'Zustand', icon: BiStore }
     ];
+
+    // Randomly select 5 technologies for each game
+    const [technologies, setTechnologies] = useState([]);
 
     useEffect(() => {
         AOS.init();
+        // Initialize game with 5 random technologies
+        const shuffled = [...allTechnologies].sort(() => 0.5 - Math.random());
+        setTechnologies(shuffled.slice(0, 5));
     }, []);
+
+    const resetGame = () => {
+        const shuffled = [...allTechnologies].sort(() => 0.5 - Math.random());
+        setTechnologies(shuffled.slice(0, 5));
+        setMatches({});
+        setScore(0);
+        setDraggedItem(null);
+        setDragOverZone(null);
+        setIsDragging(false);
+        setTouchStart(null);
+        setTouchDrag(null);
+    };
 
     // Desktop drag and drop handlers
     const handleDragStart = (e, tech) => {
-        if (matches[tech.id]) return;
+        if (matches[tech.id]) {
+            e.preventDefault();
+            return false;
+        }
         setDraggedItem(tech);
         setIsDragging(true);
         e.dataTransfer.setData('text/plain', tech.id);
         e.dataTransfer.effectAllowed = 'move';
+        
+        // Create drag image
+        const dragImage = e.currentTarget.cloneNode(true);
+        dragImage.style.transform = 'rotate(5deg) scale(1.1)';
+        dragImage.style.opacity = '0.8';
+        e.dataTransfer.setDragImage(dragImage, 25, 25);
     };
 
     const handleDragEnd = (e) => {
@@ -402,16 +436,19 @@ const Tecnologias = ({ currentColor }) => {
 
     const handleDragOver = (e, techId) => {
         e.preventDefault();
+        e.stopPropagation();
         e.dataTransfer.dropEffect = 'move';
         setDragOverZone(techId);
     };
 
     const handleDragLeave = (e) => {
+        e.preventDefault();
         setDragOverZone(null);
     };
 
     const handleDrop = (e, targetTech) => {
         e.preventDefault();
+        e.stopPropagation();
         const draggedId = e.dataTransfer.getData('text/plain');
         
         if (draggedId === targetTech.id && !matches[targetTech.id]) {
@@ -489,8 +526,17 @@ const Tecnologias = ({ currentColor }) => {
     };
 
     const handleSuccessfulMatch = (targetTech) => {
-        setMatches(prev => ({ ...prev, [targetTech.id]: true }));
-        setScore(prev => prev + 1);
+        const newMatches = { ...matches, [targetTech.id]: true };
+        setMatches(newMatches);
+        
+        let scoreToAdd = 200; // 200 aricoins per match
+        
+        // Check if this completes the game (5 matches)
+        if (Object.keys(newMatches).length === 5) {
+            scoreToAdd = 1000; // 1000 total for winning (800 bonus + 200 for this match)
+        }
+        
+        setScore(prev => prev + scoreToAdd);
         
         setShowFireworks(true);
         setTimeout(() => setShowFireworks(false), 1000);
@@ -523,6 +569,7 @@ const Tecnologias = ({ currentColor }) => {
     }, [showFireworks]);
 
     const isGameComplete = Object.keys(matches).length === technologies.length;
+    const isGameWon = Object.keys(matches).length === 5; // Win when 5 matches are made
 
     return (
         <>
@@ -534,12 +581,30 @@ const Tecnologias = ({ currentColor }) => {
                 <GameContainer>
                     <GameTitle>🎮 Tech Match Challenge 🎮</GameTitle>
                     <ScoreBoard>
-                        Puntaje: {score}/{technologies.length} 
-                        {isGameComplete && " 🎉 ¡Felicitaciones! ¡Completaste el desafío! 🎉"}
+                        💰 {score} Aricoins | Progreso: {Object.keys(matches).length}/5
+                        {isGameWon && " 🎉 ¡Ganaste 1000 Aricoins! 🎉"}
+                        {isGameWon && (
+                            <div style={{marginTop: '8px'}}>
+                                <button 
+                                    onClick={resetGame}
+                                    style={{
+                                        padding: '8px 16px',
+                                        background: '#4ade80',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '6px',
+                                        cursor: 'pointer',
+                                        fontWeight: 'bold'
+                                    }}
+                                >
+                                    🎮 Nuevo Juego
+                                </button>
+                            </div>
+                        )}
                     </ScoreBoard>
                     
                     <div style={{color: 'white', textAlign: 'center', marginBottom: '15px', fontFamily: 'Verdana', fontSize: '0.9rem', lineHeight: '1.4'}}>
-                        🖱️ Arrastra los iconos a sus nombres correspondientes
+                        🎯 Arrastra o clickea los iconos con sus nombres | 5 aciertos = 1000 Aricoins
                         {draggedItem && (
                             <div style={{marginTop: '8px', padding: '8px', background: 'rgba(251, 191, 36, 0.1)', borderRadius: '6px', border: '1px solid #fbbf24'}}>
                                 <span style={{color: '#fbbf24', fontWeight: 'bold'}}>
@@ -573,7 +638,7 @@ const Tecnologias = ({ currentColor }) => {
                     </div>
                     
                     <IconsGrid>
-                        {technologies.map(tech => {
+                        {technologies.length > 0 && technologies.map(tech => {
                             const IconComponent = tech.icon;
                             const isCurrentlyDragged = draggedItem?.id === tech.id && isDragging;
                             return (
@@ -594,7 +659,8 @@ const Tecnologias = ({ currentColor }) => {
                                         position: isCurrentlyDragged && touchDrag ? 'fixed' : 'relative',
                                         left: isCurrentlyDragged && touchDrag ? touchDrag.x - 25 : 'auto',
                                         top: isCurrentlyDragged && touchDrag ? touchDrag.y - 25 : 'auto',
-                                        pointerEvents: isCurrentlyDragged ? 'none' : 'auto'
+                                        pointerEvents: isCurrentlyDragged ? 'none' : 'auto',
+                                        zIndex: isCurrentlyDragged ? 9999 : 'auto'
                                     }}
                                 >
                                     <IconComponent />
@@ -604,7 +670,7 @@ const Tecnologias = ({ currentColor }) => {
                     </IconsGrid>
                     
                     <NamesGrid>
-                        {technologies.map(tech => (
+                        {technologies.length > 0 && technologies.map(tech => (
                             <DropZone
                                 key={`drop-${tech.id}`}
                                 data-drop-zone={tech.id}
