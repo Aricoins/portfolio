@@ -12,12 +12,18 @@
   text-align: center;
   background-color: hsl(0, 0%, 10%, 0.3);
 }
-@media (width: 800px) {
+@media (max-width: 800px) {
   #root {
     width: 100%;
-    margin-top: 10%;
+    margin-top: 5%;
+    padding: 0 10px;
+  }
+}
 
-
-
+@media (max-width: 480px) {
+  #root {
+    width: 100%;
+    margin-top: 2%;
+    padding: 0 5px;
   }
 }
