@@ -161,26 +161,23 @@ const IconsGrid = styled.div`
 
 const DraggableIcon = styled.div`
   font-size: 1.5em;
-  color: ${props => props.matched ? '#4ade80' : '#e2e8f0'};
-  cursor: grab;
+  color: ${props => props.matched ? '#4ade80' : props.selected ? '#fbbf24' : '#e2e8f0'};
+  cursor: ${props => props.matched ? 'default' : 'pointer'};
   text-align: center;
   padding: 5px;
   border-radius: 6px;
-  background: ${props => props.matched ? 'rgba(74, 222, 128, 0.2)' : 'rgba(255,255,255,0.1)'};
+  background: ${props => props.matched ? 'rgba(74, 222, 128, 0.2)' : props.selected ? 'rgba(251, 191, 36, 0.2)' : 'rgba(255,255,255,0.1)'};
   transition: all 0.3s ease;
-  transform: ${props => props.isDragging ? 'scale(1.1) rotate(2deg)' : 'scale(1)'};
   min-height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: ${props => props.matched ? 0.6 : 1};
+  border: ${props => props.selected ? '2px solid #fbbf24' : '2px solid transparent'};
   
   &:hover {
-    transform: scale(1.02);
-    background: rgba(255,255,255,0.2);
-  }
-  
-  &:active {
-    cursor: grabbing;
+    color: ${props => props.matched ? '#4ade80' : '#60a5fa'};
+    transform: scale(1.05);
   }
   
   @media (max-width: 900px) {
@@ -301,16 +298,13 @@ const Tecnologias = ({ currentColor }) => {
         AOS.init();
     }, []);
 
-    const handleDragStart = (e, tech) => {
-        setDraggedItem(tech);
+    const handleIconClick = (tech) => {
+        if (!matches[tech.id]) {
+            setDraggedItem(tech);
+        }
     };
 
-    const handleDragOver = (e) => {
-        e.preventDefault();
-    };
-
-    const handleDrop = (e, targetTech) => {
-        e.preventDefault();
+    const handleDropZoneClick = (targetTech) => {
         if (draggedItem && draggedItem.id === targetTech.id) {
             setMatches(prev => ({ ...prev, [targetTech.id]: true }));
             setScore(prev => prev + 1);
@@ -325,8 +319,8 @@ const Tecnologias = ({ currentColor }) => {
                 duration: 800,
                 easing: 'easeInOutElastic(1, .8)'
             });
+            setDraggedItem(null);
         }
-        setDraggedItem(null);
     };
 
     const createFireworks = () => {
@@ -355,7 +349,7 @@ const Tecnologias = ({ currentColor }) => {
                 <div style={{fontFamily: "audiowide", padding: "5%", fontSize: "large", width: "90%", margin: "auto"}}>
                     Ofrecemos soluciones digitales innovadoras utilizando las últimas tecnologías del mercado. Nuestra experiencia y conocimiento abarcan una amplia gama de herramientas y frameworks, lo que nos permite ofrecer productos de alta calidad y rendimiento.
                 </div>
-                
+              
                 <GameContainer>
                     <GameTitle>🎮 Tech Match Challenge 🎮</GameTitle>
                     <ScoreBoard>
@@ -364,7 +358,18 @@ const Tecnologias = ({ currentColor }) => {
                     </ScoreBoard>
                     
                     <div style={{color: 'white', textAlign: 'center', marginBottom: '10px', fontFamily: 'Verdana', fontSize: '0.8rem'}}>
-                        Arrastra cada icono sobre su nombre correspondiente
+                        Haz clic en un icono y luego en su nombre correspondiente
+                        {draggedItem && (
+                            <div style={{marginTop: '5px'}}>
+                                <span style={{color: '#fbbf24'}}>Seleccionado: {draggedItem.name}</span>
+                                <button 
+                                    onClick={() => setDraggedItem(null)}
+                                    style={{marginLeft: '10px', padding: '2px 8px', fontSize: '0.7rem', background: 'rgba(255,255,255,0.2)', border: 'none', borderRadius: '4px', color: 'white', cursor: 'pointer'}}
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
+                        )}
                     </div>
                     
                     <IconsGrid>
@@ -373,9 +378,9 @@ const Tecnologias = ({ currentColor }) => {
                             return (
                                 <DraggableIcon
                                     key={tech.id}
-                                    draggable={!matches[tech.id]}
-                                    onDragStart={(e) => handleDragStart(e, tech)}
+                                    onClick={() => handleIconClick(tech)}
                                     matched={matches[tech.id]}
+                                    selected={draggedItem?.id === tech.id}
                                     className={`match-${tech.id}`}
                                 >
                                     <IconComponent />
@@ -388,8 +393,7 @@ const Tecnologias = ({ currentColor }) => {
                         {technologies.map(tech => (
                             <DropZone
                                 key={`drop-${tech.id}`}
-                                onDragOver={handleDragOver}
-                                onDrop={(e) => handleDrop(e, tech)}
+                                onClick={() => handleDropZoneClick(tech)}
                                 matched={matches[tech.id]}
                                 isOver={draggedItem?.id === tech.id}
                             >
