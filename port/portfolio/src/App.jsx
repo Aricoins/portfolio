@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import anime from 'animejs/lib/anime.es.js';
@@ -151,7 +151,7 @@ const ServiceButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: audiowide;
-  color: ${props => props.currentColor.segundo};
+  color: ${props => props.theme === 'dark' ? '#FFFFFF' : '#000000'};
   font-size: 1rem;
   font-weight: 600;
   display: flex;
@@ -227,6 +227,20 @@ const ServiceDescription = styled.p`
   }
 `;
 
+// Componente para resetear scroll al cambiar de ruta
+function ScrollToTop() {
+  const location = useLocation();
+  
+  useEffect(() => {
+    // Solo resetear scroll si cambiamos a una página diferente (no para scroll interno)
+    if (location.pathname !== '/') {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+  
+  return null;
+}
+
 function HomePage({ currentColor, theme }) {
   const navigate = useNavigate();
 
@@ -245,81 +259,14 @@ function HomePage({ currentColor, theme }) {
     <>
       {/* Sección About */}
       <div id="about" style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
-        <Img2 data-aos="fade-right" data-aos-duration="30" data-aos-offset="50"  
+        <Img2 data-aos="fade-left" data-aos-duration="30" data-aos-offset="50"  
           src={theme === "light" ? latw : lat} 
-          style={{ width: '30%', margin: "auto"}} alt='devimg' />
+          style={{ width: '33%', margin: "auto"}} alt='devimg' />
         <About currentColor={currentColor} theme={theme} />
       </div>
-
-      {/* Sección de Servicios */}
-      {/* <ServicesSection id="servicios" style={{ backgroundColor: currentColor.primero }}>
-        <h2 style={{ 
-          fontFamily: "audiowide", 
-          fontSize: '20px', 
-          backgroundColor: 'white', 
-          width: '100%', 
-          textAlign: 'center',
-          margin: '0% 0% 2% 0%',
-          padding: '1rem',
-          borderRadius: '10px',
-          color: '#000000',
-          fontWeight: '700',
-          textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
-        }}>
-          Nuestros Servicios
-        </h2>
-        
-        <ServicesGrid>
-          <ServiceButton 
-            currentColor={currentColor}
-            onClick={() => handleServiceClick('desarrollo')}
-            data-aos="fade-up" 
-            data-aos-duration="300"
-          >
-            <ServiceIcon>
-              <FaCode />
-            </ServiceIcon>
-            <ServiceTitle>Desarrollo Apps & Webs</ServiceTitle>
-            <ServiceDescription>
-              Desarrollo completo de aplicaciones web y móviles con tecnologías modernas
-            </ServiceDescription>
-          </ServiceButton>
-
-          <ServiceButton 
-            currentColor={currentColor}
-            onClick={() => handleServiceClick('seo')}
-            data-aos="fade-up" 
-            data-aos-duration="400"
-          >
-            <ServiceIcon>
-              <FaSearch />
-            </ServiceIcon>
-            <ServiceTitle>Optimización SEO</ServiceTitle>
-            <ServiceDescription>
-              Mejora tu visibilidad online y aumenta el tráfico orgánico de tu sitio web
-            </ServiceDescription>
-          </ServiceButton>
-
-          <ServiceButton 
-            currentColor={currentColor}
-            onClick={() => handleServiceClick('ciberseguridad')}
-            data-aos="fade-up" 
-            data-aos-duration="500"
-          >
-            <ServiceIcon>
-              <FaShieldAlt />
-            </ServiceIcon>
-            <ServiceTitle>Ciberseguridad</ServiceTitle>
-            <ServiceDescription>
-              Protege tu negocio con auditorías y soluciones de seguridad avanzadas
-            </ServiceDescription>
-          </ServiceButton>
-        </ServicesGrid>
-      </ServicesSection> */}
-
       <Content style={{ backgroundColor: currentColor.primero }}>
         <Div>
-          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+          <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='devimg' />
         </Div>
         
         <StyledDiv id="proyectos">
@@ -344,7 +291,7 @@ function HomePage({ currentColor, theme }) {
         </StyledDiv>
         
         <Div>
-          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+          <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='devimg' />
         </Div>
               <ServicesSection id="servicios" style={{ backgroundColor: currentColor.primero }}>
         <h2 style={{ 
@@ -366,6 +313,7 @@ function HomePage({ currentColor, theme }) {
         <ServicesGrid>
           <ServiceButton 
             currentColor={currentColor}
+            theme={theme}
             onClick={() => handleServiceClick('desarrollo')}
             data-aos="fade-up" 
             data-aos-duration="300"
@@ -383,6 +331,7 @@ function HomePage({ currentColor, theme }) {
 
           <ServiceButton 
             currentColor={currentColor}
+            theme={theme}
             onClick={() => handleServiceClick('seo')}
             data-aos="fade-up" 
             data-aos-duration="400"
@@ -400,6 +349,7 @@ function HomePage({ currentColor, theme }) {
 
           <ServiceButton 
             currentColor={currentColor}
+            theme={theme}
             onClick={() => handleServiceClick('ciberseguridad')}
             data-aos="fade-up" 
             data-aos-duration="500"
@@ -416,7 +366,10 @@ function HomePage({ currentColor, theme }) {
           </ServiceButton>
         </ServicesGrid>
       </ServicesSection>
-    
+  
+        <Div>
+          <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='devimg' />
+        </Div>
 
         <StyledDiv id="tecnologias">
           <h2 style={{ 
@@ -440,7 +393,7 @@ function HomePage({ currentColor, theme }) {
         </StyledDiv>
         
         <Div>
-          <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='devimg' />
+          <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='devimg' />
         </Div>
 
         <StyledDiv id="contacto">
@@ -524,6 +477,8 @@ function App() {
           <Nav currentcolor={currentcolor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
         </div>
 
+        <ScrollToTop />
+        
         <Routes>
           <Route path="/" element={<HomePage currentColor={currentcolor} theme={theme} />} />
           <Route path="/seo" element={<SeoPage currentColor={currentcolor} theme={theme} />} />

@@ -103,10 +103,10 @@ const Yo = ({ currentColor, theme }) => {
     <Desktop currentColor={{ currentColor, theme }}>
      
       <Container data-aos="fade-left" currentColor={currentColor}>
-        <Title currentColor={currentColor}>Ariel Rogel</Title>
-        <Subtitle currentColor={currentColor}>.TECH</Subtitle>
+        <Title currentColor={currentColor}>Desarrollo Full-Stack & Ciberseguridad</Title>
+        <Subtitle currentColor={currentColor}>por Ariel Rogel</Subtitle>
         <Description currentColor={currentColor}>
-          Desarrollo Web & Mobile | E-Commerce
+          Especialista en aplicaciones web avanzadas, APIs seguras y auditorías de ciberseguridad
         </Description>
       </Container>
       <Image data-aos="fade-right" src={theme === "light" ? yo : perfil} alt="yo" />

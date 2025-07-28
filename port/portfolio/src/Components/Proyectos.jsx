@@ -56,7 +56,7 @@ const Card = styled.div`
 
   p {
     font-family: "Verdana";
-    font-size: large;
+    font-size: medium;
     margin-bottom: 15px;
     color: ${(props) => props.currentColor.quinto};
 
@@ -135,18 +135,16 @@ const Proyectos = ({ currentColor }) => {
         <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
           <h4>DiBiase Net</h4>
           <p>
-            WebApp para la gestión y visualización de colecciones de libros y
-            documentos archivísticos. Focalizada en la despapelización y mejora
-            de tiempos de búsqueda.
+            Aplicación web full-stack que digitaliza 20+ años de documentación legislativa con inteligencia artificial integrada. Primera plataforma municipal con IA en la región que transforma búsquedas de horas a segundos.
           </p>
           <img src={biblio} alt="imagen" />
           <ul>
-            <li>Autenticación con Clerk.</li>
-            <li>Gestión multimedia con Cloudinary.</li>
-            <li>Manejo de datos con PostgreSQL.</li>
-            <li>Next.js 14 on Vercel.</li>
-            <li>Estilos con styled-components.</li>
-            <li>Lectura y escritura de archivos Excel con xlsx.</li>
+            <li>Next.js 14 | TypeScript | PostgreSQL</li>
+            <li>Prisma | Clerk Auth | OpenAI API</li>
+            <li>OpenRouter | DeepSeek API</li>
+            <li>Chatbot IA para consultas legales</li>
+            <li>Panel administrativo | Google Sheets</li>
+            <li>10,000+ documentos procesados</li>
           </ul>
         </Card>
       </a>

@@ -156,7 +156,7 @@ const ServiceImage = styled.img`
 `;
 
 const ServiceTitle = styled.h3`
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
   font-size: 1.5rem;
   margin-bottom: 1rem;
   display: flex;
@@ -181,7 +181,7 @@ const ServiceItem = styled.li`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.6;
@@ -189,7 +189,7 @@ const ServiceItem = styled.li`
 
   &:before {
     content: "•";
-    color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+    color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -215,7 +215,7 @@ const ResultsSection = styled.div`
 `;
 
 const ResultsTitle = styled.h2`
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
   text-align: center;
   margin-bottom: 1.5rem;
   font-family: audiowide;
@@ -251,11 +251,11 @@ const ResultCard = styled.div`
   padding: 2rem;
   border-radius: 8px;
   text-align: center;
-  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   
   h3 {
-    color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : props.currentColor.segundo};
+    color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
     font-weight: 700;
     margin: 1rem 0;
     font-size: 1.2rem;
@@ -263,7 +263,7 @@ const ResultCard = styled.div`
   }
   
   p {
-    color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#F0F0F0" : props.currentColor.segundo};
+    color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#F0F0F0" : "#000000"};
     font-weight: 600;
     margin: 0.5rem 0;
     font-size: 1rem;
@@ -273,7 +273,7 @@ const ResultCard = styled.div`
 const ResultValue = styled.div`
   font-size: 2rem;
   font-weight: bold;
-  color: ${props => props.currentColor.segundo};
+  color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
   margin: 0.5rem 0;
   font-family: audiowide;
 `;
@@ -297,7 +297,7 @@ const SeoPage = ({ currentColor, theme }) => {
           />
           <SeoContainer>
             <h1 style={{ 
-              color: currentColor.segundo, 
+              color: currentColor.segundo === "#A8E0E4" ? "#1A1A1A" : currentColor.segundo, 
               textAlign: 'center',
               fontSize: '20px',
               fontFamily: "audiowide",
@@ -306,25 +306,28 @@ const SeoPage = ({ currentColor, theme }) => {
               width: '100%',
               height: '100%',
               zIndex: 2,
-              margin: '0%'
+              margin: '0%',
+              fontWeight: '700'
             }}>
               Servicios Profesionales de SEO
             </h1>
 
             <p style={{ 
               textAlign: 'center',
-              fontSize: '1.2rem',
+              fontSize: '1.5rem',
               marginBottom: '3rem',
-              color: currentColor.segundo
+              color: currentColor.quinto,
+              lineHeight: 1.6,
+              fontFamily: 'Verdana'
             }}>
-              Optimización técnica y estratégica para aumentar tu visibilidad y conversiones
+              Especialistas en optimización técnica con experiencia en Core Web Vitals, structured data y arquitectura SEO enterprise. Combinamos análisis técnico profundo con estrategias data-driven utilizando herramientas como Screaming Frog, Ahrefs y Google Search Console para maximizar ROI y mejorar rankings orgánicos.
             </p>
           </SeoContainer>
         </div>
 
         <StyledDiv>
           <Div>
-            <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='seo-img' />
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='seo-img' />
           </Div>
 
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
@@ -344,7 +347,7 @@ const SeoPage = ({ currentColor, theme }) => {
           </ServiceCard>
 
           <Div>
-            <Img2 data-aos="fade-up" src={theme === "light" ? latw : lat} style={{ width: '30%' }} alt='seo-img' />
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='seo-img' />
           </Div>
 
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
@@ -364,7 +367,7 @@ const SeoPage = ({ currentColor, theme }) => {
           </ServiceCard>
 
           <Div>
-            <Img2 data-aos="fade-up" src={theme === "light" ? latw : lat} style={{ width: '30%' }} alt='seo-img' />
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='seo-img' />
           </Div>
 
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">

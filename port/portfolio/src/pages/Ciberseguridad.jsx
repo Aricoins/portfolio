@@ -546,23 +546,21 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
 
             <p style={{ 
               textAlign: 'center',
-              fontSize: '1.2rem',
+              fontSize: '1.5rem',
               marginBottom: '3rem',
-              color: currentColor.segundo === "#A8E0E4" ? "#2A2A2A" : currentColor.segundo,
-              fontWeight: '600'
+              color: currentColor.quinto,
+              lineHeight: 1.6,
+              fontFamily: 'Verdana'
             }}>
-Experiencia comprobada en implementación de sistemas de autenticación seguros, gestión de APIs y arquitecturas resilientes para sectores críticos como salud y gobierno. Nuestra perspectiva única desde el desarrollo de aplicaciones nos permite identificar vulnerabilidades desde el diseño hasta la implementación, ofreciendo soluciones integrales de seguridad. Comprometidos con la protección proactiva de activos digitales organizacionales, aplicamos expertise técnico en Python, análisis de sistemas y automatización para fortalecer defensas de seguridad, realizar evaluaciones de vulnerabilidades y desarrollar estrategias de threat intelligence e incident response que respaldan los objetivos de seguridad empresarial.</p>
+              Experiencia comprobada en sistemas de autenticación seguros, gestión de APIs y arquitecturas resilientes para sectores críticos como salud y gobierno. Nuestra perspectiva desde el desarrollo nos permite identificar vulnerabilidades desde el diseño hasta la implementación, aplicando expertise en Python y automatización para fortalecer defensas y desarrollar estrategias de threat intelligence.
+            </p>
           </CyberContainer>
         </div>
-   <video
-          src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1742692289/gmvxffwy94p0mljpvvmp.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ width: '100%', maxWidth: '640px', height: 'auto' }}
-        />
         <StyledDiv>
+          <Div>
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
+          </Div>
+
           {/* Sección de Amenazas Actuales */}
           <ThreatSection data-aos="fade-up" data-aos-duration="300">
             <h2 style={{ fontFamily: "audiowide", fontSize: '1.8rem', marginBottom: '1rem' }}>
@@ -592,7 +590,7 @@ Experiencia comprobada en implementación de sistemas de autenticación seguros,
           </ThreatSection>
 
           <Div>
-            <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='cyber-img' />
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
           </Div>
 
           {/* Servicios de Auditoría */}
@@ -622,10 +620,10 @@ Experiencia comprobada en implementación de sistemas de autenticación seguros,
               </ServiceFeature>
             </ServiceList>
           </ServiceCard>
-
           <Div>
-            <Img2 data-aos="fade-up" src={theme === "light" ? latw : lat} style={{ width: '30%' }} alt='cyber-img' />
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
           </Div>
+
 
           {/* Pentesting */}
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
@@ -656,7 +654,7 @@ Experiencia comprobada en implementación de sistemas de autenticación seguros,
           </ServiceCard>
 
           <Div>
-            <Img2 data-aos="fade-up" src={theme === "light" ? lat : latw} style={{ width: '30%' }} alt='cyber-img' />
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
           </Div>
 
           {/* Seguridad Cloud */}
@@ -686,6 +684,10 @@ Experiencia comprobada en implementación de sistemas de autenticación seguros,
               </ServiceFeature>
             </ServiceList>
           </ServiceCard>
+
+          <Div>
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
+          </Div>
 
           {/* Tecnologías Utilizadas */}
           <MethodologySection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
@@ -719,6 +721,10 @@ Experiencia comprobada en implementación de sistemas de autenticación seguros,
               ))}
             </MethodologyGrid>
           </MethodologySection>
+
+          <Div>
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
+          </Div>
 
           {/* Estadísticas */}
           <StatsSection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
@@ -762,6 +768,10 @@ Experiencia comprobada en implementación de sistemas de autenticación seguros,
               </StatCard>
             </StatsGrid>
           </StatsSection>
+
+          <Div>
+            <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
+          </Div>
 
           {/* Precios */}
           <PricingSection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
@@ -822,6 +832,15 @@ Experiencia comprobada en implementación de sistemas de autenticación seguros,
         
         <CalendlyBadge />
       </Content>
+       <video
+          src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1742692289/gmvxffwy94p0mljpvvmp.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ width: '100%', maxWidth: '640px', height: 'auto' }}
+        />
+  
     </>
   );
 };

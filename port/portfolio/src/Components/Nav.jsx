@@ -56,9 +56,9 @@ const StyledLink = styled(NavLink)`
   z-index: 7;
 
   &.active {
-    background-color: ${(props) => props.$currentcolor.verde};
+    background-color: ${(props) => props.$currentcolor.segundo};
     font-weight: bold;
-    color: ${(props) => props.$currentcolor.marron};
+    color: ${(props) => props.$currentcolor.primero};
   }
 
   &:hover {
