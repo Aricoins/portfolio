@@ -137,7 +137,7 @@ const Proyectos = ({ currentColor }) => {
           <p>
             Aplicación web full-stack que digitaliza 20+ años de documentación legislativa con inteligencia artificial integrada. Primera plataforma municipal con IA en la región que transforma búsquedas de horas a segundos.
           </p>
-          <img src={biblio} alt="imagen" />
+          <video src="/DibiaseNet demo.mp4" autoPlay loop muted />
           <ul>
             <li>Next.js 14 | TypeScript | PostgreSQL</li>
             <li>Prisma | Clerk Auth | OpenAI API</li>
