@@ -1,23 +1,10 @@
 import anime from 'animejs/lib/anime.es.js';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { SiCss3, SiHtml5, SiJavascript, SiMysql, SiPostgresql, SiSequelize, SiGit, SiGithub, SiTrello, SiSlack, SiReactrouter, SiRedux, SiTypescript, SiTailwindcss, SiReact, SiAngular, SiNextdotjs, SiNodedotjs, SiExpress, SiNestjs, SiGraphql, SiFirebase, SiMui, SiAntdesign, SiBootstrap, SiGooglecloud, SiVercel, SiSwagger, SiJest, SiMongodb, SiReactquery } from 'react-icons/si';
-import { BiStore } from 'react-icons/bi';
 import { FaCode } from 'react-icons/fa';
 import AOS from 'aos';
-
-
-
-
-// const Bola8 = styled.img`
-//   width: 40%;
-//   position: absolute;
-//   z-index: 2;
-//   bottom: 50%;
-//   left: 30%;
-//   z-index: 0;
-// `;
 
 const Tecnologi = styled.div`
   position: relative;
@@ -43,71 +30,6 @@ const Tecnologi = styled.div`
   }
 `;
 
-const Galeria = styled.div`
-  justify-content: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  width: 78%;
-  padding: 1%;
-  background-color: ${({ currentColor }) => currentColor?.primero || '#2d2d2d'};
-  z-index: 1;
-  margin: auto;
-  font-size: x-large;
-  color: ${({ currentColor }) => currentColor?.cuarto || '#ffffff'};
-
-  @media (max-width: 800px) {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    font-size: 2em;
-  }
-`;
-
-const Icono = styled.div`
-  width: 90%;
-  grid-auto-flow: column;
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-template-rows: max-content 1fr;
-  font-size: 4em;
-  padding: 25%;
-  gap: 2%;
-  margin: auto;
-  transition: 2s;
-  color: ${({ currentColor }) => currentColor?.cuarto || '#ffffff'};
-
-  &:hover {
-    transition: 0.6s;
-    scale: 1.3;
-    z-index: 300;
-    gap: auto;
-    color: ${({ currentColor }) => currentColor?.segundo || '#60a5fa'};
-  }
-
-  @media (max-width: 1200px) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    font-size: 3em;
-    gap: 5%;
-  }
-
-  @media (max-width: 800px) {
-    grid-template-columns: 15% 15% 15% 15% 15% 15% 15%;
-    grid-template-rows: 50% 50%;
-    gap: 1%;
-    font-size: 2em;
-    margin: 5%;
-  }
-`;
-
-const Bola9 = styled.img`
-  width: 2%;
-  position: absolute;
-  z-index: 1;
-  top: 1%;
-  left: 50%;
-`;
-
 const GameContainer = styled.div`
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 15px;
@@ -117,28 +39,26 @@ const GameContainer = styled.div`
   max-width: 100%;
   position: relative;
   overflow: visible;
-  min-height: 400px;
+  min-height: 600px;
   box-sizing: border-box;
   
   @media (max-width: 1200px) {
     padding: 12px;
-    min-height: 380px;
+    min-height: 550px;
   }
   
   @media (max-width: 768px) {
-    padding: 8px;
+    padding: 10px;
     margin: 5px auto;
-    min-height: 350px;
+    min-height: 500px;
     border-radius: 10px;
-    overflow: visible;
   }
   
   @media (max-width: 480px) {
-    padding: 6px;
+    padding: 8px;
     margin: 3px auto;
-    min-height: 320px;
+    min-height: 450px;
     border-radius: 8px;
-    overflow: visible;
   }
 `;
 
@@ -165,28 +85,28 @@ const IconsGrid = styled.div`
   border-radius: 10px;
   backdrop-filter: blur(10px);
   margin-bottom: 15px;
-  max-height: 120px;
+  max-height: 150px;
   overflow-y: auto;
   
   @media (max-width: 1200px) {
     grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
     gap: 6px;
     padding: 10px;
-    max-height: 110px;
+    max-height: 140px;
   }
   
   @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
     gap: 4px;
     padding: 8px;
-    max-height: 100px;
+    max-height: 120px;
   }
   
   @media (max-width: 480px) {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 3px;
     padding: 6px;
-    max-height: 90px;
+    max-height: 100px;
   }
 `;
 
@@ -247,29 +167,29 @@ const NamesGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 8px;
   padding: 12px;
-  max-height: 180px;
+  max-height: 200px;
   overflow-y: auto;
+  margin-bottom: 20px;
   
   @media (max-width: 1200px) {
     grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: 6px;
     padding: 10px;
-    max-height: 160px;
+    max-height: 180px;
   }
   
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     gap: 4px;
     padding: 8px;
-    max-height: 140px;
+    max-height: 160px;
   }
   
   @media (max-width: 480px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 3px;
     padding: 6px;
-    max-height: 120px;
-    overflow-y: auto;
+    max-height: 140px;
   }
 `;
 
@@ -352,6 +272,18 @@ const ScoreBoard = styled.div`
   }
 `;
 
+const TouchDragIndicator = styled.div`
+  position: fixed;
+  top: ${props => props.y}px;
+  left: ${props => props.x}px;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  pointer-events: none;
+  font-size: 1.8em;
+  color: #60a5fa;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.7);
+`;
+
 const Tecnologias = ({ currentColor }) => {
     const [draggedItem, setDraggedItem] = useState(null);
     const [matches, setMatches] = useState({});
@@ -359,10 +291,16 @@ const Tecnologias = ({ currentColor }) => {
     const [showFireworks, setShowFireworks] = useState(false);
     const [dragOverZone, setDragOverZone] = useState(null);
     const [isDragging, setIsDragging] = useState(false);
-    const [touchStart, setTouchStart] = useState(null);
-    const [touchDrag, setTouchDrag] = useState(null);
+    const [touchPosition, setTouchPosition] = useState({ x: 0, y: 0 });
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+    const gameContainerRef = useRef(null);
 
-    const allTechnologies = [
+    // Game rules
+    const maxMatches = 5;
+    const coinsPerMatch = 200;
+    const totalPossibleCoins = 1000;
+
+    const technologies = [
         { id: 'react', name: 'React', icon: SiReact },
         { id: 'angular', name: 'Angular', icon: SiAngular },
         { id: 'nextjs', name: 'Next.js', icon: SiNextdotjs },
@@ -385,100 +323,53 @@ const Tecnologias = ({ currentColor }) => {
         { id: 'vercel', name: 'Vercel', icon: SiVercel },
         { id: 'swagger', name: 'Swagger', icon: SiSwagger },
         { id: 'jest', name: 'Jest', icon: SiJest },
-        { id: 'tanstack', name: 'Tanstack Query', icon: SiReactquery },
-        { id: 'zustand', name: 'Zustand', icon: BiStore }
+        { id: 'zustand', name: 'Zustand', icon: SiReact },
+        { id: 'tanstack', name: 'Tanstack Query', icon: SiReactquery }
     ];
-
-    // Randomly select 5 technologies for each game
-    const [technologies, setTechnologies] = useState([]);
 
     useEffect(() => {
         AOS.init();
-        // Initialize game with 5 random technologies
-        const shuffled = [...allTechnologies].sort(() => 0.5 - Math.random());
-        setTechnologies(shuffled.slice(0, 5));
+        // Detectar si es un dispositivo táctil
+        setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
     }, []);
 
-    const resetGame = () => {
-        const shuffled = [...allTechnologies].sort(() => 0.5 - Math.random());
-        setTechnologies(shuffled.slice(0, 5));
-        setMatches({});
-        setScore(0);
-        setDraggedItem(null);
-        setDragOverZone(null);
-        setIsDragging(false);
-        setTouchStart(null);
-        setTouchDrag(null);
+    // Detectar elemento bajo el puntero
+    const getElementUnderPoint = (x, y) => {
+        document.elementFromPoint(x, y);
+        return document.elementFromPoint(x, y);
     };
 
-    // Desktop drag and drop handlers
-    const handleDragStart = (e, tech) => {
-        if (matches[tech.id]) {
-            e.preventDefault();
-            return false;
-        }
-        setDraggedItem(tech);
-        setIsDragging(true);
-        e.dataTransfer.setData('text/plain', tech.id);
-        e.dataTransfer.effectAllowed = 'move';
-        
-        // Create drag image
-        const dragImage = e.currentTarget.cloneNode(true);
-        dragImage.style.transform = 'rotate(5deg) scale(1.1)';
-        dragImage.style.opacity = '0.8';
-        e.dataTransfer.setDragImage(dragImage, 25, 25);
-    };
-
-    const handleDragEnd = (e) => {
-        setIsDragging(false);
-        setDragOverZone(null);
-    };
-
-    const handleDragOver = (e, techId) => {
-        e.preventDefault();
-        e.stopPropagation();
-        e.dataTransfer.dropEffect = 'move';
-        setDragOverZone(techId);
-    };
-
-    const handleDragLeave = (e) => {
-        e.preventDefault();
-        setDragOverZone(null);
-    };
-
-    const handleDrop = (e, targetTech) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const draggedId = e.dataTransfer.getData('text/plain');
-        
-        if (draggedId === targetTech.id && !matches[targetTech.id]) {
-            handleSuccessfulMatch(targetTech);
-        }
-        
-        setDraggedItem(null);
-        setDragOverZone(null);
-        setIsDragging(false);
-    };
-
-    // Touch drag and drop handlers
-    const handleTouchStart = (e, tech) => {
+    // Manejo de inicio de arrastre
+    const handleDragStart = (tech) => {
         if (matches[tech.id]) return;
-        const touch = e.touches[0];
-        setTouchStart({ x: touch.clientX, y: touch.clientY });
         setDraggedItem(tech);
         setIsDragging(true);
     };
 
-    const handleTouchMove = (e) => {
-        if (!draggedItem || !touchStart) return;
-        e.preventDefault();
-        const touch = e.touches[0];
-        setTouchDrag({ x: touch.clientX, y: touch.clientY });
+    // Manejo de fin de arrastre
+    const handleDragEnd = () => {
+        setIsDragging(false);
+        setDragOverZone(null);
+        setDraggedItem(null);
+    };
+
+    // Manejo de movimiento durante arrastre
+    const handleDragMove = (e) => {
+        if (!draggedItem) return;
         
-        // Find element under touch point
-        const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
-        const dropZone = elementBelow?.closest('[data-drop-zone]');
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
         
+        if (!clientX || !clientY) return;
+        
+        setTouchPosition({ x: clientX, y: clientY });
+        
+        // Detectar elemento bajo el puntero
+        const elementBelow = getElementUnderPoint(clientX, clientY);
+        if (!elementBelow) return;
+        
+        // Verificar si está sobre una zona de destino
+        const dropZone = elementBelow.closest('[data-drop-zone]');
         if (dropZone) {
             const techId = dropZone.getAttribute('data-drop-zone');
             setDragOverZone(techId);
@@ -487,56 +378,25 @@ const Tecnologias = ({ currentColor }) => {
         }
     };
 
-    const handleTouchEnd = (e) => {
-        if (!draggedItem || !touchStart) return;
-        
-        const touch = e.changedTouches[0];
-        const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
-        const dropZone = elementBelow?.closest('[data-drop-zone]');
-        
-        if (dropZone) {
-            const techId = dropZone.getAttribute('data-drop-zone');
-            const targetTech = technologies.find(t => t.id === techId);
-            
-            if (targetTech && draggedItem.id === targetTech.id && !matches[targetTech.id]) {
-                handleSuccessfulMatch(targetTech);
-            }
+    // Manejo de soltar elemento
+    const handleDrop = () => {
+        if (!draggedItem || !dragOverZone) {
+            handleDragEnd();
+            return;
         }
         
-        // Reset states
-        setDraggedItem(null);
-        setTouchStart(null);
-        setTouchDrag(null);
-        setDragOverZone(null);
-        setIsDragging(false);
-    };
-
-    // Fallback click handlers for accessibility
-    const handleIconClick = (tech) => {
-        if (!matches[tech.id]) {
-            setDraggedItem(tech);
+        // Verificar si la coincidencia es correcta
+        if (draggedItem.id === dragOverZone && !matches[dragOverZone]) {
+            handleSuccessfulMatch(technologies.find(t => t.id === dragOverZone));
         }
+        
+        handleDragEnd();
     };
 
-    const handleDropZoneClick = (targetTech) => {
-        if (draggedItem && draggedItem.id === targetTech.id) {
-            handleSuccessfulMatch(targetTech);
-            setDraggedItem(null);
-        }
-    };
-
+    // Manejo de coincidencia exitosa
     const handleSuccessfulMatch = (targetTech) => {
-        const newMatches = { ...matches, [targetTech.id]: true };
-        setMatches(newMatches);
-        
-        let scoreToAdd = 200; // 200 aricoins per match
-        
-        // Check if this completes the game (5 matches)
-        if (Object.keys(newMatches).length === 5) {
-            scoreToAdd = 1000; // 1000 total for winning (800 bonus + 200 for this match)
-        }
-        
-        setScore(prev => prev + scoreToAdd);
+        setMatches(prev => ({ ...prev, [targetTech.id]: true }));
+        setScore(prev => prev + coinsPerMatch);
         
         setShowFireworks(true);
         setTimeout(() => setShowFireworks(false), 1000);
@@ -550,6 +410,7 @@ const Tecnologias = ({ currentColor }) => {
         });
     };
 
+    // Crear efectos de fuegos artificiales
     const createFireworks = () => {
         anime({
             targets: '.firework',
@@ -568,8 +429,25 @@ const Tecnologias = ({ currentColor }) => {
         }
     }, [showFireworks]);
 
-    const isGameComplete = Object.keys(matches).length === technologies.length;
-    const isGameWon = Object.keys(matches).length === 5; // Win when 5 matches are made
+    // Configurar eventos globales para el arrastre
+    useEffect(() => {
+        if (isDragging) {
+            window.addEventListener('mousemove', handleDragMove);
+            window.addEventListener('touchmove', handleDragMove, { passive: false });
+            window.addEventListener('mouseup', handleDrop);
+            window.addEventListener('touchend', handleDrop);
+        }
+        
+        return () => {
+            window.removeEventListener('mousemove', handleDragMove);
+            window.removeEventListener('touchmove', handleDragMove);
+            window.removeEventListener('mouseup', handleDrop);
+            window.removeEventListener('touchend', handleDrop);
+        };
+    }, [isDragging, draggedItem, dragOverZone]);
+
+    const matchedCount = Object.keys(matches).length;
+    const isGameComplete = matchedCount >= maxMatches;
 
     return (
         <>
@@ -578,44 +456,25 @@ const Tecnologias = ({ currentColor }) => {
                     Ofrecemos soluciones digitales innovadoras utilizando las últimas tecnologías del mercado. Nuestra experiencia y conocimiento abarcan una amplia gama de herramientas y frameworks, lo que nos permite ofrecer productos de alta calidad y rendimiento.
                 </div>
               
-                <GameContainer>
+                <GameContainer ref={gameContainerRef}>
                     <GameTitle>🎮 Tech Match Challenge 🎮</GameTitle>
                     <ScoreBoard>
-                        💰 {score} Aricoins | Progreso: {Object.keys(matches).length}/5
-                        {isGameWon && " 🎉 ¡Ganaste 1000 Aricoins! 🎉"}
-                        {isGameWon && (
-                            <div style={{marginTop: '8px'}}>
-                                <button 
-                                    onClick={resetGame}
-                                    style={{
-                                        padding: '8px 16px',
-                                        background: '#4ade80',
-                                        color: 'white',
-                                        border: 'none',
-                                        borderRadius: '6px',
-                                        cursor: 'pointer',
-                                        fontWeight: 'bold'
-                                    }}
-                                >
-                                    🎮 Nuevo Juego
-                                </button>
-                            </div>
-                        )}
+                        💰 {score} Aricoins | Objetivo: {totalPossibleCoins} | Aciertos: {matchedCount}/{maxMatches}
+                        {isGameComplete && " 🎉 ¡Felicitaciones! ¡Ganaste el desafío! 🎉"}
                     </ScoreBoard>
                     
                     <div style={{color: 'white', textAlign: 'center', marginBottom: '15px', fontFamily: 'Verdana', fontSize: '0.9rem', lineHeight: '1.4'}}>
-                        🎯 Arrastra o clickea los iconos con sus nombres | 5 aciertos = 1000 Aricoins
+                        {isTouchDevice ? 
+                            '👆 Toca un icono y arrástralo al nombre correspondiente' : 
+                            '🖱️ Arrastra los iconos a sus nombres correspondientes'}
+                        
                         {draggedItem && (
                             <div style={{marginTop: '8px', padding: '8px', background: 'rgba(251, 191, 36, 0.1)', borderRadius: '6px', border: '1px solid #fbbf24'}}>
                                 <span style={{color: '#fbbf24', fontWeight: 'bold'}}>
                                     {isDragging ? '🎯 Arrastrando: ' : '✨ Seleccionado: '}{draggedItem.name}
                                 </span>
                                 <button 
-                                    onClick={() => {
-                                        setDraggedItem(null);
-                                        setIsDragging(false);
-                                        setDragOverZone(null);
-                                    }}
+                                    onClick={handleDragEnd}
                                     style={{
                                         marginLeft: '10px', 
                                         padding: '4px 12px', 
@@ -638,30 +497,20 @@ const Tecnologias = ({ currentColor }) => {
                     </div>
                     
                     <IconsGrid>
-                        {technologies.length > 0 && technologies.map(tech => {
+                        {technologies.map(tech => {
                             const IconComponent = tech.icon;
-                            const isCurrentlyDragged = draggedItem?.id === tech.id && isDragging;
                             return (
                                 <DraggableIcon
                                     key={tech.id}
-                                    draggable={!matches[tech.id]}
-                                    onDragStart={(e) => handleDragStart(e, tech)}
-                                    onDragEnd={handleDragEnd}
-                                    onTouchStart={(e) => handleTouchStart(e, tech)}
-                                    onTouchMove={handleTouchMove}
-                                    onTouchEnd={handleTouchEnd}
-                                    onClick={() => handleIconClick(tech)}
+                                    onMouseDown={() => handleDragStart(tech)}
+                                    onTouchStart={(e) => {
+                                        e.preventDefault();
+                                        handleDragStart(tech);
+                                    }}
                                     matched={matches[tech.id]}
                                     selected={draggedItem?.id === tech.id}
-                                    isDragging={isCurrentlyDragged}
+                                    isDragging={isDragging && draggedItem?.id === tech.id}
                                     className={`match-${tech.id}`}
-                                    style={{
-                                        position: isCurrentlyDragged && touchDrag ? 'fixed' : 'relative',
-                                        left: isCurrentlyDragged && touchDrag ? touchDrag.x - 25 : 'auto',
-                                        top: isCurrentlyDragged && touchDrag ? touchDrag.y - 25 : 'auto',
-                                        pointerEvents: isCurrentlyDragged ? 'none' : 'auto',
-                                        zIndex: isCurrentlyDragged ? 9999 : 'auto'
-                                    }}
                                 >
                                     <IconComponent />
                                 </DraggableIcon>
@@ -669,15 +518,17 @@ const Tecnologias = ({ currentColor }) => {
                         })}
                     </IconsGrid>
                     
+                    {isDragging && draggedItem && isTouchDevice && (
+                        <TouchDragIndicator x={touchPosition.x} y={touchPosition.y}>
+                            <draggedItem.icon />
+                        </TouchDragIndicator>
+                    )}
+                    
                     <NamesGrid>
-                        {technologies.length > 0 && technologies.map(tech => (
+                        {technologies.map(tech => (
                             <DropZone
                                 key={`drop-${tech.id}`}
                                 data-drop-zone={tech.id}
-                                onDragOver={(e) => handleDragOver(e, tech.id)}
-                                onDragLeave={handleDragLeave}
-                                onDrop={(e) => handleDrop(e, tech)}
-                                onClick={() => handleDropZoneClick(tech)}
                                 matched={matches[tech.id]}
                                 isOver={dragOverZone === tech.id}
                             >
@@ -715,9 +566,9 @@ const Tecnologias = ({ currentColor }) => {
                 }}>
                     <div style={{marginBottom: "8px", color: "#60a5fa", fontWeight: "bold"}}>🛠️ Stack Tecnológico</div>
                     <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "8px", fontSize: "0.7rem"}}>
-                        <div><strong style={{color: "#fbbf24"}}>Frontend:</strong> React, Angular, Next.js, JavaScript, TypeScript, HTML, CSS, Redux</div>
-                        <div><strong style={{color: "#4ade80"}}>Backend:</strong> Node.js, Express, Nest.js, GraphQL</div>
-                        <div><strong style={{color: "#f472b6"}}>Databases:</strong> PostgreSQL, Firebase</div>
+                        <div><strong style={{color: "#fbbf24"}}>Frontend:</strong> React, Angular, Next.js, JavaScript, TypeScript, HTML, CSS, Redux, Zustand</div>
+                        <div><strong style={{color: "#4ade80"}}>Backend:</strong> Node.js, Express, Nest.js, GraphQL, Tanstack Query</div>
+                        <div><strong style={{color: "#f472b6"}}>Databases:</strong> PostgreSQL, MongoDB, Firebase</div>
                         <div><strong style={{color: "#8b5cf6"}}>UI/UX:</strong> Tailwind CSS, Material UI, Bootstrap</div>
                         <div><strong style={{color: "#06b6d4"}}>Tools:</strong> Git, Vercel, Swagger, Jest</div>
                     </div>
@@ -727,7 +578,6 @@ const Tecnologias = ({ currentColor }) => {
     );
 };
 
-// PropTypes validation
 Tecnologias.propTypes = {
   currentColor: PropTypes.shape({
     primero: PropTypes.string,
@@ -738,7 +588,6 @@ Tecnologias.propTypes = {
   })
 };
 
-// Default props to prevent errors
 Tecnologias.defaultProps = {
   currentColor: {
     primero: '#2d2d2d',
