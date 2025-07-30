@@ -27,7 +27,6 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
   box-sizing: border-box;
@@ -276,7 +275,7 @@ function HomePage({ currentColor, theme }) {
             backgroundColor: 'white', 
             color: '#000000',
             width: '100%', 
-            height: '100%', 
+            height: 'auto', 
             margin: '0%', 
             textAlign: 'center',
             padding: '1rem',
@@ -477,8 +476,7 @@ function App() {
           <Nav currentcolor={currentcolor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
         </div>
 
-        <ScrollToTop />
-        
+     
         <Routes>
           <Route path="/" element={<HomePage currentColor={currentcolor} theme={theme} />} />
           <Route path="/seo" element={<SeoPage currentColor={currentcolor} theme={theme} />} />
