@@ -257,10 +257,10 @@ function HomePage({ currentColor, theme }) {
   return (
     <>
       {/* Sección About */}
-      <div id="about" style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
+      <div id="about" style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "2%", marginTop: "1%"}}>
         <Img2 data-aos="fade-left" data-aos-duration="30" data-aos-offset="50"  
           src={theme === "light" ? latw : lat} 
-          style={{ width: '33%', margin: "auto"}} alt='devimg' />
+          style={{ width: '25%', margin: "auto"}} alt='devimg' />
         <About currentColor={currentColor} theme={theme} />
       </div>
       <Content style={{ backgroundColor: currentColor.primero }}>
@@ -306,7 +306,7 @@ function HomePage({ currentColor, theme }) {
           fontWeight: '700',
           textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
         }}>
-          Nuestros Servicios
+          Servicios
         </h2>
         
         <ServicesGrid>
