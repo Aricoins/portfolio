@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { SiCss3, SiHtml5, SiJavascript, SiMysql, SiPostgresql, SiSequelize, SiGit, SiGithub, SiTrello, SiSlack, SiReactrouter, SiRedux, SiTypescript, SiTailwindcss, SiReact, SiAngular, SiNextdotjs, SiNodedotjs, SiExpress, SiNestjs, SiGraphql, SiFirebase, SiMui, SiAntdesign, SiBootstrap, SiGooglecloud, SiVercel, SiSwagger, SiJest, SiMongodb, SiReactquery } from 'react-icons/si';
 import { FaCode } from 'react-icons/fa';
 import AOS from 'aos';
+import { gsap } from 'gsap';
 
 const Tecnologi = styled.div`
   position: relative;
@@ -448,6 +449,113 @@ const Tecnologias = ({ currentColor }) => {
 
     const matchedCount = Object.keys(matches).length;
     const isGameComplete = matchedCount >= maxMatches;
+
+    // Función para crear explosión de partículas en victoria
+    const createVictoryExplosion = () => {
+        if (!gameContainerRef.current) return;
+        
+        const container = gameContainerRef.current;
+        const rect = container.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Crear múltiples ondas de partículas
+        for (let wave = 0; wave < 3; wave++) {
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    const size = Math.random() * 8 + 4;
+                    const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8'];
+                    const shapes = ['💰', '🎉', '⭐', '💎', '🏆', '🎯', '🚀', '⚡'];
+                    const isEmoji = Math.random() > 0.5;
+                    
+                    if (isEmoji) {
+                        particle.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                        particle.style.cssText = `
+                            position: fixed;
+                            font-size: ${size * 2}px;
+                            pointer-events: none;
+                            z-index: 10000;
+                            left: ${centerX}px;
+                            top: ${centerY}px;
+                            user-select: none;
+                        `;
+                    } else {
+                        particle.style.cssText = `
+                            position: fixed;
+                            width: ${size}px;
+                            height: ${size}px;
+                            background: ${colors[Math.floor(Math.random() * colors.length)]};
+                            border-radius: 50%;
+                            pointer-events: none;
+                            z-index: 10000;
+                            left: ${centerX}px;
+                            top: ${centerY}px;
+                            box-shadow: 0 0 ${size * 3}px currentColor;
+                        `;
+                    }
+                    
+                    document.body.appendChild(particle);
+
+                    const angle = (Math.PI * 2 * i) / 50;
+                    const velocity = Math.random() * 300 + 100 + (wave * 50);
+                    const x = Math.cos(angle) * velocity;
+                    const y = Math.sin(angle) * velocity;
+
+                    gsap.to(particle, {
+                        x: x,
+                        y: y,
+                        opacity: 0,
+                        scale: isEmoji ? Math.random() * 2 + 0.5 : 0,
+                        rotation: Math.random() * 720,
+                        duration: Math.random() * 3 + 2,
+                        ease: "power2.out",
+                        onComplete: () => particle.remove()
+                    });
+                }
+            }, wave * 200);
+        }
+        
+        // Efecto de confetti adicional
+        setTimeout(() => {
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1'];
+                
+                confetti.style.cssText = `
+                    position: fixed;
+                    width: 10px;
+                    height: 20px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    pointer-events: none;
+                    z-index: 10000;
+                    left: ${rect.left + Math.random() * rect.width}px;
+                    top: ${rect.top - 50}px;
+                `;
+                
+                document.body.appendChild(confetti);
+                
+                gsap.to(confetti, {
+                    y: window.innerHeight + 100,
+                    x: (Math.random() - 0.5) * 200,
+                    rotation: Math.random() * 360,
+                    duration: Math.random() * 3 + 2,
+                    ease: "power2.in",
+                    onComplete: () => confetti.remove()
+                });
+            }
+        }, 500);
+    };
+
+    // Detectar cuando el usuario gana y ejecutar explosión
+    useEffect(() => {
+        if (isGameComplete && matchedCount === maxMatches) {
+            // Delay pequeño para que se vea el mensaje de victoria
+            setTimeout(() => {
+                createVictoryExplosion();
+            }, 300);
+        }
+    }, [isGameComplete, matchedCount, maxMatches]);
 
     return (
         <>
