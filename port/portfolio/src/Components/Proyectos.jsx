@@ -107,6 +107,29 @@ const Proyectos = ({ currentColor }) => {
 
   return (
     <Contenedor currentColor={currentColor}>
+      <a href="https://apollonia-employee-management-1wy2escvh-aricoins-projects.vercel.app" rel="noreferrer" target="_blank">
+        <Card
+          currentColor={currentColor}
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
+          <h4>🦷 Apollonia Employee Management</h4>
+          <p>
+            Sistema integral de gestión de empleados para práctica dental. Aplicación full-stack CRUD con base de datos MongoDB, interfaz responsiva y despliegue multi-entorno.
+          </p>
+          <video src="https://res.cloudinary.com/dbh6nn12c/video/upload/v1754865663/Appolonia_Dental_Practice_njbgct.mp4" autoPlay loop muted />
+          <ul>
+            <li>Backend: Node.js, Express.js, MongoDB, Mongoose</li>
+            <li>Frontend: HTML5, CSS3, JavaScript ES6+</li>
+            <li>DevOps: Docker, MongoDB Atlas, Vercel</li>
+            <li>11 endpoints RESTful API</li>
+            <li>Validación client-side y server-side</li>
+            <li>Interfaz responsive mobile-first</li>
+          </ul>
+        </Card>
+      </a>
+
 <Card
   currentColor={currentColor}
   data-aos="flip-left"
@@ -114,7 +137,7 @@ const Proyectos = ({ currentColor }) => {
   data-aos-duration="2000"
 >
 
-    <h4>LawCase</h4>
+    <h4>⚖️ LawCase</h4>
     <p>
       Plataforma integral para abogados: gestión de casos, plazos y documentos legales. Eficiencia en la administración de casos, organización de documentos, gestión de clientes y programación de eventos.
     </p>
@@ -133,7 +156,7 @@ const Proyectos = ({ currentColor }) => {
 
       <a href="https://dibiase.net/" rel="noreferrer" target="_blank">
         <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-          <h4>DiBiase Net</h4>
+          <h4>🏛️ DiBiase Net</h4>
           <p>
             Aplicación web full-stack que digitaliza 20+ años de documentación legislativa con inteligencia artificial integrada. Primera plataforma municipal con IA en la región que transforma búsquedas de horas a segundos.
           </p>
@@ -150,7 +173,7 @@ const Proyectos = ({ currentColor }) => {
       </a>
 
       <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-        <h4>Azul Lago Cooperativa</h4>
+        <h4>🌿 Azul Lago Cooperativa</h4>
         <p>
           Landing page centrada en la visualización de marcas y proyectos y productos naturales.
         </p>
@@ -166,7 +189,7 @@ const Proyectos = ({ currentColor }) => {
         </ul>
       </Card>
 
-      <a href="https://ecommerce-pf-henry-grupo7.vercel.app/" rel="noreferrer" target="_blank">
+      {/* <a href="https://ecommerce-pf-henry-grupo7.vercel.app/" rel="noreferrer" target="_blank">
         <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
           <h4>Codewave Central</h4> 
           <p>Tienda de comercio electrónico con dashboard para la gestión de productos y usuarios. Pasarela de pagos integrada.</p>
@@ -180,11 +203,11 @@ const Proyectos = ({ currentColor }) => {
             <li>Automatización con scripts personalizados.</li>
           </ul>
         </Card>
-      </a>
+      </a> */}
 
       <a href="https://nuevamascota.vercel.app/" target="_blank" rel="noreferrer">
         <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
-          <h4>Dogs App</h4>
+          <h4>🐕 Dogs App</h4>
           <p>Aplicación web interactiva de adopción de mascotas. Permite a los usuarios explorar, filtrar y ordenar una amplia variedad de razas de perros y crear un nuevo can en la base de datos.</p>
           <img src={dogs} alt="imagen" />
           <ul>
@@ -199,7 +222,7 @@ const Proyectos = ({ currentColor }) => {
 
       <a href="https://github.com/Aricoins/APIRest" target="_blank" rel="noreferrer">
         <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
-          <h4>WeCode API</h4>
+          <h4>🔗 WeCode API</h4>
           <p>API REST para la red social WeCode orientada al mundo IT</p>
           <img src='./apirest.jpg' alt="imagen" />
           <ul>
