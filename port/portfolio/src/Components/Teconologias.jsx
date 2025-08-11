@@ -9,25 +9,45 @@ import { gsap } from 'gsap';
 
 const Tecnologi = styled.div`
   position: relative;
-  background-color: ${({ currentColor }) => currentColor?.cuarto || '#1a1a1a'};
+  background-color: ${({ currentColor }) => 
+    currentColor?.primero === "#FFFFFF" 
+      ? "rgba(255, 255, 255, 0.75)"  // Tema claro: semi-transparente
+      : "rgba(26, 22, 37, 0.85)"     // Tema oscuro: semi-transparente
+  };
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid ${({ currentColor }) => 
+    currentColor?.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"
+      : "rgba(153, 90, 152, 0.3)"
+  };
+  box-shadow: ${({ currentColor }) => 
+    currentColor?.primero === "#FFFFFF"
+      ? "0 8px 32px rgba(0, 0, 0, 0.1)"
+      : "0 8px 32px rgba(0, 0, 0, 0.3)"
+  };
   width: 90%;
   height: 100%;
-  opacity: 0.9;
   text-align: center;
   font-size: 2em;
   color: ${({ currentColor }) => currentColor?.quinto || '#ffffff'};
-  text-decoration: solid 1px ${({ currentColor }) => currentColor?.cuarto || '#1a1a1a'};
-  padding: 1%;   
+  padding: 2%;   
   z-index: 5;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  background-color: black;
 
   @media (max-width: 800px) {
+    width: 95%;
     margin: auto;
     font-size: 0.8em;
+    background-color: ${({ currentColor }) => 
+      currentColor?.primero === "#FFFFFF" 
+        ? "rgba(255, 255, 255, 0.85)"  // Más opaco en mobile
+        : "rgba(26, 22, 37, 0.90)"
+    };
+    padding: 3%;
   }
 `;
 

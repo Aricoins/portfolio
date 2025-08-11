@@ -5,14 +5,40 @@ import 'aos/dist/aos.css';
 
 // Styled components
 const Contenedor = styled.div`
-  width: 100%;
-  background-color: ${props => props.currentColor.primero};
+  width: 95%;
+  background-color: ${props => 
+    props.currentColor.primero === "#FFFFFF" 
+      ? "rgba(255, 255, 255, 0.75)"  // Tema claro: semi-transparente
+      : "rgba(26, 22, 37, 0.85)"     // Tema oscuro: semi-transparente
+  };
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"
+      : "rgba(153, 90, 152, 0.3)"
+  };
+  box-shadow: ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "0 8px 32px rgba(0, 0, 0, 0.1)"
+      : "0 8px 32px rgba(0, 0, 0, 0.3)"
+  };
   color: ${props => props.currentColor.quinto};
   display: flex;
   flex-direction: column;
-  margin: 2%;
-  width: "100%";
+  margin: 2% auto;
+  padding: 2%;
   font-family: 'Audiowide', sans-serif;
+  
+  @media (max-width: 800px) {
+    width: 90%;
+    background-color: ${props => 
+      props.currentColor.primero === "#FFFFFF" 
+        ? "rgba(255, 255, 255, 0.85)"  // Más opaco en mobile
+        : "rgba(26, 22, 37, 0.90)"
+    };
+    padding: 3%;
+  }
 `;
 
 const Label = styled.label`

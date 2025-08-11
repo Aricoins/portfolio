@@ -53,7 +53,7 @@ const StyledDiv = styled.div`
   display: flex;
   width: 100%;
   max-width: 100vw;
-  z-index: 0;
+  z-index: 10;
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -93,11 +93,20 @@ const Img2 = styled.img`
 `;
 
 const ServiceCard = styled.div`
-  background: ${props => props.currentColor.tercero};
+  background: ${props => 
+    props.currentColor.primero === "#FFFFFF" 
+      ? "rgba(255, 255, 255, 0.80)"  // Tema claro: semi-transparente
+      : "rgba(26, 22, 37, 0.85)"     // Tema oscuro: semi-transparente
+  };
+  backdrop-filter: blur(15px);
   border-radius: 15px;
   padding: 3rem;
   margin-bottom: 2rem;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "0 6px 12px rgba(0, 0, 0, 0.1)"
+      : "0 6px 12px rgba(0, 0, 0, 0.3)"
+  };
   transition: all 0.3s ease;
   width: 100%;
   max-width: 900px;
@@ -105,11 +114,19 @@ const ServiceCard = styled.div`
   display: flex;
   align-items: center;
   gap: 3rem;
-  border: 2px solid ${props => props.currentColor.segundo};
+  border: 2px solid ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"
+      : props.currentColor.segundo
+  };
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    box-shadow: ${props => 
+      props.currentColor.primero === "#FFFFFF"
+        ? "0 12px 24px rgba(0, 0, 0, 0.15)"
+        : "0 12px 24px rgba(153, 90, 152, 0.4)"
+    };
     border-color: ${props => props.currentColor.quinto};
   }
   
@@ -120,6 +137,11 @@ const ServiceCard = styled.div`
     flex-direction: column;
     text-align: center;
     gap: 1.5rem;
+    background: ${props => 
+      props.currentColor.primero === "#FFFFFF" 
+        ? "rgba(255, 255, 255, 0.90)"  // Más opaco en mobile
+        : "rgba(26, 22, 37, 0.95)"
+    };
   }
 `;
 
@@ -203,14 +225,29 @@ const ServiceItem = styled.li`
 `;
 
 const ResultsSection = styled.div`
-  background: ${props => props.currentColor.cuarto};
+  background: ${props => 
+    props.currentColor.primero === "#FFFFFF" 
+      ? "rgba(0, 0, 0, 0.05)"        // Tema claro: fondo muy sutil
+      : "rgba(153, 90, 152, 0.25)"   // Tema oscuro: violeta semi-transparente
+  };
+  backdrop-filter: blur(10px);
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 2rem 0;
+  border: 1px solid ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"
+      : "rgba(153, 90, 152, 0.3)"
+  };
   
   @media (max-width: 900px) {
     padding: 1rem;
     margin: 1rem 0;
+    background: ${props => 
+      props.currentColor.primero === "#FFFFFF" 
+        ? "rgba(0, 0, 0, 0.08)"      // Más visible en mobile
+        : "rgba(153, 90, 152, 0.35)"
+    };
   }
 `;
 
@@ -247,12 +284,26 @@ const ResultsGrid = styled.div`
 `;
 
 const ResultCard = styled.div`
-  background: ${props => props.currentColor.primero};
+  background: ${props => 
+    props.currentColor.primero === "#FFFFFF" 
+      ? "rgba(255, 255, 255, 0.75)"  // Tema claro: semi-transparente
+      : "rgba(26, 22, 37, 0.80)"     // Tema oscuro: semi-transparente
+  };
+  backdrop-filter: blur(10px);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: center;
   color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "0 2px 8px rgba(0, 0, 0, 0.1)"
+      : "0 2px 8px rgba(0, 0, 0, 0.3)"
+  };
+  border: 1px solid ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"
+      : "rgba(153, 90, 152, 0.3)"
+  };
   
   h3 {
     color: ${props => props.currentColor.segundo === "#4B4B4B" ? "#FFFFFF" : "#000000"};
@@ -285,13 +336,32 @@ const SeoPage = ({ currentColor, theme }) => {
 
   return (
     <>
-      <Content style={{ backgroundColor: currentColor.primero }}>
-        <div style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
+      <Content style={{ 
+        backgroundColor: 'transparent'
+      }}>
+        <div style={{
+          display: "flex", 
+          flexDirection: "row", 
+          backgroundColor: currentColor.primero === "#FFFFFF" 
+            ? "rgba(255, 255, 255, 0.80)"
+            : "rgba(26, 22, 37, 0.85)",
+          backdropFilter: "blur(15px)",
+          border: `1px solid ${currentColor.primero === "#FFFFFF" 
+            ? "rgba(0, 0, 0, 0.1)" 
+            : "rgba(153, 90, 152, 0.3)"}`,
+          borderRadius: "20px",
+          boxShadow: currentColor.primero === "#FFFFFF"
+            ? "0 8px 32px rgba(0, 0, 0, 0.1)"
+            : "0 8px 32px rgba(0, 0, 0, 0.3)",
+          margin: "auto", 
+          padding: "4%", 
+          marginTop: "3%"
+        }}>
           <Img2 
             data-aos="fade-right"  
             data-aos-duration="300"
             data-aos-offset="50"  
-            src={theme === "light" ? latw : lat} 
+            src={theme === "light" ? lat : latw} 
             style={{ width: '30%', margin: "auto"}} 
             alt='seo-img' 
           />
@@ -325,11 +395,10 @@ const SeoPage = ({ currentColor, theme }) => {
           </SeoContainer>
         </div>
 
-        <StyledDiv>
-          <Div>
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='seo-img' />
-          </Div>
-
+          
+        
+       <StyledDiv>
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <ServiceImage src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="SEO Analytics" />
             <ServiceContent>
@@ -346,9 +415,8 @@ const SeoPage = ({ currentColor, theme }) => {
             </ServiceContent>
           </ServiceCard>
 
-          <Div>
+
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='seo-img' />
-          </Div>
 
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <ServiceImage src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Mobile Optimization" />
@@ -366,10 +434,8 @@ const SeoPage = ({ currentColor, theme }) => {
             </ServiceContent>
           </ServiceCard>
 
-          <Div>
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='seo-img' />
-          </Div>
-
+        
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <ServiceImage src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Conversion Strategy" />
             <ServiceContent>

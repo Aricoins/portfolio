@@ -15,8 +15,10 @@ const Contenedor = styled.div`
   margin: 0;
   justify-content: center;
   z-index: 1;
-  background-color: ${(props) => props.currentColor.primero};
+  background-color: transparent;
   color: ${(props) => props.currentColor.cuarto};
+  padding: 20px;
+  border-radius: 20px;
 
   @media (max-width: 800px) {
     grid-template-columns: repeat(2, 1fr);
@@ -28,24 +30,51 @@ const Contenedor = styled.div`
 `;
 
 const Card = styled.div`
-  background-color: ${(props) => props.currentColor.primero};
-  border-radius: 10px;
-  box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.25);
+  background-color: ${(props) => 
+    props.currentColor.primero === "#FFFFFF" 
+      ? "rgba(255, 255, 255, 0.85)"  // Tema claro: blanco semi-transparente
+      : "rgba(26, 22, 37, 0.90)"     // Tema oscuro: más opaco para mejor legibilidad
+  };
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: ${(props) => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "0 8px 32px rgba(0, 0, 0, 0.15)"     // Sombra suave para tema claro
+      : "0 8px 32px rgba(0, 0, 0, 0.4)"      // Sombra más pronunciada para tema oscuro
+  };
   font-size: 1em;
   margin: 5%;
   width: 80%;
-  border: 3px solid ${(props) => props.currentColor.cuarto};
+  border: 2px solid ${(props) => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"         // Borde suave para tema claro
+      : props.currentColor.cuarto    // Borde original para tema oscuro
+  };
   z-index: 5;
   text-align: center;
   padding: 2%;
   color: ${(props) => props.currentColor.cuarto};
   font-family: "audiowide";
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${(props) => props.currentColor.cuarto};
+    background-color: ${(props) => 
+      props.currentColor.primero === "#FFFFFF"
+        ? "rgba(0, 0, 0, 0.85)"        // Tema claro: fondo oscuro en hover
+        : "rgba(153, 90, 152, 0.90)"   // Tema oscuro: color violeta en hover
+    };
     border-color: ${(props) => props.currentColor.quinto};
-    color: ${(props) => props.currentColor.primero};
-    transition: 0.001s linear;
+    color: ${(props) => 
+      props.currentColor.primero === "#FFFFFF"
+        ? "#FFFFFF"                    // Tema claro: texto blanco en hover
+        : props.currentColor.primero   // Tema oscuro: texto original en hover
+    };
+    transform: translateY(-5px);
+    box-shadow: ${(props) => 
+      props.currentColor.primero === "#FFFFFF"
+        ? "0 12px 40px rgba(0, 0, 0, 0.25)"
+        : "0 12px 40px rgba(153, 90, 152, 0.4)"
+    };
   }
 
   h4 {

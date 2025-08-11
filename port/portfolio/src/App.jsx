@@ -31,6 +31,7 @@ const Content = styled.div`
   max-width: 100vw;
   box-sizing: border-box;
   font-family: audiowide-regular;
+  position: relative;
   
   @media (max-width: 800px) {
     flex-direction: column;
@@ -257,13 +258,30 @@ function HomePage({ currentColor, theme }) {
   return (
     <>
       {/* Sección About */}
-      <div id="about" style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "2%", marginTop: "1%"}}>
+      <div id="about" style={{
+        display: "flex", 
+        flexDirection: "row", 
+        backgroundColor: currentColor.primero === "#FFFFFF" 
+          ? "rgba(255, 255, 255, 0.60)"  // Tema claro: muy transparente
+          : "rgba(0, 0, 0, 0.70)",       // Tema oscuro: semi-transparente negro
+        backdropFilter: "blur(15px)",
+        border: `1px solid ${currentColor.primero === "#FFFFFF" 
+          ? "rgba(0, 0, 0, 0.05)" 
+          : "rgba(255, 255, 255, 0.1)"}`,
+        borderRadius: "20px",
+        boxShadow: currentColor.primero === "#FFFFFF"
+          ? "0 8px 32px rgba(0, 0, 0, 0.05)"
+          : "0 8px 32px rgba(0, 0, 0, 0.4)",
+        margin: "auto", 
+        padding: "2%", 
+        marginTop: "1%"
+      }}>
         <Img2 data-aos="fade-left" data-aos-duration="30" data-aos-offset="50"  
-          src={theme === "light" ? latw : lat} 
+          src={theme === "light" ? lat : latw} 
           style={{ width: '25%', margin: "auto"}} alt='devimg' />
         <About currentColor={currentColor} theme={theme} />
       </div>
-      <Content style={{ backgroundColor: currentColor.primero }}>
+      <Content style={{ backgroundColor: 'transparent' }}>
         <Div>
           <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='devimg' />
         </Div>
@@ -272,7 +290,10 @@ function HomePage({ currentColor, theme }) {
           <h2 style={{ 
             fontSize: '20px', 
             fontFamily: "audiowide", 
-            backgroundColor: 'white', 
+            backgroundColor: currentColor.primero === "#FFFFFF" 
+              ? "rgba(255, 255, 255, 0.70)" 
+              : "rgba(0, 0, 0, 0.70)",
+            backdropFilter: "blur(10px)", 
             color: '#000000',
             width: '100%', 
             height: 'auto', 
@@ -292,7 +313,19 @@ function HomePage({ currentColor, theme }) {
         <Div>
           <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='devimg' />
         </Div>
-              <ServicesSection id="servicios" style={{ backgroundColor: currentColor.primero }}>
+              <ServicesSection id="servicios" style={{ 
+                backgroundColor: currentColor.primero === "#FFFFFF" 
+                  ? "rgba(255, 255, 255, 0.60)"  // Tema claro: muy transparente
+                  : "rgba(0, 0, 0, 0.70)",       // Tema oscuro: semi-transparente negro
+                backdropFilter: "blur(15px)",
+                border: `1px solid ${currentColor.primero === "#FFFFFF" 
+                  ? "rgba(0, 0, 0, 0.05)" 
+                  : "rgba(255, 255, 255, 0.1)"}`,
+                borderRadius: "20px",
+                boxShadow: currentColor.primero === "#FFFFFF"
+                  ? "0 8px 32px rgba(0, 0, 0, 0.05)"
+                  : "0 8px 32px rgba(0, 0, 0, 0.4)"
+              }}>
         <h2 style={{ 
           fontFamily: "audiowide", 
           fontSize: '20px', 
@@ -374,7 +407,10 @@ function HomePage({ currentColor, theme }) {
           <h2 style={{ 
             fontFamily: "audiowide",
             fontSize: '20px',
-            backgroundColor: 'white',
+            backgroundColor: currentColor.primero === "#FFFFFF" 
+              ? "rgba(255, 255, 255, 0.70)" 
+              : "rgba(0, 0, 0, 0.70)",
+            backdropFilter: "blur(10px)",
             color: '#000000',
             width: '100%', 
             height: '100%',
@@ -399,7 +435,10 @@ function HomePage({ currentColor, theme }) {
           <h2 style={{ 
             fontFamily: "audiowide", 
             fontSize: '20px', 
-            backgroundColor: 'white', 
+            backgroundColor: currentColor.primero === "#FFFFFF" 
+              ? "rgba(255, 255, 255, 0.70)" 
+              : "rgba(0, 0, 0, 0.70)",
+            backdropFilter: "blur(10px)", 
             color: '#000000',
             width: '100%', 
             margin: '0%', 
@@ -468,7 +507,283 @@ function App() {
   return (
     <>
       <Router> 
-        <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000", bottom: "18%", right: "2%", border: "black 1px solid"}}>
+        {/* Fondo realista: Cielo nocturno profundo / Amanecer dorado */}
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100vh',
+          background: currentcolor === coloresBlack 
+            ? `radial-gradient(ellipse at 30% 20%, #1a1a2e 0%, #0f0f23 25%),
+               linear-gradient(
+                 180deg,
+                 #000011 0%,
+                 #001122 8%,
+                 #112244 18%,
+                 #1a1a2e 35%,
+                 #2d1b69 47%,
+                 #16213e 49.5%,
+                 #0f2460 50%,
+                 #1a1810 50.5%,
+                 #2a1810 55%,
+                 #1a0a0a 70%,
+                 #0d0505 85%,
+                 #000000 100%
+               )`
+            : `radial-gradient(ellipse at 75% 25%, #fff8dc 0%, transparent 35%),
+               radial-gradient(ellipse at 60% 35%, #f0f8ff 0%, transparent 50%),
+               linear-gradient(
+                 180deg,
+                 #f8f8ff 0%,
+                 #f0f8ff 12%,
+                 #e6f3ff 25%,
+                 #ddeeff 38%,
+                 #d6e9ff 47%,
+                 #b8d4f0 49.2%,
+                 #5f9ea0 49.8%,
+                 #4682b4 50%,
+                 #4169e1 50.2%,
+                 #6495ed 50.8%,
+                 #87ceeb 52%,
+                 #b0c4de 60%,
+                 #c0c0c0 75%,
+                 #d3d3d3 90%,
+                 #e6e6e6 100%
+               )`,
+          zIndex: -1000,
+          transition: 'background 2s ease-in-out'
+        }}></div>
+        
+        {/* Capa de atmósfera y profundidad */}
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100vh',
+          background: currentcolor === coloresBlack 
+            ? `radial-gradient(ellipse at 20% 80%, rgba(25, 25, 112, 0.3) 0%, transparent 60%),
+               radial-gradient(ellipse at 80% 20%, rgba(72, 61, 139, 0.2) 0%, transparent 50%),
+               radial-gradient(ellipse at 60% 60%, rgba(75, 0, 130, 0.15) 0%, transparent 70%)`
+            : `radial-gradient(ellipse at 30% 70%, rgba(240, 248, 255, 0.3) 0%, transparent 60%),
+               radial-gradient(ellipse at 70% 30%, rgba(255, 250, 240, 0.2) 0%, transparent 50%),
+               radial-gradient(ellipse at 50% 50%, rgba(135, 206, 235, 0.15) 0%, transparent 70%)`,
+          zIndex: -999,
+          animation: 'atmosphereFloat 12s ease-in-out infinite alternate',
+          transition: 'background 2s ease-in-out'
+        }}></div>
+        
+        {/* Horizonte realista con bruma atmosférica */}
+        <div style={{
+          position: 'fixed',
+          top: 'calc(50% - 3px)',
+          left: 0,
+          width: '100%',
+          height: '6px',
+          background: currentcolor === coloresBlack 
+            ? 'linear-gradient(90deg, transparent 0%, rgba(30, 30, 50, 0.4) 20%, rgba(50, 50, 80, 0.6) 50%, rgba(30, 30, 50, 0.4) 80%, transparent 100%)'
+            : 'linear-gradient(90deg, transparent 0%, rgba(70, 130, 180, 0.4) 20%, rgba(95, 158, 160, 0.7) 50%, rgba(70, 130, 180, 0.4) 80%, transparent 100%)',
+          zIndex: -998,
+          filter: 'blur(1px)',
+          transition: 'all 2s ease-in-out'
+        }}></div>
+        
+        {/* Bruma del horizonte */}
+        <div style={{
+          position: 'fixed',
+          top: 'calc(50% - 15px)',
+          left: 0,
+          width: '100%',
+          height: '30px',
+          background: currentcolor === coloresBlack 
+            ? 'linear-gradient(180deg, transparent 0%, rgba(30, 30, 60, 0.2) 50%, transparent 100%)'
+            : 'linear-gradient(180deg, transparent 0%, rgba(176, 196, 222, 0.3) 30%, rgba(192, 192, 192, 0.4) 50%, rgba(211, 211, 211, 0.3) 70%, transparent 100%)',
+          zIndex: -997,
+          filter: 'blur(3px)',
+          animation: 'mistFloat 8s ease-in-out infinite alternate',
+          transition: 'background 2s ease-in-out'
+        }}></div>
+        
+        {/* Efectos realistas de playa/costa (solo tema claro) */}
+        {currentcolor !== coloresBlack && (
+          <>
+            {/* Olas principales */}
+            <div style={{
+              position: 'fixed',
+              top: '51.5%',
+              left: 0,
+              width: '100%',
+              height: '5px',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(70, 130, 180, 0.4) 20%, rgba(95, 158, 160, 0.7) 35%, rgba(65, 105, 225, 0.8) 50%, rgba(100, 149, 237, 0.7) 65%, rgba(70, 130, 180, 0.4) 80%, transparent 100%)',
+              zIndex: -996,
+              filter: 'blur(0.3px)',
+              animation: 'oceanWave 4s ease-in-out infinite',
+              borderRadius: '50%',
+              boxShadow: '0 0 3px rgba(95, 158, 160, 0.5)'
+            }}></div>
+            
+            {/* Espuma de olas */}
+            <div style={{
+              position: 'fixed',
+              top: '53%',
+              left: 0,
+              width: '100%',
+              height: '3px',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 25%, rgba(240, 248, 255, 0.8) 40%, rgba(248, 248, 255, 0.9) 50%, rgba(240, 248, 255, 0.8) 60%, rgba(255, 255, 255, 0.5) 75%, transparent 100%)',
+              zIndex: -995,
+              animation: 'wavefoam 2.5s ease-in-out infinite',
+              filter: 'blur(0.8px)',
+              boxShadow: '0 0 2px rgba(255, 255, 255, 0.3)'
+            }}></div>
+            
+            {/* Ondas secundarias */}
+            <div style={{
+              position: 'fixed',
+              top: '56%',
+              left: 0,
+              width: '100%',
+              height: '4px',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(95, 158, 160, 0.4) 30%, rgba(72, 61, 139, 0.5) 45%, rgba(128, 128, 128, 0.6) 50%, rgba(72, 61, 139, 0.5) 55%, rgba(95, 158, 160, 0.4) 70%, transparent 100%)',
+              zIndex: -994,
+              animation: 'oceanWave 6s ease-in-out infinite reverse',
+              filter: 'blur(0.7px)',
+              boxShadow: '0 0 2px rgba(128, 128, 128, 0.3)'
+            }}></div>
+            
+            {/* Silver shimmer effect */}
+            <div style={{
+              position: 'fixed',
+              top: '49.5%',
+              left: 0,
+              width: '100%',
+              height: '2px',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(192, 192, 192, 0.6) 30%, rgba(211, 211, 211, 0.8) 50%, rgba(192, 192, 192, 0.6) 70%, transparent 100%)',
+              zIndex: -997,
+              filter: 'blur(0.5px)',
+              animation: 'silverShimmer 3.5s ease-in-out infinite',
+              boxShadow: '0 0 3px rgba(211, 211, 211, 0.4)'
+            }}></div>
+            
+            {/* Reflexos de arena húmeda */}
+            <div style={{
+              position: 'fixed',
+              top: '59%',
+              left: 0,
+              width: '100%',
+              height: '10px',
+              background: 'linear-gradient(180deg, rgba(192, 192, 192, 0.3) 0%, rgba(210, 180, 140, 0.25) 30%, rgba(244, 164, 96, 0.15) 60%, rgba(255, 228, 196, 0.1) 80%, transparent 100%)',
+              zIndex: -993,
+              filter: 'blur(1.5px)',
+              animation: 'sandReflection 5s ease-in-out infinite alternate',
+              boxShadow: '0 0 4px rgba(192, 192, 192, 0.2)'
+            }}></div>
+          </>
+        )}
+        
+        {/* Sol/Luna realista con efectos atmosféricos */}
+        <div style={{
+          position: 'fixed',
+          top: currentcolor === coloresBlack ? '15%' : '20%',
+          right: currentcolor === coloresBlack ? '15%' : '12%',
+          width: currentcolor === coloresBlack ? '90px' : '110px',
+          height: currentcolor === coloresBlack ? '90px' : '110px',
+          borderRadius: '50%',
+          background: currentcolor === coloresBlack 
+            ? `radial-gradient(circle at 35% 25%, #fffff0 0%, #f5f5dc 20%, #e6e6fa 45%, #d3d3d3 70%, #c0c0c0 85%, rgba(169, 169, 169, 0.4) 100%)`
+            : `radial-gradient(circle at 30% 30%, #ffff99 0%, #ffd700 15%, #ffb347 35%, #ff8c00 60%, #ff6347 80%, rgba(255, 69, 0, 0.6) 100%)`,
+          boxShadow: currentcolor === coloresBlack
+            ? `0 0 30px rgba(248, 248, 255, 0.4), 
+               0 0 60px rgba(230, 230, 250, 0.2), 
+               0 0 90px rgba(211, 211, 211, 0.1),
+               inset -15px -15px 30px rgba(169, 169, 169, 0.3)`
+            : `0 0 40px rgba(255, 215, 0, 0.8), 
+               0 0 80px rgba(255, 140, 0, 0.5), 
+               0 0 120px rgba(255, 69, 0, 0.3),
+               inset -8px -8px 20px rgba(255, 69, 0, 0.2)`,
+          zIndex: -990,
+          animation: currentcolor === coloresBlack ? 'moonGlow 8s ease-in-out infinite alternate' : 'sunPulse 6s ease-in-out infinite alternate',
+          transition: 'all 2s ease-in-out',
+          filter: currentcolor === coloresBlack ? 'contrast(1.1) brightness(0.9)' : 'contrast(1.2) brightness(1.1)'
+        }}></div>
+        
+        {/* Halo atmosférico del sol/luna */}
+        <div style={{
+          position: 'fixed',
+          top: currentcolor === coloresBlack ? '12%' : '17%',
+          right: currentcolor === coloresBlack ? '12%' : '9%',
+          width: currentcolor === coloresBlack ? '150px' : '170px',
+          height: currentcolor === coloresBlack ? '150px' : '170px',
+          borderRadius: '50%',
+          background: currentcolor === coloresBlack 
+            ? 'radial-gradient(circle, rgba(248, 248, 255, 0.1) 0%, rgba(230, 230, 250, 0.05) 50%, transparent 100%)'
+            : 'radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, rgba(255, 140, 0, 0.1) 40%, rgba(255, 69, 0, 0.05) 70%, transparent 100%)',
+          zIndex: -991,
+          animation: currentcolor === coloresBlack ? 'moonHalo 10s ease-in-out infinite alternate' : 'sunHalo 8s ease-in-out infinite alternate',
+          transition: 'all 2s ease-in-out',
+          filter: 'blur(8px)'
+        }}></div>
+
+        {/* Constelaciones realistas y nubes volumétricas */}
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100vh',
+          zIndex: -992,
+          overflow: 'hidden'
+        }}>
+          {currentcolor === coloresBlack 
+            ? // Estrellas realistas con diferentes intensidades
+              [...Array(40)].map((_, i) => {
+                const brightness = Math.random();
+                const size = brightness > 0.7 ? Math.random() * 3 + 2 : Math.random() * 2 + 0.5;
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      position: 'absolute',
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 45}%`,
+                      width: `${size}px`,
+                      height: `${size}px`,
+                      backgroundColor: brightness > 0.8 ? '#ffffff' : brightness > 0.6 ? '#f0f8ff' : '#e6e6fa',
+                      borderRadius: '50%',
+                      animation: `starTwinkle ${Math.random() * 3 + 2}s ease-in-out infinite`,
+                      animationDelay: `${Math.random() * 3}s`,
+                      boxShadow: brightness > 0.7 
+                        ? `0 0 ${size * 3}px rgba(255, 255, 255, ${brightness}), 0 0 ${size * 6}px rgba(255, 255, 255, ${brightness * 0.5})`
+                        : `0 0 ${size * 2}px rgba(240, 248, 255, ${brightness})`,
+                      opacity: brightness
+                    }}
+                  />
+                );
+              })
+            : // Nubes volumétricas realistas
+              [...Array(12)].map((_, i) => (
+                <div
+                  key={i}
+                  style={{
+                    position: 'absolute',
+                    left: `${Math.random() * 120 - 10}%`,
+                    top: `${Math.random() * 35 + 5}%`,
+                    width: `${Math.random() * 80 + 60}px`,
+                    height: `${Math.random() * 35 + 25}px`,
+                    background: 'radial-gradient(ellipse, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 60%, rgba(255, 255, 255, 0.1) 100%)',
+                    borderRadius: `${Math.random() * 30 + 40}px`,
+                    animation: `cloudsFloat ${Math.random() * 25 + 20}s linear infinite`,
+                    animationDelay: `${Math.random() * 8}s`,
+                    filter: 'blur(2px)',
+                    transform: `scale(${Math.random() * 0.5 + 0.8})`,
+                    boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.2)'
+                  }}
+                />
+              ))
+          }
+        </div>
+
+        <button onClick={toggleTheme} style={{position: "fixed", zIndex: "10000",  bottom: "18%", right: "2%", border: "white 1px solid"}}>
           {currentcolor === colores ? <FaMoon /> : <FaSun />}  
         </button>
        

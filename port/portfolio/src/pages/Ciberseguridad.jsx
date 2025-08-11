@@ -69,7 +69,7 @@ const StyledDiv = styled.div`
   display: flex;
   width: 100%;
   max-width: 100vw;
-  z-index: 0;
+  z-index: 10;
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -109,13 +109,26 @@ const Img2 = styled.img`
 `;
 
 const ServiceCard = styled.div`
-  background: ${props => props.currentColor.tercero};
+  background: ${props => 
+    props.currentColor.primero === "#FFFFFF" 
+      ? "rgba(255, 255, 255, 0.80)"  // Tema claro: semi-transparente
+      : "rgba(26, 22, 37, 0.85)"     // Tema oscuro: semi-transparente
+  };
+  backdrop-filter: blur(15px);
   border-radius: 15px;
   padding: 3rem;
   margin-bottom: 2rem;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "0 6px 12px rgba(0, 0, 0, 0.1)"
+      : "0 6px 12px rgba(0, 0, 0, 0.3)"
+  };
   transition: all 0.3s ease;
-  border: 2px solid ${props => props.currentColor.segundo};
+  border: 2px solid ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"
+      : props.currentColor.segundo
+  };
   width: 100%;
   max-width: 800px;
   margin: 2rem auto;
@@ -125,7 +138,11 @@ const ServiceCard = styled.div`
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    box-shadow: ${props => 
+      props.currentColor.primero === "#FFFFFF"
+        ? "0 12px 24px rgba(0, 0, 0, 0.15)"
+        : "0 12px 24px rgba(153, 90, 152, 0.4)"
+    };
     border-color: ${props => props.currentColor.quinto};
   }
   
@@ -133,6 +150,11 @@ const ServiceCard = styled.div`
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     max-width: 100%;
+    background: ${props => 
+      props.currentColor.primero === "#FFFFFF" 
+        ? "rgba(255, 255, 255, 0.90)"  // Más opaco en mobile
+        : "rgba(26, 22, 37, 0.95)"
+    };
   }
 `;
 
@@ -285,14 +307,29 @@ const ThreatItem = styled.div`
 `;
 
 const StatsSection = styled.div`
-  background: ${props => props.currentColor.cuarto};
+  background: ${props => 
+    props.currentColor.primero === "#FFFFFF" 
+      ? "rgba(0, 0, 0, 0.05)"        // Tema claro: fondo muy sutil
+      : "rgba(153, 90, 152, 0.25)"   // Tema oscuro: violeta semi-transparente
+  };
+  backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 15px;
   margin: 2rem 0;
+  border: 1px solid ${props => 
+    props.currentColor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"
+      : "rgba(153, 90, 152, 0.3)"
+  };
   
   @media (max-width: 900px) {
     padding: 1rem;
     margin: 1rem 0;
+    background: ${props => 
+      props.currentColor.primero === "#FFFFFF" 
+        ? "rgba(0, 0, 0, 0.08)"
+        : "rgba(153, 90, 152, 0.35)"
+    };
   }
 `;
 
@@ -516,13 +553,32 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
 
   return (
     <>
-      <Content style={{ backgroundColor: currentColor.primero }}>
-        <div style={{display: "flex", flexDirection: "row", backgroundColor: currentColor.cuarto, margin: "auto", padding: "4%", marginTop: "3%"}}>
+      <Content style={{ 
+        backgroundColor: 'transparent'
+      }}>
+        <div style={{
+          display: "flex", 
+          flexDirection: "row", 
+          backgroundColor: currentColor.primero === "#FFFFFF" 
+            ? "rgba(255, 255, 255, 0.80)"
+            : "rgba(26, 22, 37, 0.85)",
+          backdropFilter: "blur(15px)",
+          border: `1px solid ${currentColor.primero === "#FFFFFF" 
+            ? "rgba(0, 0, 0, 0.1)" 
+            : "rgba(153, 90, 152, 0.3)"}`,
+          borderRadius: "20px",
+          boxShadow: currentColor.primero === "#FFFFFF"
+            ? "0 8px 32px rgba(0, 0, 0, 0.1)"
+            : "0 8px 32px rgba(0, 0, 0, 0.3)",
+          margin: "auto", 
+          padding: "4%", 
+          marginTop: "3%"
+        }}>
           <Img2 
             data-aos="fade-right"  
             data-aos-duration="300"
             data-aos-offset="50"  
-            src={theme === "light" ? latw : lat} 
+            src={theme === "light" ? lat : latw} 
             style={{ width: '30%', margin: "auto"}} 
             alt='cyber-img' 
           />
@@ -557,10 +613,9 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
           </CyberContainer>
         </div>
         <StyledDiv>
-          <Div>
+          
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
-          </Div>
-
+          
           {/* Sección de Amenazas Actuales */}
           <ThreatSection data-aos="fade-up" data-aos-duration="300">
             <h2 style={{ fontFamily: "audiowide", fontSize: '1.8rem', marginBottom: '1rem' }}>
@@ -589,10 +644,8 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
             </ThreatGrid>
           </ThreatSection>
 
-          <Div>
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
-          </Div>
-
+          
           {/* Servicios de Auditoría */}
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <ServiceImage 
@@ -620,10 +673,8 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
               </ServiceFeature>
             </ServiceList>
           </ServiceCard>
-          <Div>
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
-          </Div>
-
+          
 
           {/* Pentesting */}
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
@@ -653,10 +704,8 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
             </ServiceList>
           </ServiceCard>
 
-          <Div>
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
-          </Div>
-
+          
           {/* Seguridad Cloud */}
           <ServiceCard currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <ServiceImage 
@@ -685,10 +734,8 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
             </ServiceList>
           </ServiceCard>
 
-          <Div>
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
-          </Div>
-
+          
           {/* Tecnologías Utilizadas */}
           <MethodologySection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <h2 style={{ 
@@ -722,10 +769,7 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
             </MethodologyGrid>
           </MethodologySection>
 
-          <Div>
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
-          </Div>
-
           {/* Estadísticas */}
           <StatsSection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <h2 style={{ 
@@ -769,10 +813,8 @@ const CiberseguridadPage = ({ currentColor, theme }) => {
             </StatsGrid>
           </StatsSection>
 
-          <Div>
             <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='cyber-img' />
-          </Div>
-
+  
           {/* Precios */}
           <PricingSection currentColor={currentColor} data-aos="fade-up" data-aos-duration="300">
             <h2 style={{ 

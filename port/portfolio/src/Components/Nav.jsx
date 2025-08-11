@@ -9,12 +9,23 @@ const Navigator = styled.div`
   width: 100%;
   margin: auto;
   height: 9%;
-  background-color: ${(props) => props.$currentcolor.primero};
+  background-color: ${(props) => 
+    props.$currentcolor.primero === "#FFFFFF" 
+      ? "rgba(255, 255, 255, 0.90)"  // Tema claro: blanco semi-transparente
+      : "rgba(26, 22, 37, 0.95)"     // Tema oscuro: más opaco para navegación
+  };
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid ${(props) => 
+    props.$currentcolor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.1)"         // Borde suave para tema claro
+      : "rgba(153, 90, 152, 0.3)"    // Borde violeta para tema oscuro
+  };
   opacity: 1;
   display: flex;
   justify-content: stretch;
   align-items: center;
   align-content: center;
+  transition: all 0.3s ease-in-out;
 
   @media screen and (max-width: 700px) {
     top: 0%;
@@ -24,24 +35,44 @@ const Navigator = styled.div`
 `;
 
 const Botones = styled.button`
-  border: ${(props) => props.$currentcolor.primero} solid 4px;
+  border: 2px solid ${(props) => 
+    props.$currentcolor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.2)"
+      : props.$currentcolor.primero
+  };
   color: ${(props) => props.$currentcolor.cuarto};
-  background: ${(props) => props.$currentcolor.cuarto};
+  background: ${(props) => 
+    props.$currentcolor.primero === "#FFFFFF"
+      ? "rgba(0, 0, 0, 0.05)"        // Fondo muy sutil para tema claro
+      : "rgba(153, 90, 152, 0.8)"    // Fondo violeta semi-transparente para tema oscuro
+  };
+  backdrop-filter: blur(8px);
   font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
   margin: 2px;
-  border-radius: 0% 0% 0% 10%;
-  transition-duration: 0.5s;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
   z-index: 70000000;
-  padding: 0px;
-  transition-duration: 1s;
+  padding: 8px;
   width: 100%;
   cursor: pointer;
+  
+  &:hover {
+    background: ${(props) => 
+      props.$currentcolor.primero === "#FFFFFF"
+        ? "rgba(0, 0, 0, 0.15)"      // Hover más visible para tema claro
+        : "rgba(153, 90, 152, 1)"    // Hover sólido para tema oscuro
+    };
+    color: ${(props) => props.$currentcolor.primero};
+    transform: translateY(-2px);
+  }
+  
   @media screen and (max-width: 700px) {
     font-size: 10px;
+    padding: 6px;
   }
 `;
 
