@@ -67,15 +67,6 @@ const StyledDiv = styled.div`
   }
 `;
 
-const Div = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-
-  @media (max-width: 900px) {
-    flex-direction: column;
-  }
-`;
 
 const Img2 = styled.img`
   height: 100%;

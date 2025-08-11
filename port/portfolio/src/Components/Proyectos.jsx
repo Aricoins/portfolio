@@ -2,8 +2,6 @@ import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import dogs from "../assets/dogs.png";
-import nido from "../assets/nido.png";
-import biblio from "../assets/fondo.webp";
 import "../App.css";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
@@ -30,26 +28,30 @@ const Contenedor = styled.div`
 `;
 
 const Card = styled.div`
-  background-color: ${(props) => 
-    props.currentColor.primero === "#FFFFFF" 
-      ? "rgba(255, 255, 255, 0.85)"  // Tema claro: blanco semi-transparente
-      : "rgba(26, 22, 37, 0.90)"     // Tema oscuro: más opaco para mejor legibilidad
+  background-color: ${
+    (props) =>
+      props.currentColor.primero === "#FFFFFF"
+        ? "rgba(255, 255, 255, 0.85)" // Tema claro: blanco semi-transparente
+        : "rgba(26, 22, 37, 0.90)" // Tema oscuro: más opaco para mejor legibilidad
   };
   backdrop-filter: blur(10px);
   border-radius: 15px;
-  box-shadow: ${(props) => 
-    props.currentColor.primero === "#FFFFFF"
-      ? "0 8px 32px rgba(0, 0, 0, 0.15)"     // Sombra suave para tema claro
-      : "0 8px 32px rgba(0, 0, 0, 0.4)"      // Sombra más pronunciada para tema oscuro
+  box-shadow: ${
+    (props) =>
+      props.currentColor.primero === "#FFFFFF"
+        ? "0 8px 32px rgba(0, 0, 0, 0.15)" // Sombra suave para tema claro
+        : "0 8px 32px rgba(0, 0, 0, 0.4)" // Sombra más pronunciada para tema oscuro
   };
   font-size: 1em;
   margin: 5%;
   width: 80%;
-  border: 2px solid ${(props) => 
-    props.currentColor.primero === "#FFFFFF"
-      ? "rgba(0, 0, 0, 0.1)"         // Borde suave para tema claro
-      : props.currentColor.cuarto    // Borde original para tema oscuro
-  };
+  border: 2px solid
+    ${
+      (props) =>
+        props.currentColor.primero === "#FFFFFF"
+          ? "rgba(0, 0, 0, 0.1)" // Borde suave para tema claro
+          : props.currentColor.cuarto // Borde original para tema oscuro
+    };
   z-index: 5;
   text-align: center;
   padding: 2%;
@@ -58,23 +60,24 @@ const Card = styled.div`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${(props) => 
-      props.currentColor.primero === "#FFFFFF"
-        ? "rgba(0, 0, 0, 0.85)"        // Tema claro: fondo oscuro en hover
-        : "rgba(153, 90, 152, 0.90)"   // Tema oscuro: color violeta en hover
+    background-color: ${
+      (props) =>
+        props.currentColor.primero === "#FFFFFF"
+          ? "rgba(0, 0, 0, 0.85)" // Tema claro: fondo oscuro en hover
+          : "rgba(153, 90, 152, 0.90)" // Tema oscuro: color violeta en hover
     };
     border-color: ${(props) => props.currentColor.quinto};
-    color: ${(props) => 
-      props.currentColor.primero === "#FFFFFF"
-        ? "#FFFFFF"                    // Tema claro: texto blanco en hover
-        : props.currentColor.primero   // Tema oscuro: texto original en hover
+    color: ${
+      (props) =>
+        props.currentColor.primero === "#FFFFFF"
+          ? "#FFFFFF" // Tema claro: texto blanco en hover
+          : props.currentColor.primero // Tema oscuro: texto original en hover
     };
     transform: translateY(-5px);
-    box-shadow: ${(props) => 
+    box-shadow: ${(props) =>
       props.currentColor.primero === "#FFFFFF"
         ? "0 12px 40px rgba(0, 0, 0, 0.25)"
-        : "0 12px 40px rgba(153, 90, 152, 0.4)"
-    };
+        : "0 12px 40px rgba(153, 90, 152, 0.4)"};
   }
 
   h4 {
@@ -88,7 +91,6 @@ const Card = styled.div`
     font-size: medium;
     margin-bottom: 15px;
     color: ${(props) => props.currentColor.quinto};
-
   }
 
   b {
@@ -136,7 +138,11 @@ const Proyectos = ({ currentColor }) => {
 
   return (
     <Contenedor currentColor={currentColor}>
-      <a href="https://apollonia-employee-management-1wy2escvh-aricoins-projects.vercel.app" rel="noreferrer" target="_blank">
+      <a
+        href="https://apollonia-employee-management-1wy2escvh-aricoins-projects.vercel.app"
+        rel="noreferrer"
+        target="_blank"
+      >
         <Card
           currentColor={currentColor}
           data-aos="flip-left"
@@ -145,9 +151,16 @@ const Proyectos = ({ currentColor }) => {
         >
           <h4>🦷 Apollonia Employee Management</h4>
           <p>
-            Sistema integral de gestión de empleados para práctica dental. Aplicación full-stack CRUD con base de datos MongoDB, interfaz responsiva y despliegue multi-entorno.
+            Sistema integral de gestión de empleados para práctica dental.
+            Aplicación full-stack CRUD con base de datos MongoDB, interfaz
+            responsiva y despliegue multi-entorno.
           </p>
-          <video src="https://res.cloudinary.com/dbh6nn12c/video/upload/v1754865663/Appolonia_Dental_Practice_njbgct.mp4" autoPlay loop muted />
+          <video
+            src="https://res.cloudinary.com/dbh6nn12c/video/upload/v1754865663/Appolonia_Dental_Practice_njbgct.mp4"
+            autoPlay
+            loop
+            muted
+          />
           <ul>
             <li>Backend: Node.js, Express.js, MongoDB, Mongoose</li>
             <li>Frontend: HTML5, CSS3, JavaScript ES6+</li>
@@ -159,35 +172,54 @@ const Proyectos = ({ currentColor }) => {
         </Card>
       </a>
 
-<Card
-  currentColor={currentColor}
-  data-aos="flip-left"
-  data-aos-easing="ease-out-cubic"
-  data-aos-duration="2000"
->
-
-    <h4>⚖️ LawCase</h4>
-    <p>
-      Plataforma integral para abogados: gestión de casos, plazos y documentos legales. Eficiencia en la administración de casos, organización de documentos, gestión de clientes y programación de eventos.
-    </p>
-    <video src="/lawvideo.mp4" autoPlay loop muted />
-    <a href="https://law-case-client-dev.onrender.com/" rel="noreferrer" target="_blank">
-      <button style={{ backgroundColor: currentColor.segundo }}>Ir a la web</button>
-    </a>
-    <ul>
-      <li>Autenticación con token refresh.</li>
-      <li>Gestión multimedia con Cloudinary.</li>
-      <li>Manejo de datos con PostgreSQL.</li>
-      <li>Estilos con MaterialUI y Tailwind.</li>
-      <li>Desarrollado con TypeScript, React, Vite, Tailwind, MUI, Express, Swagger, Prisma, MongoDB y JWT. Implementado con metodología agile.</li>
-    </ul>
-</Card>
+      <Card
+        currentColor={currentColor}
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+      >
+        <h4>⚖️ LawCase</h4>
+        <p>
+          Plataforma integral para abogados: gestión de casos, plazos y
+          documentos legales. Eficiencia en la administración de casos,
+          organización de documentos, gestión de clientes y programación de
+          eventos.
+        </p>
+        <video src="/lawvideo.mp4" autoPlay loop muted />
+        <a
+          href="https://law-case-client-dev.onrender.com/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <button style={{ backgroundColor: currentColor.segundo }}>
+            Ir a la web
+          </button>
+        </a>
+        <ul>
+          <li>Autenticación con token refresh.</li>
+          <li>Gestión multimedia con Cloudinary.</li>
+          <li>Manejo de datos con PostgreSQL.</li>
+          <li>Estilos con MaterialUI y Tailwind.</li>
+          <li>
+            Desarrollado con TypeScript, React, Vite, Tailwind, MUI, Express,
+            Swagger, Prisma, MongoDB y JWT. Implementado con metodología agile.
+          </li>
+        </ul>
+      </Card>
 
       <a href="https://dibiase.net/" rel="noreferrer" target="_blank">
-        <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+        <Card
+          currentColor={currentColor}
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
           <h4>🏛️ DiBiase Net</h4>
           <p>
-            Aplicación web full-stack que digitaliza 20+ años de documentación legislativa con inteligencia artificial integrada. Primera plataforma municipal con IA en la región que transforma búsquedas de horas a segundos.
+            Aplicación web full-stack que digitaliza 20+ años de documentación
+            legislativa con inteligencia artificial integrada. Primera
+            plataforma municipal con IA en la región que transforma búsquedas de
+            horas a segundos.
           </p>
           <video src="/DibiaseNet demo.mp4" autoPlay loop muted />
           <ul>
@@ -201,12 +233,23 @@ const Proyectos = ({ currentColor }) => {
         </Card>
       </a>
 
-      <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+      <Card
+        currentColor={currentColor}
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+      >
         <h4>🌿 Azul Lago Cooperativa</h4>
         <p>
-          Landing page centrada en la visualización de marcas y proyectos y productos naturales.
+          Landing page centrada en la visualización de marcas y proyectos y
+          productos naturales.
         </p>
-        <video src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1727229863/cjh109sdvobrlcphfmrl.mp4" autoPlay loop muted />
+        <video
+          src="https://res.cloudinary.com/dx0htqhaq/video/upload/v1727229863/cjh109sdvobrlcphfmrl.mp4"
+          autoPlay
+          loop
+          muted
+        />
         <a href="https://www.azullago.com/" rel="noreferrer" target="_blank">
           <button> Ir a la web</button>
         </a>
@@ -234,10 +277,23 @@ const Proyectos = ({ currentColor }) => {
         </Card>
       </a> */}
 
-      <a href="https://nuevamascota.vercel.app/" target="_blank" rel="noreferrer">
-        <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+      <a
+        href="https://nuevamascota.vercel.app/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Card
+          currentColor={currentColor}
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1500"
+        >
           <h4>🐕 Dogs App</h4>
-          <p>Aplicación web interactiva de adopción de mascotas. Permite a los usuarios explorar, filtrar y ordenar una amplia variedad de razas de perros y crear un nuevo can en la base de datos.</p>
+          <p>
+            Aplicación web interactiva de adopción de mascotas. Permite a los
+            usuarios explorar, filtrar y ordenar una amplia variedad de razas de
+            perros y crear un nuevo can en la base de datos.
+          </p>
           <img src={dogs} alt="imagen" />
           <ul>
             <li>Diseño UX/UI planificado.</li>
@@ -249,11 +305,20 @@ const Proyectos = ({ currentColor }) => {
         </Card>
       </a>
 
-      <a href="https://github.com/Aricoins/APIRest" target="_blank" rel="noreferrer">
-        <Card currentColor={currentColor} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+      <a
+        href="https://github.com/Aricoins/APIRest"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Card
+          currentColor={currentColor}
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1500"
+        >
           <h4>🔗 WeCode API</h4>
           <p>API REST para la red social WeCode orientada al mundo IT</p>
-          <img src='./apirest.jpg' alt="imagen" />
+          <img src="./apirest.jpg" alt="imagen" />
           <ul>
             <li>Endpoints seguros con JWT y token de acceso.</li>
             <li>Metodología Agile en el desarrollo.</li>

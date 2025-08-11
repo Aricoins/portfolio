@@ -290,11 +290,13 @@ function HomePage({ currentColor, theme }) {
           <h2 style={{ 
             fontSize: '20px', 
             fontFamily: "audiowide", 
-            backgroundColor: currentColor.primero === "#FFFFFF" 
+             backgroundColor: currentColor.primero === "#FFFFFF" 
               ? "rgba(255, 255, 255, 0.70)" 
               : "rgba(0, 0, 0, 0.70)",
-            backdropFilter: "blur(10px)", 
-            color: '#000000',
+            backdropFilter: "blur(10px)",
+            color: currentColor.primero === "#FFFFFF" 
+              ? "rgba(0, 0, 0, 0.70)" 
+              : "rgba(255, 255, 255, 0.70)",
             width: '100%', 
             height: 'auto', 
             margin: '0%', 
@@ -314,10 +316,13 @@ function HomePage({ currentColor, theme }) {
           <Img2 data-aos="fade-left" src={theme === "light" ? lat : latw} style={{ width: '10%' }} alt='devimg' />
         </Div>
               <ServicesSection id="servicios" style={{ 
-                backgroundColor: currentColor.primero === "#FFFFFF" 
-                  ? "rgba(255, 255, 255, 0.60)"  // Tema claro: muy transparente
-                  : "rgba(0, 0, 0, 0.70)",       // Tema oscuro: semi-transparente negro
-                backdropFilter: "blur(15px)",
+               backgroundColor: currentColor.primero === "#FFFFFF" 
+              ? "rgba(255, 255, 255, 0.70)" 
+              : "rgba(0, 0, 0, 0.70)",
+            backdropFilter: "blur(10px)",
+            color: currentColor.primero === "#FFFFFF" 
+              ? "rgba(0, 0, 0, 0.70)" 
+              : "rgba(255, 255, 255, 0.70)",
                 border: `1px solid ${currentColor.primero === "#FFFFFF" 
                   ? "rgba(0, 0, 0, 0.05)" 
                   : "rgba(255, 255, 255, 0.1)"}`,
@@ -411,7 +416,9 @@ function HomePage({ currentColor, theme }) {
               ? "rgba(255, 255, 255, 0.70)" 
               : "rgba(0, 0, 0, 0.70)",
             backdropFilter: "blur(10px)",
-            color: '#000000',
+            color: currentColor.primero === "#FFFFFF" 
+              ? "rgba(0, 0, 0, 0.70)" 
+              : "rgba(255, 255, 255, 0.70)",
             width: '100%', 
             height: '100%',
             margin: '0%',
@@ -438,8 +445,10 @@ function HomePage({ currentColor, theme }) {
             backgroundColor: currentColor.primero === "#FFFFFF" 
               ? "rgba(255, 255, 255, 0.70)" 
               : "rgba(0, 0, 0, 0.70)",
-            backdropFilter: "blur(10px)", 
-            color: '#000000',
+            backdropFilter: "blur(10px)",
+            color: currentColor.primero === "#FFFFFF" 
+              ? "rgba(0, 0, 0, 0.70)" 
+              : "rgba(255, 255, 255, 0.70)",
             width: '100%', 
             margin: '0%', 
             textAlign: 'center',
