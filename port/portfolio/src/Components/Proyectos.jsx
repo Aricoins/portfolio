@@ -139,7 +139,7 @@ const Proyectos = ({ currentColor }) => {
   return (
     <Contenedor currentColor={currentColor}>
       <a
-        href="https://apollonia-employee-management-1wy2escvh-aricoins-projects.vercel.app"
+        href="https://apollonia-employee-management.vercel.app"
         rel="noreferrer"
         target="_blank"
       >

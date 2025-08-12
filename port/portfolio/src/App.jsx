@@ -230,15 +230,48 @@ const ServiceDescription = styled.p`
 // Componente para resetear scroll al cambiar de ruta
 function ScrollToTop() {
   const location = useLocation();
+  const [isScrolling, setIsScrolling] = useState(false);
   
   useEffect(() => {
-    // Solo resetear scroll si cambiamos a una página diferente (no para scroll interno)
     if (location.pathname !== '/') {
-      window.scrollTo(0, 0);
+      setIsScrolling(true);
+      
+      // Pequeño retraso para que se vea el cambio de página
+      setTimeout(() => {
+        window.scrollTo({ 
+          top: 0, 
+          behavior: 'smooth' 
+        });
+        
+        // Remover indicador después del scroll
+        setTimeout(() => {
+          setIsScrolling(false);
+        }, 800);
+      }, 150);
     }
   }, [location.pathname]);
   
-  return null;
+  return isScrolling ? (
+    <div style={{
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: 9999,
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      color: 'white',
+      padding: '1rem 2rem',
+      borderRadius: '25px',
+      fontSize: '0.9rem',
+      fontFamily: 'audiowide',
+      animation: 'fadeInOut 0.8s ease-in-out',
+      backdropFilter: 'blur(10px)',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+    }}>
+      ⬆️ Ir al inicio
+    </div>
+  ) : null;
 }
 
 function HomePage({ currentColor, theme }) {
@@ -800,9 +833,9 @@ function App() {
           <Nav currentcolor={currentcolor} toggleTheme={toggleTheme} style={{ width: '50%', margin: 'auto' }} />
         </div>
 
-     
+      <ScrollToTop /> 
         <Routes>
-          <Route path="/" element={<HomePage currentColor={currentcolor} theme={theme} />} />
+          <Route path="/" element={<HomePage  currentColor={currentcolor} theme={theme} />} />
           <Route path="/seo" element={<SeoPage currentColor={currentcolor} theme={theme} />} />
           <Route path="/ciberseguridad" element={<CiberseguridadPage currentColor={currentcolor} theme={theme} />} />
         </Routes>
