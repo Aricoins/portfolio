@@ -1,6 +1,6 @@
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaHome, FaProjectDiagram, FaEnvelope, FaSearch, FaShieldAlt } from 'react-icons/fa';
+import { FaHome, FaProjectDiagram, FaEnvelope, FaSearch } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 const Navigator = styled.div`
   position: fixed;
@@ -227,7 +227,7 @@ export default function Nav({ currentcolor }) {
         </StyledLink>
 
         {/* Ciberseguridad */}
-        <StyledLink 
+        {/* <StyledLink 
           to="/ciberseguridad" 
           $currentcolor={currentcolor}
           className={location.pathname === '/ciberseguridad' ? 'active' : ''}
@@ -236,7 +236,7 @@ export default function Nav({ currentcolor }) {
             <FaShieldAlt style={{fontSize: "large"}} />
             <span style={{marginLeft: '5px', fontSize: '12px'}}>Cyber</span>
           </Botones>
-        </StyledLink>
+        </StyledLink> */}
 
         {/* Contacto */}
         <StyledLink 
