@@ -38,6 +38,29 @@ app.get('/api/proyectos', (req, res) => {
   res.json(projects);
 });
 
+// Endpoint de búsqueda para el chatbot
+app.get('/api/proyectos/search', (req, res) => {
+  const searchTerm = req.query.q;
+
+  if (!searchTerm) {
+    // Devuelve todos los proyectos si no hay término de búsqueda
+    return res.json(projects);
+  }
+
+  const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+  const results = projects.filter(project => {
+    const inTitle = project.title.toLowerCase().includes(lowerCaseSearchTerm);
+    const inDescription = project.description.toLowerCase().includes(lowerCaseSearchTerm);
+    const inTechnologies = project.technologies.some(tech =>
+      tech.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+    return inTitle || inDescription || inTechnologies;
+  });
+
+  res.json(results);
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

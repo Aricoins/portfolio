@@ -55,7 +55,7 @@ const projects = [
   {
     "title": "🐕 Dogs App",
     "description": "Aplicación web interactiva de adopción de mascotas. Permite a los usuarios explorar, filtrar y ordenar una amplia variedad de razas de perros y crear un nuevo can en la base de datos.",
-    "image": "src/assets/dogs.png",
+    "image": "/dogs.png",
     "link": "https://nuevamascota.vercel.app/",
     "technologies": [
       "Diseño UX/UI planificado.",
@@ -68,7 +68,7 @@ const projects = [
   {
     "title": "🔗 WeCode API",
     "description": "API REST para la red social WeCode orientada al mundo IT",
-    "image": "./apirest.jpg",
+    "image": "/apirest.jpg",
     "link": "https://github.com/Aricoins/APIRest",
     "technologies": [
       "Endpoints seguros con JWT y token de acceso.",
