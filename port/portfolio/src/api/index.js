@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Pool } = require('pg');
+const projects = require('./proyectos-data.js');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -31,6 +32,10 @@ app.post('/submit', async (req, res) => {
     console.error('Error inserting data into database:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
+});
+
+app.get('/api/proyectos', (req, res) => {
+  res.json(projects);
 });
 
 app.listen(port, () => {
