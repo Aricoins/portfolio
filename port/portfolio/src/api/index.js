@@ -4,8 +4,6 @@ const cors = require('cors');
 const { Pool } = require('pg');
 const projects = require('./proyectos-data.js');
 
-require('dotenv').config();
-
 const app = express();
 const port = process.env.PORT || 3000;
 
