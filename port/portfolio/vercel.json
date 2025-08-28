@@ -1,9 +1,13 @@
 {
+  "functions": {
+    "src/api/**/*.js": {
+      "runtime": "nodejs20.x"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/index.cjs"
+      "destination": "/src/api/index.js"
     }
-    
   ]
 }
