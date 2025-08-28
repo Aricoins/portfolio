@@ -1,8 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { Pool } = require('pg');
-const projects = require('./proyectos-data.js');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import pg from 'pg';
+const { Pool } = pg;
+import projects from './proyectos-data.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
