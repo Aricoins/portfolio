@@ -1,11 +1,15 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { Pool } = require('pg');
-const projects = require('./proyectos-data.js');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import { Pool } from 'pg';
+import projects from './proyectos-data.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = typeof process !== 'undefined' ? process.env.PORT || 3000 : 3000;
 
 const pool = new Pool({
   connectionString: 'postgres://default:tYLE1GkmV9lB@ep-aged-leaf-79142791.us-west-2.aws.neon.tech:5432/verceldb?sslmode=require',
