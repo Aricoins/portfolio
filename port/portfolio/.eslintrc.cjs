@@ -17,4 +17,15 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [
+    {
+      files: ['src/api/**/*.js'],
+      env: {
+        node: true,
+      },
+      parserOptions: {
+        sourceType: 'commonjs',
+      },
+    },
+  ],
 }
