@@ -19,7 +19,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Endpoint to handle form submission
-app.post('/submit', async (req, res) => {
+app.post('/api/submit', async (req, res) => {
   const { name, email, comment } = req.body;
 
   if (!name || !email || !comment) {
@@ -38,16 +38,17 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-app.get('/proyectos', (req, res) => {
+app.get('/api/proyectos', (req, res) => {
   res.json(projects);
 });
-app.get('/hola', (req, res) => {
+
+app.get('/api/hola', (req, res) => {
   res.send('API is running');
 }
 );
 
 // Endpoint de búsqueda para el chatbot
-app.get('/proyectos/search', (req, res) => {
+app.get('/api/proyectos/search', (req, res) => {
   const searchTerm = req.query.q;
 
   if (!searchTerm) {
@@ -69,7 +70,7 @@ app.get('/proyectos/search', (req, res) => {
   res.json(results);
 });
 
-app.post('/clients', async (req, res) => {
+app.post('/api/clients', async (req, res) => {
   const { nombre, mail, empresa } = req.body;
   const fechaDeRegistro = new Date();
 
