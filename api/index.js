@@ -41,6 +41,10 @@ app.post('/submit', async (req, res) => {
 app.get('/proyectos', (req, res) => {
   res.json(projects);
 });
+app.get('/hola', (req, res) => {
+  res.send('API is running');
+}
+);
 
 // Endpoint de búsqueda para el chatbot
 app.get('/proyectos/search', (req, res) => {
