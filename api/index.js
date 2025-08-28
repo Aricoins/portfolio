@@ -9,7 +9,7 @@ dotenv.config();
 
 
 const app = express();
-const port = typeof process !== 'undefined' ? process.env.PORT || 3000 : 3000;
+const port =  3000;
 
 const pool = new Pool({
   connectionString: 'postgres://default:tYLE1GkmV9lB@ep-aged-leaf-79142791.us-west-2.aws.neon.tech:5432/verceldb?sslmode=require',
