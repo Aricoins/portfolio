@@ -1,13 +1,8 @@
 {
-  "functions": {
-    "src/api/**/*.js": {
-      "memory": 128
-    }
-  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/src/api/index.js"
+      "destination": "/api/index.js"
     }
   ]
 }
